@@ -140,6 +140,8 @@ teaser: O NAMA Mi smo znanstvenici, liječnici, terapeuti, istraživači
 draft: false
 ---
 
+import PeopleGrid from "../../../components/PeopleGrid.astro";
+
 ## O NAMA
 
 Mi smo znanstvenici, liječnici, terapeuti, istraživači neuroznanosti, kreativni i marketinški stručnjaci, umjetnici, stručnjaci za politiku, aktivisti za ljudska i građanska prava, duhovni praktičari i edukatori. Zajedno, ujedinjeni iza znanosti i znanja o zakonima EU, cilj naše inicijative je omogućiti Europljanima pristup sigurnoj, reguliranoj i savjesnoj terapiji potpomognutoj psihodelicima.
@@ -150,9 +152,75 @@ Inicijativa PsychedeliCare trenutno uključuje sudionike iz preko 15 zemalja, un
 
 Djelujemo kao kohezivan **europski tim** , redovito se sastajemo i komuniciramo na digitalnim platformama. Osim toga, podijeljeni smo u specijalizirane **podtimove** usmjerene na određene teme, zajedno s **nacionalnim timovima** odgovornim za razvoj inicijative unutar svojih zemalja.
 
-„Terapija potpomognuta psihodelicima revolucionira znanost i ublažava patnju uzrokovanu brojnim fizičkim i mentalnim bolestima. Posvećen sam širenju vrhunskih kliničkih istraživanja za holističko zdravlje. Zakonodavni koraci su ključni, pojačavajući i javne i znanstvene glasove. Ujedinimo se za utjecajne promjene.“
+„Terapija potpomognuta psihodelicima revolucionira znanost i ublažava patnju uzrokovanu brojnim fizičkim i mentalnim bolestima. Posvećen sam širenju vrhunskih kliničkih istraživanja za holističko zdravlje. Zakonodavni koraci su ključni, pojačavajući i javne i znanstvene glasove. Ujedinimo se za utjecajne promjene.”
 
 Anna Maria Farkas (članica europskog tima – Portugal)
+
+<PeopleGrid title=”Koordinacijski odbor” people={[
+  {
+    name: “Théo Giubilei”,
+    location: “Francuska”,
+    image: “https://psychedelicare.eu/wp-content/uploads/2024/02/Theo-3.jpg”,
+    bio: “Politolog s iskustvom rada u Europskom parlamentu u Bruxellesu. Osim što je član Koordinacijskog odbora, on je Osnivač i trenutni koordinator Inicijative PsychedeliCare.”
+  },
+  {
+    name: “Bárbara Messias”,
+    location: “Portugal”,
+    image: “https://psychedelicare.eu/wp-content/uploads/2024/06/Barbara.jpeg”,
+    bio: “Pravnica, provodila istraživanja o socio-pravnim aspektima psihedelika i napisala tezu o ulozi mobilizacije na lokalnoj razini u ovom rastućem području. Osim što je članica Koordinacijskog odbora, Bárbara je bivša Nacionalna koordinatorica za Portugal i trenutno služi kao Koordinatorica zajednice PsychedeliCare.”
+  },
+  {
+    name: “Annarita Eva”,
+    location: “Italija”,
+    image: “https://psychedelicare.eu/wp-content/uploads/2025/02/Annarita-1024x1024.jpg”,
+    bio: “Psihologinja, trenerica i kustosica s iskustvom u mentalnom zdravlju, savjetovanju i psihodeličnoj integraciji. Osim što je članica Koordinacijskog odbora, služi kao Nacionalna koordinatorica za Italiju.”
+  },
+  {
+    name: “Michelle Kronquist”,
+    location: “Švedska”,
+    image: “https://psychedelicare.eu/wp-content/uploads/2024/03/Michelle.jpg”,
+    bio: “Psihologinja s dva desetljeća iskustva u kliničkoj praksi, kliničkoj i profesionalnoj psihološkoj procjeni, te radu na razini sustava s trenutnim fokusom na Terapiju potpomognutu psihedelicima. Osim što je članica Koordinacijskog odbora, služi kao Nacionalna koordinatorica za Švedsku.”
+  },
+  {
+    name: “Raphaël Saunier”,
+    location: “Švicarska”,
+    bio: “Softverski inženjer s opsežnim iskustvom u izgradnji i održavanju online usluga, Raphaël podržava digitalne operacije nekoliko organizacija u švicarskom psihodeličnom krajoliku. Osim što je član Koordinacijskog odbora, doprinosi strategiji i tehničkim inicijativama PsychedeliCare.”
+  },
+  {
+    name: “Flavio Avy Candeli”,
+    location: “Italija”,
+    image: “https://psychedelicare.eu/wp-content/uploads/2024/02/Avy.jpg”,
+    bio: “Copywriter i Kreativni direktor u reklamnoj industriji već 20 godina, Avy je Kreativni direktor kampanje za pravo na dostojanstvenu smrt u Italiji i Associazione Luca Coscioni per la libertà di ricerca scientifica. Osim što je član Koordinacijskog odbora, Avy je zagovornik u talijanskom timu i Kreativni direktor za PsychedeliCare.”
+  },
+  {
+    name: “Ciara Reynolds”,
+    location: “Irska”,
+    image: “https://psychedelicare.eu/wp-content/uploads/2024/10/Ciara-Profile-Pic.jpg”,
+    bio: “S iskustvom u inovacijama, tehnologiji, coachingu za dobrobit i vodstvo, te zvučnoj terapiji, Ciara je završila poslijediplomski program o psihedelicima i transpersonalnoj psihologiji, s fokusom na oporavak mentalnog zdravlja u post-konfliktnim zonama. Osim što je članica Koordinacijskog odbora, također djeluje kao Nacionalna koordinatorica za irski tim.”
+  },
+  {
+    name: “Chiara Coppola”,
+    location: “Italija”,
+    bio: “Klinička psihologinja i Transpersonalna psihoterapeutkinja obučena u Terapiji potpomognutoj psihedelicima. Osim što je članica Koordinacijskog odbora, Chiara služi kao volonterka i zagovornica u Talijanskom timu.”
+  },
+  {
+    name: “Alexis Arragon”,
+    location: “Francuska”,
+    image: “https://psychedelicare.eu/wp-content/uploads/2024/02/Alexis-2.jpg”,
+    bio: “Psihosomatski terapeut i član Uprave Francuskog psihodeličnog društva. Osim što je član Koordinacijskog odbora, Alexis suvoditi napore za izgradnju koalicije i djeluje kao Nacionalni koordinator za francuski tim.”
+  },
+  {
+    name: “Raphaël Comte”,
+    location: “Francuska”,
+    image: “https://psychedelicare.eu/wp-content/uploads/2024/04/Raphael.jpg”,
+    bio: “Iskustvo u europskoj zdravstvenoj politici i javnim poslovima, s iskustvom bliske suradnje s institucijama EU-a. Osim što je član Koordinacijskog odbora, Raphaël doprinosi politici i institucionalnom angažmanu PsychedeliCare.”
+  },
+  {
+    name: “Leonie Staas”,
+    location: “Njemačka”,
+    bio: “S iskustvom u klimi i energiji, ona je spisateljica i psihedelična facilitatorica koja radi na sjecištu klimatskih promjena i mentalnog zdravlja. Osim što je članica Koordinacijskog odbora, Leonie je sukoordinatorica Europskog tima za izgradnju koalicija.”
+  },
+]} />
 
 ## Europski tim
 

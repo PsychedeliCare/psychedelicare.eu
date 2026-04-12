@@ -140,6 +140,8 @@ teaser: "O NAS Jesteśmy naukowcami, lekarzami, terapeutami, badaczami
 draft: false
 ---
 
+import PeopleGrid from "../../../components/PeopleGrid.astro";
+
 ## O NAS
 
 Jesteśmy naukowcami, lekarzami, terapeutami, badaczami neuronauki, specjalistami ds. kreatywności i marketingu, artystami, ekspertami ds. polityki, działaczami na rzecz praw człowieka i praw obywatelskich, praktykami duchowymi oraz edukatorami. Razem, zjednoczeni wokół nauki i znający prawo UE, naszą inicjatywą chcemy umożliwić Europejczykom dostęp do bezpiecznej, regulowanej i świadomie prowadzonej terapii wspomaganej psychodelikami.
@@ -149,6 +151,72 @@ Inicjatywa PsychedeliCare obejmuje obecnie uczestników z ponad 15 krajów, zar�
 ## Zespoły
 
 Działamy jako spójny **europejski zespół**, spotykając się i komunikując regularnie na platformach cyfrowych. regularnie spotykając się i komunikując na platformach cyfrowych. Dodatkowo jesteśmy podzieleni na wyspecjalizowane zespoły tematyczne, a także na **zespoły krajowe** odpowiedzialne za rozwój inicjatywy w swoich państwach.
+
+<PeopleGrid title="Rada Koordynacyjna" people={[
+  {
+    name: "Théo Giubilei",
+    location: "Francja",
+    image: "https://psychedelicare.eu/wp-content/uploads/2024/02/Theo-3.jpg",
+    bio: "Politolog z doświadczeniem pracy w Parlamencie Europejskim w Brukseli. Oprócz zasiadania w Radzie Koordynacyjnej jest Założycielem i obecnym koordynatorem Inicjatywy PsychedeliCare."
+  },
+  {
+    name: "Bárbara Messias",
+    location: "Portugalia",
+    image: "https://psychedelicare.eu/wp-content/uploads/2024/06/Barbara.jpeg",
+    bio: "Prawniczka, prowadziła badania nad społeczno-prawnymi aspektami substancji psychodelicznych i napisała pracę dyplomową o roli mobilizacji oddolnej w tej rozwijającej się dziedzinie. Oprócz zasiadania w Radzie Koordynacyjnej, Bárbara jest byłą Krajową Koordynatorką ds. Portugalii i obecnie pełni funkcję Koordynatorki Społeczności PsychedeliCare."
+  },
+  {
+    name: "Annarita Eva",
+    location: "Włochy",
+    image: "https://psychedelicare.eu/wp-content/uploads/2025/02/Annarita-1024x1024.jpg",
+    bio: "Psycholożka, trenerka i kuratorka z doświadczeniem w zdrowiu psychicznym, poradnictwie i integracji psychodelicznej. Oprócz zasiadania w Radzie Koordynacyjnej pełni funkcję Krajowej Koordynatorki ds. Włoch."
+  },
+  {
+    name: "Michelle Kronquist",
+    location: "Szwecja",
+    image: "https://psychedelicare.eu/wp-content/uploads/2024/03/Michelle.jpg",
+    bio: "Psycholożka z dwudziestoletnim doświadczeniem w praktyce klinicznej, ocenie psychologicznej klinicznej i zawodowej oraz pracy na poziomie systemowym z obecnym naciskiem na Terapię Wspomaganą Substancjami Psychodelicznymi. Oprócz zasiadania w Radzie Koordynacyjnej pełni funkcję Krajowej Koordynatorki ds. Szwecji."
+  },
+  {
+    name: "Raphaël Saunier",
+    location: "Szwajcaria",
+    bio: "Inżynier oprogramowania z szerokim doświadczeniem w budowaniu i utrzymywaniu usług online, Raphaël wspiera operacje cyfrowe kilku organizacji w szwajcarskim krajobrazie psychodelicznym. Oprócz zasiadania w Radzie Koordynacyjnej przyczynia się do strategii i inicjatyw technicznych PsychedeliCare."
+  },
+  {
+    name: "Flavio Avy Candeli",
+    location: "Włochy",
+    image: "https://psychedelicare.eu/wp-content/uploads/2024/02/Avy.jpg",
+    bio: "Copywriter i Dyrektor Kreatywny w branży reklamowej od 20 lat, Avy jest Dyrektorem Kreatywnym kampanii na rzecz prawa do godnej śmierci we Włoszech oraz Associazione Luca Coscioni per la libertà di ricerca scientifica. Oprócz zasiadania w Radzie Koordynacyjnej, Avy jest rzecznikiem we włoskim zespole i Dyrektorem Kreatywnym PsychedeliCare."
+  },
+  {
+    name: "Ciara Reynolds",
+    location: "Irlandia",
+    image: "https://psychedelicare.eu/wp-content/uploads/2024/10/Ciara-Profile-Pic.jpg",
+    bio: "Z doświadczeniem w innowacjach, technologii, coachingu wellness i przywództwa oraz terapii dźwiękiem, Ciara ukończyła program podyplomowy z zakresu substancji psychodelicznych i psychologii transpersonalnej, ze szczególnym uwzględnieniem powrotu do zdrowia psychicznego w strefach pokonfliktowych. Oprócz zasiadania w Radzie Koordynacyjnej pełni również funkcję Krajowej Koordynatorki zespołu irlandzkiego."
+  },
+  {
+    name: "Chiara Coppola",
+    location: "Włochy",
+    bio: "Psycholog Kliniczny i Psychoterapeuta Transpersonalny z wykształceniem w zakresie Terapii Wspomaganej Substancjami Psychodelicznymi. Oprócz zasiadania w Radzie Koordynacyjnej, Chiara działa jako wolontariuszka i rzeczniczka w Zespole Włoskim."
+  },
+  {
+    name: "Alexis Arragon",
+    location: "Francja",
+    image: "https://psychedelicare.eu/wp-content/uploads/2024/02/Alexis-2.jpg",
+    bio: "Terapeuta psychosomatyczny i członek Zarządu Francuskiego Towarzystwa Psychodelicznego. Oprócz zasiadania w Radzie Koordynacyjnej, Alexis współprowadzi działania na rzecz budowania koalicji i pełni funkcję Krajowego Koordynatora zespołu francuskiego."
+  },
+  {
+    name: "Raphaël Comte",
+    location: "Francja",
+    image: "https://psychedelicare.eu/wp-content/uploads/2024/04/Raphael.jpg",
+    bio: "Doświadczenie w europejskiej polityce zdrowotnej i sprawach publicznych, z doświadczeniem bliskiej współpracy z instytucjami UE. Oprócz zasiadania w Radzie Koordynacyjnej, Raphaël przyczynia się do polityki i zaangażowania instytucjonalnego PsychedeliCare."
+  },
+  {
+    name: "Leonie Staas",
+    location: "Niemcy",
+    bio: "Z doświadczeniem w klimacie i energii, jest pisarką i facylitatorką psychodeliczną pracującą na styku zmian klimatycznych i zdrowia psychicznego. Oprócz zasiadania w Radzie Koordynacyjnej, Leonie jest współkoordynatorką Europejskiego Zespołu ds. Budowania Koalicji."
+  },
+]} />
 
 "Terapia wspomagana psychodelikami rewolucjonizuje naukę i łagodzi cierpienie związane z niezliczonymi chorobami fizycznymi i psychicznymi. Moim celem jest upowszechnianie najnowszych odkryć klinicznych na rzecz holistycznego zdrowia. Zmiany legislacyjne są kluczowe, wzmacniają zarówno głos społeczeństwa, jak i środowiska naukowego. Zjednoczmy się dla realnej zmiany".
 
