@@ -54,8 +54,8 @@ const { title, people } = Astro.props;
 <style>
   .people-grid {
     display: grid;
-    gap: 1.25rem;
-    margin-block: 2rem;
+    gap: 1.4rem;
+    margin-block: 2.5rem;
   }
 
   .people-grid h2 {
@@ -64,30 +64,28 @@ const { title, people } = Astro.props;
 
   .people-grid__items {
     display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.2rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   }
 
   .person-card {
     display: grid;
     gap: 1rem;
-    padding: 1rem;
-    border: 1px solid var(--border);
-    border-radius: 1rem;
-    background: var(--surface);
+    padding: 0 0 1.2rem;
+    border-bottom: 1px solid var(--border);
   }
 
   .person-card__media img {
     width: 100%;
     aspect-ratio: 1;
     object-fit: cover;
-    border-radius: 0.8rem;
-    background: rgba(0, 0, 0, 0.05);
+    border-radius: 0.9rem;
+    background: rgba(68, 179, 235, 0.08);
   }
 
   .person-card__body {
     display: grid;
-    gap: 0.55rem;
+    gap: 0.6rem;
   }
 
   .person-card__body h3,
@@ -97,7 +95,7 @@ const { title, people } = Astro.props;
 
   .person-card__role {
     font-weight: 700;
-    color: var(--accent);
+    color: var(--purple);
   }
 
   .person-card__meta {
@@ -108,5 +106,10 @@ const { title, people } = Astro.props;
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
+  }
+
+  .person-card__links a {
+    text-decoration: none;
+    font-weight: 600;
   }
 </style>

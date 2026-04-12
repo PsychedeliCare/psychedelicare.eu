@@ -27,29 +27,48 @@ const { items } = Astro.props;
 <style>
   .accordion {
     display: grid;
-    gap: 0.85rem;
+    gap: 0;
   }
 
   .accordion__item {
-    border: 1px solid var(--border);
-    border-radius: 1rem;
-    background: var(--surface);
+    border-top: 1px solid var(--border);
     overflow: hidden;
+  }
+
+  .accordion__item:last-child {
+    border-bottom: 1px solid var(--border);
   }
 
   .accordion__item summary {
     cursor: pointer;
-    padding: 1rem 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.15rem 1.2rem;
     font-weight: 700;
     list-style: none;
+  }
+
+  .accordion__item summary::after {
+    content: "+";
+    flex: none;
+    font-size: 1.6rem;
+    line-height: 1;
+    color: var(--pink);
+    transition: transform 200ms ease;
   }
 
   .accordion__item summary::-webkit-details-marker {
     display: none;
   }
 
+  .accordion__item[open] summary::after {
+    transform: rotate(45deg);
+  }
+
   .accordion__content {
-    padding: 0 1.1rem 1rem;
+    padding: 0 1.2rem 1.15rem;
     color: var(--muted);
   }
 

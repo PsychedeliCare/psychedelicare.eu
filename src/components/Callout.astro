@@ -31,20 +31,25 @@ const {
 <style>
   .callout {
     display: grid;
-    gap: 1rem;
-    padding: 1.4rem;
-    border-radius: 1rem;
-    border: 1px solid var(--border);
-    background: var(--surface);
+    gap: 1.25rem;
+    padding: clamp(1.4rem, 3vw, 2rem);
+    border-top: 1px solid rgba(57, 30, 190, 0.16);
+    border-bottom: 1px solid rgba(57, 30, 190, 0.16);
+    background:
+      linear-gradient(180deg, rgba(68, 179, 235, 0.05), rgba(255, 255, 255, 0));
   }
 
   .callout--accent {
-    background: linear-gradient(135deg, rgba(111, 62, 121, 0.12), rgba(89, 160, 122, 0.12));
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.06)),
+      var(--gradient);
   }
 
   .callout__copy h2 {
-    margin: 0 0 0.45rem;
-    font-size: 1.2rem;
+    margin: 0 0 0.6rem;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
   }
 
   .callout__copy p {
@@ -52,15 +57,34 @@ const {
     color: var(--muted);
   }
 
+  .callout--accent .callout__copy h2,
+  .callout--accent .callout__copy p {
+    color: #ffffff;
+    background: none;
+  }
+
   .callout__link {
     justify-self: start;
     display: inline-flex;
     align-items: center;
-    padding: 0.7rem 1rem;
-    border-radius: 999px;
+    min-height: 3.2rem;
+    padding: 0.8rem 1.2rem;
+    border-radius: 1rem;
     border: 1px solid var(--border);
     background: #fff;
     text-decoration: none;
-    font-weight: 600;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--pink);
+    transition:
+      transform 200ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 200ms ease;
+  }
+
+  .callout__link:hover,
+  .callout__link:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 36px rgba(255, 255, 255, 0.22);
+    outline: none;
   }
 </style>

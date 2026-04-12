@@ -1,4 +1,5 @@
 ---
+import { getUiCopy } from "../lib/uiCopy";
 import type { PageEntry } from "../lib/content";
 import BaseLayout from "./BaseLayout.astro";
 
@@ -8,6 +9,35 @@ type Props = {
   eyebrow?: string;
   teaser?: string;
 };
+
+function extractLeadParagraph(body: string) {
+  const lines = body
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean);
+
+  const collected: string[] = [];
+
+  for (const line of lines) {
+    if (
+      line.startsWith("import ") ||
+      line.startsWith("#") ||
+      line.startsWith("<") ||
+      line.startsWith("[") ||
+      line.startsWith("- ")
+    ) {
+      if (collected.length > 0) {
+        break;
+      }
+
+      continue;
+    }
+
+    collected.push(line);
+  }
+
+  return collected.join(" ").trim();
+}
 
 const {
   entry,
@@ -21,21 +51,60 @@ const description = entry.data.description;
 const locale = entry.data.locale;
 const slug = entry.data.slug;
 const intro = teaser ?? entry.data.teaser;
+const isHome = entry.data.pageType === "home";
+const heroTitle = isHome && headings[0]?.text ? headings[0].text : title;
+const heroEyebrow = eyebrow ?? (isHome ? title : undefined);
+const bodyLead = extractLeadParagraph(entry.body ?? "");
+const cleanedIntro =
+  isHome &&
+  intro &&
+  intro.toLowerCase().startsWith(heroTitle.toLowerCase())
+    ? intro.slice(heroTitle.length).trimStart()
+    : intro;
+const completedHomeIntro = [bodyLead, cleanedIntro].find(
+  (value) => value && /[.!?]$/.test(value.trim()),
+);
+const heroIntro = isHome ? completedHomeIntro : cleanedIntro;
+const uiCopy = getUiCopy(locale);
 ---
 
-<BaseLayout title={title} description={description} locale={locale} slug={slug}>
-  <article class="page-card page-layout">
-    <header class="page-layout__hero">
-      {eyebrow && <p class="eyebrow">{eyebrow}</p>}
-      <h1>{title}</h1>
-      {intro && <p class="page-layout__teaser">{intro}</p>}
+<BaseLayout
+  title={title}
+  description={description}
+  locale={locale}
+  slug={slug}
+  translationGroup={entry.data.translationGroup}
+>
+  <article class:list={["page-layout", isHome && "page-layout--home"]}>
+    <header class:list={["page-layout__hero", isHome && "page-layout__hero--home"]}>
+      <div class="page-layout__hero-copy">
+        {heroEyebrow && <p class="eyebrow">{heroEyebrow}</p>}
+        <h1>{heroTitle}</h1>
+        {heroIntro && <p class="page-layout__teaser">{heroIntro}</p>}
+      </div>
+
+      {
+        isHome ? (
+          <div class="page-layout__hero-orbit" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        ) : (
+          <div class="page-layout__hero-accent" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        )
+      }
     </header>
 
     <div class="page-layout__body">
       {
-        headings.length > 1 && (
+        !isHome && headings.length > 1 && (
           <aside class="page-layout__toc">
-            <p class="eyebrow">On this page</p>
+            <p class="eyebrow">{uiCopy.onThisPage}</p>
             <ul>
               {headings.filter((heading) => heading.depth <= 3).map((heading) => (
                 <li class={`depth-${heading.depth}`}>
@@ -56,62 +125,215 @@ const intro = teaser ?? entry.data.teaser;
 
 <style>
   .page-layout {
-    overflow: hidden;
+    display: grid;
+    gap: clamp(1.4rem, 3vw, 2.3rem);
   }
 
   .page-layout__hero {
-    padding: clamp(1.7rem, 4vw, 3rem);
-    border-bottom: 1px solid var(--border);
     background:
-      radial-gradient(circle at top right, rgba(101, 54, 122, 0.12), transparent 18rem),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.78));
+      linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.04)),
+      var(--gradient);
+    border-radius: 2rem;
+    padding: clamp(1.15rem, 3vw, 1.8rem);
+    box-shadow: var(--shadow-strong);
+    display: grid;
+    gap: 1rem;
+    overflow: hidden;
+  }
+
+  .page-layout--home {
+    gap: clamp(1.8rem, 4vw, 3rem);
+  }
+
+  .page-layout__hero-copy {
+    position: relative;
+    z-index: 1;
+    max-width: min(56rem, 100%);
+    padding: clamp(1.5rem, 4vw, 2.6rem);
+    border-radius: 1.4rem;
+    background: rgba(255, 255, 255, 0.95);
   }
 
   .page-layout__hero h1 {
     max-width: 12ch;
-    margin-bottom: 0;
+    margin: 0;
   }
 
   .page-layout__teaser {
-    max-width: 64ch;
-    margin: 1rem 0 0;
+    max-width: 34em;
+    margin: 1.15rem 0 0;
     color: var(--muted);
-    font-size: 1.08rem;
+    font-size: clamp(1.1rem, 1.3vw, 1.4rem);
+  }
+
+  .page-layout__hero--home {
+    grid-template-columns: minmax(0, 1.2fr) minmax(14rem, 0.8fr);
+    align-items: stretch;
+  }
+
+  .page-layout__hero--home .page-layout__hero-copy {
+    display: grid;
+    align-content: end;
+    min-height: clamp(22rem, 48vw, 32rem);
+    padding: clamp(0.6rem, 2vw, 1.2rem) 0;
+    border-radius: 0;
+    background: transparent;
+    color: #ffffff;
+  }
+
+  .page-layout__hero--home .page-layout__hero-copy .eyebrow,
+  .page-layout__hero--home .page-layout__hero-copy h1,
+  .page-layout__hero--home .page-layout__hero-copy .page-layout__teaser {
+    color: inherit;
+    background: none;
+  }
+
+  .page-layout__hero--home .page-layout__hero-copy .eyebrow {
+    color: rgba(255, 255, 255, 0.82);
+  }
+
+  .page-layout__hero--home .page-layout__hero-copy .page-layout__teaser {
+    color: rgba(255, 255, 255, 0.92);
+  }
+
+  .page-layout__hero-accent {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.7rem;
+    padding-inline: clamp(0.4rem, 2vw, 1.2rem);
+  }
+
+  .page-layout__hero-accent span {
+    width: clamp(3rem, 10vw, 7rem);
+    height: 0.6rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.8);
+  }
+
+  .page-layout__hero-orbit {
+    position: relative;
+    min-height: 100%;
+    border-radius: 1.45rem;
+    background:
+      radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.75), transparent 18%),
+      radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.45), transparent 22%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.02));
+    overflow: hidden;
+  }
+
+  .page-layout__hero-orbit span {
+    position: absolute;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.42);
+  }
+
+  .page-layout__hero-orbit span:nth-child(1) {
+    inset: 10% 12%;
+  }
+
+  .page-layout__hero-orbit span:nth-child(2) {
+    inset: 24% 22%;
+  }
+
+  .page-layout__hero-orbit span:nth-child(3) {
+    inset: 38% 32%;
   }
 
   .page-layout__body {
     display: grid;
-    gap: 1.5rem;
-    padding: clamp(1.4rem, 3vw, 2.5rem);
+    gap: clamp(1.4rem, 2vw, 2rem);
   }
 
   .page-layout__toc {
-    padding: 1rem 1.1rem;
-    border: 1px solid var(--border);
-    border-radius: 1rem;
-    background: var(--bg-accent);
+    padding: 0.35rem 0 0 1.15rem;
+    border-left: 1px solid rgba(57, 30, 190, 0.14);
+  }
+
+  .page-layout--home .page-layout__body {
+    grid-template-columns: 1fr;
   }
 
   .page-layout__toc ul {
     margin: 0;
-    padding-left: 1rem;
+    padding-left: 0;
+    list-style: none;
   }
 
   .page-layout__toc li {
-    margin: 0.4rem 0;
+    margin: 0;
   }
 
   .page-layout__toc .depth-3 {
-    margin-left: 0.6rem;
+    margin-left: 0.8rem;
+  }
+
+  .page-layout__toc a {
+    display: block;
+    padding: 0.35rem 0;
+    color: var(--muted);
+    text-decoration: none;
+  }
+
+  .page-layout__toc a:hover,
+  .page-layout__toc a:focus-visible {
+    color: var(--link);
   }
 
   .page-layout__content {
     min-width: 0;
+    padding: 0;
+  }
+
+  .page-layout--home .page-layout__content :global(h1:first-child) {
+    display: none;
+  }
+
+  .page-layout__content :global(h2) {
+    padding-top: clamp(1.4rem, 3vw, 2rem);
+    border-top: 1px solid rgba(57, 30, 190, 0.12);
+    scroll-margin-top: 9rem;
+  }
+
+  .page-layout__content :global(h2:first-child) {
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  .page-layout__content :global(h3) {
+    color: var(--text);
+  }
+
+  .page-layout__content :global(p),
+  .page-layout__content :global(ul),
+  .page-layout__content :global(ol),
+  .page-layout__content :global(blockquote) {
+    max-width: 34em;
+  }
+
+  .page-layout__content :global(ul),
+  .page-layout__content :global(ol) {
+    padding-left: 1.4rem;
+  }
+
+  .page-layout__content :global(hr) {
+    border: 0;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+  }
+
+  .page-layout__content :global(.card-grid),
+  .page-layout__content :global(.callout),
+  .page-layout__content :global(.accordion),
+  .page-layout__content :global(.news-list),
+  .page-layout__content :global(.people-grid),
+  .page-layout__content :global(.partner-grid) {
+    max-width: none;
+    margin-top: 1.75rem;
   }
 
   @media (min-width: 900px) {
     .page-layout__body {
-      grid-template-columns: minmax(0, 1fr) 17rem;
+      grid-template-columns: minmax(0, 1fr) 18.5rem;
       align-items: start;
     }
 
@@ -122,9 +344,29 @@ const intro = teaser ?? entry.data.teaser;
 
     .page-layout__toc {
       position: sticky;
-      top: 6rem;
+      top: 8.4rem;
       grid-column: 2;
       grid-row: 1;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .page-layout__hero {
+      border-radius: 1.5rem;
+    }
+
+    .page-layout__hero--home {
+      grid-template-columns: 1fr;
+    }
+
+    .page-layout__hero-orbit {
+      min-height: 10rem;
+    }
+
+    .page-layout__hero-copy,
+    .page-layout__content {
+      padding: 1.2rem;
+      border-radius: 1.2rem;
     }
   }
 </style>

@@ -1,12 +1,14 @@
 ---
-import { getTopLevelPages } from "../lib/content";
-import { defaultLocale, localizePath, normalizeLocale } from "../lib/i18n";
+import { defaultLocale, normalizeLocale } from "../lib/i18n";
+import { buildNavigationContext, isNavItemActive } from "../lib/siteNavigation";
+import { getUiCopy } from "../lib/uiCopy";
 
 type Props = {
   title: string;
   description?: string;
   locale?: string;
   slug?: string;
+  translationGroup?: string;
 };
 
 const {
@@ -14,15 +16,17 @@ const {
   description = "PsychedeliCare",
   locale = defaultLocale,
   slug = "",
+  translationGroup,
 } = Astro.props;
 
 const currentLocale = normalizeLocale(locale);
-const topLevelPages = await getTopLevelPages(currentLocale);
-const navPages = topLevelPages.filter((entry) => entry.data.slug !== "news");
-const navItems = [
-  ...navPages,
-  ...topLevelPages.filter((entry) => entry.data.slug === "news"),
-];
+const navigation = await buildNavigationContext(
+  currentLocale,
+  slug,
+  translationGroup,
+);
+const isHome = slug === "";
+const uiCopy = getUiCopy(currentLocale);
 ---
 
 <!doctype html>
@@ -30,6 +34,12 @@ const navItems = [
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
@@ -37,59 +47,251 @@ const navItems = [
   </head>
   <body>
     <header class="site-header">
-      <div class="shell site-header__inner">
-        <a class="brand" href={localizePath(currentLocale, "")}>PsychedeliCare</a>
+      <div class="shell">
+        <div class="site-header__bar">
+          <a class="brand" href={navigation.primaryItems[0]?.href ?? "/"}>
+            <img
+              class="brand__logo"
+              src="https://psychedelicare.eu/wp-content/uploads/2023/08/psychedelicareeu-logo.svg"
+              alt="PsychedeliCare"
+            />
+          </a>
 
-        <nav aria-label="Primary">
-          <ul class="nav-list">
-            {
-              navItems.map((entry) => {
-                const href = localizePath(currentLocale, entry.data.slug);
-                const isActive =
-                  entry.data.slug === slug ||
-                  (entry.data.slug && slug.startsWith(`${entry.data.slug}/`));
+          <nav class="site-nav site-nav--desktop" aria-label="Primary">
+            <ul class="site-nav__list">
+              {
+                navigation.primaryItems.map((item) => {
+                  const isActive = isNavItemActive(slug, item.slug);
 
-                return (
-                  <li>
-                    <a href={href} aria-current={isActive ? "page" : undefined}>
-                      {entry.data.title}
-                    </a>
-                  </li>
-                );
-              })
-            }
-          </ul>
-        </nav>
+                  return (
+                    <li class="site-nav__item">
+                      {
+                        item.children.length > 0 ? (
+                          <details class="nav-disclosure" data-group="header-popover">
+                            <summary
+                              class:list={[
+                                "nav-summary",
+                                isActive && "nav-summary--active",
+                              ]}
+                            >
+                              <span>{item.label}</span>
+                              <span class="nav-caret" aria-hidden="true"></span>
+                            </summary>
+
+                            <div class="nav-disclosure__panel">
+                              <a
+                                class:list={[
+                                  "nav-disclosure__lead",
+                                  isActive && "nav-disclosure__lead--active",
+                                ]}
+                                href={item.href}
+                              >
+                                <span>{item.label}</span>
+                                <span>{uiCopy.browseSection}</span>
+                              </a>
+
+                              <ul class="nav-disclosure__links">
+                                {item.children.map((child) => (
+                                  <li>
+                                    <a
+                                      href={child.href}
+                                      aria-current={
+                                        isNavItemActive(slug, child.slug) ? "page" : undefined
+                                      }
+                                    >
+                                      {child.label}
+                                    </a>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </details>
+                        ) : (
+                          <a
+                            class:list={[
+                              "nav-link",
+                              isActive && "nav-link--active",
+                            ]}
+                            href={item.href}
+                            aria-current={isActive ? "page" : undefined}
+                          >
+                            {item.label}
+                          </a>
+                        )
+                      }
+                    </li>
+                  );
+                })
+              }
+            </ul>
+          </nav>
+
+          <div class="site-header__actions">
+            <details class="language-switcher" data-group="header-popover">
+              <summary class="locale-chip">
+                <span>{navigation.currentLanguage?.code ?? currentLocale.toUpperCase()}</span>
+                <span class="nav-caret" aria-hidden="true"></span>
+              </summary>
+
+              <div class="language-switcher__panel">
+                <p class="language-switcher__label">{uiCopy.languages}</p>
+                <ul>
+                  {
+                    navigation.languageOptions.map((option) => (
+                      <li>
+                        <a href={option.href} aria-current={option.current ? "page" : undefined}>
+                          <span>{option.code}</span>
+                          <span>{option.nativeLabel}</span>
+                        </a>
+                      </li>
+                    ))
+                  }
+                </ul>
+              </div>
+            </details>
+
+            <a class="button-primary" href={navigation.donateHref}>{uiCopy.support}</a>
+
+            <details class="mobile-menu" data-group="header-popover">
+              <summary class="mobile-menu__toggle">
+                <span class="mobile-menu__icon" aria-hidden="true">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </span>
+                <span class="mobile-menu__label">{uiCopy.menu}</span>
+              </summary>
+
+              <div class="mobile-menu__panel">
+                <a class="button-primary mobile-menu__cta" href={navigation.donateHref}>
+                  {uiCopy.support}
+                </a>
+
+                <nav aria-label="Mobile primary">
+                  <ul class="mobile-menu__sections">
+                    {
+                      navigation.primaryItems.map((item) => (
+                        <li>
+                          {
+                            item.children.length > 0 ? (
+                              <details class="mobile-menu__group" data-group="mobile-subnav">
+                                <summary>{item.label}</summary>
+                                <div class="mobile-menu__group-body">
+                                  <a href={item.href}>{uiCopy.browseItemPrefix} {item.label}</a>
+                                  {item.children.map((child) => <a href={child.href}>{child.label}</a>)}
+                                </div>
+                              </details>
+                            ) : (
+                              <a class="mobile-menu__single" href={item.href}>{item.label}</a>
+                            )
+                          }
+                        </li>
+                      ))
+                    }
+                  </ul>
+                </nav>
+
+                <div class="mobile-menu__languages">
+                  <p>{uiCopy.languages}</p>
+                  <div>
+                    {navigation.languageOptions.map((option) => <a href={option.href}>{option.code}</a>)}
+                  </div>
+                </div>
+
+                <div class="mobile-menu__legal">
+                  {
+                    navigation.utilityItems.map((item) => (
+                      <a href={item.href}>{item.label}</a>
+                    ))
+                  }
+                </div>
+              </div>
+            </details>
+          </div>
+        </div>
       </div>
     </header>
 
     <main class="shell content-shell">
       <slot />
     </main>
+
+    {
+      isHome && (
+        <div class="footer-illustration">
+          <img
+            src="https://psychedelicare.eu/wp-content/uploads/2025/05/doctor-HD-cut-1024x1016-1-e1747987254443.jpg"
+            alt="Medical illustration supporting PsychedeliCare"
+            loading="lazy"
+          />
+        </div>
+      )
+    }
+
+    <footer class="site-footer">
+      <div class="shell site-footer__inner">
+        <div class="site-footer__intro">
+          <p class="site-footer__eyebrow">PsychedeliCare</p>
+          <h2>{uiCopy.footerHeading}</h2>
+          <p>{uiCopy.footerBody}</p>
+          <a class="button-secondary" href={navigation.donateHref}>{uiCopy.supportCampaign}</a>
+        </div>
+
+        <div class="site-footer__nav">
+          {
+            navigation.footerItems.map((item) => (
+              <section>
+                <h3><a href={item.href}>{item.label}</a></h3>
+                {
+                  item.children.length > 0 && (
+                    <ul>
+                      {item.children.map((child) => <li><a href={child.href}>{child.label}</a></li>)}
+                    </ul>
+                  )
+                }
+              </section>
+            ))
+          }
+        </div>
+      </div>
+    </footer>
+
+    <script is:inline>
+      document.addEventListener("toggle", (event) => {
+        const target = event.target;
+        if (!(target instanceof HTMLDetailsElement) || !target.open) return;
+        const group = target.dataset.group;
+        if (!group) return;
+        document.querySelectorAll(`details[data-group="${group}"]`).forEach((detail) => {
+          if (detail instanceof HTMLDetailsElement && detail !== target) {
+            detail.open = false;
+          }
+        });
+      });
+    </script>
   </body>
 </html>
 
 <style is:global>
   :root {
     color-scheme: light;
-    --bg: #f6f2eb;
-    --bg-accent: #efe6da;
-    --surface: rgba(255, 255, 255, 0.88);
-    --surface-strong: rgba(255, 255, 255, 0.97);
-    --border: rgba(68, 42, 22, 0.14);
-    --border-strong: rgba(68, 42, 22, 0.24);
-    --text: #24180f;
-    --muted: #6a584b;
-    --accent: #65367a;
-    --accent-soft: rgba(101, 54, 122, 0.1);
-    --shadow: 0 18px 42px rgba(43, 24, 14, 0.08);
-    font-family:
-      Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-      "Segoe UI", sans-serif;
-    background:
-      radial-gradient(circle at top, rgba(118, 73, 166, 0.1), transparent 34rem),
-      linear-gradient(180deg, #fbf8f4 0%, var(--bg) 100%);
-    color: var(--text);
+    --bg: #ffffff;
+    --bg-soft: #f7f9fc;
+    --surface-strong: #ffffff;
+    --border: rgba(29, 46, 86, 0.12);
+    --border-strong: rgba(29, 46, 86, 0.22);
+    --text: #131725;
+    --muted: #4c5570;
+    --link: #391ebe;
+    --pink: #eb44d2;
+    --purple: #a91ac0;
+    --gradient: linear-gradient(90deg, #44b3eb 48%, #d729f2 87%);
+    --gradient-heading: linear-gradient(30deg, #61b8ee 10%, #bf1dd1 60%);
+    --gradient-footer: linear-gradient(232deg, #f41fd2 0%, #1dd6fa 81%);
+    --shadow-soft: 0 24px 60px rgba(30, 47, 95, 0.08);
+    --shadow-strong: 0 28px 80px rgba(30, 47, 95, 0.16);
+    --body-size: 21px;
+    font-family: "Jost", "Segoe UI", sans-serif;
     scroll-behavior: smooth;
   }
 
@@ -101,11 +303,21 @@ const navItems = [
   body {
     min-height: 100%;
     margin: 0;
+    background: var(--bg);
   }
 
   body {
-    line-height: 1.65;
-    font-size: 16px;
+    color: var(--text);
+    font-size: var(--body-size);
+    line-height: 1.7;
+    background:
+      radial-gradient(circle at top left, rgba(68, 179, 235, 0.18), transparent 24rem),
+      radial-gradient(circle at top right, rgba(235, 68, 210, 0.12), transparent 26rem),
+      linear-gradient(180deg, #ffffff 0%, #fbfcff 36%, #ffffff 100%);
+  }
+
+  html {
+    scroll-padding-top: 8.5rem;
   }
 
   img {
@@ -115,24 +327,26 @@ const navItems = [
   }
 
   a {
-    color: var(--accent);
+    color: var(--link);
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.12em;
   }
 
   a:hover,
   a:focus-visible {
-    color: #4f2561;
+    color: #2a1490;
   }
 
   p,
   ul,
   ol,
   blockquote {
-    margin: 0 0 1rem;
+    margin: 0 0 1.05rem;
   }
 
   ul,
   ol {
-    padding-left: 1.3rem;
+    padding-left: 1.45rem;
   }
 
   h1,
@@ -141,36 +355,39 @@ const navItems = [
   h4,
   h5,
   h6 {
-    margin: 0 0 0.8rem;
-    line-height: 1.15;
-    font-family:
-      "Iowan Old Style", "Palatino Linotype", "URW Palladio L", Georgia, serif;
+    margin: 0 0 0.85rem;
+    line-height: 1.04;
+    font-family: "Jost", "Segoe UI", sans-serif;
+    letter-spacing: -0.03em;
   }
 
   h1 {
-    font-size: clamp(2.3rem, 5vw, 4.6rem);
+    font-size: clamp(3rem, 8vw, 4.375rem);
+    font-weight: 600;
   }
 
   h2 {
-    font-size: clamp(1.7rem, 3vw, 2.7rem);
-    margin-top: 2rem;
+    margin-top: clamp(3rem, 8vw, 5.5rem);
+    font-size: clamp(2.2rem, 6vw, 3.4375rem);
+    font-weight: 600;
   }
 
   h3 {
-    font-size: clamp(1.25rem, 2vw, 1.8rem);
-    margin-top: 1.7rem;
+    margin-top: 2rem;
+    font-size: clamp(1.7rem, 4vw, 2.8125rem);
+    font-weight: 800;
   }
 
   h4 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     margin-top: 1.4rem;
   }
 
   blockquote {
-    padding: 1rem 1.2rem;
-    border-left: 4px solid var(--accent);
-    background: var(--accent-soft);
-    border-radius: 0.8rem;
+    padding: 1.2rem 1.35rem;
+    border-left: 4px solid var(--pink);
+    background: linear-gradient(180deg, rgba(235, 68, 210, 0.07), rgba(68, 179, 235, 0.08));
+    border-radius: 1rem;
   }
 
   code {
@@ -180,89 +397,446 @@ const navItems = [
   }
 
   .shell {
-    width: min(1100px, calc(100vw - 2rem));
+    width: min(1240px, calc(100vw - clamp(1.25rem, 4vw, 3.5rem)));
     margin: 0 auto;
   }
 
   .content-shell {
-    padding: 2rem 0 5rem;
+    padding: clamp(1.25rem, 2vw, 1.8rem) 0 clamp(4.5rem, 9vw, 7rem);
   }
 
   .site-header {
     position: sticky;
     top: 0;
-    z-index: 10;
-    backdrop-filter: blur(16px);
-    background: rgba(246, 242, 235, 0.9);
-    border-bottom: 1px solid var(--border);
+    z-index: 30;
+    padding-top: 0.85rem;
   }
 
-  .site-header__inner {
-    display: flex;
-    flex-wrap: wrap;
+  .site-header__bar {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
     align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 1rem 0;
+    gap: 1.5rem;
+    padding: 0.95rem 1.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 1.5rem;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: var(--shadow-soft);
+    backdrop-filter: blur(24px);
   }
 
   .brand {
-    color: var(--text);
+    display: flex;
+    align-items: center;
+    min-width: 0;
     text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-size: 1rem;
-    font-weight: 800;
   }
 
-  .nav-list {
+  .brand__logo {
+    width: min(16rem, 48vw);
+    height: auto;
+  }
+
+  .site-nav--desktop {
+    justify-self: center;
+  }
+
+  .site-nav__list {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.55rem;
     align-items: center;
+    gap: 1.4rem;
     margin: 0;
     padding: 0;
     list-style: none;
   }
 
-  .nav-list a {
+  .site-nav__item,
+  .language-switcher,
+  .mobile-menu {
+    position: relative;
+  }
+
+  .nav-link,
+  .nav-summary,
+  .site-footer__nav h3 a {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    min-height: 2.5rem;
+    padding: 0.2rem 0;
+    border: 0;
+    background: transparent;
+    color: var(--text);
+    font: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .nav-link::after,
+  .nav-summary::after,
+  .site-footer__nav h3 a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -0.25rem;
+    height: 2px;
+    border-radius: 999px;
+    background: var(--gradient);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 180ms ease;
+  }
+
+  .nav-link:hover::after,
+  .nav-link:focus-visible::after,
+  .nav-summary:hover::after,
+  .nav-summary:focus-visible::after,
+  .site-footer__nav h3 a:hover::after,
+  .site-footer__nav h3 a:focus-visible::after,
+  .nav-link--active::after,
+  .nav-summary--active::after {
+    transform: scaleX(1);
+  }
+
+  .nav-caret {
+    width: 0.55rem;
+    height: 0.55rem;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform 180ms ease;
+  }
+
+  .nav-disclosure > summary::-webkit-details-marker,
+  .language-switcher > summary::-webkit-details-marker,
+  .mobile-menu > summary::-webkit-details-marker,
+  .mobile-menu__group > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .nav-disclosure[open] > .nav-summary .nav-caret,
+  .language-switcher[open] > .locale-chip .nav-caret,
+  .mobile-menu[open] > .mobile-menu__toggle .nav-caret {
+    transform: rotate(225deg);
+  }
+
+  .nav-disclosure__panel,
+  .language-switcher__panel,
+  .mobile-menu__panel {
+    border: 1px solid rgba(29, 46, 86, 0.09);
+    border-radius: 1.1rem;
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 22px 55px rgba(30, 47, 95, 0.12);
+  }
+
+  .nav-disclosure__panel,
+  .language-switcher__panel {
+    position: absolute;
+    top: calc(100% + 0.9rem);
+    right: 0;
+  }
+
+  .nav-disclosure__panel {
+    display: grid;
+    gap: 0.55rem;
+    width: min(24rem, calc(100vw - 3rem));
+    padding: 0.75rem;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+
+  .nav-disclosure__lead {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.8rem 0.9rem;
+    border-radius: 0.85rem;
+    background: linear-gradient(180deg, rgba(68, 179, 235, 0.08), rgba(235, 68, 210, 0.08));
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  .nav-disclosure__lead span:last-child {
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+
+  .nav-disclosure__lead--active {
+    color: var(--purple);
+  }
+
+  .nav-disclosure__links,
+  .language-switcher__panel ul {
+    display: grid;
+    gap: 0.35rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .nav-disclosure__links a,
+  .language-switcher__panel a {
+    display: grid;
+    gap: 0.12rem;
+    padding: 0.7rem 0.8rem;
+    border-radius: 0.8rem;
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  .nav-disclosure__links a:hover,
+  .nav-disclosure__links a:focus-visible,
+  .language-switcher__panel a:hover,
+  .language-switcher__panel a:focus-visible {
+    background: var(--bg-soft);
+    outline: none;
+  }
+
+  .nav-disclosure__links a[aria-current="page"],
+  .language-switcher__panel a[aria-current="page"] {
+    background: linear-gradient(180deg, rgba(68, 179, 235, 0.14), rgba(235, 68, 210, 0.14));
+    color: var(--purple);
+    font-weight: 700;
+  }
+
+  .site-header__actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    justify-self: end;
+  }
+
+  .locale-chip,
+  .mobile-menu__toggle,
+  .button-primary,
+  .button-secondary {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 2.4rem;
-    padding: 0.45rem 0.8rem;
-    border-radius: 999px;
+    gap: 0.55rem;
+    min-height: 3rem;
+    padding: 0.72rem 1rem;
+    border-radius: 1rem;
     color: var(--text);
-    background: var(--surface);
+    background: var(--surface-strong);
     border: 1px solid var(--border);
     text-decoration: none;
-    font-size: 0.96rem;
+    font-size: 1rem;
+    font-weight: 600;
     transition:
-      transform 120ms ease,
-      background 120ms ease,
-      border-color 120ms ease;
+      transform 200ms cubic-bezier(0.22, 1, 0.36, 1),
+      background 200ms ease,
+      border-color 200ms ease,
+      box-shadow 200ms ease;
+    cursor: pointer;
+    list-style: none;
   }
 
-  .nav-list a:hover,
-  .nav-list a:focus-visible {
-    background: var(--accent-soft);
+  .mobile-menu__toggle {
+    min-width: 0;
+  }
+
+  .mobile-menu__icon {
+    display: inline-grid;
+    gap: 0.24rem;
+  }
+
+  .mobile-menu__icon span {
+    width: 1.15rem;
+    height: 2px;
+    border-radius: 999px;
+    background: currentColor;
+    transition:
+      transform 180ms ease,
+      opacity 180ms ease;
+  }
+
+  .locale-chip:hover,
+  .locale-chip:focus-visible,
+  .mobile-menu__toggle:hover,
+  .mobile-menu__toggle:focus-visible,
+  .button-primary:hover,
+  .button-primary:focus-visible,
+  .button-secondary:hover,
+  .button-secondary:focus-visible {
     border-color: var(--border-strong);
+    box-shadow: 0 12px 28px rgba(57, 30, 190, 0.12);
     outline: none;
     transform: translateY(-1px);
   }
 
-  .nav-list a[aria-current="page"] {
-    background: rgba(101, 54, 122, 0.14);
-    border-color: rgba(101, 54, 122, 0.34);
-    color: var(--accent);
+  .language-switcher__panel {
+    min-width: 12rem;
+    padding: 0.55rem;
+  }
+
+  .language-switcher__label {
+    margin: 0 0 0.5rem;
+    padding-inline: 0.25rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .language-switcher__panel a {
+    grid-template-columns: 2.6rem 1fr;
+    align-items: center;
+  }
+
+  .language-switcher__panel a span:first-child {
     font-weight: 700;
   }
 
+  .button-primary,
+  .button-secondary {
+    border-color: transparent;
+  }
+
+  .button-primary {
+    color: #ffffff;
+    background: var(--gradient);
+    box-shadow: 0 18px 40px rgba(215, 41, 242, 0.2);
+  }
+
+  .button-secondary {
+    background: #ffffff;
+    color: var(--pink);
+  }
+
+  .mobile-menu {
+    display: none;
+  }
+
+  .mobile-menu[open] > .mobile-menu__toggle .mobile-menu__icon span:nth-child(1) {
+    transform: translateY(0.4rem) rotate(45deg);
+  }
+
+  .mobile-menu[open] > .mobile-menu__toggle .mobile-menu__icon span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mobile-menu[open] > .mobile-menu__toggle .mobile-menu__icon span:nth-child(3) {
+    transform: translateY(-0.4rem) rotate(-45deg);
+  }
+
+  .mobile-menu__panel {
+    position: absolute;
+    top: calc(100% + 0.9rem);
+    right: 0;
+    width: min(24rem, calc(100vw - 2rem));
+    padding: 0.85rem;
+  }
+
+  .mobile-menu__sections {
+    display: grid;
+    gap: 0.65rem;
+    margin: 0 0 1rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .mobile-menu__cta {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .mobile-menu__single,
+  .mobile-menu__group summary,
+  .mobile-menu__group-body a,
+  .mobile-menu__languages a,
+  .mobile-menu__legal a {
+    display: flex;
+    align-items: center;
+    min-height: 2.8rem;
+    padding: 0.72rem 0.9rem;
+    border-radius: 0.8rem;
+    text-decoration: none;
+    color: var(--text);
+    background: linear-gradient(180deg, rgba(68, 179, 235, 0.05), rgba(255, 255, 255, 0));
+  }
+
+  .mobile-menu__group summary {
+    justify-content: space-between;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .mobile-menu__group summary::after {
+    content: "";
+    width: 0.55rem;
+    height: 0.55rem;
+    margin-left: auto;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform 180ms ease;
+  }
+
+  .mobile-menu__group[open] summary::after {
+    transform: rotate(225deg);
+  }
+
+  .mobile-menu__group-body {
+    display: grid;
+    gap: 0.5rem;
+    padding-top: 0.5rem;
+  }
+
+  .mobile-menu__group-body a:first-child {
+    background: linear-gradient(180deg, rgba(68, 179, 235, 0.14), rgba(235, 68, 210, 0.14));
+    color: var(--purple);
+    font-weight: 700;
+  }
+
+  .mobile-menu__languages,
+  .mobile-menu__legal {
+    display: grid;
+    gap: 0.65rem;
+    margin-bottom: 1rem;
+  }
+
+  .mobile-menu__languages p {
+    margin: 0;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .mobile-menu__languages div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+
+  .mobile-menu__languages a {
+    min-height: auto;
+    padding: 0.55rem 0.75rem;
+  }
+
   .page-card {
-    background: linear-gradient(180deg, var(--surface-strong), var(--surface));
-    border: 1px solid var(--border);
-    border-radius: 1.5rem;
-    box-shadow: var(--shadow);
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .prose h1,
+  .prose h2 {
+    background-image: var(--gradient-heading);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 
   .prose h2:first-child,
@@ -271,24 +845,236 @@ const navItems = [
   }
 
   .eyebrow {
-    margin: 0 0 0.6rem;
-    color: var(--accent);
+    margin: 0 0 0.8rem;
+    color: var(--purple);
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    font-size: 0.78rem;
+    font-size: 0.84rem;
     font-weight: 800;
   }
 
+  .footer-illustration {
+    width: 100%;
+    margin-top: clamp(4rem, 9vw, 7rem);
+    margin-bottom: -2rem;
+    overflow: hidden;
+  }
+
+  .footer-illustration img {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    filter: contrast(1.08) brightness(1.06);
+    mix-blend-mode: multiply;
+  }
+
+  .site-footer {
+    margin-top: clamp(5rem, 10vw, 8rem);
+    padding: clamp(6rem, 12vw, 8rem) 0 clamp(3rem, 8vw, 5rem);
+    color: #ffffff;
+    background:
+      radial-gradient(circle at top right, rgba(255, 255, 255, 0.2), transparent 28rem),
+      radial-gradient(circle at top left, rgba(255, 255, 255, 0.12), transparent 22rem),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0)),
+      linear-gradient(0deg, rgba(38, 18, 92, 0.16), rgba(38, 18, 92, 0.16)),
+      var(--gradient-footer);
+    position: relative;
+    overflow: clip;
+  }
+
+  .site-footer a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .site-footer__inner {
+    display: grid;
+    gap: clamp(2rem, 5vw, 4rem);
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    align-items: start;
+  }
+
+  .site-footer__intro {
+    display: grid;
+    gap: 1.25rem;
+    max-width: 40rem;
+  }
+
+  .site-footer__intro h2 {
+    margin-top: 0;
+    font-size: clamp(2.4rem, 5vw, 4.4rem);
+    color: #ffffff;
+    background: none;
+    max-width: 11ch;
+    text-wrap: balance;
+  }
+
+  .site-footer__intro p {
+    margin: 0;
+    max-width: 32rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .site-footer__eyebrow {
+    margin: 0;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.72);
+  }
+
+  .site-footer__nav {
+    display: grid;
+    gap: 1.25rem 1.75rem;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  }
+
+  .site-footer__nav section {
+    display: grid;
+    align-content: start;
+    gap: 0.45rem;
+  }
+
+  .site-footer__nav h3 {
+    margin: 0;
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .site-footer__nav h3 a {
+    min-height: 0;
+    padding: 0;
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+    white-space: normal;
+  }
+
+  .site-footer__nav h3 a::after {
+    display: none;
+  }
+
+  .site-footer__nav ul {
+    display: grid;
+    gap: 0.2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .site-footer__nav li {
+    margin: 0;
+  }
+
+  .site-footer__nav li a {
+    display: inline-block;
+    padding: 0.18rem 0;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 0.96rem;
+    line-height: 1.35;
+    text-decoration: none;
+    text-decoration-thickness: 0;
+    transition:
+      color 180ms ease,
+      transform 180ms ease,
+      opacity 180ms ease;
+  }
+
+  .site-footer__nav li a:hover,
+  .site-footer__nav li a:focus-visible {
+    color: #ffffff;
+    transform: translateX(2px);
+    outline: none;
+  }
+
+  .site-footer .button-secondary {
+    justify-self: start;
+    min-height: 3.25rem;
+    padding-inline: 1.2rem;
+    border-color: rgba(255, 255, 255, 0.74);
+    background: rgba(255, 255, 255, 0.96);
+    color: color-mix(in srgb, var(--purple) 74%, var(--pink));
+    box-shadow: 0 18px 42px rgba(47, 16, 103, 0.18);
+  }
+
+  .site-footer .button-secondary:hover,
+  .site-footer .button-secondary:focus-visible {
+    border-color: #ffffff;
+    background: #ffffff;
+    color: color-mix(in srgb, var(--purple) 82%, var(--pink));
+    box-shadow: 0 22px 46px rgba(47, 16, 103, 0.22);
+  }
+
+  @media (max-width: 900px) {
+    .site-footer__inner {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 1120px) {
+    .site-header__bar {
+      grid-template-columns: minmax(0, 1fr) auto;
+    }
+
+    .site-nav--desktop {
+      display: none;
+    }
+
+    .mobile-menu {
+      display: block;
+    }
+  }
+
   @media (max-width: 720px) {
-    .site-header__inner {
-      align-items: flex-start;
+    .site-header__bar {
+      padding: 0.9rem 1rem;
+      gap: 0.75rem;
     }
 
-    .nav-list {
-      gap: 0.45rem;
+    .brand__logo {
+      width: min(12.5rem, 62vw);
     }
 
-    .nav-list a {
+    .site-header__actions > .language-switcher,
+    .site-header__actions > .button-primary {
+      display: none;
+    }
+
+    .mobile-menu__label {
+      display: none;
+    }
+
+    .locale-chip,
+    .mobile-menu__toggle,
+    .button-primary,
+    .button-secondary {
+      min-height: 2.75rem;
+      padding-inline: 0.85rem;
+      font-size: 0.95rem;
+    }
+
+    .site-footer__intro h2 {
+      font-size: clamp(2rem, 10vw, 3.4rem);
+    }
+
+    .site-footer {
+      padding: clamp(4.25rem, 12vw, 5.5rem) 0 clamp(2.5rem, 8vw, 4rem);
+    }
+
+    .site-footer__intro {
+      gap: 1rem;
+    }
+
+    .site-footer__nav {
+      gap: 1rem;
+    }
+
+    .site-footer__nav li a {
       font-size: 0.92rem;
     }
   }

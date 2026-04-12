@@ -34,26 +34,24 @@ const { title = "Partners", partners } = Astro.props;
 <style>
   .partner-grid {
     display: grid;
-    gap: 1rem;
-    margin: 2rem 0;
+    gap: 1.2rem;
+    margin: 2.5rem 0;
   }
 
   .partner-grid__list {
     display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.2rem;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   }
 
   .partner-grid__card {
-    padding: 1rem;
-    border-radius: 1rem;
-    border: 1px solid var(--border);
-    background: var(--surface);
+    padding: 0 0 1rem;
+    border-bottom: 1px solid var(--border);
   }
 
   .partner-grid__card h3 {
-    margin: 0 0 0.65rem;
-    font-size: 1rem;
+    margin: 0 0 0.7rem;
+    font-size: 1.25rem;
   }
 
   .partner-grid__card p {
@@ -63,5 +61,11 @@ const { title = "Partners", partners } = Astro.props;
 
   .partner-grid__card a {
     text-decoration: none;
+    color: var(--text);
+  }
+
+  .partner-grid__card a:hover,
+  .partner-grid__card a:focus-visible {
+    color: var(--link);
   }
 </style>
