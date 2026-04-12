@@ -15,7 +15,7 @@ export async function getStaticPaths() {
     .map((entry) => ({
       params: {
         locale: entry.data.locale,
-        slug: entry.data.slug || undefined,
+        slug: encodeURI(entry.data.slug || ""),
       },
     }));
 }
