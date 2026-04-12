@@ -140,11 +140,79 @@ teaser: CHI SIAMO Siamo scienziati, medici, terapeuti, ricercatori di
 draft: false
 ---
 
+import PeopleGrid from "../../../components/PeopleGrid.astro";
+
 ## CHI SIAMO
 
 Siamo scienziati, medici, terapeuti, ricercatori di neuroscienze, professionisti della creatività e del marketing, artisti, esperti di politica, attivisti per i diritti umani e civili, operatori spirituali ed educatori. Insieme, uniti dalla scienza e dalla conoscenza delle leggi dell'UE, l'obiettivo della nostra iniziativa è quello di consentire ai cittadini europei di accedere a terapie psichedeliche assistite sicure, regolamentate e coscienziose.
 
 L'Iniziativa PsychedeliCare coinvolge attualmente partecipanti provenienti da oltre 15 paesi, all'interno e all'esterno dell'Unione Europea. L'iniziativa cresce di giorno in giorno e siamo sempre aperti a nuove persone che la pensano come noi e che sono pronte a intraprendere questo viaggio democratico. **[Unisciti a noi!](/#join)**
+
+<PeopleGrid title="Consiglio di Coordinamento" people={[
+  {
+    name: "Théo Giubilei",
+    location: "Francia",
+    image: "https://psychedelicare.eu/wp-content/uploads/2024/02/Theo-3.jpg",
+    bio: "Politologo con esperienza di lavoro al Parlamento Europeo a Bruxelles. Oltre a far parte del Consiglio di Coordinamento, è il Fondatore e attuale coordinatore dell'Iniziativa PsychedeliCare."
+  },
+  {
+    name: "Bárbara Messias",
+    location: "Portogallo",
+    image: "https://psychedelicare.eu/wp-content/uploads/2024/06/Barbara.jpeg",
+    bio: "Avvocata, ha condotto ricerche sugli aspetti socio-legali degli psichedelici e ha scritto una tesi sul ruolo della mobilitazione di base in questo campo emergente. Oltre a far parte del Consiglio di Coordinamento, Bárbara è l'ex Coordinatrice Nazionale per il Portogallo e attualmente ricopre il ruolo di Coordinatrice della Community di PsychedeliCare."
+  },
+  {
+    name: "Annarita Eva",
+    location: "Italia",
+    image: "https://psychedelicare.eu/wp-content/uploads/2025/02/Annarita-1024x1024.jpg",
+    bio: "Psicologa, formatrice e curatrice con background in salute mentale, counseling e integrazione psichedelica. Oltre a far parte del Consiglio di Coordinamento, ricopre il ruolo di Coordinatrice Nazionale per l'Italia."
+  },
+  {
+    name: "Michelle Kronquist",
+    location: "Svezia",
+    image: "https://psychedelicare.eu/wp-content/uploads/2024/03/Michelle.jpg",
+    bio: "Psicologa con due decenni di esperienza nella pratica clinica, valutazione psicologica clinica e occupazionale, e lavoro a livello sistemico con focus attuale sulla Terapia Assistita da Psichedelici. Oltre a far parte del Consiglio di Coordinamento, ricopre il ruolo di Coordinatrice Nazionale per la Svezia."
+  },
+  {
+    name: "Raphaël Saunier",
+    location: "Svizzera",
+    bio: "Ingegnere informatico con vasta esperienza nella costruzione e manutenzione di servizi online, Raphaël supporta le operazioni digitali di diverse organizzazioni nel panorama psichedelico svizzero. Oltre a far parte del Consiglio di Coordinamento, contribuisce alla strategia e alle iniziative tecniche di PsychedeliCare."
+  },
+  {
+    name: "Flavio Avy Candeli",
+    location: "Italia",
+    image: "https://psychedelicare.eu/wp-content/uploads/2024/02/Avy.jpg",
+    bio: "Copywriter e Direttore Creativo nel settore pubblicitario da 20 anni, Avy è il Direttore Creativo della campagna per il diritto a morire con dignità in Italia e dell'Associazione Luca Coscioni per la libertà di ricerca scientifica. Oltre a far parte del Consiglio di Coordinamento, Avy è un sostenitore nel team italiano e Direttore Creativo per PsychedeliCare."
+  },
+  {
+    name: "Ciara Reynolds",
+    location: "Irlanda",
+    image: "https://psychedelicare.eu/wp-content/uploads/2024/10/Ciara-Profile-Pic.jpg",
+    bio: "Con un background in innovazione, tecnologia, coaching per il benessere e la leadership, e terapia del suono, Ciara ha completato un programma post-laurea in psichedelici e psicologia transpersonale, con focus sul recupero della salute mentale nelle zone post-conflitto. Oltre a far parte del Consiglio di Coordinamento, ricopre anche il ruolo di Coordinatrice Nazionale per il team irlandese."
+  },
+  {
+    name: "Chiara Coppola",
+    location: "Italia",
+    bio: "Psicologa Clinica e Psicoterapeuta Transpersonale formata in Terapia Assistita da Psichedelici. Oltre a far parte del Consiglio di Coordinamento, Chiara è volontaria e sostenitrice nel Team Italiano."
+  },
+  {
+    name: "Alexis Arragon",
+    location: "Francia",
+    image: "https://psychedelicare.eu/wp-content/uploads/2024/02/Alexis-2.jpg",
+    bio: "Terapeuta psicosomatico e membro del Consiglio della Società Psichedelica Francese. Oltre a far parte del Consiglio di Coordinamento, Alexis co-guida gli sforzi di costruzione della coalizione e ricopre il ruolo di Coordinatore Nazionale per il team francese."
+  },
+  {
+    name: "Raphaël Comte",
+    location: "Francia",
+    image: "https://psychedelicare.eu/wp-content/uploads/2024/04/Raphael.jpg",
+    bio: "Background in politica sanitaria europea e affari pubblici, con esperienza di stretta collaborazione con le istituzioni dell'UE. Oltre a far parte del Consiglio di Coordinamento, Raphaël contribuisce alla politica e all'impegno istituzionale di PsychedeliCare."
+  },
+  {
+    name: "Leonie Staas",
+    location: "Germania",
+    bio: "Con un background in clima ed energia, è una scrittrice e facilitatrice psichedelica che lavora all'intersezione tra cambiamento climatico e salute mentale. Oltre a far parte del Consiglio di Coordinamento, Leonie è co-coordinatrice del Team Europeo di Costruzione delle Coalizioni."
+  },
+]} />
 
 ## Le squadre
 
@@ -262,7 +330,7 @@ _Referenced image asset:_ [Referenced WordPress asset](https://psychedelicare.eu
 
 #### **Annarita Eva (Italia)**
 
-Annarita è Counselor, Formatrice e Curatrice di Eventi. Appassionata di approcci trasformativi per la promozione del benessere mentale, ha conseguito due lauree magistrali in Lettere e in Psicologia della Salute. Dal 2010 offre supporto come facilitatrice psichedelica all’estero, in festival e ritiri di crescita personale.. **[Contatta Annarita (italy@psychedelicare.eu](mailto:%20italy@psychedelicare.eu)**)
+Annarita è Counselor, Formatrice e Curatrice di Eventi. Appassionata di approcci trasformativi per la promozione del benessere mentale, ha conseguito due lauree magistrali in Lettere e in Psicologia della Salute. Dal 2010 offre supporto come facilitatrice psichedelica all'estero, in festival e ritiri di crescita personale.. **[Contatta Annarita (italy@psychedelicare.eu](mailto:%20italy@psychedelicare.eu)**)
 
 _Referenced image asset:_ [Referenced WordPress asset](https://psychedelicare.eu/wp-content/uploads/2024/02/Alexis-2.jpg)
 

@@ -140,19 +140,82 @@ teaser: À PROPOS Nous sommes des scientifiques, des médecins, des thérapeutes
 draft: false
 ---
 
+import PeopleGrid from "../../../components/PeopleGrid.astro";
+import Callout from "../../../components/Callout.astro";
+
 ## À PROPOS
 
 Nous sommes des scientifiques, des médecins, des thérapeutes, des chercheurs en neurosciences, des professionnels de la création et du marketing, des artistes, des experts politiques, des militants des droits de l'homme et des droits civils, des praticiens spirituels et des éducateurs. Ensemble, unis par la science et la connaissance de la législation européenne, notre initiative a pour but de permettre aux Européens d'accéder à une thérapie assistée par psychédéliques sûre, réglementée et consciencieuse.
 
-L'initiative PsychedeliCare rassemble actuellement des participants de plus de 15 pays, à l'intérieur et à l'extérieur de l'Union européenne. L'initiative grandit chaque jour et nous sommes toujours prêts à accueillir de nouvelles personnes partageant les mêmes idées et prêtes à s'embarquer dans ce voyage démocratique. **[Rejoignez-nous !](/#join)**
+L'initiative PsychedeliCare rassemble actuellement des participants de plus de 15 pays, à l'intérieur et à l'extérieur de l'Union européenne. L'initiative grandit chaque jour et nous sommes toujours prêts à accueillir de nouvelles personnes partageant les mêmes idées et prêtes à s'embarquer dans ce voyage démocratique.
 
-## Les équipes
+<Callout title="Rejoignez le mouvement" body="Souhaitez-vous soutenir une équipe nationale ou aider à en créer une là où vous vivez ?" href="mailto:info@psychedelicare.eu" label="Contactez l'équipe" />
 
-Nous fonctionnons comme une **équipe européenne** unie, qui se rassemble et communique régulièrement sur des plateformes numériques. En outre, nous sommes répartis en **sous-équipes** thématiques, ainsi qu'en **équipes nationales** chargées de développer l'initiative dans leurs pays respectifs.
-
-"La thérapie assistée par psychédélique révolutionne la science et soulage la souffrance d'une myriade de maladies physiques et mentales. Je me consacre à la diffusion de la recherche clinique de pointe pour une santé holistique. Les avancées législatives sont cruciales, car elles amplifient les voix du public et des chercheurs. Unissons-nous pour changer les choses".
-
-Anna Maria Farkas (membre de l'équipe européenne - Portugal)
+<PeopleGrid title="Conseil de Coordination" people={[
+  {
+    name: "Théo Giubilei",
+    location: "France",
+    image: "https://psychedelicare.eu/wp-content/uploads/2024/02/Theo-3.jpg",
+    bio: "Politologue avec une expérience de travail au Parlement européen à Bruxelles. En plus de siéger au Conseil de Coordination, il est le fondateur et coordinateur actuel de l'initiative PsychedeliCare."
+  },
+  {
+    name: "Bárbara Messias",
+    location: "Portugal",
+    image: "https://psychedelicare.eu/wp-content/uploads/2024/06/Barbara.jpeg",
+    bio: "Avocate, elle a mené des recherches sur les aspects socio-juridiques des psychédéliques et rédigé une thèse sur le rôle de la mobilisation citoyenne dans ce domaine émergent. En plus de siéger au Conseil de Coordination, Bárbara est l'ancienne coordinatrice nationale pour le Portugal et occupe actuellement le poste de coordinatrice communautaire de PsychedeliCare."
+  },
+  {
+    name: "Annarita Eva",
+    location: "Italie",
+    image: "https://psychedelicare.eu/wp-content/uploads/2025/02/Annarita-1024x1024.jpg",
+    bio: "Psychologue, formatrice et curatrice avec une formation en santé mentale, conseil et intégration psychédélique. En plus de siéger au Conseil de Coordination, elle est coordinatrice nationale pour l'Italie."
+  },
+  {
+    name: "Michelle Kronquist",
+    location: "Suède",
+    image: "https://psychedelicare.eu/wp-content/uploads/2024/03/Michelle.jpg",
+    bio: "Psychologue avec deux décennies d'expérience en pratique clinique, évaluation psychologique clinique et professionnelle, et travail au niveau systémique, avec un focus actuel sur la thérapie assistée par psychédéliques. En plus de siéger au Conseil de Coordination, elle est coordinatrice nationale pour la Suède."
+  },
+  {
+    name: "Raphaël Saunier",
+    location: "Suisse",
+    bio: "Ingénieur logiciel avec une vaste expérience dans la création et la maintenance de services en ligne, Raphaël soutient les opérations numériques de plusieurs organisations dans le paysage psychédélique suisse. En plus de siéger au Conseil de Coordination, il contribue à la stratégie et aux initiatives techniques de PsychedeliCare."
+  },
+  {
+    name: "Flavio Avy Candeli",
+    location: "Italie",
+    image: "https://psychedelicare.eu/wp-content/uploads/2024/02/Avy.jpg",
+    bio: "Concepteur-rédacteur et directeur de création dans l'industrie publicitaire depuis 20 ans, Avy est le directeur de création de la campagne pour le droit de mourir dans la dignité en Italie et de l'Associazione Luca Coscioni per la libertà di ricerca scientifica. En plus de siéger au Conseil de Coordination, Avy est un militant au sein de l'équipe italienne et directeur de création pour PsychedeliCare."
+  },
+  {
+    name: "Ciara Reynolds",
+    location: "Irlande",
+    image: "https://psychedelicare.eu/wp-content/uploads/2024/10/Ciara-Profile-Pic.jpg",
+    bio: "Avec une formation en innovation, technologie, coaching en bien-être et leadership, et sonothérapie, Ciara a complété un programme de troisième cycle en psychédéliques et psychologie transpersonnelle, avec un focus sur la guérison de la santé mentale dans les zones post-conflit. En plus de siéger au Conseil de Coordination, elle est également coordinatrice nationale pour l'équipe irlandaise."
+  },
+  {
+    name: "Chiara Coppola",
+    location: "Italie",
+    bio: "Psychologue clinicienne et psychothérapeute transpersonnelle formée à la thérapie assistée par psychédéliques. En plus de siéger au Conseil de Coordination, Chiara est bénévole et militante au sein de l'équipe italienne."
+  },
+  {
+    name: "Alexis Arragon",
+    location: "France",
+    image: "https://psychedelicare.eu/wp-content/uploads/2024/02/Alexis-2.jpg",
+    bio: "Thérapeute psychosomatique et membre du conseil d'administration de la Société Psychédélique Française. En plus de siéger au Conseil de Coordination, Alexis co-dirige les efforts de construction de coalition et est coordinateur national pour l'équipe française."
+  },
+  {
+    name: "Raphaël Comte",
+    location: "France",
+    image: "https://psychedelicare.eu/wp-content/uploads/2024/04/Raphael.jpg",
+    bio: "Formation en politique de santé européenne et affaires publiques, avec une expérience de travail étroit avec les institutions de l'UE. En plus de siéger au Conseil de Coordination, Raphaël contribue à la politique et à l'engagement institutionnel de PsychedeliCare."
+  },
+  {
+    name: "Leonie Staas",
+    location: "Allemagne",
+    bio: "Avec une formation en climat et énergie, elle est écrivaine et facilitatrice psychédélique travaillant à l'intersection du changement climatique et de la santé mentale. En plus de siéger au Conseil de Coordination, Leonie est co-coordinatrice de l'équipe européenne de construction de coalition."
+  },
+]} />
 
 ## Équipe européenne
 
