@@ -4,7 +4,11 @@ import { glob } from "astro/loaders";
 import { locales } from "./lib/i18n";
 
 const pages = defineCollection({
-  loader: glob({ base: "./src/content/pages", pattern: "**/*.mdx" }),
+  loader: glob({
+    base: "./src/content/pages",
+    pattern: "**/*.mdx",
+    generateId: ({ entry }) => entry,
+  }),
   schema: z.object({
     title: z.string(),
     description: z.string().optional(),
@@ -27,7 +31,13 @@ const pages = defineCollection({
     section: z.string().optional(),
     category: z.string().optional(),
     categories: z.array(z.string()).default([]),
-    publishedAt: z.string().optional(),
+    publishedAt: z.union([z.string(), z.date()]).transform((value) => {
+      if (typeof value === "string") {
+        return value;
+      }
+
+      return value.toISOString().slice(0, 10);
+    }).optional(),
     sourceId: z.number().optional(),
     translationGroup: z.string().optional(),
     oldPaths: z.array(z.string()).default([]),

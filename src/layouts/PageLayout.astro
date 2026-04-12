@@ -1,23 +1,26 @@
 ---
+import type { PageEntry } from "../lib/content";
 import BaseLayout from "./BaseLayout.astro";
 
 type Props = {
-  title: string;
-  description?: string;
-  locale?: string;
-  slug?: string;
+  entry: PageEntry;
+  headings?: { depth: number; slug: string; text: string }[];
   eyebrow?: string;
   teaser?: string;
 };
 
 const {
-  title,
-  description,
-  locale,
-  slug = "",
+  entry,
+  headings = [],
   eyebrow,
   teaser,
 } = Astro.props;
+
+const title = entry.data.title;
+const description = entry.data.description;
+const locale = entry.data.locale;
+const slug = entry.data.slug;
+const intro = teaser ?? entry.data.teaser;
 ---
 
 <BaseLayout title={title} description={description} locale={locale} slug={slug}>
@@ -25,11 +28,28 @@ const {
     <header class="page-layout__hero">
       {eyebrow && <p class="eyebrow">{eyebrow}</p>}
       <h1>{title}</h1>
-      {teaser && <p class="page-layout__teaser">{teaser}</p>}
+      {intro && <p class="page-layout__teaser">{intro}</p>}
     </header>
 
-    <div class="page-layout__content prose">
-      <slot />
+    <div class="page-layout__body">
+      {
+        headings.length > 1 && (
+          <aside class="page-layout__toc">
+            <p class="eyebrow">On this page</p>
+            <ul>
+              {headings.filter((heading) => heading.depth <= 3).map((heading) => (
+                <li class={`depth-${heading.depth}`}>
+                  <a href={`#${heading.slug}`}>{heading.text}</a>
+                </li>
+              ))}
+            </ul>
+          </aside>
+        )
+      }
+
+      <div class="page-layout__content prose">
+        <slot />
+      </div>
     </div>
   </article>
 </BaseLayout>
@@ -59,7 +79,52 @@ const {
     font-size: 1.08rem;
   }
 
-  .page-layout__content {
+  .page-layout__body {
+    display: grid;
+    gap: 1.5rem;
     padding: clamp(1.4rem, 3vw, 2.5rem);
+  }
+
+  .page-layout__toc {
+    padding: 1rem 1.1rem;
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    background: var(--bg-accent);
+  }
+
+  .page-layout__toc ul {
+    margin: 0;
+    padding-left: 1rem;
+  }
+
+  .page-layout__toc li {
+    margin: 0.4rem 0;
+  }
+
+  .page-layout__toc .depth-3 {
+    margin-left: 0.6rem;
+  }
+
+  .page-layout__content {
+    min-width: 0;
+  }
+
+  @media (min-width: 900px) {
+    .page-layout__body {
+      grid-template-columns: minmax(0, 1fr) 17rem;
+      align-items: start;
+    }
+
+    .page-layout__content {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .page-layout__toc {
+      position: sticky;
+      top: 6rem;
+      grid-column: 2;
+      grid-row: 1;
+    }
   }
 </style>

@@ -1,8 +1,10 @@
 ---
 import { AstroError } from "astro/errors";
+import { render } from "astro:content";
 
+import NewsList from "../../components/NewsList.astro";
 import PageLayout from "../../layouts/PageLayout.astro";
-import { getAllPages, getPageBySlug } from "../../lib/content";
+import { getAllPages, getNewsPosts, getPageBySlug } from "../../lib/content";
 import { defaultLocale, normalizeLocale } from "../../lib/i18n";
 
 export async function getStaticPaths() {
@@ -13,16 +15,13 @@ export async function getStaticPaths() {
     .map((entry) => ({
       params: {
         locale: entry.data.locale,
-        slug: entry.data.slug ? entry.data.slug.split("/") : [],
+        slug: entry.data.slug || undefined,
       },
     }));
 }
 
 const localeParam = normalizeLocale(Astro.params.locale ?? defaultLocale);
-const slug = (Astro.params.slug ?? [])
-  .flatMap((segment) => segment.split("/"))
-  .filter(Boolean)
-  .join("/");
+const slug = Astro.params.slug?.replace(/^\/+|\/+$/g, "") ?? "";
 
 const entry = await getPageBySlug(localeParam, slug);
 
@@ -30,9 +29,16 @@ if (!entry || entry.data.locale !== localeParam) {
   throw new AstroError(`Page not found for locale "${localeParam}" and slug "${slug}".`);
 }
 
-const { Content, headings } = await entry.render();
+const { Content, headings } = await render(entry);
+const relatedEntries =
+  entry.data.pageType === "news-hub"
+    ? await getNewsPosts(localeParam, { limit: 6 })
+    : entry.data.pageType === "section" && entry.data.slug.startsWith("news/")
+      ? await getNewsPosts(localeParam, { section: entry.data.slug })
+      : [];
 ---
 
 <PageLayout entry={entry} headings={headings}>
   <Content />
+  {relatedEntries.length > 0 && <NewsList entries={relatedEntries} />}
 </PageLayout>
