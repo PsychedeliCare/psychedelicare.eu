@@ -1,0 +1,77 @@
+---
+import type { PageEntry } from "../lib/content";
+import { localizePath } from "../lib/i18n";
+
+type Props = {
+  entries: PageEntry[];
+};
+
+const { entries } = Astro.props;
+---
+
+{
+  entries.length > 0 && (
+    <ul class="news-list">
+      {entries.map((entry) => (
+        <li class="news-card">
+          <p class="news-card__meta">
+            {entry.data.publishedAt && (
+              <time datetime={entry.data.publishedAt}>
+                {new Date(entry.data.publishedAt).toLocaleDateString(entry.data.locale, {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
+              </time>
+            )}
+            {entry.data.category && <span>{entry.data.category}</span>}
+          </p>
+          <h3>
+            <a href={localizePath(entry.data.locale, entry.data.slug)}>{entry.data.title}</a>
+          </h3>
+          {entry.data.teaser && <p>{entry.data.teaser}</p>}
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+<style>
+  .news-list {
+    display: grid;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .news-card {
+    padding: 1rem 1.15rem;
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    background: var(--surface);
+  }
+
+  .news-card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin: 0 0 0.5rem;
+    font-size: 0.92rem;
+    color: var(--muted);
+  }
+
+  .news-card h3 {
+    margin: 0;
+    font-size: 1.15rem;
+  }
+
+  .news-card p:last-child {
+    margin: 0.6rem 0 0;
+  }
+
+  .news-card a {
+    text-decoration: none;
+    color: var(--accent);
+  }
+ </style>

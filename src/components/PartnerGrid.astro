@@ -1,0 +1,67 @@
+---
+type Partner = {
+  name: string;
+  url: string;
+  description?: string;
+};
+
+type Props = {
+  title?: string;
+  partners: Partner[];
+};
+
+const { title = "Partners", partners } = Astro.props;
+---
+
+<section class="partner-grid">
+  <h2>{title}</h2>
+  <div class="partner-grid__list">
+    {
+      partners.map((partner) => (
+        <article class="partner-grid__card">
+          <h3>
+            <a href={partner.url} target="_blank" rel="noreferrer">
+              {partner.name}
+            </a>
+          </h3>
+          {partner.description && <p>{partner.description}</p>}
+        </article>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .partner-grid {
+    display: grid;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .partner-grid__list {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .partner-grid__card {
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  .partner-grid__card h3 {
+    margin: 0 0 0.65rem;
+    font-size: 1rem;
+  }
+
+  .partner-grid__card p {
+    margin: 0;
+    color: var(--muted);
+  }
+
+  .partner-grid__card a {
+    text-decoration: none;
+  }
+</style>

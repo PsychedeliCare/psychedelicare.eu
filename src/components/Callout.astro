@@ -1,0 +1,66 @@
+---
+type Props = {
+  title: string;
+  body?: string;
+  href?: string;
+  label?: string;
+  tone?: "default" | "accent";
+};
+
+const {
+  title,
+  body,
+  href,
+  label = "Learn more",
+  tone = "default",
+} = Astro.props;
+---
+
+<aside class:list={["callout", tone === "accent" && "callout--accent"]}>
+  <div class="callout__copy">
+    <h2>{title}</h2>
+    {body && <p>{body}</p>}
+  </div>
+  {href && (
+    <a class="callout__link" href={href}>
+      {label}
+    </a>
+  )}
+</aside>
+
+<style>
+  .callout {
+    display: grid;
+    gap: 1rem;
+    padding: 1.4rem;
+    border-radius: 1rem;
+    border: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  .callout--accent {
+    background: linear-gradient(135deg, rgba(111, 62, 121, 0.12), rgba(89, 160, 122, 0.12));
+  }
+
+  .callout__copy h2 {
+    margin: 0 0 0.45rem;
+    font-size: 1.2rem;
+  }
+
+  .callout__copy p {
+    margin: 0;
+    color: var(--muted);
+  }
+
+  .callout__link {
+    justify-self: start;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.7rem 1rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: #fff;
+    text-decoration: none;
+    font-weight: 600;
+  }
+</style>

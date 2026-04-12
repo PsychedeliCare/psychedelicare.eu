@@ -1,13 +1,19 @@
 ---
-import PageScaffold from "../components/PageScaffold.astro";
-import { homePage } from "../data/pageScaffolds";
-import BaseLayout from "../layouts/BaseLayout.astro";
+import { AstroError } from "astro/errors";
 
-if (!homePage) {
-  throw new Error("Home page scaffold is missing.");
+import PageLayout from "../layouts/PageLayout.astro";
+import { getPageBySlug } from "../lib/content";
+import { defaultLocale } from "../lib/i18n";
+
+const entry = await getPageBySlug(defaultLocale, "");
+
+if (!entry) {
+  throw new AstroError("Default homepage content is missing.");
 }
+
+const { Content, headings } = await entry.render();
 ---
 
-<BaseLayout title="PsychedeliCare | Home" description={homePage.summary}>
-  <PageScaffold page={homePage} />
-</BaseLayout>
+<PageLayout entry={entry} headings={headings}>
+  <Content />
+</PageLayout>

@@ -1,0 +1,38 @@
+---
+import { AstroError } from "astro/errors";
+
+import PageLayout from "../../layouts/PageLayout.astro";
+import { getAllPages, getPageBySlug } from "../../lib/content";
+import { defaultLocale, normalizeLocale } from "../../lib/i18n";
+
+export async function getStaticPaths() {
+  const pages = await getAllPages();
+
+  return pages
+    .filter((entry) => entry.data.locale !== defaultLocale)
+    .map((entry) => ({
+      params: {
+        locale: entry.data.locale,
+        slug: entry.data.slug ? entry.data.slug.split("/") : [],
+      },
+    }));
+}
+
+const localeParam = normalizeLocale(Astro.params.locale ?? defaultLocale);
+const slug = (Astro.params.slug ?? [])
+  .flatMap((segment) => segment.split("/"))
+  .filter(Boolean)
+  .join("/");
+
+const entry = await getPageBySlug(localeParam, slug);
+
+if (!entry || entry.data.locale !== localeParam) {
+  throw new AstroError(`Page not found for locale "${localeParam}" and slug "${slug}".`);
+}
+
+const { Content, headings } = await entry.render();
+---
+
+<PageLayout entry={entry} headings={headings}>
+  <Content />
+</PageLayout>

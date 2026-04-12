@@ -1,0 +1,65 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+type Props = {
+  title: string;
+  description?: string;
+  locale?: string;
+  slug?: string;
+  eyebrow?: string;
+  teaser?: string;
+};
+
+const {
+  title,
+  description,
+  locale,
+  slug = "",
+  eyebrow,
+  teaser,
+} = Astro.props;
+---
+
+<BaseLayout title={title} description={description} locale={locale} slug={slug}>
+  <article class="page-card page-layout">
+    <header class="page-layout__hero">
+      {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+      <h1>{title}</h1>
+      {teaser && <p class="page-layout__teaser">{teaser}</p>}
+    </header>
+
+    <div class="page-layout__content prose">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .page-layout {
+    overflow: hidden;
+  }
+
+  .page-layout__hero {
+    padding: clamp(1.7rem, 4vw, 3rem);
+    border-bottom: 1px solid var(--border);
+    background:
+      radial-gradient(circle at top right, rgba(101, 54, 122, 0.12), transparent 18rem),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.78));
+  }
+
+  .page-layout__hero h1 {
+    max-width: 12ch;
+    margin-bottom: 0;
+  }
+
+  .page-layout__teaser {
+    max-width: 64ch;
+    margin: 1rem 0 0;
+    color: var(--muted);
+    font-size: 1.08rem;
+  }
+
+  .page-layout__content {
+    padding: clamp(1.4rem, 3vw, 2.5rem);
+  }
+</style>
