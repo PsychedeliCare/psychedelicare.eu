@@ -1,0 +1,155 @@
+---
+import { topLevelPages } from "../data/pageScaffolds";
+
+type Props = {
+  title: string;
+  description?: string;
+};
+
+const { title, description = "PsychedeliCare sitemap scaffold" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="shell site-header__inner">
+        <a class="brand" href="/">PsychedeliCare</a>
+        <nav aria-label="Primary">
+          <ul class="nav-list">
+            {
+              topLevelPages.map((page) => (
+                <li>
+                  <a href={`/${page.slug}/`}>{page.title}</a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="shell">
+      <slot />
+    </main>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    color-scheme: light;
+    --bg: #f8f2ea;
+    --surface: rgba(255, 255, 255, 0.72);
+    --surface-strong: rgba(255, 255, 255, 0.92);
+    --border: rgba(83, 53, 30, 0.14);
+    --text: #2f2117;
+    --muted: #655243;
+    --accent: #6f3e79;
+    --accent-soft: rgba(111, 62, 121, 0.12);
+    --shadow: 0 22px 45px rgba(64, 37, 27, 0.08);
+    font-family:
+      "Iowan Old Style", "Palatino Linotype", "URW Palladio L", Georgia, serif;
+    background:
+      radial-gradient(circle at top, rgba(150, 99, 183, 0.12), transparent 32rem),
+      linear-gradient(180deg, #fbf7f2 0%, #f4ecdf 100%);
+    color: var(--text);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    margin: 0;
+    min-height: 100%;
+  }
+
+  body {
+    line-height: 1.6;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  .shell {
+    width: min(1100px, calc(100vw - 2rem));
+    margin: 0 auto;
+  }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(14px);
+    background: rgba(248, 242, 234, 0.82);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .site-header__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+
+  .brand {
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .nav-list a {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 0.8rem;
+    border-radius: 999px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    text-decoration: none;
+  }
+
+  .nav-list a:hover,
+  .nav-list a:focus-visible {
+    background: var(--accent-soft);
+    outline: none;
+  }
+
+  @media (max-width: 720px) {
+    .site-header__inner {
+      align-items: flex-start;
+    }
+
+    .nav-list {
+      gap: 0.5rem;
+    }
+
+    .nav-list a {
+      padding: 0.35rem 0.7rem;
+      font-size: 0.95rem;
+    }
+  }
+</style>
