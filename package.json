@@ -13,19 +13,21 @@
     "generate-types": "wrangler types"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^13.1.8",
-    "@astrojs/mdx": "^5.0.3",
+    "@astrojs/cloudflare": "^13.5.4",
+    "@astrojs/mdx": "^5.0.6",
     "@astrojs/sitemap": "^3.7.2",
-    "astro": "^6.1.5",
-    "wrangler": "^4.81.1"
+    "@tabler/icons": "^3.44.0",
+    "astro": "^6.3.7",
+    "flag-icons": "^7.5.0",
+    "wrangler": "^4.94.0"
   },
   "overrides": {
     "vite": "^7"
   },
   "devDependencies": {
     "cheerio": "^1.2.0",
-    "fast-xml-parser": "^5.5.11",
+    "fast-xml-parser": "^5.8.0",
     "turndown": "^7.2.4",
-    "yaml": "^2.8.3"
+    "yaml": "^2.9.0"
   }
 }

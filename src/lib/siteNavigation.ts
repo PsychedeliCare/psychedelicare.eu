@@ -11,6 +11,8 @@ import { getUiCopy } from "./uiCopy";
 type NavDefinition = {
   slug: string;
   fallbackLabel: string;
+  description?: string;
+  icon?: string;
   children?: NavDefinition[];
 };
 
@@ -18,6 +20,8 @@ export type ResolvedNavItem = {
   slug: string;
   label: string;
   href: string;
+  description?: string;
+  icon?: string;
   children: ResolvedNavItem[];
 };
 
@@ -44,71 +48,126 @@ const NAVIGATION_STRUCTURE: NavDefinition[] = [
   {
     slug: "news",
     fallbackLabel: "Blog / News",
+    description: "Updates, events, reports, and campaign notes.",
+    icon: "news",
     children: [
-      { slug: "news/events", fallbackLabel: "Events" },
-      { slug: "news/national-news", fallbackLabel: "National News" },
-      { slug: "news/reports", fallbackLabel: "Reports" },
+      {
+        slug: "news/events",
+        fallbackLabel: "Events",
+        description: "Gatherings, webinars, and public moments.",
+        icon: "calendar",
+      },
+      {
+        slug: "news/national-news",
+        fallbackLabel: "National News",
+        description: "Country updates from teams across Europe.",
+        icon: "map",
+      },
+      {
+        slug: "news/reports",
+        fallbackLabel: "Reports",
+        description: "Briefings, findings, and publications.",
+        icon: "report",
+      },
       {
         slug: "news/social-media-publications",
         fallbackLabel: "Social Media Publications",
+        description: "Shareable posts and campaign visuals.",
+        icon: "speaker",
       },
       {
         slug: "news/newsletter-archive",
         fallbackLabel: "Newsletter Archive",
+        description: "Past newsletters and supporter updates.",
+        icon: "mail",
       },
     ],
   },
   {
     slug: "projects",
     fallbackLabel: "Projects",
+    description: "Initiatives, partnerships, and lived experience.",
+    icon: "rocket",
     children: [
-      { slug: "projects/eci", fallbackLabel: "ECI" },
+      {
+        slug: "projects/eci",
+        fallbackLabel: "ECI",
+        description: "EU citizen initiative pathway.",
+        icon: "world",
+      },
       {
         slug: "projects/patients-community",
         fallbackLabel: "Patients Community",
+        description: "Patient voices and community support.",
+        icon: "patients",
       },
       {
         slug: "projects/partnerships-collaborations",
         fallbackLabel: "Partnerships & Collaborations",
+        description: "Allies and cross-border cooperation.",
+        icon: "partnership",
       },
       {
         slug: "projects/testimonials-interviews",
         fallbackLabel: "Testimonials / Interviews",
+        description: "Stories and field conversations.",
+        icon: "microphone",
       },
-      { slug: "projects/impact-report", fallbackLabel: "Impact Report" },
+      {
+        slug: "projects/impact-report",
+        fallbackLabel: "Impact Report",
+        description: "Outcomes and campaign reach.",
+        icon: "impact",
+      },
     ],
   },
   {
     slug: "resources",
     fallbackLabel: "Resources",
+    description: "Research, safety, FAQs, and practical materials.",
+    icon: "book",
     children: [
       {
         slug: "resources/scientific-studies",
         fallbackLabel: "Scientific Studies",
+        description: "Research on psychedelic-assisted care.",
+        icon: "science",
       },
       {
         slug: "resources/psychedelic-substances-safety-legal-issues",
         fallbackLabel: "Psychedelic Substances, Safety & Legal Issues",
+        description: "Substances, risks, and regulation.",
+        icon: "safety",
       },
       {
         slug: "resources/faq-about-psychedelics",
         fallbackLabel: "FAQ About Psychedelics",
+        description: "Answers to common questions.",
+        icon: "faq",
       },
       {
         slug: "resources/organisations-communities-initiatives",
         fallbackLabel: "Organisations, Communities & Initiatives",
+        description: "Groups and ecosystem networks.",
+        icon: "community",
       },
       {
         slug: "resources/educational-material",
         fallbackLabel: "Educational Material",
+        description: "Learning materials for advocates.",
+        icon: "education",
       },
       {
         slug: "resources/activist-packs",
         fallbackLabel: "Activist Packs",
+        description: "Campaign assets for local action.",
+        icon: "toolkit",
       },
       {
         slug: "resources/media-press-kit",
         fallbackLabel: "Media / Press Kit",
+        description: "Press materials and media resources.",
+        icon: "media",
       },
     ],
   },
@@ -163,6 +222,8 @@ function resolveItem(
     href: page
       ? localizePath(page.data.locale, page.data.slug)
       : localizePath(locale, definition.slug),
+    description: definition.description,
+    icon: definition.icon,
     children: (definition.children ?? []).map((child) =>
       resolveItem(pagesByKey, locale, child),
     ),

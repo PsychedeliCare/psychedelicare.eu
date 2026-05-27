@@ -1,5 +1,29 @@
 ---
+import "flag-icons/css/flag-icons.min.css";
+import IconBook from "../../node_modules/@tabler/icons/icons/outline/book-2.svg?raw";
+import IconBriefcase from "../../node_modules/@tabler/icons/icons/outline/briefcase.svg?raw";
+import IconBuildingCommunity from "../../node_modules/@tabler/icons/icons/outline/building-community.svg?raw";
+import IconCalendar from "../../node_modules/@tabler/icons/icons/outline/calendar-event.svg?raw";
+import IconChartBar from "../../node_modules/@tabler/icons/icons/outline/chart-bar.svg?raw";
+import IconFlask from "../../node_modules/@tabler/icons/icons/outline/flask.svg?raw";
+import IconHeartHandshake from "../../node_modules/@tabler/icons/icons/outline/heart-handshake.svg?raw";
+import IconHelpCircle from "../../node_modules/@tabler/icons/icons/outline/help-circle.svg?raw";
+import IconMail from "../../node_modules/@tabler/icons/icons/outline/mail.svg?raw";
+import IconMapPin from "../../node_modules/@tabler/icons/icons/outline/map-pin.svg?raw";
+import IconMicrophone from "../../node_modules/@tabler/icons/icons/outline/microphone.svg?raw";
+import IconNews from "../../node_modules/@tabler/icons/icons/outline/news.svg?raw";
+import IconPhotoSpark from "../../node_modules/@tabler/icons/icons/outline/photo-spark.svg?raw";
+import IconReportAnalytics from "../../node_modules/@tabler/icons/icons/outline/report-analytics.svg?raw";
+import IconRocket from "../../node_modules/@tabler/icons/icons/outline/rocket.svg?raw";
+import IconSchool from "../../node_modules/@tabler/icons/icons/outline/school.svg?raw";
+import IconShieldCheck from "../../node_modules/@tabler/icons/icons/outline/shield-check.svg?raw";
+import IconSparkles from "../../node_modules/@tabler/icons/icons/outline/sparkles.svg?raw";
+import IconSpeakerphone from "../../node_modules/@tabler/icons/icons/outline/speakerphone.svg?raw";
+import IconUsersGroup from "../../node_modules/@tabler/icons/icons/outline/users-group.svg?raw";
+import IconWorldHeart from "../../node_modules/@tabler/icons/icons/outline/world-heart.svg?raw";
+
 import { defaultLocale, normalizeLocale } from "../lib/i18n";
+import { getLocaleFlagClass } from "../lib/localeFlags";
 import { buildNavigationContext, isNavItemActive } from "../lib/siteNavigation";
 import { getUiCopy } from "../lib/uiCopy";
 
@@ -27,6 +51,30 @@ const navigation = await buildNavigationContext(
 );
 const isHome = slug === "";
 const uiCopy = getUiCopy(currentLocale);
+const navIcons: Record<string, string> = {
+  book: IconBook,
+  briefcase: IconBriefcase,
+  calendar: IconCalendar,
+  community: IconBuildingCommunity,
+  education: IconSchool,
+  faq: IconHelpCircle,
+  impact: IconChartBar,
+  mail: IconMail,
+  map: IconMapPin,
+  media: IconPhotoSpark,
+  microphone: IconMicrophone,
+  news: IconNews,
+  partnership: IconHeartHandshake,
+  patients: IconUsersGroup,
+  report: IconReportAnalytics,
+  rocket: IconRocket,
+  safety: IconShieldCheck,
+  science: IconFlask,
+  speaker: IconSpeakerphone,
+  toolkit: IconBriefcase,
+  world: IconWorldHeart,
+};
+const getNavIcon = (icon?: string) => navIcons[icon ?? ""] ?? IconSparkles;
 ---
 
 <!doctype html>
@@ -67,7 +115,11 @@ const uiCopy = getUiCopy(currentLocale);
                     <li class="site-nav__item">
                       {
                         item.children.length > 0 ? (
-                          <details class="nav-disclosure" data-group="header-popover">
+                          <details
+                            class="nav-disclosure"
+                            data-group="header-popover"
+                            data-hover-menu
+                          >
                             <summary
                               class:list={[
                                 "nav-summary",
@@ -86,20 +138,35 @@ const uiCopy = getUiCopy(currentLocale);
                                 ]}
                                 href={item.href}
                               >
-                                <span>{item.label}</span>
-                                <span>{uiCopy.browseSection}</span>
+                                <span class="nav-disclosure__icon" set:html={getNavIcon(item.icon)}></span>
+                                <span class="nav-disclosure__lead-copy">
+                                  <span>{item.label}</span>
+                                  <span>{item.description ?? uiCopy.browseSection}</span>
+                                </span>
                               </a>
 
                               <ul class="nav-disclosure__links">
                                 {item.children.map((child) => (
                                   <li>
                                     <a
+                                      class="nav-disclosure__item"
                                       href={child.href}
                                       aria-current={
                                         isNavItemActive(slug, child.slug) ? "page" : undefined
                                       }
                                     >
-                                      {child.label}
+                                      <span
+                                        class="nav-disclosure__icon nav-disclosure__icon--item"
+                                        set:html={getNavIcon(child.icon)}
+                                      ></span>
+                                      <span class="nav-disclosure__item-copy">
+                                        <span class="nav-disclosure__item-title">{child.label}</span>
+                                        {child.description && (
+                                          <span class="nav-disclosure__item-description">
+                                            {child.description}
+                                          </span>
+                                        )}
+                                      </span>
                                     </a>
                                   </li>
                                 ))}
@@ -128,8 +195,17 @@ const uiCopy = getUiCopy(currentLocale);
 
           <div class="site-header__actions">
             <details class="language-switcher" data-group="header-popover">
-              <summary class="locale-chip">
-                <span>{navigation.currentLanguage?.code ?? currentLocale.toUpperCase()}</span>
+              <summary
+                class="locale-chip"
+                aria-label={`${uiCopy.languages}: ${navigation.currentLanguage.nativeLabel}`}
+              >
+                <span
+                  class:list={["locale-flag", getLocaleFlagClass(navigation.currentLanguage.locale)]}
+                  aria-hidden="true"
+                ></span>
+                <span class="locale-chip__code">
+                  {navigation.currentLanguage.code}
+                </span>
                 <span class="nav-caret" aria-hidden="true"></span>
               </summary>
 
@@ -140,8 +216,12 @@ const uiCopy = getUiCopy(currentLocale);
                     navigation.languageOptions.map((option) => (
                       <li>
                         <a href={option.href} aria-current={option.current ? "page" : undefined}>
-                          <span>{option.code}</span>
-                          <span>{option.nativeLabel}</span>
+                          <span
+                            class:list={["locale-flag", getLocaleFlagClass(option.locale)]}
+                            aria-hidden="true"
+                          ></span>
+                          <span class="language-switcher__code">{option.code}</span>
+                          <span class="language-switcher__label-text">{option.nativeLabel}</span>
                         </a>
                       </li>
                     ))
@@ -175,10 +255,58 @@ const uiCopy = getUiCopy(currentLocale);
                           {
                             item.children.length > 0 ? (
                               <details class="mobile-menu__group" data-group="mobile-subnav">
-                                <summary>{item.label}</summary>
+                                <summary class="mobile-menu__group-summary">
+                                  <span class="mobile-menu__summary-copy">
+                                    <span class="mobile-menu__summary-title">
+                                      <span
+                                        class="nav-disclosure__icon nav-disclosure__icon--item"
+                                        set:html={getNavIcon(item.icon)}
+                                      ></span>
+                                      <span>{item.label}</span>
+                                    </span>
+                                    {item.description && (
+                                      <span class="mobile-menu__summary-description">
+                                        {item.description}
+                                      </span>
+                                    )}
+                                  </span>
+                                  <span class="nav-caret mobile-menu__caret" aria-hidden="true"></span>
+                                </summary>
                                 <div class="mobile-menu__group-body">
-                                  <a href={item.href}>{uiCopy.browseItemPrefix} {item.label}</a>
-                                  {item.children.map((child) => <a href={child.href}>{child.label}</a>)}
+                                  <a
+                                    class:list={[
+                                      "mobile-menu__lead",
+                                      isNavItemActive(slug, item.slug) && "mobile-menu__lead--active",
+                                    ]}
+                                    href={item.href}
+                                  >
+                                    <span
+                                      class="nav-disclosure__icon"
+                                      set:html={getNavIcon(item.icon)}
+                                    ></span>
+                                    <span class="mobile-menu__item-copy">
+                                      <span>{uiCopy.browseItemPrefix} {item.label}</span>
+                                      {item.description && <span>{item.description}</span>}
+                                    </span>
+                                  </a>
+                                  {item.children.map((child) => (
+                                    <a
+                                      class="mobile-menu__item"
+                                      href={child.href}
+                                      aria-current={
+                                        isNavItemActive(slug, child.slug) ? "page" : undefined
+                                      }
+                                    >
+                                      <span
+                                        class="nav-disclosure__icon nav-disclosure__icon--item"
+                                        set:html={getNavIcon(child.icon)}
+                                      ></span>
+                                      <span class="mobile-menu__item-copy">
+                                        <span>{child.label}</span>
+                                        {child.description && <span>{child.description}</span>}
+                                      </span>
+                                    </a>
+                                  ))}
                                 </div>
                               </details>
                             ) : (
@@ -194,7 +322,17 @@ const uiCopy = getUiCopy(currentLocale);
                 <div class="mobile-menu__languages">
                   <p>{uiCopy.languages}</p>
                   <div>
-                    {navigation.languageOptions.map((option) => <a href={option.href}>{option.code}</a>)}
+                    {
+                      navigation.languageOptions.map((option) => (
+                        <a href={option.href} aria-current={option.current ? "page" : undefined}>
+                          <span
+                            class:list={["locale-flag", getLocaleFlagClass(option.locale)]}
+                            aria-hidden="true"
+                          ></span>
+                          <span>{option.code}</span>
+                        </a>
+                      ))
+                    }
                   </div>
                 </div>
 
@@ -257,17 +395,122 @@ const uiCopy = getUiCopy(currentLocale);
     </footer>
 
     <script is:inline>
-      document.addEventListener("toggle", (event) => {
-        const target = event.target;
-        if (!(target instanceof HTMLDetailsElement) || !target.open) return;
-        const group = target.dataset.group;
-        if (!group) return;
-        document.querySelectorAll(`details[data-group="${group}"]`).forEach((detail) => {
-          if (detail instanceof HTMLDetailsElement && detail !== target) {
+      (() => {
+        const closingTimers = new WeakMap();
+        const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+        const closeDetail = (detail, animated = false) => {
+          if (!detail.open || detail.dataset.closing === "true") return;
+
+          const shouldAnimate =
+            animated &&
+            !reduceMotionQuery.matches &&
+            detail.classList.contains("nav-disclosure");
+
+          if (!shouldAnimate) {
             detail.open = false;
+            delete detail.dataset.closing;
+            return;
           }
+
+          detail.dataset.closing = "true";
+          const timer = window.setTimeout(() => {
+            detail.open = false;
+            delete detail.dataset.closing;
+            closingTimers.delete(detail);
+          }, 190);
+          closingTimers.set(detail, timer);
+        };
+
+        const openDetail = (detail) => {
+          const timer = closingTimers.get(detail);
+          if (timer) {
+            window.clearTimeout(timer);
+            closingTimers.delete(detail);
+          }
+          delete detail.dataset.closing;
+
+          const group = detail.dataset.group;
+          if (group) {
+            document.querySelectorAll(`details[data-group="${group}"]`).forEach((other) => {
+              if (other instanceof HTMLDetailsElement && other !== detail) {
+                closeDetail(other, other.classList.contains("nav-disclosure"));
+              }
+            });
+          }
+
+          detail.open = true;
+        };
+
+        const scheduleClose = (detail) => {
+          const existingTimer = closingTimers.get(detail);
+          if (existingTimer) window.clearTimeout(existingTimer);
+
+          const timer = window.setTimeout(() => {
+            closeDetail(detail, true);
+          }, 110);
+          closingTimers.set(detail, timer);
+        };
+
+        document.querySelectorAll("details[data-hover-menu]").forEach((menu) => {
+          if (!(menu instanceof HTMLDetailsElement)) return;
+
+          const summary = menu.querySelector("summary");
+          if (!summary) return;
+
+          menu.addEventListener("mouseenter", () => {
+            openDetail(menu);
+          });
+
+          menu.addEventListener("mouseleave", () => {
+            scheduleClose(menu);
+          });
+
+          menu.addEventListener("focusin", () => openDetail(menu));
+          menu.addEventListener("focusout", (event) => {
+            if (!menu.contains(event.relatedTarget)) scheduleClose(menu);
+          });
+
+          summary.addEventListener("click", (event) => {
+            event.preventDefault();
+            if (menu.open && menu.dataset.closing !== "true") {
+              closeDetail(menu, true);
+            } else {
+              openDetail(menu);
+            }
+          });
+
+          menu.addEventListener("keydown", (event) => {
+            if (event.key !== "Escape") return;
+            closeDetail(menu, true);
+            summary.focus();
+          });
         });
-      });
+
+        document.addEventListener("toggle", (event) => {
+          const target = event.target;
+          if (!(target instanceof HTMLDetailsElement) || !target.open) return;
+          const group = target.dataset.group;
+          if (!group) return;
+
+          document.querySelectorAll(`details[data-group="${group}"]`).forEach((detail) => {
+            if (detail instanceof HTMLDetailsElement && detail !== target) {
+              closeDetail(detail, detail.classList.contains("nav-disclosure"));
+            }
+          });
+        });
+
+        document.addEventListener("pointerdown", (event) => {
+          document.querySelectorAll('details[data-group="header-popover"][open]').forEach((detail) => {
+            if (
+              detail instanceof HTMLDetailsElement &&
+              !detail.contains(event.target)
+            ) {
+              closeDetail(detail, detail.classList.contains("nav-disclosure"));
+            }
+          });
+        });
+      })();
     </script>
   </body>
 </html>
@@ -317,7 +560,7 @@ const uiCopy = getUiCopy(currentLocale);
   }
 
   html {
-    scroll-padding-top: 8.5rem;
+    scroll-padding-top: 1.5rem;
   }
 
   img {
@@ -406,8 +649,7 @@ const uiCopy = getUiCopy(currentLocale);
   }
 
   .site-header {
-    position: sticky;
-    top: 0;
+    position: relative;
     z-index: 30;
     padding-top: 0.85rem;
   }
@@ -417,12 +659,7 @@ const uiCopy = getUiCopy(currentLocale);
     grid-template-columns: auto minmax(0, 1fr) auto;
     align-items: center;
     gap: 1.5rem;
-    padding: 0.95rem 1.25rem;
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    border-radius: 1.5rem;
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: var(--shadow-soft);
-    backdrop-filter: blur(24px);
+    padding: 0.95rem 0;
   }
 
   .brand {
@@ -504,11 +741,14 @@ const uiCopy = getUiCopy(currentLocale);
   }
 
   .nav-caret {
+    display: inline-block;
+    flex: 0 0 auto;
     width: 0.55rem;
     height: 0.55rem;
     border-right: 2px solid currentColor;
     border-bottom: 2px solid currentColor;
-    transform: rotate(45deg);
+    transform: translateY(-0.12rem) rotate(45deg);
+    transform-origin: 50% 55%;
     transition: transform 180ms ease;
   }
 
@@ -522,7 +762,7 @@ const uiCopy = getUiCopy(currentLocale);
   .nav-disclosure[open] > .nav-summary .nav-caret,
   .language-switcher[open] > .locale-chip .nav-caret,
   .mobile-menu[open] > .mobile-menu__toggle .nav-caret {
-    transform: rotate(225deg);
+    transform: translateY(0.12rem) rotate(225deg);
   }
 
   .nav-disclosure__panel,
@@ -537,35 +777,88 @@ const uiCopy = getUiCopy(currentLocale);
   .nav-disclosure__panel,
   .language-switcher__panel {
     position: absolute;
-    top: calc(100% + 0.9rem);
+    top: calc(100% + 1.5rem);
     right: 0;
   }
 
   .nav-disclosure__panel {
     display: grid;
-    gap: 0.55rem;
-    width: min(24rem, calc(100vw - 3rem));
-    padding: 0.75rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
+    width: min(46rem, calc(100vw - 3rem));
+    padding: 0.8rem;
     left: 50%;
     right: auto;
-    transform: translateX(-50%);
+    --menu-x: -50%;
+    --menu-y: -0.45rem;
+    opacity: 0;
+    transform: translate(var(--menu-x), var(--menu-y)) scale(0.98);
+    transform-origin: top center;
+    transition:
+      opacity 170ms ease,
+      transform 210ms cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+  }
+
+  .site-nav__item:last-child .nav-disclosure__panel {
+    left: auto;
+    right: 0;
+    --menu-x: 0;
+    transform-origin: top right;
+  }
+
+  .nav-disclosure[open]:not([data-closing]) > .nav-disclosure__panel {
+    --menu-y: 0;
+    opacity: 1;
+    transform: translate(var(--menu-x), var(--menu-y)) scale(1);
+    pointer-events: auto;
   }
 
   .nav-disclosure__lead {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 0.8rem 0.9rem;
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.9rem;
     border-radius: 0.85rem;
-    background: linear-gradient(180deg, rgba(68, 179, 235, 0.08), rgba(235, 68, 210, 0.08));
+    background:
+      linear-gradient(135deg, rgba(68, 179, 235, 0.14), rgba(235, 68, 210, 0.13)),
+      #ffffff;
     text-decoration: none;
     color: var(--text);
+    transition:
+      background 180ms ease,
+      color 180ms ease,
+      transform 180ms ease;
   }
 
-  .nav-disclosure__lead span:last-child {
+  .nav-disclosure__lead:hover,
+  .nav-disclosure__lead:focus-visible {
+    color: var(--link);
+    outline: none;
+    transform: translateY(-1px);
+  }
+
+  .nav-disclosure__lead-copy {
+    display: grid;
+    gap: 0.08rem;
+    min-width: 0;
+  }
+
+  .nav-disclosure__lead-copy span:first-child {
+    font-size: 1.02rem;
+    font-weight: 800;
+    line-height: 1.2;
+  }
+
+  .nav-disclosure__lead-copy span:last-child {
     color: var(--muted);
-    font-size: 0.92rem;
+    font-size: 0.88rem;
+    line-height: 1.35;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .nav-disclosure__lead--active {
@@ -581,14 +874,87 @@ const uiCopy = getUiCopy(currentLocale);
     list-style: none;
   }
 
+  .nav-disclosure__links {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.35rem;
+  }
+
   .nav-disclosure__links a,
   .language-switcher__panel a {
     display: grid;
-    gap: 0.12rem;
     padding: 0.7rem 0.8rem;
     border-radius: 0.8rem;
     text-decoration: none;
     color: var(--text);
+  }
+
+  .nav-disclosure__links li {
+    min-width: 0;
+  }
+
+  .nav-disclosure__item {
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 0.7rem;
+    min-height: 4.25rem;
+    border: 1px solid transparent;
+    transition:
+      background 180ms ease,
+      border-color 180ms ease,
+      color 180ms ease,
+      transform 180ms ease;
+  }
+
+  .nav-disclosure__item:hover,
+  .nav-disclosure__item:focus-visible {
+    transform: translateY(-1px);
+  }
+
+  .nav-disclosure__icon {
+    display: inline-grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.75rem;
+    background: rgba(68, 179, 235, 0.12);
+    color: var(--link);
+    flex: 0 0 auto;
+  }
+
+  .nav-disclosure__icon svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    stroke-width: 1.8;
+  }
+
+  .nav-disclosure__icon--item {
+    width: 2.2rem;
+    height: 2.2rem;
+    color: var(--purple);
+    background: rgba(235, 68, 210, 0.1);
+  }
+
+  .nav-disclosure__item-copy {
+    display: grid;
+    gap: 0.12rem;
+    min-width: 0;
+  }
+
+  .nav-disclosure__item-title {
+    font-size: 0.98rem;
+    font-weight: 750;
+    line-height: 1.2;
+  }
+
+  .nav-disclosure__item-description {
+    color: var(--muted);
+    font-size: 0.83rem;
+    font-weight: 500;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .nav-disclosure__links a:hover,
@@ -596,6 +962,7 @@ const uiCopy = getUiCopy(currentLocale);
   .language-switcher__panel a:hover,
   .language-switcher__panel a:focus-visible {
     background: var(--bg-soft);
+    border-color: rgba(29, 46, 86, 0.08);
     outline: none;
   }
 
@@ -613,9 +980,63 @@ const uiCopy = getUiCopy(currentLocale);
     justify-self: end;
   }
 
-  .locale-chip,
+  .gradient-button,
+  .button-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    min-height: 3rem;
+    padding: 0.72rem 1.15rem;
+    border: 0;
+    border-radius: 999px;
+    color: #ffffff;
+    background: var(--gradient);
+    box-shadow: 0 18px 40px rgba(215, 41, 242, 0.2);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 700;
+    transition:
+      transform 200ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 200ms ease;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .locale-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    min-height: 3rem;
+    padding: 0.5rem 0.9rem 0.5rem 0.65rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: #ffffff;
+    color: var(--text);
+    font-size: 0.95rem;
+    font-weight: 700;
+    transition:
+      transform 200ms cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 200ms ease,
+      box-shadow 200ms ease;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .locale-chip__code {
+    letter-spacing: 0.04em;
+  }
+
+  .locale-flag {
+    width: 1.35rem;
+    height: 1rem;
+    border-radius: 0.15rem;
+    box-shadow: 0 0 0 1px rgba(29, 46, 86, 0.1);
+    flex-shrink: 0;
+  }
+
   .mobile-menu__toggle,
-  .button-primary,
   .button-secondary {
     display: inline-flex;
     align-items: center;
@@ -659,11 +1080,25 @@ const uiCopy = getUiCopy(currentLocale);
   }
 
   .locale-chip:hover,
-  .locale-chip:focus-visible,
+  .locale-chip:focus-visible {
+    border-color: var(--border-strong);
+    box-shadow: 0 12px 28px rgba(57, 30, 190, 0.1);
+    outline: none;
+    transform: translateY(-1px);
+  }
+
+  .gradient-button:hover,
+  .gradient-button:focus-visible,
+  .button-primary:hover,
+  .button-primary:focus-visible {
+    color: #ffffff;
+    box-shadow: 0 22px 48px rgba(215, 41, 242, 0.3);
+    outline: none;
+    transform: translateY(-1px);
+  }
+
   .mobile-menu__toggle:hover,
   .mobile-menu__toggle:focus-visible,
-  .button-primary:hover,
-  .button-primary:focus-visible,
   .button-secondary:hover,
   .button-secondary:focus-visible {
     border-color: var(--border-strong);
@@ -673,6 +1108,7 @@ const uiCopy = getUiCopy(currentLocale);
   }
 
   .language-switcher__panel {
+    top: calc(100% + 0.9rem);
     min-width: 12rem;
     padding: 0.55rem;
   }
@@ -688,23 +1124,18 @@ const uiCopy = getUiCopy(currentLocale);
   }
 
   .language-switcher__panel a {
-    grid-template-columns: 2.6rem 1fr;
+    grid-template-columns: auto 2.4rem minmax(0, 1fr);
     align-items: center;
+    gap: 0.65rem;
   }
 
-  .language-switcher__panel a span:first-child {
+  .language-switcher__code {
     font-weight: 700;
   }
 
-  .button-primary,
-  .button-secondary {
-    border-color: transparent;
-  }
-
-  .button-primary {
-    color: #ffffff;
-    background: var(--gradient);
-    box-shadow: 0 18px 40px rgba(215, 41, 242, 0.2);
+  .language-switcher__label-text {
+    color: var(--muted);
+    font-size: 0.95rem;
   }
 
   .button-secondary {
@@ -750,7 +1181,6 @@ const uiCopy = getUiCopy(currentLocale);
   }
 
   .mobile-menu__single,
-  .mobile-menu__group summary,
   .mobile-menu__group-body a,
   .mobile-menu__languages a,
   .mobile-menu__legal a {
@@ -764,37 +1194,97 @@ const uiCopy = getUiCopy(currentLocale);
     background: linear-gradient(180deg, rgba(68, 179, 235, 0.05), rgba(255, 255, 255, 0));
   }
 
-  .mobile-menu__group summary {
-    justify-content: space-between;
+  .mobile-menu__group-summary {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.85rem;
+    min-height: 4.6rem;
+    padding: 0.8rem 0.9rem;
+    border-radius: 0.9rem;
+    color: var(--text);
+    background: linear-gradient(180deg, rgba(68, 179, 235, 0.07), rgba(255, 255, 255, 0));
     cursor: pointer;
     list-style: none;
   }
 
-  .mobile-menu__group summary::after {
-    content: "";
-    width: 0.55rem;
-    height: 0.55rem;
-    margin-left: auto;
-    border-right: 2px solid currentColor;
-    border-bottom: 2px solid currentColor;
-    transform: rotate(45deg);
-    transition: transform 180ms ease;
+  .mobile-menu__group-summary:hover,
+  .mobile-menu__group-summary:focus-visible {
+    background: var(--bg-soft);
+    outline: none;
   }
 
-  .mobile-menu__group[open] summary::after {
-    transform: rotate(225deg);
+  .mobile-menu__summary-copy,
+  .mobile-menu__item-copy {
+    display: grid;
+    gap: 0.14rem;
+    min-width: 0;
+  }
+
+  .mobile-menu__summary-title {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 0.7rem;
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: 1.2;
+  }
+
+  .mobile-menu__summary-description,
+  .mobile-menu__item-copy span:last-child {
+    color: var(--muted);
+    font-size: 0.86rem;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  .mobile-menu__summary-description {
+    padding-left: 2.9rem;
+  }
+
+  .mobile-menu__caret {
+    margin-right: 0.2rem;
+  }
+
+  .mobile-menu__group[open] > .mobile-menu__group-summary .mobile-menu__caret {
+    transform: translateY(0.12rem) rotate(225deg);
   }
 
   .mobile-menu__group-body {
     display: grid;
-    gap: 0.5rem;
+    gap: 0.45rem;
     padding-top: 0.5rem;
   }
 
-  .mobile-menu__group-body a:first-child {
+  .mobile-menu__lead,
+  .mobile-menu__item {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.7rem;
+  }
+
+  .mobile-menu__lead {
+    align-items: center;
     background: linear-gradient(180deg, rgba(68, 179, 235, 0.14), rgba(235, 68, 210, 0.14));
     color: var(--purple);
     font-weight: 700;
+  }
+
+  .mobile-menu__item {
+    align-items: center;
+  }
+
+  .mobile-menu__item-copy span:first-child {
+    font-size: 0.96rem;
+    font-weight: 750;
+    line-height: 1.2;
+  }
+
+  .mobile-menu__group-body a[aria-current="page"],
+  .mobile-menu__lead--active {
+    background: linear-gradient(180deg, rgba(68, 179, 235, 0.16), rgba(235, 68, 210, 0.16));
+    color: var(--purple);
   }
 
   .mobile-menu__languages,
@@ -856,16 +1346,23 @@ const uiCopy = getUiCopy(currentLocale);
   .footer-illustration {
     width: 100%;
     margin-top: clamp(4rem, 9vw, 7rem);
-    margin-bottom: -2rem;
+    margin-bottom: 0;
     overflow: hidden;
+    line-height: 0;
   }
 
   .footer-illustration img {
-    width: 100%;
-    max-width: none;
-    margin: 0;
+    display: block;
+    width: min(100%, 1024px);
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
     filter: contrast(1.08) brightness(1.06);
     mix-blend-mode: multiply;
+  }
+
+  .footer-illustration + .site-footer {
+    margin-top: 0;
   }
 
   .site-footer {
@@ -1032,7 +1529,7 @@ const uiCopy = getUiCopy(currentLocale);
 
   @media (max-width: 720px) {
     .site-header__bar {
-      padding: 0.9rem 1rem;
+      padding: 0.9rem 0;
       gap: 0.75rem;
     }
 
@@ -1049,9 +1546,10 @@ const uiCopy = getUiCopy(currentLocale);
       display: none;
     }
 
+    .gradient-button,
+    .button-primary,
     .locale-chip,
     .mobile-menu__toggle,
-    .button-primary,
     .button-secondary {
       min-height: 2.75rem;
       padding-inline: 0.85rem;

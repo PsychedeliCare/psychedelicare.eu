@@ -44,6 +44,8 @@ const pages = defineCollection({
     oldLocalizedPaths: z.record(z.string(), z.string()).default({}),
     assetUrls: z.array(z.string()).default([]),
     teaser: z.string().optional(),
+    heroCtaLabel: z.string().optional(),
+    heroCtaHref: z.string().optional(),
     order: z.number().optional(),
     draft: z.boolean().default(false),
   }),
