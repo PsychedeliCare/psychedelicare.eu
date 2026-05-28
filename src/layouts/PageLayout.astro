@@ -278,8 +278,23 @@ const uiCopy = getUiCopy(locale);
   .page-layout__content :global(.accordion),
   .page-layout__content :global(.news-list),
   .page-layout__content :global(.people-grid),
-  .page-layout__content :global(.partner-grid) {
+  .page-layout__content :global(.partner-grid),
+  .page-layout__content :global(.molecule-illustration) {
     max-width: none;
+    margin-top: 1.75rem;
+  }
+
+  .page-layout__content :global(.molecule-illustration) {
+    margin-top: 0;
+  }
+
+  .page-layout__content :global(.molecule-illustration + h3) {
+    margin-top: 0;
+    padding-top: 0.2rem;
+  }
+
+  .page-layout__content :global(.molecule-illustration:not(:first-of-type)) {
+    clear: both;
     margin-top: 1.75rem;
   }
 

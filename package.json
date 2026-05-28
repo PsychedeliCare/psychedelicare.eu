@@ -10,7 +10,10 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "generate-types": "wrangler types"
+    "generate-types": "wrangler types",
+    "generate-asset-catalog": "node scripts/generate-asset-catalog.mjs",
+    "download-assets": "node scripts/download-wordpress-assets.mjs",
+    "migrate-asset-urls": "node scripts/migrate-asset-urls.mjs"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^13.5.4",
@@ -18,6 +21,7 @@
     "@astrojs/sitemap": "^3.7.2",
     "@tabler/icons": "^3.44.0",
     "astro": "^6.3.7",
+    "files-sdk": "^1.6.0",
     "flag-icons": "^7.5.0",
     "wrangler": "^4.94.0"
   },

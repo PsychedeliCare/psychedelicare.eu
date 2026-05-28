@@ -381,6 +381,10 @@ function sanitizeHtml(html, context = {}) {
   }
 
   sanitized = sanitized.replace(/\?fbclid=[^"'&)\s>]+/gi, "");
+  sanitized = sanitized.replace(
+    /<svg aria-hidden="true" viewBox="0 0 448 512"[^>]*>[\s\S]*?<\/svg>/gi,
+    "",
+  );
   sanitized = sanitized.replace(/\s+data-cke-saved-href="[^"]*"/gi, "");
   sanitized = sanitized.replace(/\[smartslider3[^\]]*\]/gi, "");
   sanitized = sanitized.replace(/\[twingle[^\]]*\]/gi, "");
@@ -407,6 +411,7 @@ function extractAssetUrls(html) {
 
 function stripContainerNoise($) {
   $("script, style, noscript").remove();
+  $('svg[aria-hidden="true"][viewBox="0 0 448 512"]').remove();
   $("span[style='display:none']").remove();
   $("div.elementor-widget-shortcode").remove();
   $("p").each((_index, element) => {

@@ -1,4 +1,6 @@
 ---
+import { getCountryFlagClasses } from "../lib/countryFlags";
+
 type PersonCard = {
   name: string;
   role?: string;
@@ -33,7 +35,14 @@ const { title, people } = Astro.props;
           <div class="person-card__body">
             <h3>{person.name}</h3>
             {person.role && <p class="person-card__role">{person.role}</p>}
-            {person.location && <p class="person-card__meta">{person.location}</p>}
+            {person.location && (
+              <p class="person-card__meta">
+                {getCountryFlagClasses(person.location).map((flagClass) => (
+                  <span class={`person-card__flag ${flagClass}`} aria-hidden="true" />
+                ))}
+                <span>{person.location}</span>
+              </p>
+            )}
             {person.bio && <p>{person.bio}</p>}
 
             <div class="person-card__links">
@@ -66,26 +75,37 @@ const { title, people } = Astro.props;
     display: grid;
     gap: 1.2rem;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    align-items: start;
   }
 
   .person-card {
     display: grid;
     gap: 1rem;
+    grid-template-rows: auto 1fr;
     padding: 0 0 1.2rem;
     border-bottom: 1px solid var(--border);
   }
 
-  .person-card__media img {
-    width: 100%;
+  .person-card__media {
     aspect-ratio: 1;
-    object-fit: cover;
+    overflow: hidden;
     border-radius: 0.9rem;
     background: rgba(68, 179, 235, 0.08);
+    line-height: 0;
+  }
+
+  .person-card__media img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center top;
   }
 
   .person-card__body {
     display: grid;
     gap: 0.6rem;
+    align-content: start;
   }
 
   .person-card__body h3,
@@ -99,7 +119,18 @@ const { title, people } = Astro.props;
   }
 
   .person-card__meta {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
     color: var(--muted);
+  }
+
+  .person-card__flag {
+    width: 1.15em;
+    height: 0.85em;
+    flex-shrink: 0;
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.08);
   }
 
   .person-card__links {

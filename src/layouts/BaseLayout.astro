@@ -100,7 +100,7 @@ const getNavIcon = (icon?: string) => navIcons[icon ?? ""] ?? IconSparkles;
           <a class="brand" href={navigation.primaryItems[0]?.href ?? "/"}>
             <img
               class="brand__logo"
-              src="https://psychedelicare.eu/wp-content/uploads/2023/08/psychedelicareeu-logo.svg"
+              src="/assets/psychedelicareeu-logo.svg"
               alt="PsychedeliCare"
             />
           </a>
@@ -525,7 +525,8 @@ const getNavIcon = (icon?: string) => navIcons[icon ?? ""] ?? IconSparkles;
     --border-strong: rgba(29, 46, 86, 0.22);
     --text: #131725;
     --muted: #4c5570;
-    --link: #391ebe;
+    --link: #1f85b8;
+    --link-hover: #166b94;
     --pink: #eb44d2;
     --purple: #a91ac0;
     --gradient: linear-gradient(90deg, #44b3eb 48%, #d729f2 87%);
@@ -573,11 +574,13 @@ const getNavIcon = (icon?: string) => navIcons[icon ?? ""] ?? IconSparkles;
     color: var(--link);
     text-decoration-thickness: 0.08em;
     text-underline-offset: 0.12em;
+    text-decoration-color: color-mix(in srgb, var(--link) 38%, transparent);
   }
 
   a:hover,
   a:focus-visible {
-    color: #2a1490;
+    color: var(--link-hover);
+    text-decoration-color: color-mix(in srgb, var(--link-hover) 55%, transparent);
   }
 
   p,
@@ -1062,6 +1065,7 @@ const getNavIcon = (icon?: string) => navIcons[icon ?? ""] ?? IconSparkles;
 
   .mobile-menu__toggle {
     min-width: 0;
+    border-radius: 999px;
   }
 
   .mobile-menu__icon {

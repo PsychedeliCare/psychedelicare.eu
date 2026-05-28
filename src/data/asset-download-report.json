@@ -1,0 +1,848 @@
+{
+  "generatedAt": "2026-05-28T17:58:25.251Z",
+  "catalogPath": "src/data/asset-catalog.json",
+  "outputDirectory": "public/assets",
+  "totals": {
+    "assets": 117,
+    "downloaded": 116,
+    "skipped": 0,
+    "failed": 1,
+    "bytes": 23097110,
+    "byFolder": {
+      "people": 30,
+      "logos": 56,
+      "icons": 3,
+      "photos": 25,
+      "files": 3
+    }
+  },
+  "failures": [
+    {
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/06/Statutes_PsychedeliCare.pdf",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/files/statutes-psychedelicare.pdf",
+      "label": "files/statutes-psychedelicare.pdf",
+      "message": "HTTP 404 Not Found"
+    }
+  ],
+  "results": [
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/01/Press-kit.zip",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/files/press-kit.zip",
+      "label": "files/press-kit.zip",
+      "bytes": 7208056
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/01/PsychedelicareLaunchPressRelease14012025.pdf",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/files/psychedelicarelaunchpressrelease14012025.pdf",
+      "label": "files/psychedelicarelaunchpressrelease14012025.pdf",
+      "bytes": 161393
+    },
+    {
+      "status": "failed",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/06/Statutes_PsychedeliCare.pdf",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/files/statutes-psychedelicare.pdf",
+      "label": "files/statutes-psychedelicare.pdf",
+      "message": "HTTP 404 Not Found"
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2023/08/1.svg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/icons/home-care-together-icon-1.svg",
+      "label": "icons/home-care-together-icon-1.svg",
+      "bytes": 498
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2023/08/2.svg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/icons/home-care-together-icon-2.svg",
+      "label": "icons/home-care-together-icon-2.svg",
+      "bytes": 1330
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2023/08/3.svg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/icons/home-care-together-icon-3.svg",
+      "label": "icons/home-care-together-icon-3.svg",
+      "bytes": 2196
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/11/LOGO-AT-transparent.avif",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/approches-transpersonnelles-logo.avif",
+      "label": "logos/approches-transpersonnelles-logo.avif",
+      "bytes": 41786
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/05/ASPIRE.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/aspire-logo.png",
+      "label": "logos/aspire-logo.png",
+      "bytes": 257590
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/05/WhatsApp-Image-2024-05-08-at-16.36.19-1.jpeg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/associazione-luca-coscioni-per-la-liberta-di-ricerca-scientifica-logo.jpeg",
+      "label": "logos/associazione-luca-coscioni-per-la-liberta-di-ricerca-scientifica-logo.jpeg",
+      "bytes": 268426
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/05/BlossomanalysisLogo.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/blossom-analysis-logo.png",
+      "label": "logos/blossom-analysis-logo.png",
+      "bytes": 47629
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/01/Cepda_logo_gray.svg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/center-of-psychedelic-awareness-denmark-logo.svg",
+      "label": "logos/center-of-psychedelic-awareness-denmark-logo.svg",
+      "bytes": 35160
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2026/03/clusterfree_logo_fulllogo-1024x354.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/clusterfree-logo.png",
+      "label": "logos/clusterfree-logo.png",
+      "bytes": 117476
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/09/CZEPS.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/czech-psychedelic-society-logo.png",
+      "label": "logos/czech-psychedelic-society-logo.png",
+      "bytes": 13560
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/02/Daath.hu_-1024x493.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/daath-logo.png",
+      "label": "logos/daath-logo.png",
+      "bytes": 93270
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/11/DCF.jpeg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/decriminalize-nature-france-logo.jpeg",
+      "label": "logos/decriminalize-nature-france-logo.jpeg",
+      "bytes": 11428
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/05/LOGO-EUMANS-PICCOLO.jpeg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/eumans-logo.jpeg",
+      "label": "logos/eumans-logo.jpeg",
+      "bytes": 6653
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/05/logo-societe-psychedelique-francaise.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/french-psychedelic-society-logo.png",
+      "label": "logos/french-psychedelic-society-logo.png",
+      "bytes": 538768
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/02/Generation-Act.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/generation-act-logo.png",
+      "label": "logos/generation-act-logo.png",
+      "bytes": 199345
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/04/GPS-Logo.webp",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/global-psychedelic-society-logo.webp",
+      "label": "logos/global-psychedelic-society-logo.webp",
+      "bytes": 4210
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/09/HoloMind_logo_RGB-1.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/holomind-psychedelic-therapy-institute-logo.png",
+      "label": "logos/holomind-psychedelic-therapy-institute-logo.png",
+      "bytes": 22616
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/01/illuminismo-psichedelico.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/illuminismo-psichedelico-logo.png",
+      "label": "logos/illuminismo-psichedelico-logo.png",
+      "bytes": 75892
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/09/Inawe.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/inawe-logo.png",
+      "label": "logos/inawe-logo.png",
+      "bytes": 3895
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/06/WhatsApp-Image-2024-06-01-at-12.07.28.jpeg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/ingress-logo.jpeg",
+      "label": "logos/ingress-logo.jpeg",
+      "bytes": 17974
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/11/iceers.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/international-center-for-ethnobotanical-education-research-and-service-iceers-logo.png",
+      "label": "logos/international-center-for-ethnobotanical-education-research-and-service-iceers-logo.png",
+      "bytes": 8188
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/07/IDPAT.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/irish-doctors-for-psychedelic-assisted-therapy-logo.png",
+      "label": "logos/irish-doctors-for-psychedelic-assisted-therapy-logo.png",
+      "bytes": 44427
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/10/JES.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/jes-bundesverband-logo.png",
+      "label": "logos/jes-bundesverband-logo.png",
+      "bytes": 5911
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2026/02/katabasis-logo-smaller.png.webp",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/katabasis-logo.webp",
+      "label": "logos/katabasis-logo.webp",
+      "bytes": 3604
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/01/Kosmicare.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/kosmicare-logo.png",
+      "label": "logos/kosmicare-logo.png",
+      "bytes": 27774
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/02/Kykeon_logo-1024x424.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/kykeon-analytics-logo.png",
+      "label": "logos/kykeon-analytics-logo.png",
+      "bytes": 55988
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/10/MAPS-ITALY.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/maps-italia-logo.png",
+      "label": "logos/maps-italia-logo.png",
+      "bytes": 299388
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/05/Microdosing-Institute-blue-1024x485.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/microdosing-institute-logo.png",
+      "label": "logos/microdosing-institute-logo.png",
+      "bytes": 66794
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/12/mulabs.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/mu-labs-logo.jpg",
+      "label": "logos/mu-labs-logo.jpg",
+      "bytes": 14732
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/05/mybrainmychoice_Schriftzug-1.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/mybrainmychoice-logo.png",
+      "label": "logos/mybrainmychoice-logo.png",
+      "bytes": 9675
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/07/NPV.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/natverket-for-psykedelisk-vetenskap-logo.png",
+      "label": "logos/natverket-for-psykedelisk-vetenskap-logo.png",
+      "bytes": 129313
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/05/NepPsy.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/nepopularna-psihologija-logo.png",
+      "label": "logos/nepopularna-psihologija-logo.png",
+      "bytes": 7528
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/04/original-D842B6C4-347B-4505-A89A-5FC79F502EE7.jpeg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/nucafe-institute-logo.jpeg",
+      "label": "logos/nucafe-institute-logo.jpeg",
+      "bytes": 30295
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/02/Okultura.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/okultura-logo.png",
+      "label": "logos/okultura-logo.png",
+      "bytes": 2652
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/05/PAREA-1024x368.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/parea-logo.png",
+      "label": "logos/parea-logo.png",
+      "bytes": 57227
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/12/Polish-psychedelic-society.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/polish-psychedelic-society-logo.png",
+      "label": "logos/polish-psychedelic-society-logo.png",
+      "bytes": 99060
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/05/psychedelia-stiftung.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/psychedelia-stiftung-logo.png",
+      "label": "logos/psychedelia-stiftung-logo.png",
+      "bytes": 22028
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/10/PROZ.svg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/psychedelic-research-organization-of-zurich-proz-logo.svg",
+      "label": "logos/psychedelic-research-organization-of-zurich-proz-logo.svg",
+      "bytes": 98007
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/08/psbe.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/psychedelic-society-belgium-psbe-logo.jpg",
+      "label": "logos/psychedelic-society-belgium-psbe-logo.jpg",
+      "bytes": 86951
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/07/psychedelics-europe.webp",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/psychedelics-europe-logo.webp",
+      "label": "logos/psychedelics-europe-logo.webp",
+      "bytes": 42648
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/04/psyca.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/psychedelics-for-climate-action-psyca-logo.jpg",
+      "label": "logos/psychedelics-for-climate-action-psyca-logo.jpg",
+      "bytes": 151831
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/03/Psychedelics-Integration-Wordmark.svg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/psychedelics-integration-logo.svg",
+      "label": "logos/psychedelics-integration-logo.svg",
+      "bytes": 20946
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/03/logo_v2.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/psychedelika-summit-2025-logo.jpg",
+      "label": "logos/psychedelika-summit-2025-logo.jpg",
+      "bytes": 21565
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/11/PIUK-Logo-Vertical--1024x748.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/psyinduk-logo.png",
+      "label": "logos/psyinduk-logo.png",
+      "bytes": 53664
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/12/psySamfung.jpeg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/psykedelisk-samfund-logo.jpeg",
+      "label": "logos/psykedelisk-samfund-logo.jpeg",
+      "bytes": 21399
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/01/Sallskapet.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/psykedeliska-sallskapet-logo.jpg",
+      "label": "logos/psykedeliska-sallskapet-logo.jpg",
+      "bytes": 110821
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/08/logo-2019.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/rabbit-hole-logo.jpg",
+      "label": "logos/rabbit-hole-logo.jpg",
+      "bytes": 12294
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/05/Safe-Journey.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/safe-journey-logo.png",
+      "label": "logos/safe-journey-logo.png",
+      "bytes": 2658
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/07/Science4DemLogo.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/science-for-democracy-logo.jpg",
+      "label": "logos/science-for-democracy-logo.jpg",
+      "bytes": 230310
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/09/TAIP-Foundation.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/taip-foundation-logo.png",
+      "label": "logos/taip-foundation-logo.png",
+      "bytes": 74732
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/03/terapiapsychodelicznainfo-logo-black-green.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/terapia-psychodeliczna-logo.png",
+      "label": "logos/terapia-psychodeliczna-logo.png",
+      "bytes": 48519
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/08/VisitenkarteALPS-5.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/the-alps-foundation-logo.png",
+      "label": "logos/the-alps-foundation-logo.png",
+      "bytes": 109383
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/06/Greek-psychedelic-society.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/the-greek-psychedelic-society-logo.png",
+      "label": "logos/the-greek-psychedelic-society-logo.png",
+      "bytes": 521340
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/08/Simepsi.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/the-italian-society-for-psychedelic-medicine-simepsi-logo.png",
+      "label": "logos/the-italian-society-for-psychedelic-medicine-simepsi-logo.png",
+      "bytes": 4844
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/08/Health-club.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/the-new-health-club-show-logo.png",
+      "label": "logos/the-new-health-club-show-logo.png",
+      "bytes": 136895
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2026/01/OPIS-logo-FINAL-medium-300-dpi.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/the-organisation-for-the-prevention-of-intense-suffering-opis-logo.jpg",
+      "label": "logos/the-organisation-for-the-prevention-of-intense-suffering-opis-logo.jpg",
+      "bytes": 126782
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2026/03/PSNG-Logo-transparent-1024x951.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/the-psychedelic-student-network-germany-psng-logo.png",
+      "label": "logos/the-psychedelic-student-network-germany-psng-logo.png",
+      "bytes": 1004796
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/02/RRF.jpeg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/the-rights-reporter-foundation-rrf-logo.jpeg",
+      "label": "logos/the-rights-reporter-foundation-rrf-logo.jpeg",
+      "bytes": 12413
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/08/Sempsi.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/logos/the-sociedad-espanola-de-medicina-psicodelica-sempsi-logo.png",
+      "label": "logos/the-sociedad-espanola-de-medicina-psicodelica-sempsi-logo.png",
+      "bytes": 13315
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/02/Alek.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/people/alek-wlezien.jpg",
+      "label": "people/alek-wlezien.jpg",
+      "bytes": 402575
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/02/Alexis-2.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/people/alexis-arragon.jpg",
+      "label": "people/alexis-arragon.jpg",
+      "bytes": 128299
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/09/Ala.jpeg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/people/alicja-rudnicka.jpeg",
+      "label": "people/alicja-rudnicka.jpeg",
+      "bytes": 148065
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/08/Anja.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/people/anja-cehnar.jpg",
+      "label": "people/anja-cehnar.jpg",
+      "bytes": 158737
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/02/Annarita.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/people/annarita-eva.jpg",
+      "label": "people/annarita-eva.jpg",
+      "bytes": 181489
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/08/Annika.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/people/annika-sillaots.jpg",
+      "label": "people/annika-sillaots.jpg",
+      "bytes": 458998
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/04/Annina.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/people/annina-springer.jpg",
+      "label": "people/annina-springer.jpg",
+      "bytes": 118927
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/04/audr.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/people/audra-micallef.png",
+      "label": "people/audra-micallef.png",
+      "bytes": 602594
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/06/Barbara.jpeg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/people/barbara-messias.jpeg",
+      "label": "people/barbara-messias.jpeg",
+      "bytes": 116845
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/03/Bertram.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/people/bertram-groinig.jpg",
+      "label": "people/bertram-groinig.jpg",
+      "bytes": 49853
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/02/Bradley.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/people/bradley-c-royes.jpg",
+      "label": "people/bradley-c-royes.jpg",
+      "bytes": 168370
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/05/Brid.jpeg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/people/brid-ni-fhoighil.jpeg",
+      "label": "people/brid-ni-fhoighil.jpeg",
+      "bytes": 265398
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/02/Carlotta.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/people/carlotta-inferrera.jpg",
+      "label": "people/carlotta-inferrera.jpg",
+      "bytes": 106145
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/10/Ciara-Profile-Pic.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/people/ciara-reynolds.jpg",
+      "label": "people/ciara-reynolds.jpg",
+      "bytes": 92491
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/04/Dr-Costin-Militaru-Romania-e1745837740812.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/people/costin-militaru.png",
+      "label": "people/costin-militaru.png",
+      "bytes": 597850
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/10/0.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/people/cristina-rex.jpg",
+      "label": "people/cristina-rex.jpg",
+      "bytes": 19223
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/12/Elisabet.jpeg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/people/elisabet-dominguez-clave.jpeg",
+      "label": "people/elisabet-dominguez-clave.jpeg",
+      "bytes": 249053
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/02/Elisabetta-1.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/people/elisabetta-fato.jpg",
+      "label": "people/elisabetta-fato.jpg",
+      "bytes": 166857
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/02/Avy.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/people/flavio-avy-candeli.jpg",
+      "label": "people/flavio-avy-candeli.jpg",
+      "bytes": 97597
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/11/Herminio.jpeg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/people/herminio-silva.jpeg",
+      "label": "people/herminio-silva.jpeg",
+      "bytes": 122478
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/04/1719077353278.jpeg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/people/kasia-kopanska.jpeg",
+      "label": "people/kasia-kopanska.jpeg",
+      "bytes": 10779
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/11/Kelly-1.jpeg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/people/kelly-veneti.jpeg",
+      "label": "people/kelly-veneti.jpeg",
+      "bytes": 350982
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/05/Lilas-1.jpeg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/people/lilas-knudsen.jpeg",
+      "label": "people/lilas-knudsen.jpeg",
+      "bytes": 539127
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/02/Luize.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/people/luize-anna-bankovica.jpg",
+      "label": "people/luize-anna-bankovica.jpg",
+      "bytes": 89512
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/02/Mario.jpeg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/people/mario-zulic.jpeg",
+      "label": "people/mario-zulic.jpeg",
+      "bytes": 111187
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/03/Michelle.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/people/michelle-kronquist.jpg",
+      "label": "people/michelle-kronquist.jpg",
+      "bytes": 127655
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/02/Raj.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/people/raj-johal.jpg",
+      "label": "people/raj-johal.jpg",
+      "bytes": 139212
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/04/Raphael.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/people/raphael-comte.jpg",
+      "label": "people/raphael-comte.jpg",
+      "bytes": 73399
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/02/Theo-3.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/people/theo-giubilei.jpg",
+      "label": "people/theo-giubilei.jpg",
+      "bytes": 153244
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/05/Veronica.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/people/veronica-toumanova.jpg",
+      "label": "people/veronica-toumanova.jpg",
+      "bytes": 159432
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/06/design_tshirt_LSD.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/photos/design-tshirt-lsd.png",
+      "label": "photos/design-tshirt-lsd.png",
+      "bytes": 407988
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/06/design_tshirt_MDMA_white.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/photos/design-tshirt-mdma-white.png",
+      "label": "photos/design-tshirt-mdma-white.png",
+      "bytes": 185694
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/06/design_tshirt_PSILOCYBIN_white.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/photos/design-tshirt-psilocybin-white.png",
+      "label": "photos/design-tshirt-psilocybin-white.png",
+      "bytes": 275634
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/08/DMT-267x400-1.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/photos/dmt.jpg",
+      "label": "photos/dmt.jpg",
+      "bytes": 47712
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/06/dmt.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/photos/dmt.png",
+      "label": "photos/dmt.png",
+      "bytes": 6495
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/06/doors.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/photos/doors.jpg",
+      "label": "photos/doors.jpg",
+      "bytes": 96587
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/09/druido-ammaccato-con-manici-scaled.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/photos/druido-ammaccato-con-manici.jpg",
+      "label": "photos/druido-ammaccato-con-manici.jpg",
+      "bytes": 343440
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/06/foodgods.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/photos/foodgods.jpg",
+      "label": "photos/foodgods.jpg",
+      "bytes": 48906
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/06/fungi.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/photos/fungi.jpg",
+      "label": "photos/fungi.jpg",
+      "bytes": 14053
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/06/guide.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/photos/guide.jpg",
+      "label": "photos/guide.jpg",
+      "bytes": 50030
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/09/Hacker-Pschorr_Oktoberfest_Girl_Remix.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/photos/hacker-pschorr-oktoberfest-girl-remix.jpg",
+      "label": "photos/hacker-pschorr-oktoberfest-girl-remix.jpg",
+      "bytes": 1167632
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/06/hamilton.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/photos/hamilton.jpg",
+      "label": "photos/hamilton.jpg",
+      "bytes": 24282
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/02/new-scaled.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/photos/home-care-together-hero.jpg",
+      "label": "photos/home-care-together-hero.jpg",
+      "bytes": 523037
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/06/howtochangeyourmind-docu.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/photos/howtochangeyourmind-docu.jpg",
+      "label": "photos/howtochangeyourmind-docu.jpg",
+      "bytes": 18490
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/06/howtochangeyourmind.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/photos/howtochangeyourmind.jpg",
+      "label": "photos/howtochangeyourmind.jpg",
+      "bytes": 14822
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/05/howtochangeyourmind.webp",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/photos/howtochangeyourmind.webp",
+      "label": "photos/howtochangeyourmind.webp",
+      "bytes": 121156
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/05/itunesanu.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/photos/itunesanu.jpg",
+      "label": "photos/itunesanu.jpg",
+      "bytes": 453304
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/06/ketamine-1.png",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/photos/ketamine.png",
+      "label": "photos/ketamine.png",
+      "bytes": 7095
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/06/lastshaman.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/photos/lastshaman.jpg",
+      "label": "photos/lastshaman.jpg",
+      "bytes": 22547
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/06/lsd.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/photos/lsd.jpg",
+      "label": "photos/lsd.jpg",
+      "bytes": 49736
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/06/magicmedicine.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/photos/magicmedicine.jpg",
+      "label": "photos/magicmedicine.jpg",
+      "bytes": 23386
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/09/Psilocybe_semilanceata_1_50544627398-1024x683-1.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/photos/psilocybe-semilanceata-1.jpg",
+      "label": "photos/psilocybe-semilanceata-1.jpg",
+      "bytes": 144509
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/06/PsyMedicine.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/photos/psymedicine.jpg",
+      "label": "photos/psymedicine.jpg",
+      "bytes": 58429
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2025/08/serpent.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/photos/serpent.jpg",
+      "label": "photos/serpent.jpg",
+      "bytes": 40347
+    },
+    {
+      "status": "downloaded",
+      "sourceUrl": "https://psychedelicare.eu/wp-content/uploads/2024/06/trial.jpg",
+      "destinationPath": "/Users/raphaelsaunier/code/PsychedeliCare.eu/psychedelicare.eu/public/assets/photos/trial.jpg",
+      "label": "photos/trial.jpg",
+      "bytes": 25578
+    }
+  ]
+}

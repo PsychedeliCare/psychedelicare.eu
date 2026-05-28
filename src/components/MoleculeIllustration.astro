@@ -1,0 +1,51 @@
+---
+type Props = {
+  src: string;
+  alt: string;
+};
+
+const { src, alt } = Astro.props;
+---
+
+<figure class="molecule-illustration">
+  <div class="molecule-illustration__frame">
+    <img src={src} alt={alt} loading="lazy" decoding="async" />
+  </div>
+</figure>
+
+<style>
+  .molecule-illustration {
+    margin: 0 0 1rem;
+    max-width: none;
+  }
+
+  .molecule-illustration__frame {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: min(100%, 11.5rem);
+    aspect-ratio: 1;
+    padding: 1rem;
+    border-radius: 1rem;
+    background:
+      radial-gradient(circle at 20% 15%, rgba(97, 184, 238, 0.28), transparent 55%),
+      radial-gradient(circle at 85% 80%, rgba(191, 29, 209, 0.22), transparent 50%),
+      linear-gradient(145deg, #1a0f5c 0%, #2a1490 52%, #391ebe 100%);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .molecule-illustration__frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  @media (min-width: 720px) {
+    .molecule-illustration {
+      float: left;
+      clear: left;
+      margin: 0.15rem 1.35rem 0.75rem 0;
+    }
+  }
+</style>
