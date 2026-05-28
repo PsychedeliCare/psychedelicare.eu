@@ -1,4 +1,10 @@
 ---
+import facebookIcon from "@tabler/icons/outline/brand-facebook.svg?raw";
+import instagramIcon from "@tabler/icons/outline/brand-instagram.svg?raw";
+import linkedInIcon from "@tabler/icons/outline/brand-linkedin.svg?raw";
+import xIcon from "@tabler/icons/outline/brand-x.svg?raw";
+import youtubeIcon from "@tabler/icons/outline/brand-youtube.svg?raw";
+
 type Card = {
   title: string;
   description?: string;
@@ -11,17 +17,31 @@ type Props = {
 };
 
 const { cards } = Astro.props;
+
+const socialIcons: Record<string, string> = {
+  facebook: facebookIcon,
+  instagram: instagramIcon,
+  linkedin: linkedInIcon,
+  x: xIcon,
+  youtube: youtubeIcon,
+};
+
+const getSocialIcon = (title: string) => socialIcons[title.toLowerCase()] ?? null;
 ---
 
 <div class="card-grid">
   {
     cards.map((card) => {
       const Tag = card.href ? "a" : "div";
+      const socialIcon = getSocialIcon(card.title);
 
       return (
         <Tag class:list={["card", card.href && "card--link"]} href={card.href}>
           {card.meta && <p class="card__meta">{card.meta}</p>}
-          <h3>{card.title}</h3>
+          <h3 class:list={[socialIcon && "card__title--with-icon"]}>
+            {socialIcon && <span class="card__icon" set:html={socialIcon} aria-hidden="true" />}
+            <span>{card.title}</span>
+          </h3>
           {card.description && <p>{card.description}</p>}
         </Tag>
       );
@@ -74,6 +94,24 @@ const { cards } = Astro.props;
   .card h3 {
     font-size: clamp(1.4rem, 2vw, 1.9rem);
     color: var(--text);
+  }
+
+  .card__title--with-icon {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+  }
+
+  .card__icon {
+    display: inline-flex;
+    flex: 0 0 auto;
+    color: var(--purple);
+  }
+
+  .card__icon :global(svg) {
+    width: 1.15em;
+    height: 1.15em;
+    stroke-width: 1.8;
   }
 
   .card p {

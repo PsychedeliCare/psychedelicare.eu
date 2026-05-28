@@ -23,3 +23,7 @@ This is an [Astro](https://astro.build) site deployed to **Cloudflare Workers** 
 Pages live in `src/pages/` using Astro's file-based routing. Worker types (from `wrangler types`) are output to `worker-configuration.d.ts` and included in `tsconfig.json`.
 
 Deployment targets Cloudflare Workers with observability enabled. The `wrangler.jsonc` `name` field must be alphanumeric lowercase with dashes only.
+
+## Design
+
+Refer to @DESIGN.md

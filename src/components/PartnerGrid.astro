@@ -2,6 +2,7 @@
 type Partner = {
   name: string;
   url: string;
+  logo?: string;
   description?: string;
 };
 
@@ -11,22 +12,109 @@ type Props = {
 };
 
 const { title = "Partners", partners } = Astro.props;
+
+const logoFiles = [
+  "approches-transpersonnelles-logo.avif",
+  "aspire-logo.png",
+  "associazione-luca-coscioni-per-la-liberta-di-ricerca-scientifica-logo.jpeg",
+  "blossom-analysis-logo.png",
+  "center-of-psychedelic-awareness-denmark-logo.svg",
+  "clusterfree-logo.png",
+  "czech-psychedelic-society-logo.png",
+  "daath-logo.png",
+  "decriminalize-nature-france-logo.jpeg",
+  "eumans-logo.jpeg",
+  "french-psychedelic-society-logo.png",
+  "generation-act-logo.png",
+  "global-psychedelic-society-logo.webp",
+  "holomind-psychedelic-therapy-institute-logo.png",
+  "illuminismo-psichedelico-logo.png",
+  "inawe-logo.png",
+  "ingress-logo.jpeg",
+  "international-center-for-ethnobotanical-education-research-and-service-iceers-logo.png",
+  "irish-doctors-for-psychedelic-assisted-therapy-logo.png",
+  "jes-bundesverband-logo.png",
+  "katabasis-logo.webp",
+  "kosmicare-logo.png",
+  "kykeon-analytics-logo.png",
+  "maps-italia-logo.png",
+  "microdosing-institute-logo.png",
+  "mu-labs-logo.jpg",
+  "mybrainmychoice-logo.png",
+  "natverket-for-psykedelisk-vetenskap-logo.png",
+  "nepopularna-psihologija-logo.png",
+  "nucafe-institute-logo.jpeg",
+  "okultura-logo.png",
+  "parea-logo.png",
+  "polish-psychedelic-society-logo.png",
+  "psychedelia-stiftung-logo.png",
+  "psychedelic-research-organization-of-zurich-proz-logo.svg",
+  "psychedelic-society-belgium-psbe-logo.jpg",
+  "psychedelics-europe-logo.webp",
+  "psychedelics-for-climate-action-psyca-logo.jpg",
+  "psychedelics-integration-logo.svg",
+  "psychedelika-summit-2025-logo.jpg",
+  "psyinduk-logo.png",
+  "psykedelisk-samfund-logo.jpeg",
+  "psykedeliska-sallskapet-logo.jpg",
+  "rabbit-hole-logo.jpg",
+  "safe-journey-logo.png",
+  "science-for-democracy-logo.jpg",
+  "taip-foundation-logo.png",
+  "terapia-psychodeliczna-logo.png",
+  "the-alps-foundation-logo.png",
+  "the-greek-psychedelic-society-logo.png",
+  "the-italian-society-for-psychedelic-medicine-simepsi-logo.png",
+  "the-new-health-club-show-logo.png",
+  "the-organisation-for-the-prevention-of-intense-suffering-opis-logo.jpg",
+  "the-psychedelic-student-network-germany-psng-logo.png",
+  "the-rights-reporter-foundation-rrf-logo.jpeg",
+  "the-sociedad-espanola-de-medicina-psicodelica-sempsi-logo.png",
+];
+
+const slugifyPartnerName = (name: string) =>
+  name
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/&/g, " and ")
+    .replace(/#/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+
+const getPartnerLogo = (partner: Partner) => {
+  if (partner.logo) {
+    return partner.logo;
+  }
+
+  const logoSlug = slugifyPartnerName(partner.name);
+  const logoFile = logoFiles.find((file) => file.startsWith(`${logoSlug}-logo.`));
+
+  return logoFile ? `/assets/logos/${logoFile}` : null;
+};
 ---
 
 <section class="partner-grid">
   <h2>{title}</h2>
   <div class="partner-grid__list">
     {
-      partners.map((partner) => (
-        <article class="partner-grid__card">
-          <h3>
-            <a href={partner.url} target="_blank" rel="noreferrer">
-              {partner.name}
+      partners.map((partner) => {
+        const logo = getPartnerLogo(partner);
+
+        return (
+          <article class="partner-grid__card">
+            <a class="partner-grid__logo-link" href={partner.url} target="_blank" rel="noreferrer">
+              {logo && (
+                <span class="partner-grid__logo">
+                  <img src={logo} alt="" loading="lazy" decoding="async" />
+                </span>
+              )}
+              <h3>{partner.name}</h3>
             </a>
-          </h3>
-          {partner.description && <p>{partner.description}</p>}
-        </article>
-      ))
+            {partner.description && <p>{partner.description}</p>}
+          </article>
+        );
+      })
     }
   </div>
 </section>
@@ -45,12 +133,15 @@ const { title = "Partners", partners } = Astro.props;
   }
 
   .partner-grid__card {
+    display: grid;
+    align-content: start;
+    gap: 0.85rem;
     padding: 0 0 1rem;
     border-bottom: 1px solid var(--border);
   }
 
   .partner-grid__card h3 {
-    margin: 0 0 0.7rem;
+    margin: 0;
     font-size: 1.25rem;
   }
 
@@ -59,13 +150,31 @@ const { title = "Partners", partners } = Astro.props;
     color: var(--muted);
   }
 
-  .partner-grid__card a {
+  .partner-grid__logo-link {
+    display: grid;
+    gap: 0.85rem;
     text-decoration: none;
     color: var(--text);
   }
 
-  .partner-grid__card a:hover,
-  .partner-grid__card a:focus-visible {
+  .partner-grid__logo {
+    display: grid;
+    place-items: center start;
+    width: 100%;
+    height: 5.25rem;
+  }
+
+  .partner-grid__logo img {
+    display: block;
+    width: auto;
+    max-width: min(100%, 11rem);
+    max-height: 4.5rem;
+    object-fit: contain;
+  }
+
+  .partner-grid__logo-link:hover,
+  .partner-grid__logo-link:focus-visible {
     color: var(--link);
+    outline: none;
   }
 </style>
