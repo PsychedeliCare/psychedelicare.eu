@@ -242,7 +242,7 @@ const getNavIcon = (icon?: string) => navIcons[icon ?? ""] ?? IconSparkles;
 
             <a class="button-primary" href={navigation.donateHref}>{uiCopy.support}</a>
 
-            <details class="mobile-menu" data-group="header-popover">
+            <details class="mobile-menu" data-group="header-popover" data-drawer-menu>
               <summary class="mobile-menu__toggle">
                 <span class="mobile-menu__icon" aria-hidden="true">
                   <span></span>
@@ -252,12 +252,24 @@ const getNavIcon = (icon?: string) => navIcons[icon ?? ""] ?? IconSparkles;
                 <span class="mobile-menu__label">{uiCopy.menu}</span>
               </summary>
 
-              <div class="mobile-menu__panel">
-                <a class="button-primary mobile-menu__cta" href={navigation.donateHref}>
-                  {uiCopy.support}
-                </a>
+              <div class="mobile-menu__backdrop" aria-hidden="true"></div>
 
-                <nav aria-label="Mobile primary">
+              <div
+                class="mobile-menu__panel"
+                role="dialog"
+                aria-modal="true"
+                aria-label={uiCopy.menu}
+              >
+                <div class="mobile-menu__header">
+                  <p class="mobile-menu__title">{uiCopy.menu}</p>
+                </div>
+
+                <div class="mobile-menu__content">
+                  <a class="button-primary mobile-menu__cta" href={navigation.donateHref}>
+                    {uiCopy.support}
+                  </a>
+
+                  <nav aria-label="Mobile primary">
                   <ul class="mobile-menu__sections">
                     {
                       navigation.primaryItems.map((item) => (
@@ -353,6 +365,7 @@ const getNavIcon = (icon?: string) => navIcons[icon ?? ""] ?? IconSparkles;
                     ))
                   }
                 </div>
+                </div>
               </div>
             </details>
           </div>
@@ -406,13 +419,23 @@ const getNavIcon = (icon?: string) => navIcons[icon ?? ""] ?? IconSparkles;
         const closingTimers = new WeakMap();
         const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
+        const isAnimatedDetail = (detail) =>
+          detail.classList.contains("nav-disclosure") ||
+          detail.classList.contains("mobile-menu");
+
+        const setMobileMenuOpen = (open) => {
+          document.body.classList.toggle("mobile-menu-open", open);
+        };
+
         const closeDetail = (detail, animated = false) => {
           if (!detail.open || detail.dataset.closing === "true") return;
 
           const shouldAnimate =
-            animated &&
-            !reduceMotionQuery.matches &&
-            detail.classList.contains("nav-disclosure");
+            animated && !reduceMotionQuery.matches && isAnimatedDetail(detail);
+
+          if (detail.classList.contains("mobile-menu")) {
+            setMobileMenuOpen(false);
+          }
 
           if (!shouldAnimate) {
             detail.open = false;
@@ -421,11 +444,12 @@ const getNavIcon = (icon?: string) => navIcons[icon ?? ""] ?? IconSparkles;
           }
 
           detail.dataset.closing = "true";
+          const closeDelay = detail.classList.contains("mobile-menu") ? 320 : 190;
           const timer = window.setTimeout(() => {
             detail.open = false;
             delete detail.dataset.closing;
             closingTimers.delete(detail);
-          }, 190);
+          }, closeDelay);
           closingTimers.set(detail, timer);
         };
 
@@ -441,9 +465,13 @@ const getNavIcon = (icon?: string) => navIcons[icon ?? ""] ?? IconSparkles;
           if (group) {
             document.querySelectorAll(`details[data-group="${group}"]`).forEach((other) => {
               if (other instanceof HTMLDetailsElement && other !== detail) {
-                closeDetail(other, other.classList.contains("nav-disclosure"));
+                closeDetail(other, isAnimatedDetail(other));
               }
             });
+          }
+
+          if (detail.classList.contains("mobile-menu")) {
+            setMobileMenuOpen(true);
           }
 
           detail.open = true;
@@ -502,8 +530,36 @@ const getNavIcon = (icon?: string) => navIcons[icon ?? ""] ?? IconSparkles;
 
           document.querySelectorAll(`details[data-group="${group}"]`).forEach((detail) => {
             if (detail instanceof HTMLDetailsElement && detail !== target) {
-              closeDetail(detail, detail.classList.contains("nav-disclosure"));
+              closeDetail(detail, isAnimatedDetail(detail));
             }
+          });
+        });
+
+        document.querySelectorAll("details[data-drawer-menu]").forEach((menu) => {
+          if (!(menu instanceof HTMLDetailsElement)) return;
+
+          const summary = menu.querySelector("summary");
+          const backdrop = menu.querySelector(".mobile-menu__backdrop");
+          if (!summary) return;
+
+          summary.addEventListener("click", (event) => {
+            event.preventDefault();
+            if (menu.open && menu.dataset.closing !== "true") {
+              closeDetail(menu, true);
+            } else {
+              openDetail(menu);
+            }
+          });
+
+          backdrop?.addEventListener("click", () => {
+            closeDetail(menu, true);
+            summary.focus();
+          });
+
+          menu.addEventListener("keydown", (event) => {
+            if (event.key !== "Escape") return;
+            closeDetail(menu, true);
+            summary.focus();
           });
         });
 
@@ -513,7 +569,7 @@ const getNavIcon = (icon?: string) => navIcons[icon ?? ""] ?? IconSparkles;
               detail instanceof HTMLDetailsElement &&
               !detail.contains(event.target)
             ) {
-              closeDetail(detail, detail.classList.contains("nav-disclosure"));
+              closeDetail(detail, isAnimatedDetail(detail));
             }
           });
         });
