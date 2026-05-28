@@ -1,0 +1,36 @@
+---
+type Props = {
+  items?: string[];
+  panel?: "left" | "right" | false;
+  class?: string;
+};
+
+const { items, panel = items ? "right" : false, class: className } = Astro.props;
+const hasItems = Boolean(items?.length);
+const midpoint = hasItems ? Math.ceil(items!.length / 2) : 0;
+const leftColumn = hasItems ? items!.slice(0, midpoint) : [];
+const rightColumn = hasItems ? items!.slice(midpoint) : [];
+---
+
+<div class:list={["two-columns", className]}>
+  <div class:list={["two-columns__col", panel === "left" && "two-columns__col--panel"]}>
+    {
+      hasItems ? (
+        leftColumn.map((text, index) => (
+          <p class:list={["two-columns__text", index === 0 && "font-black"]}>{text}</p>
+        ))
+      ) : (
+        <slot />
+      )
+    }
+  </div>
+  <div class:list={["two-columns__col", panel === "right" && "two-columns__col--panel"]}>
+    {
+      hasItems ? (
+        rightColumn.map((text) => <p class="two-columns__text">{text}</p>)
+      ) : (
+        <slot name="right" />
+      )
+    }
+  </div>
+</div>

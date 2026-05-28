@@ -1,0 +1,54 @@
+---
+type Pillar = {
+  title: string;
+  description: string;
+};
+
+type Props = {
+  intro?: string;
+  pillars: Pillar[];
+};
+
+const { intro, pillars } = Astro.props;
+
+const topRow = pillars.slice(0, 3);
+const bottomRow = pillars.slice(3, 5);
+---
+
+<section class="pillar-grid my-10">
+  {intro && <p class="pillar-grid__intro m-0 mb-6 max-w-[62ch]">{intro}</p>}
+
+  <div class="pillar-grid__rows grid gap-5">
+    <div class="grid gap-5 md:grid-cols-3">
+      {
+        topRow.map((pillar, index) => (
+          <article class="pillar-grid__item flex min-h-[11rem] flex-col items-start rounded-3xl border border-border bg-bg-soft p-[clamp(1.2rem,2vw,1.6rem)] text-left">
+            <span class="pillar-grid__number" aria-hidden="true">
+              {index + 1}
+            </span>
+            <h3 class="m-0 text-[clamp(1.35rem,2vw,1.75rem)]">{pillar.title}</h3>
+            <p class="m-0 mt-3 text-muted">{pillar.description}</p>
+          </article>
+        ))
+      }
+    </div>
+
+    {
+      bottomRow.length > 0 && (
+        <div class="grid gap-5 md:grid-cols-2 md:mx-auto md:w-2/3">
+          {
+            bottomRow.map((pillar, index) => (
+              <article class="pillar-grid__item flex min-h-[11rem] flex-col items-start rounded-3xl border border-border bg-bg-soft p-[clamp(1.2rem,2vw,1.6rem)] text-left">
+                <span class="pillar-grid__number" aria-hidden="true">
+                  {topRow.length + index + 1}
+                </span>
+                <h3 class="m-0 text-[clamp(1.35rem,2vw,1.75rem)]">{pillar.title}</h3>
+                <p class="m-0 mt-3 text-muted">{pillar.description}</p>
+              </article>
+            ))
+          }
+        </div>
+      )
+    }
+  </div>
+</section>

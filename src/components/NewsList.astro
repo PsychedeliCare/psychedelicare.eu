@@ -11,12 +11,15 @@ const { entries } = Astro.props;
 
 {
   entries.length > 0 && (
-    <ul class="news-list">
+    <ul class="news-list grid gap-4 list-none p-0 m-0">
       {entries.map((entry) => (
-        <li class="news-card">
-          <p class="news-card__meta">
+        <li class="pb-[1.2rem] border-b border-border">
+          <p class="flex flex-wrap gap-[0.8rem] m-0 mb-[0.8rem] text-[0.92rem] font-semibold text-muted">
             {entry.data.publishedAt && (
-              <time datetime={entry.data.publishedAt}>
+              <time
+                class="inline-flex items-center py-[0.15rem] px-[0.55rem] rounded-full bg-[rgba(68,179,235,0.08)]"
+                datetime={entry.data.publishedAt}
+              >
                 {new Date(entry.data.publishedAt).toLocaleDateString(entry.data.locale, {
                   year: "numeric",
                   month: "long",
@@ -24,68 +27,25 @@ const { entries } = Astro.props;
                 })}
               </time>
             )}
-            {entry.data.category && <span>{entry.data.category}</span>}
+            {entry.data.category && (
+              <span class="inline-flex items-center py-[0.15rem] px-[0.55rem] rounded-full bg-[rgba(68,179,235,0.08)]">
+                {entry.data.category}
+              </span>
+            )}
           </p>
-          <h3>
-            <a href={localizePath(entry.data.locale, entry.data.slug)}>{entry.data.title}</a>
+          <h3 class="m-0 text-[clamp(1.5rem,2vw,1.9rem)]">
+            <a
+              class="no-underline text-text hover:text-link focus-visible:text-link"
+              href={localizePath(entry.data.locale, entry.data.slug)}
+            >
+              {entry.data.title}
+            </a>
           </h3>
-          {entry.data.teaser && <p>{entry.data.teaser}</p>}
+          {entry.data.teaser && (
+            <p class="mt-[0.8rem] mb-0 text-muted">{entry.data.teaser}</p>
+          )}
         </li>
       ))}
     </ul>
   )
 }
-
-<style>
-  .news-list {
-    display: grid;
-    gap: 1rem;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .news-card {
-    padding: 0 0 1.2rem;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .news-card__meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-    margin: 0 0 0.8rem;
-    font-size: 0.92rem;
-    font-weight: 600;
-    color: var(--muted);
-  }
-
-  .news-card__meta span,
-  .news-card__meta time {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.15rem 0.55rem;
-    border-radius: 999px;
-    background: rgba(68, 179, 235, 0.08);
-  }
-
-  .news-card h3 {
-    margin: 0;
-    font-size: clamp(1.5rem, 2vw, 1.9rem);
-  }
-
-  .news-card p:last-child {
-    margin: 0.8rem 0 0;
-    color: var(--muted);
-  }
-
-  .news-card a {
-    text-decoration: none;
-    color: var(--text);
-  }
-
-  .news-card a:hover,
-  .news-card a:focus-visible {
-    color: var(--link);
-  }
- </style>

@@ -1,0 +1,80 @@
+---
+type Props = {
+  emailLabel?: string;
+  consentLabel?: string;
+  submitLabel?: string;
+  successMessage?: string;
+  privacyHref?: string;
+};
+
+const {
+  emailLabel = "Email address",
+  consentLabel = "I agree to receive the PsychedeliCare nEUsletter and understand I can unsubscribe at any time.",
+  submitLabel = "Subscribe",
+  successMessage = "Thank you.",
+  privacyHref = "/privacy-policy",
+} = Astro.props;
+---
+
+<form class="newsletter-form" novalidate>
+  <div class="newsletter-form__fields">
+    <label class="newsletter-form__field">
+      <span class="newsletter-form__label">{emailLabel}</span>
+      <input
+        class="newsletter-form__input"
+        type="email"
+        name="email"
+        autocomplete="email"
+        required
+      />
+    </label>
+
+    <label class="newsletter-form__consent">
+      <input
+        class="newsletter-form__checkbox"
+        type="checkbox"
+        name="consent"
+        required
+      />
+      <span>
+        {consentLabel}{" "}
+        <a href={privacyHref}>Privacy Policy</a>
+      </span>
+    </label>
+  </div>
+
+  <button class="gradient-button newsletter-form__submit" type="submit">
+    {submitLabel}
+  </button>
+
+  <p class="newsletter-form__feedback" role="status" aria-live="polite" hidden>
+    {successMessage}
+  </p>
+</form>
+
+<script>
+  const forms = document.querySelectorAll<HTMLFormElement>(".newsletter-form");
+
+  forms.forEach((form) => {
+    const feedback = form.querySelector<HTMLParagraphElement>(
+      ".newsletter-form__feedback",
+    );
+    const fields = form.querySelector<HTMLElement>(".newsletter-form__fields");
+    const submitButton = form.querySelector<HTMLButtonElement>(
+      ".newsletter-form__submit",
+    );
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      fields?.setAttribute("hidden", "");
+      submitButton?.setAttribute("hidden", "");
+      feedback?.removeAttribute("hidden");
+    });
+  });
+</script>

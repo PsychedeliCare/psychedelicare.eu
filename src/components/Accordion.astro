@@ -13,66 +13,18 @@ const { items } = Astro.props;
 
 {
   items.length > 0 && (
-    <div class="accordion">
+    <div class="accordion grid gap-0">
       {items.map((item) => (
-        <details class="accordion__item">
-          <summary>{item.question}</summary>
-          <div class="accordion__content" set:html={item.answer} />
+        <details class="border-t border-border overflow-hidden last:border-b last:border-border">
+          <summary class="cursor-pointer flex items-center justify-between gap-4 py-[1.15rem] px-[1.2rem] font-bold list-none [&::-webkit-details-marker]:hidden after:content-['+'] after:shrink-0 after:text-[1.6rem] after:leading-none after:text-pink after:transition-transform after:duration-200 open:after:rotate-45">
+            {item.question}
+          </summary>
+          <div
+            class="px-[1.2rem] pb-[1.15rem] text-muted [&_p:first-child]:mt-0"
+            set:html={item.answer}
+          />
         </details>
       ))}
     </div>
   )
 }
-
-<style>
-  .accordion {
-    display: grid;
-    gap: 0;
-  }
-
-  .accordion__item {
-    border-top: 1px solid var(--border);
-    overflow: hidden;
-  }
-
-  .accordion__item:last-child {
-    border-bottom: 1px solid var(--border);
-  }
-
-  .accordion__item summary {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 1.15rem 1.2rem;
-    font-weight: 700;
-    list-style: none;
-  }
-
-  .accordion__item summary::after {
-    content: "+";
-    flex: none;
-    font-size: 1.6rem;
-    line-height: 1;
-    color: var(--pink);
-    transition: transform 200ms ease;
-  }
-
-  .accordion__item summary::-webkit-details-marker {
-    display: none;
-  }
-
-  .accordion__item[open] summary::after {
-    transform: rotate(45deg);
-  }
-
-  .accordion__content {
-    padding: 0 1.2rem 1.15rem;
-    color: var(--muted);
-  }
-
-  .accordion__content :global(p:first-child) {
-    margin-top: 0;
-  }
- </style>

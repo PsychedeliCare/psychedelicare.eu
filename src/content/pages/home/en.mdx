@@ -50,59 +50,228 @@ assetUrls:
   - /assets/icons/home-care-together-icon-1.svg
   - /assets/icons/home-care-together-icon-2.svg
   - /assets/icons/home-care-together-icon-3.svg
-  - /assets/photos/home-care-together-hero.jpg  - /assets/icons/home-care-together-icon-3.svg  - /assets/photos/home-care-together-hero.jpg
+  - /assets/photos/home-care-together-hero.jpg
+  - /assets/photos/team-photo-couvin.jpg
 ---
 
+import TwoColumns from "../../../components/TwoColumns.astro";
+import IconList from "../../../components/IconList.astro";
+import TeamMosaic from "../../../components/TeamMosaic.astro";
+import PillarGrid from "../../../components/PillarGrid.astro";
 import CardGrid from "../../../components/CardGrid.astro";
-import Callout from "../../../components/Callout.astro";
+import NewsletterForm from "../../../components/NewsletterForm.astro";
+import DocumentViewer from "../../../components/DocumentViewer.astro";
+import { coordinationBoardMembers } from "../../../data/coordinationBoard";
+import { nationalTeamCoordinators } from "../../../data/nationalTeamCoordinators";
 
 # Advancing Psychedelic Care Across Europe
 
 
 ## Why this matters
 
-Across the European Union, millions of people live with depression, anxiety, PTSD, burnout, insomnia, and addictions while current treatment options often fall short. Psychedelic-assisted therapies are showing promise in research, and Europe should not fall behind.
-
-
-## The three requests
-
-- **Creation of European standards** for safe and responsible psychedelic-assisted therapies.
-- **Increase of EU funding for research** so evidence can keep growing.
-- **A unified international stance** on the legal classification of psychedelics.
-
-[Read more about the ECI demands](https://citizens-initiative.europa.eu/initiatives/details/2024/000011_en)
+<TwoColumns
+  items={[
+    "Europe is facing a growing mental health crisis.",
+    "Millions of people struggle with depression, anxiety, and trauma, and many do not find relief in existing treatments.",
+    "Beyond the medical system, this crisis affects many across society—from people with unmet mental health needs to those experiencing chronic stress, disconnection, and a lack of meaning, forms of distress that often remain unaddressed. It also affects families and communities with limited access to care and information.",
+    "At the same time, stigma, lack of information, and outdated policies continue to limit open and informed conversations about new approaches to care.",
+    "A growing body of research suggests that psychedelics, when used in safe and supported contexts, may offer new possibilities for healing, insight, and wellbeing.",
+    "Yet today, existing frameworks remain shaped by outdated classifications rooted more in stigma than in current evidence.",
+    "As a result, a gap persists between science, society, and policy, leaving millions without access to promising treatments and safe, informed pathways for care.",
+  ]}
+/>
 
 
 ## Who we are
 
-PsychedeliCare brings together scientists, medical doctors, therapists, researchers, artists, policy experts, and grassroots organisers from across Europe.
+<TwoColumns class="two-columns--intro">
+  <div>
+    <p>We are a pan-European movement born from a simple belief: people deserve to be healthy.</p>
 
-[Meet the movement](/who-we-are)
+    <p>We are therapists and researchers, artists and caregivers, lawyers and teachers, families and friends—and we are grassroots by origin and by choice. We approach psychedelic care as a matter of human rights, collective wellbeing, and social responsibility, guided by our shared intention to place dignity, evidence, and humanity at the center of mental healing.</p>
 
-<Callout title="Support the initiative" body="Help us reach more people, organise events, and keep this pan-European campaign moving." href="/donate" label="Donate" tone="accent" />
+    <p>Our movement grows from lived experience, from people speaking openly about suffering and possibility. Through national groups and local initiatives, we are building a connected European community, united by a shared vision of safe, equitable, and culturally inclusive access to psychedelic care.</p>
+  </div>
 
-## Get involved
+  <figure slot="right" class="two-columns__figure">
+    <img
+      src="/assets/photos/team-photo-couvin.jpg"
+      alt="PsychedeliCare team members posing together outdoors at Couvin"
+      loading="lazy"
+      width="1024"
+      height="683"
+    />
+  </figure>
+</TwoColumns>
 
-Want to stay in touch or support your local team? Reach out and we will connect you with the right people and resources.
+<TwoColumns class="two-columns--teams">
+  <div>
+    <h3 id="coordination-board">Coordination Board</h3>
 
-[Join the association](/join-the-psychedelicare-association) · [Read about the team](/who-we-are) · [Get the activist pack](https://drive.google.com/drive/folders/1jouo8ccXUdB8OSpAsXyQYQU75hJ8VS-e?usp=drive_link)
+    <p>The Coordination Board supports the strategic direction and coherence of PsychedeliCare. It brings together individuals with diverse backgrounds and expertise, working collaboratively to guide decisions, ensure continuity, and support the organisation's development.</p>
 
+    <p>Rooted in our values, it reflects a shared and participatory approach to leadership, based on trust, dialogue, and collective responsibility.</p>
+
+    <p><a href="/who-we-are#coordination-board">Read more about our Coordination Board</a></p>
+  </div>
+
+  <div slot="right">
+    <h3 id="national-teams">National Teams</h3>
+
+    <p>We work with National Teams in many European countries to advocate for our vision through education, information, advocacy and events. Would you be interested in joining one of our National Teams in your own country?</p>
+
+    <p><a href="/who-we-are#national-teams">Learn more about who we are and which countries are already represented</a></p>
+  </div>
+</TwoColumns>
+
+<TwoColumns class="two-columns--team-mosaics">
+  <TeamMosaic people={coordinationBoardMembers} mosaicId="home-coordination-board" />
+
+  <TeamMosaic
+    slot="right"
+    people={nationalTeamCoordinators}
+    mosaicId="home-national-teams"
+    showCountryCode
+  />
+</TwoColumns>
+
+## Our Mission
+
+<TwoColumns>
+  <div>
+    <p>We create the conditions for people to access and explore psychedelic care safely, ethically, and with dignity.</p>
+
+    <p>We work to:</p>
+
+    <IconList
+      items={[
+        { icon: "understanding", text: "improve public understanding" },
+        { icon: "stigma", text: "reduce stigma" },
+        { icon: "safety", text: "support safe and responsible practices" },
+        { icon: "alignment", text: "align science, society, and policy" },
+      ]}
+    />
+
+    <p>We believe that people should be informed, represented, and actively involved in shaping the future of mental health care.</p>
+
+    <p><a href="/who-we-are#our-values">Read more about our values</a></p>
+  </div>
+
+  <figure slot="right" class="two-columns__figure two-columns__placeholder" aria-hidden="true">
+    <div class="two-columns__placeholder-box">
+      <span class="two-columns__placeholder-prompt">
+        Warm documentary photograph of diverse European advocates collaborating around a table with notebooks and a subtle PsychedeliCare gradient accent, natural daylight, hopeful and professional tone, 4:3 portrait crop.
+      </span>
+    </div>
+  </figure>
+</TwoColumns>
+
+## Our Five Pillars
+
+<PillarGrid
+  intro="Our work is structured around five areas:"
+  pillars={[
+    {
+      title: "Community",
+      description:
+        "We recognise that healing happens within relationships of mutual support and collective action.",
+    },
+    {
+      title: "Education",
+      description:
+        "We provide accessible, evidence-based information through events, storytelling, and public engagement.",
+    },
+    {
+      title: "Policy",
+      description:
+        "We help reframe psychedelics from a matter of criminal justice to one of public health and care.",
+    },
+    {
+      title: "Science & Research",
+      description:
+        "We believe that care, policy, and public understanding must be grounded in rigorous, transparent, and reproducible science.",
+    },
+    {
+      title: "Wellbeing",
+      description:
+        "We work to foster a society that normalises support, compassion, and help-seeking.",
+    },
+  ]}
+/>
+
+<div class="support-us-section">
+
+## Support us
+
+Would you like to support PsychedeliCare or become part of the movement?
+
+<CardGrid
+  cards={[
+    {
+      title: "Membership & support options",
+      description:
+        "Join the association, make a donation, or explore other ways to stand with the movement.",
+      href: "/join-the-psychedelicare-association",
+    },
+    {
+      title: "Open positions",
+      description:
+        "Interested in contributing your time and skills? Get in touch to hear about current opportunities.",
+      href: "mailto:info@psychedelicare.eu?subject=Open%20positions%20at%20PsychedeliCare",
+    },
+    {
+      title: "Financial & transparency reports",
+      description:
+        "Read our public reporting on finances, governance, and campaign outcomes.",
+      href: "/news/reports",
+    },
+  ]}
+/>
+
+<div class="button-group support-us-section__actions">
+  <a class="button-primary" href="/donate">Donate to the initiative</a>
+  <a class="button-secondary" href="/projects/impact-report">Impact report</a>
+</div>
+
+</div>
 
 <a id="subscribe-to-newsletter"></a>
 
-## Subscribe to Newsletter
+## Subscribe to our nEUsletter
 
-Stay informed about campaign updates, events, and ways to support PsychedeliCare.
+<TwoColumns class="two-columns--newsletter">
+  <div>
+    <h3>Stay informed</h3>
 
-[Subscribe by email](mailto:info@psychedelicare.eu?subject=Subscribe%20to%20PsychedeliCare%20newsletter)
+    <p>Subscribe to the nEUsletter to receive the latest information and ways to support the PsychedeliCare Initiative.</p>
+  </div>
+
+  <NewsletterForm slot="right" />
+</TwoColumns>
 
 
-## Follow us
+## Projects
 
-<CardGrid cards={[
-  { title: "Instagram", href: "https://www.instagram.com/psychedelicare.eu/" },
-  { title: "LinkedIn", href: "https://www.linkedin.com/company/psychedelicare" },
-  { title: "Facebook", href: "https://www.facebook.com/Psychedelicare.EU" },
-  { title: "X", href: "https://x.com/psychedelicareu?s=11" },
-  { title: "YouTube", href: "https://www.youtube.com/@PsychedeliCare" },
-]} />
+<TwoColumns>
+  <div>
+    <p>PsychedeliCare started as a European Citizen Initiative that ended in January 2026. The movement it gave rise to continues to grow to this day. What was the ECI and how did it start? Theo Giubilei, the original founder of the Initiative, describes it as follows:</p>
+
+    <blockquote>
+      <p>The European Citizens' Initiative was born from a simple question I had: why citizens living in Switzerland, only two hours away from my hometown – Strasbourg – could enjoy the benefits of scientific research through the legal access of psychedelic therapies, when French citizens could not? The need for better mental health treatments does not stop at borders.</p>
+      <p>So together with citizens sharing the same belief, we decided to roll up our sleeves and prepare and launch a campaign to get the European Union to take action. The goal was that every European citizen, should ever they need it, could have access to these innovative treatments.</p>
+    </blockquote>
+
+    <p>Would you like to learn more about the ECI and its results? Check out the <a href="https://drive.google.com/file/d/1fHCNn1nCucegiC6m-S-GxHREu3LW3tUU/view?usp=sharing">official ECI report</a>.</p>
+  </div>
+
+  <div slot="right">
+    <DocumentViewer
+      embedSrc="https://drive.google.com/file/d/1fHCNn1nCucegiC6m-S-GxHREu3LW3tUU/preview"
+      downloadHref="/assets/files/PsychedeliCare_Impact_Report.pdf"
+      downloadLabel="Download PsychedeliCare Impact Report (PDF)"
+      fallbackHref="https://drive.google.com/file/d/1fHCNn1nCucegiC6m-S-GxHREu3LW3tUU/view?usp=sharing"
+      fallbackLabel="Open official ECI report"
+      title="PsychedeliCare ECI report preview"
+    />
+  </div>
+</TwoColumns>

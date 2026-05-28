@@ -1,0 +1,47 @@
+---
+import facebookIcon from "@tabler/icons/outline/brand-facebook.svg?raw";
+import instagramIcon from "@tabler/icons/outline/brand-instagram.svg?raw";
+import linkedInIcon from "@tabler/icons/outline/brand-linkedin.svg?raw";
+import xIcon from "@tabler/icons/outline/brand-x.svg?raw";
+import youtubeIcon from "@tabler/icons/outline/brand-youtube.svg?raw";
+import { socialLinks } from "../data/socialLinks";
+
+type Props = {
+  class?: string;
+  showLabels?: boolean;
+};
+
+const { class: className, showLabels = true } = Astro.props;
+
+const icons: Record<string, string> = {
+  instagram: instagramIcon,
+  linkedin: linkedInIcon,
+  facebook: facebookIcon,
+  x: xIcon,
+  youtube: youtubeIcon,
+};
+
+const getIcon = (label: string) => icons[label.toLowerCase()] ?? null;
+---
+
+<nav class:list={["social-links", className]} aria-label="Social media">
+  {
+    socialLinks.map((link) => {
+      const icon = getIcon(link.label);
+      if (!icon) return null;
+
+      return (
+        <a
+          class="social-links__item"
+          href={link.href}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={link.label}
+        >
+          <span class="social-links__icon" set:html={icon} aria-hidden="true" />
+          {showLabels && <span class="social-links__label">{link.label}</span>}
+        </a>
+      );
+    })
+  }
+</nav>

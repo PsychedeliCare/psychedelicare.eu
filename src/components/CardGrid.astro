@@ -14,9 +14,10 @@ type Card = {
 
 type Props = {
   cards: Card[];
+  class?: string;
 };
 
-const { cards } = Astro.props;
+const { cards, class: className } = Astro.props;
 
 const socialIcons: Record<string, string> = {
   facebook: facebookIcon,
@@ -29,92 +30,45 @@ const socialIcons: Record<string, string> = {
 const getSocialIcon = (title: string) => socialIcons[title.toLowerCase()] ?? null;
 ---
 
-<div class="card-grid">
+<div
+  class:list={[
+    "card-grid grid grid-cols-[repeat(auto-fit,minmax(16rem,1fr))] gap-x-[1.4rem] gap-y-[1.25rem]",
+    className,
+  ]}
+>
   {
     cards.map((card) => {
       const Tag = card.href ? "a" : "div";
       const socialIcon = getSocialIcon(card.title);
 
       return (
-        <Tag class:list={["card", card.href && "card--link"]} href={card.href}>
-          {card.meta && <p class="card__meta">{card.meta}</p>}
-          <h3 class:list={[socialIcon && "card__title--with-icon"]}>
-            {socialIcon && <span class="card__icon" set:html={socialIcon} aria-hidden="true" />}
+        <Tag
+          class:list={[
+            "card-grid__item grid content-start gap-2 min-h-full py-3 no-underline text-inherit rounded-[0.85rem] transition-[transform,background-color] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)]",
+            card.href &&
+              "hover:bg-[rgba(68,179,235,0.06)] hover:outline-none hover:-translate-y-px focus-visible:bg-[rgba(68,179,235,0.06)] focus-visible:outline-none focus-visible:-translate-y-px",
+          ]}
+          href={card.href}
+        >
+          {card.meta && (
+            <p class="m-0 text-purple text-[0.82rem] font-bold uppercase tracking-[0.08em]">
+              {card.meta}
+            </p>
+          )}
+          <h3
+            class:list={[
+              "m-0 text-[clamp(1.4rem,2vw,1.9rem)] text-text",
+              socialIcon && "flex items-center gap-[0.65rem]",
+            ]}
+          >
+            {socialIcon && (
+              <span class="inline-flex shrink-0 text-purple [&_svg]:w-[1.15em] [&_svg]:h-[1.15em] [&_svg]:stroke-[1.8]" set:html={socialIcon} aria-hidden="true" />
+            )}
             <span>{card.title}</span>
           </h3>
-          {card.description && <p>{card.description}</p>}
+          {card.description && <p class="m-0 text-muted">{card.description}</p>}
         </Tag>
       );
     })
   }
 </div>
-
-<style>
-  .card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-    gap: 0.9rem 1.4rem;
-  }
-
-  .card {
-    display: grid;
-    align-content: start;
-    gap: 0.5rem;
-    min-height: 100%;
-    padding: 0 0 1rem;
-    border-bottom: 1px solid var(--border);
-    text-decoration: none;
-    color: inherit;
-    transition:
-      transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
-      border-color 220ms ease;
-  }
-
-  .card--link:hover,
-  .card--link:focus-visible {
-    border-color: rgba(215, 41, 242, 0.24);
-    outline: none;
-    transform: translateY(-1px);
-  }
-
-  .card__meta {
-    margin: 0;
-    color: var(--purple);
-    font-size: 0.82rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-
-  .card h3,
-  .card p {
-    margin: 0;
-  }
-
-  .card h3 {
-    font-size: clamp(1.4rem, 2vw, 1.9rem);
-    color: var(--text);
-  }
-
-  .card__title--with-icon {
-    display: flex;
-    align-items: center;
-    gap: 0.65rem;
-  }
-
-  .card__icon {
-    display: inline-flex;
-    flex: 0 0 auto;
-    color: var(--purple);
-  }
-
-  .card__icon :global(svg) {
-    width: 1.15em;
-    height: 1.15em;
-    stroke-width: 1.8;
-  }
-
-  .card p {
-    color: var(--muted);
-  }
-</style>

@@ -1,0 +1,42 @@
+---
+type Props = {
+  embedSrc: string;
+  downloadHref: string;
+  downloadLabel?: string;
+  fallbackHref?: string;
+  fallbackLabel?: string;
+  title?: string;
+};
+
+const {
+  embedSrc,
+  downloadHref,
+  downloadLabel = "Download report (PDF)",
+  fallbackHref,
+  fallbackLabel = "Open report in a new tab",
+  title = "Document preview",
+} = Astro.props;
+
+const externalHref = fallbackHref ?? embedSrc.replace("/preview", "/view");
+---
+
+<section class="document-viewer">
+  <div class="document-viewer__actions">
+    <a class="gradient-button" href={downloadHref} download>
+      {downloadLabel}
+    </a>
+    <a class="button-secondary" href={externalHref} target="_blank" rel="noreferrer noopener">
+      {fallbackLabel}
+    </a>
+  </div>
+
+  <div class="document-viewer__frame-wrap">
+    <iframe
+      class="document-viewer__frame"
+      src={embedSrc}
+      title={title}
+      loading="lazy"
+      referrerpolicy="no-referrer"
+    />
+  </div>
+</section>

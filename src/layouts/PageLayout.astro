@@ -77,7 +77,7 @@ const uiCopy = getUiCopy(locale);
           />
         )
       }
-      <div class:list={["page-layout__hero-inner", isHome && "shell"]}>
+      <div class="container px-4 page-layout__hero-inner">
         <div class="page-layout__hero-copy">
           {!isHome && heroEyebrow && <p class="eyebrow">{heroEyebrow}</p>}
           <h1>{heroTitle}</h1>
@@ -97,286 +97,27 @@ const uiCopy = getUiCopy(locale);
       </div>
     </header>
 
-    <div class="page-layout__body">
-      {
-        !isHome && displayHeadings.length > 0 && (
-          <aside class="page-layout__toc">
-            <p class="eyebrow">{uiCopy.onThisPage}</p>
-            <ul>
-              {displayHeadings.filter((heading) => heading.depth <= 3).map((heading) => (
-                <li class={`depth-${heading.depth}`}>
-                  <a href={`#${heading.slug}`}>{heading.text}</a>
-                </li>
-              ))}
-            </ul>
-          </aside>
-        )
-      }
+    <div class="container px-4">
+      <div class="page-layout__body">
+        {
+          !isHome && displayHeadings.length > 0 && (
+            <aside class="page-layout__toc">
+              <p class="eyebrow">{uiCopy.onThisPage}</p>
+              <ul>
+                {displayHeadings.filter((heading) => heading.depth <= 3).map((heading) => (
+                  <li class={`depth-${heading.depth}`}>
+                    <a href={`#${heading.slug}`}>{heading.text}</a>
+                  </li>
+                ))}
+              </ul>
+            </aside>
+          )
+        }
 
-      <div class="page-layout__content prose">
-        <slot />
+        <div class="page-layout__content prose">
+          <slot />
+        </div>
       </div>
     </div>
   </article>
 </BaseLayout>
-
-<style>
-  .page-layout {
-    display: grid;
-    gap: clamp(1.4rem, 3vw, 2.3rem);
-  }
-
-  .page-layout__hero {
-    display: grid;
-    gap: clamp(1rem, 2vw, 1.35rem);
-    padding: clamp(1.5rem, 4vw, 2.5rem) 0 clamp(1rem, 3vw, 1.5rem);
-  }
-
-  .page-layout--home {
-    gap: clamp(1.8rem, 4vw, 3rem);
-  }
-
-  .page-layout__hero-copy {
-    display: grid;
-    gap: clamp(1rem, 2vw, 1.35rem);
-    max-width: min(56rem, 100%);
-  }
-
-  .page-layout__hero h1 {
-    max-width: 13ch;
-    margin: 0;
-    background-image: var(--gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-  }
-
-  .page-layout__teaser {
-    max-width: 48em;
-    margin: 0;
-    color: var(--muted);
-    font-size: clamp(1.1rem, 1.3vw, 1.4rem);
-  }
-
-  .page-layout__hero--home {
-    position: relative;
-    overflow: hidden;
-    width: 100vw;
-    margin-inline: calc(50% - 50vw);
-    padding: clamp(2.5rem, 6vw, 5rem) 0 clamp(2.5rem, 5vw, 4rem);
-    background: var(--gradient);
-    color: #ffffff;
-  }
-
-  .page-layout__hero--home .page-layout__hero-inner {
-    position: relative;
-    z-index: 1;
-  }
-
-  .page-layout__hero-bg-logo {
-    position: absolute;
-    pointer-events: none;
-    user-select: none;
-    top: 10%;
-    height: 50%;
-    width: auto;
-    left: clamp(0.5rem, 2vw, 1rem);
-    opacity: 1;
-  }
-
-  @media (min-width: 900px) {
-    .page-layout__hero-bg-logo {
-      height: 80%;
-      left: auto;
-      right: clamp(1rem, 5vw, 4rem);
-    }
-  }
-
-  .page-layout__hero--home h1 {
-    max-width: none;
-    background: none;
-    -webkit-text-fill-color: #ffffff;
-    color: #ffffff;
-  }
-
-  .page-layout__hero--home .page-layout__teaser {
-    color: rgba(255, 255, 255, 0.94);
-  }
-
-  .page-layout__hero-cta {
-    justify-self: start;
-    margin-top: 0.35rem;
-  }
-
-  .page-layout__hero-cta--on-gradient {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 2.5rem;
-    padding: 0.45rem 2.1rem;
-    border: 0;
-    border-radius: 999px;
-    background: #ffffff;
-    color: var(--pink);
-    font-size: 1.25rem;
-    font-weight: 700;
-    text-decoration: none;
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
-    transition:
-      transform 200ms cubic-bezier(0.22, 1, 0.36, 1),
-      box-shadow 200ms ease,
-      background 200ms ease;
-  }
-
-  .page-layout__hero-cta--on-gradient:hover,
-  .page-layout__hero-cta--on-gradient:focus-visible {
-    transform: translateY(-1px);
-    background: #ffffff;
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.14);
-    color: var(--pink);
-  }
-
-  .page-layout__body {
-    display: grid;
-    gap: clamp(1.4rem, 2vw, 2rem);
-  }
-
-  .page-layout__toc {
-    padding: 0.35rem 0 0 1.15rem;
-    border-left: 1px solid rgba(57, 30, 190, 0.14);
-  }
-
-  .page-layout--home .page-layout__body {
-    grid-template-columns: 1fr;
-  }
-
-  .page-layout__toc ul {
-    margin: 0;
-    padding-left: 0;
-    list-style: none;
-  }
-
-  .page-layout__toc li {
-    margin: 0;
-  }
-
-  .page-layout__toc .depth-3 {
-    margin-left: 0.8rem;
-  }
-
-  .page-layout__toc a {
-    display: block;
-    padding: 0.35rem 0;
-    color: var(--muted);
-    text-decoration: none;
-  }
-
-  .page-layout__toc a:hover,
-  .page-layout__toc a:focus-visible {
-    color: var(--link);
-  }
-
-  .page-layout__content {
-    min-width: 0;
-    padding: 0;
-  }
-
-  .page-layout--home .page-layout__content :global(h1:first-child) {
-    display: none;
-  }
-
-  .page-layout--redundant-intro .page-layout__content :global(h2:first-of-type) {
-    display: none;
-  }
-
-  .page-layout--redundant-intro
-    .page-layout__content
-    :global(h2:first-of-type + p) {
-    display: none;
-  }
-
-  .page-layout__content :global(h2) {
-    padding-top: clamp(1.4rem, 3vw, 2rem);
-    border-top: 1px solid rgba(57, 30, 190, 0.12);
-    scroll-margin-top: 1.5rem;
-  }
-
-  .page-layout__content :global(h2:first-child) {
-    padding-top: 0;
-    border-top: 0;
-  }
-
-  .page-layout__content :global(h3) {
-    color: var(--text);
-  }
-
-  .page-layout__content :global(p),
-  .page-layout__content :global(ul),
-  .page-layout__content :global(ol),
-  .page-layout__content :global(blockquote) {
-    max-width: 34em;
-  }
-
-  .page-layout__content :global(ul),
-  .page-layout__content :global(ol) {
-    padding-left: 1.4rem;
-  }
-
-  .page-layout__content :global(hr) {
-    border: 0;
-    border-top: 1px solid var(--border);
-    margin: 2rem 0;
-  }
-
-  .page-layout__content :global(.card-grid),
-  .page-layout__content :global(.callout),
-  .page-layout__content :global(.accordion),
-  .page-layout__content :global(.news-list),
-  .page-layout__content :global(.people-grid),
-  .page-layout__content :global(.partner-grid),
-  .page-layout__content :global(.molecule-illustration) {
-    max-width: none;
-    margin-top: 1.75rem;
-  }
-
-  .page-layout__content :global(.molecule-illustration) {
-    margin-top: 0;
-  }
-
-  .page-layout__content :global(.molecule-illustration + h3) {
-    margin-top: 0;
-    padding-top: 0.2rem;
-  }
-
-  .page-layout__content :global(.molecule-illustration:not(:first-of-type)) {
-    clear: both;
-    margin-top: 1.75rem;
-  }
-
-  @media (min-width: 900px) {
-    .page-layout__body {
-      grid-template-columns: minmax(0, 1fr) 18.5rem;
-      align-items: start;
-    }
-
-    .page-layout__content {
-      grid-column: 1;
-      grid-row: 1;
-    }
-
-    .page-layout__toc {
-      position: sticky;
-      top: 1.5rem;
-      grid-column: 2;
-      grid-row: 1;
-    }
-  }
-
-  @media (max-width: 720px) {
-    .page-layout__content {
-      padding: 1.2rem;
-      border-radius: 1.2rem;
-    }
-  }
-</style>

@@ -1,0 +1,171 @@
+---
+import type { TeamMember } from "../data/coordinationBoard";
+
+type Props = {
+  people: TeamMember[];
+  mosaicId?: string;
+  showCountryCode?: boolean;
+};
+
+const { people, mosaicId = "team-mosaic", showCountryCode = false } = Astro.props;
+
+function memberLabel(person: TeamMember) {
+  if (showCountryCode && person.countryCode) {
+    return `${person.name} (${person.countryCode})`;
+  }
+
+  return person.name;
+}
+---
+
+<section
+  class="team-mosaic"
+  data-team-mosaic={mosaicId}
+  data-team-mosaic-country-codes={showCountryCode ? "" : undefined}
+>
+  <div class="team-mosaic__grid">
+    {
+      people.map((person, memberIndex) => (
+        <button
+          type="button"
+          class="team-mosaic__member"
+          data-member-index={memberIndex}
+          aria-haspopup="dialog"
+          aria-label={`Read bio for ${memberLabel(person)}`}
+        >
+          {person.image ? (
+            <span class="team-mosaic__avatar team-mosaic__avatar--photo">
+              <img
+                class="team-mosaic__avatar-image"
+                src={person.image}
+                alt=""
+                loading="lazy"
+              />
+            </span>
+          ) : (
+            <span class="team-mosaic__avatar team-mosaic__avatar--placeholder" aria-hidden="true" />
+          )}
+
+          <span class="team-mosaic__name">
+            <span class="team-mosaic__name-text">{person.name}</span>
+            {showCountryCode && person.countryCode ? (
+              <span class="team-mosaic__country-code"> ({person.countryCode})</span>
+            ) : null}
+          </span>
+        </button>
+      ))
+    }
+  </div>
+
+  <dialog
+    class="team-mosaic__dialog w-[min(42rem,calc(100vw-2rem))] max-h-[min(85vh,44rem)] p-0 border-0 rounded-[1.5rem] bg-bg shadow-strong backdrop:bg-[rgba(19,23,37,0.55)] open:animate-none"
+    id={`${mosaicId}-dialog`}
+    aria-labelledby={`${mosaicId}-dialog-title`}
+  >
+    <form method="dialog" class="grid gap-0">
+      <div class="grid gap-4 p-[clamp(1.4rem,3vw,2rem)] overflow-y-auto">
+        <div class="flex items-start justify-between gap-4">
+          <div class="grid gap-2 min-w-0">
+            <h3 class="m-0 text-[clamp(1.5rem,3vw,2rem)]" id={`${mosaicId}-dialog-title`} />
+            <p class="m-0 font-bold text-purple" data-dialog-role hidden />
+            <p class="m-0 text-muted" data-dialog-location hidden />
+          </div>
+          <button
+            type="submit"
+            class="button-secondary shrink-0 min-h-10 px-4 py-2 text-[0.95rem]"
+            aria-label="Close"
+          >
+            Close
+          </button>
+        </div>
+        <p class="m-0 leading-[1.65]" data-dialog-bio hidden />
+        <div class="flex flex-wrap gap-3" data-dialog-links hidden />
+      </div>
+    </form>
+  </dialog>
+</section>
+
+<script define:vars={{ people, mosaicId }}>
+  const mosaic = document.querySelector(`[data-team-mosaic="${mosaicId}"]`);
+  if (!mosaic) {
+    return;
+  }
+
+  const dialog = mosaic.querySelector("dialog");
+  const title = document.getElementById(`${mosaicId}-dialog-title`);
+  const role = mosaic.querySelector("[data-dialog-role]");
+  const location = mosaic.querySelector("[data-dialog-location]");
+  const bio = mosaic.querySelector("[data-dialog-bio]");
+  const links = mosaic.querySelector("[data-dialog-links]");
+
+  mosaic.querySelectorAll("[data-member-index]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const person = people[Number(button.dataset.memberIndex)];
+      if (!person || !(dialog instanceof HTMLDialogElement)) {
+        return;
+      }
+
+      if (title) {
+        title.textContent = person.name;
+      }
+
+      if (role instanceof HTMLElement) {
+        if (person.role) {
+          role.textContent = person.role;
+          role.hidden = false;
+        } else {
+          role.hidden = true;
+        }
+      }
+
+      if (location instanceof HTMLElement) {
+        if (person.location) {
+          location.textContent = person.location;
+          location.hidden = false;
+        } else {
+          location.hidden = true;
+        }
+      }
+
+      if (bio instanceof HTMLElement) {
+        if (person.bio) {
+          bio.textContent = person.bio;
+          bio.hidden = false;
+        } else {
+          bio.textContent = "";
+          bio.hidden = true;
+        }
+      }
+
+      if (links instanceof HTMLElement) {
+        links.replaceChildren();
+
+        if (person.email) {
+          const emailLink = document.createElement("a");
+          emailLink.href = `mailto:${person.email}`;
+          emailLink.textContent = person.email;
+          links.append(emailLink);
+        }
+
+        if (person.website) {
+          const websiteLink = document.createElement("a");
+          websiteLink.href = person.website;
+          websiteLink.target = "_blank";
+          websiteLink.rel = "noreferrer";
+          websiteLink.textContent = "Website";
+          links.append(websiteLink);
+        }
+
+        links.hidden = links.childElementCount === 0;
+      }
+
+      dialog.showModal();
+    });
+  });
+
+  dialog?.addEventListener("click", (event) => {
+    if (event.target === dialog) {
+      dialog.close();
+    }
+  });
+</script>
