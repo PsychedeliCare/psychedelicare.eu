@@ -1,43 +1,123 @@
-# Astro Starter Kit: Minimal
+![PsychedeliCare](public/assets/psychedelicareeu-logo.svg)
+
+# psychedelicare.eu
+
+Multilingual website for the PsychedeliCare European Citizens' Initiative, built with [Astro](https://astro.build) and deployed to **Cloudflare Workers**.
+
+## Getting started
+
+Requires **Node.js ≥ 22.12** and [pnpm](https://pnpm.io).
 
 ```sh
-pnpm create astro@latest -- --template minimal
+pnpm install
+pnpm dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+The dev server runs at `http://localhost:4321`.
 
-## 🚀 Project Structure
+## Commands
 
-Inside of your Astro project, you'll see the following folders and files:
+| Command | Action |
+| :------ | :----- |
+| `pnpm install` | Install dependencies |
+| `pnpm dev` | Start local dev server |
+| `pnpm build` | Build for production (`./dist/`) |
+| `pnpm preview` | Preview the production build locally |
+| `pnpm generate-types` | Generate Cloudflare Worker types (`wrangler types`) |
+
+## Project structure
 
 ```text
 /
 ├── public/
+│   ├── assets/              # Static media (see below)
+│   └── favicon.svg
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── content/
+│   │   └── pages/           # All page content as MDX (see below)
+│   ├── components/
+│   ├── data/
+│   │   └── asset-catalog.json  # WordPress → local asset mapping
+│   ├── layouts/
+│   ├── lib/                 # i18n, content helpers, navigation
+│   └── pages/               # Astro routes ([locale]/[...slug])
+├── scripts/                 # WordPress migration & asset tooling
+└── wrangler.jsonc           # Cloudflare Workers config
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Content (`src/content/pages/`)
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+All site pages live as **MDX files** in a single Astro content collection. Files are organized by URL slug, with one file per locale:
 
-Any static assets, like images, can be placed in the `public/` directory.
+```text
+src/content/pages/
+├── home/
+│   ├── en.mdx
+│   ├── de.mdx
+│   └── …
+├── who-we-are/
+│   ├── en.mdx
+│   └── …
+├── news/
+│   ├── en.mdx                    # news hub
+│   ├── events/
+│   │   └── {post-slug}/
+│   │       ├── en.mdx
+│   │       └── …
+│   └── {post-slug}/
+│       ├── en.mdx
+│       └── …
+├── projects/
+│   ├── en.mdx
+│   ├── eci/
+│   ├── impact-report/
+│   └── …
+├── resources/
+│   ├── en.mdx
+│   ├── faq-about-psychedelics/
+│   ├── scientific-studies/
+│   └── …
+├── donate/
+├── legal/
+├── privacy-policy/
+├── cookie-policy-eu/
+└── join-the-psychedelicare-association/
+```
 
-## 🧞 Commands
+**Naming convention:** `{slug-path}/{locale}.mdx`
 
-All commands are run from the root of the project, from a terminal:
+- The directory path mirrors the page slug (e.g. `who-we-are/en.mdx` → `/who-we-are`).
+- Nested directories are used for news posts, project sub-pages, and resource sub-pages.
+- Each file declares its `locale` and `slug` in frontmatter; `translationGroup` links translations of the same page.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+**Supported locales:** `en` (default), `de`, `el`, `es`, `eu`, `fr`, `hr`, `it`, `pl`, `pt`, `sl`, `ca`.
 
-## 👀 Want to learn more?
+- English pages are served at the root: `/who-we-are`
+- Other locales are prefixed: `/de/who-we-are`, `/fr/who-we-are`, etc.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Frontmatter schema is defined in `src/content.config.ts` (`title`, `locale`, `slug`, `pageType`, `section`, `publishedAt`, `assetUrls`, legacy redirect fields, and more).
+
+## Assets (`public/assets/`)
+
+Static files are served from `/assets/…` and grouped by type:
+
+```text
+public/assets/
+├── psychedelicareeu-logo.svg   # Site logo
+├── background-logo.svg
+├── people/                     # Team & portrait photos
+├── logos/                      # Partner & organisation logos
+├── icons/                      # UI icons
+├── photos/                     # General imagery
+└── files/                      # PDFs and downloads
+```
+
+MDX content references assets with root-relative paths, e.g. `/assets/people/alek-wlezien.jpg`.
+
+`src/data/asset-catalog.json` maps original WordPress URLs to local paths and records metadata (alt text, source page, rename history). It is generated by the asset tooling in `scripts/`.
+
+| Script | Purpose |
+| :----- | :------ |
+| `pnpm download-assets` | Download assets from WordPress |
+| `pnpm generate-asset-catalog` | Regenerate `asset-catalog.json` |
+| `pnpm migrate-asset-urls` | Rewrite asset URLs in MDX content |
