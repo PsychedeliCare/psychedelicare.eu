@@ -48,41 +48,53 @@ import Accordion from "../../../../components/Accordion.astro";
 
 ## Frequently asked questions
 
-<Accordion items={[
+<Accordion
+  sectionSlug="frequently-asked-questions"
+  items={[
   {
     question: "1. Are psychedelics dangerous substances?",
+    tocLabel: "Dangerous substances?",
     answer: "<p>According to an&nbsp;<a href=\"https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(10)61462-6/abstract\" target=\"_blank\" rel=\"noreferrer noopener\">analysis conducted by Professor David Nutt and his team</a>&nbsp;from the Imperial College London (UK), psychedelics actually rank among the safest psychoactive substances, in contrast to alcohol, which was identified as the most harmful substance by their analysis.</p>",
   },
   {
     question: "2. Are psychedelics addictive?",
+    tocLabel: "Addictive?",
     answer: "<p>Although a common misconception associates psychedelics with substances of abuse, all research findings agree that psychedelics are not addictive. Actually, multiple clinical trials have been exploring the potential of psychedelic drugs combined with psychological support or psychotherapy to treat substance abuse, including tobacco and alcohol-use disorders. However, ketamine, an anaesthetic and also a non-classic psychedelic, has a highly addictive potential which can develop with frequent recreational use.</p>\n<p><a href=\"https://pubmed.ncbi.nlm.nih.gov/21332315/\" target=\"_blank\" rel=\"noreferrer noopener\">Absorption, distribution, metabolism and excretion pharmacogenomics of drugs of abuse</a></p>\n<p><a href=\"https://pubmed.ncbi.nlm.nih.gov/29284138/\" target=\"_blank\" rel=\"noreferrer noopener\">Psychiatry &amp; the psychedelic drugs. Past, present &amp; future</a></p>\n<p><a href=\"https://www.ukat.co.uk/addiction/drug/ketamine/\" target=\"_blank\" rel=\"noreferrer noopener\">Studies on ketamine addiction</a></p>",
   },
   {
     question: "3. What’s the difference between classic therapy without psychedelics and psychedelic-assisted therapy (PAT)?",
+    tocLabel: "PAT vs classic therapy",
     answer: "<p>The main difference between traditional therapy and psychedelic-assisted therapy (PAT) lies in the use of psychedelics as a tool to facilitate the therapeutic process. This involves three steps:&nbsp;<strong>preparation</strong>, before the psychedelic-assisted therapy session, where therapists help patients set intentions and build trust;&nbsp;<strong>the psychedelic session</strong>, where the psychedelic substance is administered to the patient, who experiences altered states of consciousness, under supervision; and&nbsp;<strong>integration</strong>, where insights from the experience are processed through therapy to promote impactful and lasting change. Set and settings are two fundamental aspects to consider for PAT: set is the patient’s mindset, including their emotions, expectations, and mental preparation before the session; settings refers instead to the physical and social environment where the therapy takes place, which should be safe, comfortable and favouring introspection.</p>\n<p><a href=\"https://www.atmajourney.com/traditional-therapy-vs-psychedelic-therapy/\" target=\"_blank\" rel=\"noreferrer noopener\">Traditional Therapy vs Psychedelic Therapy</a></p>\n<p><a href=\"https://mindmedicineaustralia.org.au/what-is-psychedelic-assisted-therapy/\" target=\"_blank\" rel=\"noreferrer noopener\">What is Psychedelic-assisted therapies</a></p>",
   },
   {
     question: "4. Is psychedelic therapy just a New Age hype?",
+    tocLabel: "New Age hype?",
     answer: "<p>For centuries, psychedelics have been deeply rooted in the healing practices and spiritual ceremonies of indigenous cultures. Their use and research, however, was largely curtailed following their prohibition in the late 1960s, when they had been widely employed in the treatment of psychiatric conditions. Today, contemporary research is reigniting interest in their therapeutic potential, providing growing evidence of their effectiveness in treating conditions such as depression, PTSD, addiction, and anxiety.</p>\n<p>Although a common misconception associates psychedelics with substances of abuse, research findings actually indicate that they are generally not addictive in clinical settings. Actually, multiple clinical trials have been exploring the potential of psychedelic drugs combined with psychological support or psychotherapy to treat substance abuse, including tobacco and alcohol-use disorders. However, ketamine, an anaesthetic and also a non-classic psychedelic, has a highly addictive potential which can develop with frequent recreational use.</p>\n<p><a href=\"https://psychedelics.berkeley.edu/religion-spirituality/\" target=\"_blank\" rel=\"noreferrer noopener\">Psychedelics (Entheogens) and Spirituality</a></p>\n<p><a href=\"https://academic.oup.com/ijnp/article/23/6/385/5805249\" target=\"_blank\" rel=\"noreferrer noopener\">Reviewing the Potential of Psychedelics for the Treatment of PTSD</a></p>\n<p><a href=\"https://www.frontiersin.org/journals/psychiatry/articles/10.3389/fpsyt.2023.1183740/full\" target=\"_blank\" rel=\"noreferrer noopener\">Psychedelic therapy in the treatment of addiction: the past, present and future</a></p>",
   },
   {
     question: "5. Are overdoses common with psychedelics?",
+    tocLabel: "Overdoses",
     answer: "<p>Classic&nbsp;<a href=\"/resources/scientific-studies#substances\">psychedelics (e.g. Psilocybin, LSD)</a> overdoses are uncommon and typically occur only when used in combination with other substances or at extremely high doses. While these substances generally have a wide safety margin, responsible use and proper supervision are crucial to reduce potential risks. Psilocybin, for instance, has a high therapeutic index, with a therapeutic dose at 15 to 30mg and a lethal dose at 6g, which is 500 times greater than the therapeutic dose.</p>\n<p><a href=\"https://pubmed.ncbi.nlm.nih.gov/35811423/\" target=\"_blank\" rel=\"noreferrer noopener\">Psilocybin in neuropsychiatry: a review of its pharmacology, safety, and efficacy</a></p>\n<p><a href=\"https://pubmed.ncbi.nlm.nih.gov/15139867/\" target=\"_blank\" rel=\"noreferrer noopener\">Comparison of acute lethal toxicity of commonly abused psychoactive substances</a></p>\n<p><a href=\"https://www.drugscience.org.uk/busting-the-myths-surrounding-psychedelics\" target=\"_blank\" rel=\"noreferrer noopener\">Busting the Myths Surrounding Psychedelics</a></p>",
   },
   {
     question: "6. How do psychedelic substances affect the human brain during a trip?",
+    tocLabel: "Effects on the brain",
     answer: "<p>Various psychedelic substances induce altered states of consciousness but we can mention the main effects all of them seem to share. The human brain on psychedelics shows a much higher degree of connectivity between previously not connected or hardly connected brain centers; this tends to enhance visual perception, synesthesia, creativity and emotional processing. Furthermore, psychedelics have a profound effect on how the human brain experiences the Self or Ego and its emotions, sometimes leading to the sensation of being “one with the universe”.</p>\n<p><a href=\"https://www.nature.com/articles/d41586-022-02874-7\" target=\"_blank\" rel=\"noreferrer noopener\">Your brain on psychedelics</a></p>\n<p><a href=\"https://pubmed.ncbi.nlm.nih.gov/37931171/\" target=\"_blank\" rel=\"noreferrer noopener\">The Effects of Psychedelics on Neuronal Physiology</a></p>\n<p><a href=\"https://www.imperial.ac.uk/news/243893/advanced-brain-imaging-study-hints-dmt/\" target=\"_blank\" rel=\"noreferrer noopener\">Advanced brain imaging study hints at how DMT alters perception of reality</a></p>",
   },
   {
     question: "7. What are the most important lasting beneficial effects of psychedelics on human brain and well-being?",
+    tocLabel: "Lasting beneficial effects",
     answer: "<p>Psychedelics were shown to have a beneficial effect on the human brain by enhancing its neuroplasticity and rewiring certain neural pathways, specifically involved in emotional processing of trauma, depression, anxiety and PTSD symptoms. With the correct clinical framework, psychedelics were shown to enhance stress resilience, emotional stability and outlook on life, as well as alleviate the symptoms of the above mentioned mental conditions.</p>\n<p><a href=\"https://pubmed.ncbi.nlm.nih.gov/34566723/\" target=\"_blank\" rel=\"noreferrer noopener\">Psychedelics and Neuroplasticity: A Systematic Review Unraveling the Biological Underpinnings of Psychedelics</a></p>",
   },
   {
     question: "8. What are the similarities and differences between psychedelic trips and practices such as meditation and altered states of consciousness?",
+    tocLabel: "Psychedelics vs meditation",
     answer: "<p>Psychedelics are sometimes called “a shortcut” to the states of consciousness associated with spiritual awakening and long term practices of various forms of meditation. The similarities include enhanced cognitive functioning, emotional resilience, psychological well-being and creativity. The main difference is that psychedelics, with the right set and settings, are capable of triggering certain processes in the brain without a long and dedicated mental practice, offering the chance of having cognitive and spiritual breakthroughs that might take years with traditional meditation practices.</p>\n<p><a href=\"https://psycnet.apa.org/fulltext/2023-28914-001.html\" target=\"_blank\" rel=\"noreferrer noopener\">Meditation Trips: A Thematic Analysis of the Combined Naturalistic Use of Psychedelics With Meditation Practices</a></p>",
   },
   {
     question: "9. Are the long-term effects of psychedelics beneficial or harmful?",
+    tocLabel: "Long-term effects",
     answer: "<p>Recent research on the long-term effects of psychedelic substances indicates that their supervised use, together with the support framework mentioned earlier, could have lasting beneficial effects. However, the use of such substances in certain small populations was found to lead to prolonged side effects, especially when taken in unsupervised settings. Studies on the long-term effects of psychedelics are currently ongoing to further explore this topic.</p>\n<p><a href=\"https://www.nature.com/articles/s41598-020-59282-y\" target=\"_blank\" rel=\"noreferrer noopener\">Emotions and brain function are altered up to one month after a single high dose of psilocybin</a></p>\n<p><a href=\"https://pubmed.ncbi.nlm.nih.gov/37874826/\" target=\"_blank\" rel=\"noreferrer noopener\">Extended difficulties following the use of psychedelic drugs: A mixed methods study</a></p>",
   },
-]} />
+  ]}
+/>

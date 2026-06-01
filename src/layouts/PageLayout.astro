@@ -6,14 +6,12 @@ import BaseLayout from "./BaseLayout.astro";
 type Props = {
   entry: PageEntry;
   headings?: { depth: number; slug: string; text: string }[];
-  eyebrow?: string;
   teaser?: string;
 };
 
 const {
   entry,
   headings = [],
-  eyebrow,
   teaser,
 } = Astro.props;
 
@@ -23,11 +21,8 @@ const locale = entry.data.locale;
 const slug = entry.data.slug;
 const intro = teaser ?? entry.data.teaser;
 const isHome = entry.data.pageType === "home";
-const hasRedundantIntro =
-  entry.data.pageType === "section" || entry.data.pageType === "news-hub";
 const firstContentHeading = headings.find((heading) => heading.depth === 2);
 const heroTitle = isHome && headings[0]?.text ? headings[0].text : title;
-const heroEyebrow = eyebrow ?? (isHome ? title : undefined);
 const introPrefixCandidates = [heroTitle, firstContentHeading?.text].filter(
   (value): value is string => Boolean(value),
 );
@@ -40,11 +35,7 @@ for (const prefix of introPrefixCandidates) {
   }
 }
 
-const heroIntro = isHome ? (intro ?? cleanedIntro) : cleanedIntro;
-const displayHeadings =
-  hasRedundantIntro && firstContentHeading
-    ? headings.filter((heading) => heading !== firstContentHeading)
-    : headings;
+const heroIntro = intro ?? cleanedIntro;
 const heroCtaLabel = isHome ? entry.data.heroCtaLabel : undefined;
 const heroCtaHref = isHome ? entry.data.heroCtaHref : undefined;
 const uiCopy = getUiCopy(locale);
@@ -57,16 +48,10 @@ const uiCopy = getUiCopy(locale);
   slug={slug}
   translationGroup={entry.data.translationGroup}
 >
-  <article
-    class:list={[
-      "page-layout",
-      isHome && "page-layout--home",
-      hasRedundantIntro && "page-layout--redundant-intro",
-    ]}
-  >
-    <header class:list={["page-layout__hero", isHome && "page-layout__hero--home"]}>
-      {
-        isHome && (
+  <article class:list={["page-layout", isHome && "page-layout--home"]}>
+    {
+      isHome && (
+        <header class="page-layout__hero page-layout__hero--home">
           <img
             class="page-layout__hero-bg-logo"
             src="/assets/background-logo.svg"
@@ -75,36 +60,32 @@ const uiCopy = getUiCopy(locale);
             loading="eager"
             decoding="async"
           />
-        )
-      }
-      <div class="container px-4 page-layout__hero-inner">
-        <div class="page-layout__hero-copy">
-          {!isHome && heroEyebrow && <p class="eyebrow">{heroEyebrow}</p>}
-          <h1>{heroTitle}</h1>
-          {heroIntro && <p class="page-layout__teaser">{heroIntro}</p>}
-          {heroCtaLabel && heroCtaHref && (
-            <a
-              class:list={[
-                "page-layout__hero-cta",
-                isHome ? "page-layout__hero-cta--on-gradient" : "gradient-button",
-              ]}
-              href={heroCtaHref}
-            >
-              {heroCtaLabel}
-            </a>
-          )}
-        </div>
-      </div>
-    </header>
+          <div class="container px-4 page-layout__hero-inner">
+            <div class="page-layout__hero-copy">
+              <h1>{heroTitle}</h1>
+              {heroIntro && <p class="page-layout__teaser">{heroIntro}</p>}
+              {heroCtaLabel && heroCtaHref && (
+                <a
+                  class="page-layout__hero-cta page-layout__hero-cta--on-gradient"
+                  href={heroCtaHref}
+                >
+                  {heroCtaLabel}
+                </a>
+              )}
+            </div>
+          </div>
+        </header>
+      )
+    }
 
     <div class="container px-4">
       <div class="page-layout__body">
         {
-          !isHome && displayHeadings.length > 0 && (
-            <aside class="page-layout__toc">
+          !isHome && headings.length > 0 && (
+            <aside class="page-layout__toc" data-toc-scrollspy>
               <p class="eyebrow">{uiCopy.onThisPage}</p>
               <ul>
-                {displayHeadings.filter((heading) => heading.depth <= 3).map((heading) => (
+                {headings.filter((heading) => heading.depth <= 3).map((heading) => (
                   <li class={`depth-${heading.depth}`}>
                     <a href={`#${heading.slug}`}>{heading.text}</a>
                   </li>
@@ -121,3 +102,14 @@ const uiCopy = getUiCopy(locale);
     </div>
   </article>
 </BaseLayout>
+
+<script>
+  import { augmentTocWithAccordions } from "../lib/accordionToc";
+  import { initTocScrollspy } from "../lib/tocScrollspy";
+
+  const toc = document.querySelector<HTMLElement>("[data-toc-scrollspy]");
+  if (toc) {
+    augmentTocWithAccordions(toc);
+    initTocScrollspy(toc);
+  }
+</script>

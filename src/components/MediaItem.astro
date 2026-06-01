@@ -1,0 +1,32 @@
+---
+type Props = {
+  image: string;
+  imageAlt?: string;
+  meta?: string;
+  title: string;
+  href: string;
+  headingLevel?: "h3" | "h4";
+};
+
+const { image, imageAlt = "", meta, title, href, headingLevel = "h4" } = Astro.props;
+const HeadingTag = headingLevel;
+---
+
+<article class="media-item">
+  <a
+    class="media-item__image"
+    href={href}
+    target="_blank"
+    rel="noreferrer noopener"
+    tabindex="-1"
+    aria-hidden="true"
+  >
+    <img src={image} alt={imageAlt || title} loading="lazy" decoding="async" />
+  </a>
+  <div class="media-item__content">
+    {meta && <p class="media-item__meta">{meta}</p>}
+    <HeadingTag class="media-item__title">
+      <a href={href} target="_blank" rel="noreferrer noopener">{title}</a>
+    </HeadingTag>
+  </div>
+</article>

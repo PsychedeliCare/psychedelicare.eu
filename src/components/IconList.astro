@@ -1,34 +1,64 @@
 ---
 import IconBulb from "@tabler/icons/outline/bulb.svg?raw";
 import IconCirclesRelation from "@tabler/icons/outline/circles-relation.svg?raw";
+import IconFlask from "@tabler/icons/outline/flask.svg?raw";
 import IconHeartHandshake from "@tabler/icons/outline/heart-handshake.svg?raw";
+import IconLeaf from "@tabler/icons/outline/leaf.svg?raw";
+import IconMessageCircleHeart from "@tabler/icons/outline/message-circle-heart.svg?raw";
 import IconShieldCheck from "@tabler/icons/outline/shield-check.svg?raw";
+import IconUsersGroup from "@tabler/icons/outline/users-group.svg?raw";
+
+type IconName =
+  | "understanding"
+  | "stigma"
+  | "safety"
+  | "alignment"
+  | "lived-experience"
+  | "integrity"
+  | "inclusivity"
+  | "ecological"
+  | "collaboration";
 
 type Item = {
-  icon: "understanding" | "stigma" | "safety" | "alignment";
+  icon: IconName;
   text: string;
+  title?: string;
 };
 
 type Props = {
   items: Item[];
+  class?: string;
 };
 
-const { items } = Astro.props;
+const { items, class: className } = Astro.props;
 
-const icons: Record<Item["icon"], string> = {
+const icons: Record<IconName, string> = {
   understanding: IconBulb,
   stigma: IconHeartHandshake,
   safety: IconShieldCheck,
   alignment: IconCirclesRelation,
+  "lived-experience": IconMessageCircleHeart,
+  integrity: IconFlask,
+  inclusivity: IconUsersGroup,
+  ecological: IconLeaf,
+  collaboration: IconHeartHandshake,
 };
 ---
 
-<ul class="icon-list">
+<ul class:list={["icon-list", className]}>
   {
     items.map((item) => (
       <li class="icon-list__item">
         <span class="icon-list__bullet" set:html={icons[item.icon]} aria-hidden="true" />
-        <span>{item.text}</span>
+        <span class="icon-list__text">
+          {item.title ? (
+            <>
+              <strong class="icon-list__title">{item.title}:</strong> {item.text}
+            </>
+          ) : (
+            item.text
+          )}
+        </span>
       </li>
     ))
   }

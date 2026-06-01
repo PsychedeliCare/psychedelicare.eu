@@ -59,85 +59,143 @@ assetUrls:
   - /assets/photos/magicmedicine.jpg
   - /assets/photos/psymedicine.jpg
   - /assets/photos/serpent.jpg
-  - /assets/photos/trial.jpg  - /assets/photos/serpent.jpg  - /assets/photos/trial.jpg
+  - /assets/photos/trial.jpg
 ---
 
-## LLIBRES I DOCUMENTALS
+import TwoColumns from "../../../../components/TwoColumns.astro";
+import MediaItem from "../../../../components/MediaItem.astro";
+
+
+## Llibres i documentals
 
 ## Llibres
 
 Aquí teniu alguns llibres que recomanem si sou nous en el tema dels psicodèlics, així com per obtenir informació més detallada sobre la teràpia, la investigació del cervell i la història de l'ús de plantes medicinals al llarg de la història de la humanitat.
 
-### Ets nou en aquestes substàncies?
+<TwoColumns class="two-columns--media">
+  <div>
+    <h3 id="new-to-these-substances">Ets nou en aquestes substàncies?</h3>
 
-### Voleu explorar més a fons?
+    <div class="media-item-list">
+      <MediaItem
+    image="/assets/photos/howtochangeyourmind.jpg"
+        meta="Miquel Pollàn"
+        title="Com canviar d'opinió"
+        href="https://michaelpollan.com/books/how-to-change-your-mind/"
+      />
+      <MediaItem
+    image="/assets/photos/dmt.jpg"
+        meta="Rick Strassman"
+        title="DMT La Molècula de l'Esperit"
+        href="https://www.rickstrassman.com/publications/the-spirit-molecule/"
+      />
+      <MediaItem
+    image="/assets/photos/psymedicine.jpg"
+        meta="Ricard Lluís Miller"
+        title="Medicina psicodèlica: els poders curatius de l'LSD, l'MDMA, la psilocibina i l'ayahuasca"
+        href="https://maps.org/product/psychedelic-medicine-the-healing-powers-of-lsd-mdma-psilocybin-and-ayahuasca/"
+      />
+      <MediaItem
+    image="/assets/photos/foodgods.jpg"
+        meta="Terence McKenna"
+        title="Menjar dels déus"
+        href="https://books.google.fr/books/about/Food_of_the_Gods.html?id=nmOTEAAAQBAJ&redir_esc=y"
+      />
+    </div>
+  </div>
 
-#### [Com canviar d'opinió](https://michaelpollan.com/books/how-to-change-your-mind/)
+  <div slot="right">
+    <h3 id="want-to-explore-deeper">Voleu explorar més a fons?</h3>
 
-Miquel Pollàn
-
-#### [DMT La Molècula de l'Esperit](https://www.rickstrassman.com/publications/the-spirit-molecule/)
-
-Rick Strassman
-
-#### [Medicina psicodèlica: els poders curatius de l'LSD, l'MDMA, la psilocibina i l'ayahuasca](https://maps.org/product/psychedelic-medicine-the-healing-powers-of-lsd-mdma-psilocybin-and-ayahuasca/)
-
-Ricard Lluís Miller
-
-#### [Menjar dels déus](https://books.google.fr/books/about/Food_of_the_Gods.html?id=nmOTEAAAQBAJ&redir_esc=y)
-
-Terence McKenna
-
-#### [LSD, el meu fill problemàtic](https://books.google.fr/books/about/LSD.html?id=glPNoC2N-IgC&redir_esc=y)
-
-Albert Hoffmann
-
-#### [La serp còsmica](https://www.penguinrandomhouse.com/books/349746/the-cosmic-serpent-by-jeremy-narby/)
-
-Jeremy Narby
-
-#### [La guia de l'explorador psicodèlic](https://www.psychedelicexplorersguide.com/)
-
-Jaume Fadiman
-
-#### [Les Portes de la Percepció](https://books.google.fr/books/about/The_Doors_Of_Perception.html?id=h5mMb-Jbxq4C&redir_esc=y)
-
-Aldous Huxley
+    <div class="media-item-list">
+      <MediaItem
+    image="/assets/photos/lsd.jpg"
+        meta="Albert Hoffmann"
+        title="LSD, el meu fill problemàtic"
+        href="https://books.google.fr/books/about/LSD.html?id=glPNoC2N-IgC&redir_esc=y"
+      />
+      <MediaItem
+    image="/assets/photos/serpent.jpg"
+        meta="Jeremy Narby"
+        title="La serp còsmica"
+        href="https://www.penguinrandomhouse.com/books/349746/the-cosmic-serpent-by-jeremy-narby/"
+      />
+      <MediaItem
+    image="/assets/photos/guide.jpg"
+        meta="Jaume Fadiman"
+        title="La guia de l'explorador psicodèlic"
+        href="https://www.psychedelicexplorersguide.com/"
+      />
+      <MediaItem
+    image="/assets/photos/doors.jpg"
+        meta="Aldous Huxley"
+        title="Les Portes de la Percepció"
+        href="https://books.google.fr/books/about/The_Doors_Of_Perception.html?id=h5mMb-Jbxq4C&redir_esc=y"
+      />
+    </div>
+  </div>
+</TwoColumns>
 
 ## Documentals
 
 Cada cop hi ha més documentals que parlen de substàncies psicodèliques i els seus efectes a la nostra ment. Aquí teniu una selecció centrada específicament en els seus efectes terapèutics.
 
-[X](https://www.netflix.com/title/80231917)
+<div class="media-item-grid">
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/howtochangeyourmind.webp"
+        meta="2020"
+        title="Bon viatge: aventures en psicodèlics"
+        href="https://www.netflix.com/title/80231917"
+      />
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/howtochangeyourmind-docu.jpg"
+        meta="2022"
+        title="Com canviar d'opinió"
+        href="https://michaelpollan.com/films/how-to-change-your-mind/"
+      />
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/magicmedicine.jpg"
+        meta="2016"
+        title="Medicina Màgica"
+        href="https://magicmedicine.net/"
+      />
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/fungi.jpg"
+        meta="2019"
+        title="Fongs fantàstics"
+        href="https://watch.fantasticfungi.com/"
+      />
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/trial.jpg"
+        meta="2021"
+        title="L'assaig de la droga psicodèlica"
+        href="https://www.bbc.co.uk/mediacentre/proginfo/2021/19/the-psychedelic-drug-trial"
+      />
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/hamilton.jpg"
+        meta="2020"
+        title="Farmacopea de Hamilton"
+        href="https://www.vicetv.com/en_us/show/hamiltons-pharmacopeia"
+      />
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/lastshaman.jpg"
+        meta="2017"
+        title="L'últim xaman"
+        href="https://www.thelastshaman.com/"
+      />
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/itunesanu.jpg"
+        meta="2019"
+        title="Una nova comprensió, la ciència de la psilocibina"
+        href="https://www.anewunderstanding.org/"
+      />
+</div>
 
-### [Bon viatge: aventures en psicodèlics](https://www.netflix.com/title/80231917)
-
-2020
-
-### [Com canviar d'opinió](https://michaelpollan.com/films/how-to-change-your-mind/)
-
-2022
-
-### [Medicina Màgica](https://magicmedicine.net/)
-
-2016
-
-### [Fongs fantàstics](https://watch.fantasticfungi.com/)
-
-2019
-
-### [L'assaig de la droga psicodèlica](https://www.bbc.co.uk/mediacentre/proginfo/2021/19/the-psychedelic-drug-trial)
-
-2021
-
-### [Farmacopea de Hamilton](https://www.vicetv.com/en_us/show/hamiltons-pharmacopeia)
-
-2020
-
-### [L'últim xaman](https://www.thelastshaman.com/)
-
-2017
-
-### [Una nova comprensió, la ciència de la psilocibina](https://www.anewunderstanding.org/)
-
-2019

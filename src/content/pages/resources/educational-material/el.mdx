@@ -60,85 +60,143 @@ assetUrls:
   - /assets/photos/magicmedicine.jpg
   - /assets/photos/psymedicine.jpg
   - /assets/photos/serpent.jpg
-  - /assets/photos/trial.jpg  - /assets/photos/serpent.jpg  - /assets/photos/trial.jpg
+  - /assets/photos/trial.jpg
 ---
 
-## ΒΙΒΛΊΑ & ΝΤΟΚΙΜΑΝΤΈΡ
+import TwoColumns from "../../../../components/TwoColumns.astro";
+import MediaItem from "../../../../components/MediaItem.astro";
+
+
+## Βιβλία και ντοκιμαντέρ
 
 ## Βιβλία
 
 Ακολουθούν μερικά βιβλία που σας προτείνουμε αν είστε νέοι στο θέμα των ψυχεδελικών ουσιών, καθώς και για πιο εμπεριστατωμένες πληροφορίες σχετικά με τη θεραπεία, την έρευνα του εγκεφάλου και την ιστορία της χρήσης των φαρμακευτικών φυτών σε όλη την ανθρώπινη ιστορία.
 
-### Νέοι σε αυτές τις ουσίες;
+<TwoColumns class="two-columns--media">
+  <div>
+    <h3 id="new-to-these-substances">Νέοι σε αυτές τις ουσίες;</h3>
 
-### Θέλετε να εξερευνήσετε βαθύτερα;
+    <div class="media-item-list">
+      <MediaItem
+    image="/assets/photos/howtochangeyourmind.jpg"
+        meta="Michael Pollan"
+        title="How to change your mind"
+        href="https://michaelpollan.com/books/how-to-change-your-mind/"
+      />
+      <MediaItem
+    image="/assets/photos/dmt.jpg"
+        meta="Rick Strassman"
+        title="DMT Το μόριο του πνεύματος"
+        href="https://www.rickstrassman.com/publications/the-spirit-molecule/"
+      />
+      <MediaItem
+    image="/assets/photos/psymedicine.jpg"
+        meta="Richard Louis Miller"
+        title="Ψυχεδελική ιατρική: MDMA, Ψιλοκυβίνη και Αγιαχουάσκα"
+        href="https://maps.org/product/psychedelic-medicine-the-healing-powers-of-lsd-mdma-psilocybin-and-ayahuasca/"
+      />
+      <MediaItem
+    image="/assets/photos/foodgods.jpg"
+        meta="Τέρενς ΜακΚένα"
+        title="Τροφή των θεών"
+        href="https://books.google.fr/books/about/Food_of_the_Gods.html?id=nmOTEAAAQBAJ&redir_esc=y"
+      />
+    </div>
+  </div>
 
-#### [How to change your mind](https://michaelpollan.com/books/how-to-change-your-mind/)
+  <div slot="right">
+    <h3 id="want-to-explore-deeper">Θέλετε να εξερευνήσετε βαθύτερα;</h3>
 
-Michael Pollan
-
-#### [DMT Το μόριο του πνεύματος](https://www.rickstrassman.com/publications/the-spirit-molecule/)
-
-Rick Strassman
-
-#### [Ψυχεδελική ιατρική: MDMA, Ψιλοκυβίνη και Αγιαχουάσκα](https://maps.org/product/psychedelic-medicine-the-healing-powers-of-lsd-mdma-psilocybin-and-ayahuasca/)
-
-Richard Louis Miller
-
-#### [Τροφή των θεών](https://books.google.fr/books/about/Food_of_the_Gods.html?id=nmOTEAAAQBAJ&redir_esc=y)
-
-Τέρενς ΜακΚένα
-
-#### [LSD, my problem child](https://books.google.fr/books/about/LSD.html?id=glPNoC2N-IgC&redir_esc=y)
-
-Albert Hoffmann
-
-#### [Το κοσμικό φίδι](https://www.penguinrandomhouse.com/books/349746/the-cosmic-serpent-by-jeremy-narby/)
-
-Jeremy Narby
-
-#### [Ο οδηγός του ψυχεδελικού εξερευνητή](https://www.psychedelicexplorersguide.com/)
-
-James Fadiman
-
-#### [The Doors of Perception](https://books.google.fr/books/about/The_Doors_Of_Perception.html?id=h5mMb-Jbxq4C&redir_esc=y)
-
-Aldous Huxley
+    <div class="media-item-list">
+      <MediaItem
+    image="/assets/photos/lsd.jpg"
+        meta="Albert Hoffmann"
+        title="LSD, my problem child"
+        href="https://books.google.fr/books/about/LSD.html?id=glPNoC2N-IgC&redir_esc=y"
+      />
+      <MediaItem
+    image="/assets/photos/serpent.jpg"
+        meta="Jeremy Narby"
+        title="Το κοσμικό φίδι"
+        href="https://www.penguinrandomhouse.com/books/349746/the-cosmic-serpent-by-jeremy-narby/"
+      />
+      <MediaItem
+    image="/assets/photos/guide.jpg"
+        meta="James Fadiman"
+        title="Ο οδηγός του ψυχεδελικού εξερευνητή"
+        href="https://www.psychedelicexplorersguide.com/"
+      />
+      <MediaItem
+    image="/assets/photos/doors.jpg"
+        meta="Aldous Huxley"
+        title="The Doors of Perception"
+        href="https://books.google.fr/books/about/The_Doors_Of_Perception.html?id=h5mMb-Jbxq4C&redir_esc=y"
+      />
+    </div>
+  </div>
+</TwoColumns>
 
 ## Ντοκιμαντέρ
 
 Υπάρχουν όλο και περισσότερα ντοκιμαντέρ που μιλούν για τις ψυχεδελικές ουσίες και τις επιδράσεις τους στο μυαλό μας. Ακολουθεί μια επιλογή που εστιάζει ειδικά στις θεραπευτικές τους επιδράσεις.
 
-[X](https://www.netflix.com/title/80231917)
+<div class="media-item-grid">
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/howtochangeyourmind.webp"
+        meta="2020"
+        title="Καλό ταξίδι: Περιπέτειες στα ψυχεδελικά"
+        href="https://www.netflix.com/title/80231917"
+      />
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/howtochangeyourmind-docu.jpg"
+        meta="2022"
+        title="How to change your mind"
+        href="https://michaelpollan.com/films/how-to-change-your-mind/"
+      />
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/magicmedicine.jpg"
+        meta="2016"
+        title="Μαγική ιατρική"
+        href="https://magicmedicine.net/"
+      />
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/fungi.jpg"
+        meta="2019"
+        title="Φανταστικοί μύκητες"
+        href="https://watch.fantasticfungi.com/"
+      />
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/trial.jpg"
+        meta="2021"
+        title="Η δίκη για τα ψυχεδελικά ναρκωτικά"
+        href="https://www.bbc.co.uk/mediacentre/proginfo/2021/19/the-psychedelic-drug-trial"
+      />
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/hamilton.jpg"
+        meta="2020"
+        title="Φαρμακοποιία του Χάμιλτον"
+        href="https://www.vicetv.com/en_us/show/hamiltons-pharmacopeia"
+      />
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/lastshaman.jpg"
+        meta="2017"
+        title="Ο τελευταίος σαμάνος"
+        href="https://www.thelastshaman.com/"
+      />
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/itunesanu.jpg"
+        meta="2019"
+        title="Μια νέα κατανόηση, Η επιστήμη της Ψιλοκυβίνης"
+        href="https://www.anewunderstanding.org/"
+      />
+</div>
 
-### [Καλό ταξίδι: Περιπέτειες στα ψυχεδελικά](https://www.netflix.com/title/80231917)
-
-2020
-
-### [How to change your mind](https://michaelpollan.com/films/how-to-change-your-mind/)
-
-2022
-
-### [Μαγική ιατρική](https://magicmedicine.net/)
-
-2016
-
-### [Φανταστικοί μύκητες](https://watch.fantasticfungi.com/)
-
-2019
-
-### [Η δίκη για τα ψυχεδελικά ναρκωτικά](https://www.bbc.co.uk/mediacentre/proginfo/2021/19/the-psychedelic-drug-trial)
-
-2021
-
-### [Φαρμακοποιία του Χάμιλτον](https://www.vicetv.com/en_us/show/hamiltons-pharmacopeia)
-
-2020
-
-### [Ο τελευταίος σαμάνος](https://www.thelastshaman.com/)
-
-2017
-
-### [Μια νέα κατανόηση, Η επιστήμη της Ψιλοκυβίνης](https://www.anewunderstanding.org/)
-
-2019

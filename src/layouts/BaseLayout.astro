@@ -122,7 +122,12 @@ const getNavIcon = (icon?: string) => navIcons[icon ?? ""] ?? IconSparkles;
                   const isActive = isNavItemActive(slug, item.slug);
 
                   return (
-                    <li class="site-nav__item">
+                    <li
+                      class:list={[
+                        "site-nav__item",
+                        item.hidden && "site-nav__item--hidden",
+                      ]}
+                    >
                       {
                         item.children.length > 0 ? (
                           <details
@@ -273,7 +278,7 @@ const getNavIcon = (icon?: string) => navIcons[icon ?? ""] ?? IconSparkles;
                   <ul class="mobile-menu__sections">
                     {
                       navigation.primaryItems.map((item) => (
-                        <li>
+                        <li class:list={[item.hidden && "mobile-menu__section--hidden"]}>
                           {
                             item.children.length > 0 ? (
                               <details class="mobile-menu__group" data-group="mobile-subnav">

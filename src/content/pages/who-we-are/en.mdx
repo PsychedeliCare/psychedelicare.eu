@@ -79,6 +79,7 @@ assetUrls:
 
 import PeopleGrid from "../../../components/PeopleGrid.astro";
 import Callout from "../../../components/Callout.astro";
+import IconList from "../../../components/IconList.astro";
 import PillarGrid from "../../../components/PillarGrid.astro";
 import { coordinationBoardMembers } from "../../../data/coordinationBoard";
 import { nationalTeamCoordinators } from "../../../data/nationalTeamCoordinators";
@@ -91,7 +92,7 @@ PsychedeliCare brings together researchers, clinicians, artists, policy experts,
 
 <PeopleGrid title="Coordination Board" id="coordination-board" people={coordinationBoardMembers} />
 
-<PeopleGrid title="National Team Coordinators" id="national-teams" people={nationalTeamCoordinators} />
+<PeopleGrid title="National Team Coordinators" id="national-teams" people={nationalTeamCoordinators} variant="rows" />
 
 
 <a id="our-five-pillars"></a>
@@ -99,6 +100,7 @@ PsychedeliCare brings together researchers, clinicians, artists, policy experts,
 ## Our Five Pillars
 
 <PillarGrid
+  variant="stack"
   intro="Our work is structured around five areas:"
   pillars={[
     {
@@ -133,10 +135,39 @@ PsychedeliCare brings together researchers, clinicians, artists, policy experts,
 
 ## Our Values
 
-- **Respect for Lived Experience:** We honour each person's story and recognise lived experience as a valuable source of knowledge that informs everything we do.
-- **Scientific Integrity:** We are committed to transparency, responsibility, and grounding our work in solid and reliable evidence.
-- **Inclusivity and Diversity:** We welcome a plurality of voices, perspectives, and traditions, and foster dialogue across cultures, disciplines, and ways of knowing.
-- **Ethical Responsibility and Safety:** We hold a strong duty of care, placing ethics and safety at the centre of our work.
-- **Ecological Responsibility:** We recognise that our work exists within a living planetary system, and we aim to act with awareness of its long-term impact.
-- **Community and Collaboration:** We work in non-hierarchical and collaborative ways, fostering mutual support, shared ownership, and collective growth.
+<IconList
+  class="icon-list--feature"
+  items={[
+    {
+      icon: "lived-experience",
+      title: "Respect for Lived Experience",
+      text: "We honour each person's story and recognise lived experience as a valuable source of knowledge that informs everything we do.",
+    },
+    {
+      icon: "integrity",
+      title: "Scientific Integrity",
+      text: "We are committed to transparency, responsibility, and grounding our work in solid and reliable evidence.",
+    },
+    {
+      icon: "inclusivity",
+      title: "Inclusivity and Diversity",
+      text: "We welcome a plurality of voices, perspectives, and traditions, and foster dialogue across cultures, disciplines, and ways of knowing.",
+    },
+    {
+      icon: "safety",
+      title: "Ethical Responsibility and Safety",
+      text: "We hold a strong duty of care, placing ethics and safety at the centre of our work.",
+    },
+    {
+      icon: "ecological",
+      title: "Ecological Responsibility",
+      text: "We recognise that our work exists within a living planetary system, and we aim to act with awareness of its long-term impact.",
+    },
+    {
+      icon: "collaboration",
+      title: "Community and Collaboration",
+      text: "We work in non-hierarchical and collaborative ways, fostering mutual support, shared ownership, and collective growth.",
+    },
+  ]}
+/>
 

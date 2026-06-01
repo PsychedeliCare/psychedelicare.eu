@@ -15,20 +15,36 @@ type Props = {
   title?: string;
   id?: string;
   people: PersonCard[];
+  variant?: "grid" | "rows";
 };
 
-const { title, id, people } = Astro.props;
+const { title, id, people, variant = "grid" } = Astro.props;
+const isRows = variant === "rows";
 ---
 
-<section class="people-grid grid gap-[1.4rem] my-10" id={id}>
+<section class:list={["people-grid grid gap-[1.4rem] my-10", isRows && "people-grid--rows"]} id={id}>
   {title && <h2 class="m-0">{title}</h2>}
 
-  <div class="grid gap-[1.2rem] grid-cols-[repeat(auto-fit,minmax(260px,1fr))] items-start">
+  <div
+    class:list={[
+      "grid items-start",
+      isRows
+        ? "gap-y-[1.75rem] gap-x-[2.4rem] grid-cols-1 lg:grid-cols-2"
+        : "gap-y-[1.2rem] gap-x-[2.4rem] grid-cols-[repeat(auto-fit,minmax(260px,1fr))]",
+    ]}
+  >
     {
       people.map((person) => (
-        <article class="grid gap-4 grid-rows-[auto_1fr] pb-[1.2rem] border-b border-border">
+        <article
+          class:list={[
+            "grid pb-[1.2rem] border-b border-border",
+            isRows
+              ? "gap-x-[2rem] gap-y-4 grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(0,3fr)] items-start"
+              : "gap-4 grid-rows-[auto_1fr]",
+          ]}
+        >
           {person.image && (
-            <div class="aspect-square overflow-hidden rounded-[0.9rem] bg-[rgba(68,179,235,0.08)] leading-none">
+            <div class="people-grid__photo aspect-square overflow-hidden rounded-[0.9rem] bg-[rgba(68,179,235,0.08)] leading-none">
               <img
                 class="w-full h-full block object-cover object-[center_top]"
                 src={person.image}

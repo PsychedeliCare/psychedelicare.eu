@@ -14,6 +14,8 @@ type NavDefinition = {
   description?: string;
   icon?: string;
   children?: NavDefinition[];
+  hidden?: boolean;
+  utility?: boolean;
 };
 
 export type ResolvedNavItem = {
@@ -23,6 +25,7 @@ export type ResolvedNavItem = {
   description?: string;
   icon?: string;
   children: ResolvedNavItem[];
+  hidden?: boolean;
 };
 
 export type LanguageOption = {
@@ -50,6 +53,7 @@ const NAVIGATION_STRUCTURE: NavDefinition[] = [
     fallbackLabel: "Blog / News",
     description: "Updates, events, reports, and campaign notes.",
     icon: "news",
+    hidden: true,
     children: [
       {
         slug: "news/events",
@@ -84,10 +88,16 @@ const NAVIGATION_STRUCTURE: NavDefinition[] = [
     ],
   },
   {
+    slug: "projects/partnerships-collaborations",
+    fallbackLabel: "Partners",
+    icon: "partnership",
+  },
+  {
     slug: "projects",
     fallbackLabel: "Projects",
     description: "Initiatives, partnerships, and lived experience.",
     icon: "rocket",
+    hidden: true,
     children: [
       {
         slug: "projects/eci",
@@ -146,12 +156,6 @@ const NAVIGATION_STRUCTURE: NavDefinition[] = [
         icon: "faq",
       },
       {
-        slug: "resources/organisations-communities-initiatives",
-        fallbackLabel: "Organisations, Communities & Initiatives",
-        description: "Groups and ecosystem networks.",
-        icon: "community",
-      },
-      {
         slug: "resources/educational-material",
         fallbackLabel: "Educational Material",
         description: "Learning materials for advocates.",
@@ -171,8 +175,8 @@ const NAVIGATION_STRUCTURE: NavDefinition[] = [
       },
     ],
   },
-  { slug: "legal", fallbackLabel: "Legal" },
-  { slug: "privacy-policy", fallbackLabel: "Privacy Policy" },
+  { slug: "legal", fallbackLabel: "Legal", utility: true },
+  { slug: "privacy-policy", fallbackLabel: "Privacy Policy", utility: true },
 ];
 
 const LOCALE_NAMES: Record<SiteLocale, string> = {
@@ -224,6 +228,7 @@ function resolveItem(
       : localizePath(locale, definition.slug),
     description: definition.description,
     icon: definition.icon,
+    hidden: definition.hidden,
     children: (definition.children ?? []).map((child) =>
       resolveItem(pagesByKey, locale, child),
     ),
@@ -285,11 +290,12 @@ export async function buildNavigationContext(
     pages.map((entry) => [getPageLookupKey(entry.data.locale, entry.data.slug), entry]),
   );
 
-  const items = NAVIGATION_STRUCTURE.map((definition) =>
-    resolveItem(pagesByKey, currentLocale, definition),
-  );
-  const primaryItems = items.slice(0, 5);
-  const utilityItems = items.slice(5);
+  const items = NAVIGATION_STRUCTURE.map((definition) => ({
+    ...resolveItem(pagesByKey, currentLocale, definition),
+    utility: definition.utility,
+  }));
+  const primaryItems = items.filter((item) => !item.utility);
+  const utilityItems = items.filter((item) => item.utility);
   const languageOptions = resolveLanguageOptions(
     pages,
     pagesByKey,

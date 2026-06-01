@@ -59,85 +59,143 @@ assetUrls:
   - /assets/photos/magicmedicine.jpg
   - /assets/photos/psymedicine.jpg
   - /assets/photos/serpent.jpg
-  - /assets/photos/trial.jpg  - /assets/photos/serpent.jpg  - /assets/photos/trial.jpg
+  - /assets/photos/trial.jpg
 ---
 
-## LIBURUAK ETA DOKUMENTALAK
+import TwoColumns from "../../../../components/TwoColumns.astro";
+import MediaItem from "../../../../components/MediaItem.astro";
+
+
+## Liburuak eta dokumentalak
 
 ## Liburuak
 
 Hona hemen psikodelikoen gaian berria bazara, baita terapia, garunaren ikerketa eta sendabelarren erabileraren historiari buruzko informazio sakonagoa lortzeko ere.
 
-### Substantzia hauek ezagutzen berriak zara?
+<TwoColumns class="two-columns--media">
+  <div>
+    <h3 id="new-to-these-substances">Substantzia hauek ezagutzen berriak zara?</h3>
 
-### Sakonago arakatu nahi duzu?
+    <div class="media-item-list">
+      <MediaItem
+    image="/assets/photos/howtochangeyourmind.jpg"
+        meta="Michael Pollan"
+        title="Nola aldatu zure iritzia"
+        href="https://michaelpollan.com/books/how-to-change-your-mind/"
+      />
+      <MediaItem
+    image="/assets/photos/dmt.jpg"
+        meta="Rick Strassman"
+        title="DMT Espiritu Molekula"
+        href="https://www.rickstrassman.com/publications/the-spirit-molecule/"
+      />
+      <MediaItem
+    image="/assets/photos/psymedicine.jpg"
+        meta="Richard Louis Miller"
+        title="Medikuntza Psikodelikoa: LSD, MDMA, Psilozibina eta Ayahuascaren sendatzeko ahalmenak"
+        href="https://maps.org/product/psychedelic-medicine-the-healing-powers-of-lsd-mdma-psilocybin-and-ayahuasca/"
+      />
+      <MediaItem
+    image="/assets/photos/foodgods.jpg"
+        meta="Terence McKenna"
+        title="Jainkoen janaria."
+        href="https://books.google.fr/books/about/Food_of_the_Gods.html?id=nmOTEAAAQBAJ&redir_esc=y"
+      />
+    </div>
+  </div>
 
-#### [Nola aldatu zure iritzia](https://michaelpollan.com/books/how-to-change-your-mind/)
+  <div slot="right">
+    <h3 id="want-to-explore-deeper">Sakonago arakatu nahi duzu?</h3>
 
-Michael Pollan
-
-#### [DMT Espiritu Molekula](https://www.rickstrassman.com/publications/the-spirit-molecule/)
-
-Rick Strassman
-
-#### [Medikuntza Psikodelikoa: LSD, MDMA, Psilozibina eta Ayahuascaren sendatzeko ahalmenak](https://maps.org/product/psychedelic-medicine-the-healing-powers-of-lsd-mdma-psilocybin-and-ayahuasca/)
-
-Richard Louis Miller
-
-#### [Jainkoen janaria.](https://books.google.fr/books/about/Food_of_the_Gods.html?id=nmOTEAAAQBAJ&redir_esc=y)
-
-Terence McKenna
-
-#### [LSD, nire arazo-umea](https://books.google.fr/books/about/LSD.html?id=glPNoC2N-IgC&redir_esc=y)
-
-Alberto Hoffmann
-
-#### [Suge Kosmikoa](https://www.penguinrandomhouse.com/books/349746/the-cosmic-serpent-by-jeremy-narby/)
-
-Jeremy Narby
-
-#### [Esploratzaile psikodelikoaren gida](https://www.psychedelicexplorersguide.com/)
-
-James Fadiman
-
-#### [Pertzepzioaren Ateak.](https://books.google.fr/books/about/The_Doors_Of_Perception.html?id=h5mMb-Jbxq4C&redir_esc=y)
-
-Aldous Huxley
+    <div class="media-item-list">
+      <MediaItem
+    image="/assets/photos/lsd.jpg"
+        meta="Alberto Hoffmann"
+        title="LSD, nire arazo-umea"
+        href="https://books.google.fr/books/about/LSD.html?id=glPNoC2N-IgC&redir_esc=y"
+      />
+      <MediaItem
+    image="/assets/photos/serpent.jpg"
+        meta="Jeremy Narby"
+        title="Suge Kosmikoa"
+        href="https://www.penguinrandomhouse.com/books/349746/the-cosmic-serpent-by-jeremy-narby/"
+      />
+      <MediaItem
+    image="/assets/photos/guide.jpg"
+        meta="James Fadiman"
+        title="Esploratzaile psikodelikoaren gida"
+        href="https://www.psychedelicexplorersguide.com/"
+      />
+      <MediaItem
+    image="/assets/photos/doors.jpg"
+        meta="Aldous Huxley"
+        title="Pertzepzioaren Ateak."
+        href="https://books.google.fr/books/about/The_Doors_Of_Perception.html?id=h5mMb-Jbxq4C&redir_esc=y"
+      />
+    </div>
+  </div>
+</TwoColumns>
 
 ## Dokumentalak
 
 Substantzia psikodelikoei eta gure buruan dituzten efektuei buruz hitz egiten duten gero eta dokumental gehiago daude. Hona hemen haien efektu terapeutikoetan arreta jartzen duen aukeraketa bat.
 
-[X](https://www.netflix.com/title/80231917)
+<div class="media-item-grid">
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/howtochangeyourmind.webp"
+        meta="2020"
+        title="Bidaia ona izan: Abenturak psikodelikoetan"
+        href="https://www.netflix.com/title/80231917"
+      />
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/howtochangeyourmind-docu.jpg"
+        meta="2022"
+        title="Nola aldatu zure iritzia"
+        href="https://michaelpollan.com/films/how-to-change-your-mind/"
+      />
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/magicmedicine.jpg"
+        meta="2016"
+        title="Medikuntza Magikoa"
+        href="https://magicmedicine.net/"
+      />
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/fungi.jpg"
+        meta="2019"
+        title="Onddo fantastikoak"
+        href="https://watch.fantasticfungi.com/"
+      />
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/trial.jpg"
+        meta="2021"
+        title="Droga psikodelikoen epaiketa"
+        href="https://www.bbc.co.uk/mediacentre/proginfo/2021/19/the-psychedelic-drug-trial"
+      />
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/hamilton.jpg"
+        meta="2020"
+        title="Hamiltonen Farmakopea"
+        href="https://www.vicetv.com/en_us/show/hamiltons-pharmacopeia"
+      />
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/lastshaman.jpg"
+        meta="2017"
+        title="Azken Xamana"
+        href="https://www.thelastshaman.com/"
+      />
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/itunesanu.jpg"
+        meta="2019"
+        title="Ulermen Berri Bat, Psilozibinaren Zientzia"
+        href="https://www.anewunderstanding.org/"
+      />
+</div>
 
-### [Bidaia ona izan: Abenturak psikodelikoetan](https://www.netflix.com/title/80231917)
-
-2020
-
-### [Nola aldatu zure iritzia](https://michaelpollan.com/films/how-to-change-your-mind/)
-
-2022
-
-### [Medikuntza Magikoa](https://magicmedicine.net/)
-
-2016
-
-### [Onddo fantastikoak](https://watch.fantasticfungi.com/)
-
-2019
-
-### [Droga psikodelikoen epaiketa](https://www.bbc.co.uk/mediacentre/proginfo/2021/19/the-psychedelic-drug-trial)
-
-2021
-
-### [Hamiltonen Farmakopea](https://www.vicetv.com/en_us/show/hamiltons-pharmacopeia)
-
-2020
-
-### [Azken Xamana](https://www.thelastshaman.com/)
-
-2017
-
-### [Ulermen Berri Bat, Psilozibinaren Zientzia](https://www.anewunderstanding.org/)
-
-2019

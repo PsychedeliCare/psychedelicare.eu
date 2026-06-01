@@ -59,85 +59,143 @@ assetUrls:
   - /assets/photos/magicmedicine.jpg
   - /assets/photos/psymedicine.jpg
   - /assets/photos/serpent.jpg
-  - /assets/photos/trial.jpg  - /assets/photos/serpent.jpg  - /assets/photos/trial.jpg
+  - /assets/photos/trial.jpg
 ---
 
-## KSIĄŻKI I FILMY DOKUMENTALNE
+import TwoColumns from "../../../../components/TwoColumns.astro";
+import MediaItem from "../../../../components/MediaItem.astro";
+
+
+## Książki i filmy dokumentalne
 
 ## Książki
 
 Oto kilka książek, które polecamy, szczególnie, jeśli temat psychodelików jest dla Ciebie nowy, ale także w celu pogłębienia wiedzy na temat terapii, badań mózgu i historii stosowania roślin leczniczych w historii ludzkości.
 
-### Jesteś nowym użytkownikiem tych substancji?
+<TwoColumns class="two-columns--media">
+  <div>
+    <h3 id="new-to-these-substances">Jesteś nowym użytkownikiem tych substancji?</h3>
 
-### Chcesz dowiedzieć się więcej?
+    <div class="media-item-list">
+      <MediaItem
+    image="/assets/photos/howtochangeyourmind.jpg"
+        meta="Michael Pollan"
+        title="Jak zmienić swój umysł?"
+        href="https://michaelpollan.com/books/how-to-change-your-mind/"
+      />
+      <MediaItem
+    image="/assets/photos/dmt.jpg"
+        meta="Rick Strassman"
+        title="DMT Cząsteczka Ducha"
+        href="https://www.rickstrassman.com/publications/the-spirit-molecule/"
+      />
+      <MediaItem
+    image="/assets/photos/psymedicine.jpg"
+        meta="Richard Louis Miller"
+        title="Psychedelic Medicine: The Healing Powers of LSD, MDMA, Psilocybin, and Ayahuasca"
+        href="https://maps.org/product/psychedelic-medicine-the-healing-powers-of-lsd-mdma-psilocybin-and-ayahuasca/"
+      />
+      <MediaItem
+    image="/assets/photos/foodgods.jpg"
+        meta="Terence McKenna"
+        title="Pokarm bogów"
+        href="https://books.google.fr/books/about/Food_of_the_Gods.html?id=nmOTEAAAQBAJ&redir_esc=y"
+      />
+    </div>
+  </div>
 
-#### [Jak zmienić swój umysł?](https://michaelpollan.com/books/how-to-change-your-mind/)
+  <div slot="right">
+    <h3 id="want-to-explore-deeper">Chcesz dowiedzieć się więcej?</h3>
 
-Michael Pollan
-
-#### [DMT Cząsteczka Ducha](https://www.rickstrassman.com/publications/the-spirit-molecule/)
-
-Rick Strassman
-
-#### [Psychedelic Medicine: The Healing Powers of LSD, MDMA, Psilocybin, and Ayahuasca](https://maps.org/product/psychedelic-medicine-the-healing-powers-of-lsd-mdma-psilocybin-and-ayahuasca/)
-
-Richard Louis Miller
-
-#### [Pokarm bogów](https://books.google.fr/books/about/Food_of_the_Gods.html?id=nmOTEAAAQBAJ&redir_esc=y)
-
-Terence McKenna
-
-#### [LSD - moje trudne dziecko](https://books.google.fr/books/about/LSD.html?id=glPNoC2N-IgC&redir_esc=y)
-
-Albert Hoffmann
-
-#### [Kosmiczna spirala](https://www.penguinrandomhouse.com/books/349746/the-cosmic-serpent-by-jeremy-narby/)
-
-Jeremy Narby
-
-#### [Przewodnik psychodelicznego podróżnika](https://www.psychedelicexplorersguide.com/)
-
-James Fadiman
-
-#### [Drzwi percepcji](https://books.google.fr/books/about/The_Doors_Of_Perception.html?id=h5mMb-Jbxq4C&redir_esc=y)
-
-Aldous Huxley
+    <div class="media-item-list">
+      <MediaItem
+    image="/assets/photos/lsd.jpg"
+        meta="Albert Hoffmann"
+        title="LSD - moje trudne dziecko"
+        href="https://books.google.fr/books/about/LSD.html?id=glPNoC2N-IgC&redir_esc=y"
+      />
+      <MediaItem
+    image="/assets/photos/serpent.jpg"
+        meta="Jeremy Narby"
+        title="Kosmiczna spirala"
+        href="https://www.penguinrandomhouse.com/books/349746/the-cosmic-serpent-by-jeremy-narby/"
+      />
+      <MediaItem
+    image="/assets/photos/guide.jpg"
+        meta="James Fadiman"
+        title="Przewodnik psychodelicznego podróżnika"
+        href="https://www.psychedelicexplorersguide.com/"
+      />
+      <MediaItem
+    image="/assets/photos/doors.jpg"
+        meta="Aldous Huxley"
+        title="Drzwi percepcji"
+        href="https://books.google.fr/books/about/The_Doors_Of_Perception.html?id=h5mMb-Jbxq4C&redir_esc=y"
+      />
+    </div>
+  </div>
+</TwoColumns>
 
 ## Filmy dokumentalne
 
 Coraz więcej filmów dokumentalnych opowiada o substancjach psychodelicznych i ich wpływie na nasz umysł. Oto wybór skupiający się w szczególności na ich efektach terapeutycznych.
 
-[X](https://www.netflix.com/title/80231917)
+<div class="media-item-grid">
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/howtochangeyourmind.webp"
+        meta="2020"
+        title="Życzymy udanej jazdy: psychodeliczne przygody"
+        href="https://www.netflix.com/title/80231917"
+      />
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/howtochangeyourmind-docu.jpg"
+        meta="2022"
+        title="Jak zmienić swój umysł?"
+        href="https://michaelpollan.com/films/how-to-change-your-mind/"
+      />
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/magicmedicine.jpg"
+        meta="2016"
+        title="Magiczne lekarstwo"
+        href="https://magicmedicine.net/"
+      />
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/fungi.jpg"
+        meta="2019"
+        title="Niezwykły świat grzybów"
+        href="https://watch.fantasticfungi.com/"
+      />
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/trial.jpg"
+        meta="2021"
+        title="The Psychedelic Drug trial"
+        href="https://www.bbc.co.uk/mediacentre/proginfo/2021/19/the-psychedelic-drug-trial"
+      />
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/hamilton.jpg"
+        meta="2020"
+        title="Farmakopea Hamiltona"
+        href="https://www.vicetv.com/en_us/show/hamiltons-pharmacopeia"
+      />
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/lastshaman.jpg"
+        meta="2017"
+        title="The Last Shaman"
+        href="https://www.thelastshaman.com/"
+      />
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/itunesanu.jpg"
+        meta="2019"
+        title="Nowe zrozumienie, Nauka o psilocybinie"
+        href="https://www.anewunderstanding.org/"
+      />
+</div>
 
-### [Życzymy udanej jazdy: psychodeliczne przygody](https://www.netflix.com/title/80231917)
-
-2020
-
-### [Jak zmienić swój umysł?](https://michaelpollan.com/films/how-to-change-your-mind/)
-
-2022
-
-### [Magiczne lekarstwo](https://magicmedicine.net/)
-
-2016
-
-### [Niezwykły świat grzybów](https://watch.fantasticfungi.com/)
-
-2019
-
-### [The Psychedelic Drug trial](https://www.bbc.co.uk/mediacentre/proginfo/2021/19/the-psychedelic-drug-trial)
-
-2021
-
-### [Farmakopea Hamiltona](https://www.vicetv.com/en_us/show/hamiltons-pharmacopeia)
-
-2020
-
-### [The Last Shaman](https://www.thelastshaman.com/)
-
-2017
-
-### [Nowe zrozumienie, Nauka o psilocybinie](https://www.anewunderstanding.org/)
-
-2019

@@ -1,0 +1,16 @@
+---
+type Props = {
+  label?: string;
+};
+
+const { label = "Read more" } = Astro.props;
+---
+
+<details class="read-more">
+  <summary class="read-more__summary">
+    <span class="read-more__label button-secondary">{label}</span>
+  </summary>
+  <div class="read-more__content">
+    <slot />
+  </div>
+</details>

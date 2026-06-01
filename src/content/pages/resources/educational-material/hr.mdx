@@ -59,85 +59,143 @@ assetUrls:
   - /assets/photos/magicmedicine.jpg
   - /assets/photos/psymedicine.jpg
   - /assets/photos/serpent.jpg
-  - /assets/photos/trial.jpg  - /assets/photos/serpent.jpg  - /assets/photos/trial.jpg
+  - /assets/photos/trial.jpg
 ---
 
-## KNJIGE I DOKUMENTARCI
+import TwoColumns from "../../../../components/TwoColumns.astro";
+import MediaItem from "../../../../components/MediaItem.astro";
+
+
+## Knjige i dokumentarci
 
 ## Knjige
 
 Ovdje je nekoliko knjiga koje preporučujemo ako ste novi u svijetu psihodelika, kao i za detaljnije informacije o terapiji, istraživanju mozga i povijesti upotrebe ljekovitog bilja kroz ljudsku povijest.
 
-### Novi ste u svijetu ovih supstanci?
+<TwoColumns class="two-columns--media">
+  <div>
+    <h3 id="new-to-these-substances">Novi ste u svijetu ovih supstanci?</h3>
 
-### Želite li istražiti dublje?
+    <div class="media-item-list">
+      <MediaItem
+    image="/assets/photos/howtochangeyourmind.jpg"
+        meta="Michael Pollan"
+        title="Kako promijeniti mišljenje"
+        href="https://michaelpollan.com/books/how-to-change-your-mind/"
+      />
+      <MediaItem
+    image="/assets/photos/dmt.jpg"
+        meta="Rick Strassman"
+        title="DMT Molekula duha"
+        href="https://www.rickstrassman.com/publications/the-spirit-molecule/"
+      />
+      <MediaItem
+    image="/assets/photos/psymedicine.jpg"
+        meta="Richard Louis Miller"
+        title="Psihodelična medicina: Ljekovita moć LSD-a, MDMA-a, psilocibina i ajahuasce"
+        href="https://maps.org/product/psychedelic-medicine-the-healing-powers-of-lsd-mdma-psilocybin-and-ayahuasca/"
+      />
+      <MediaItem
+    image="/assets/photos/foodgods.jpg"
+        meta="Terence McKenna"
+        title="Hrana bogova"
+        href="https://books.google.fr/books/about/Food_of_the_Gods.html?id=nmOTEAAAQBAJ&redir_esc=y"
+      />
+    </div>
+  </div>
 
-#### [Kako promijeniti mišljenje](https://michaelpollan.com/books/how-to-change-your-mind/)
+  <div slot="right">
+    <h3 id="want-to-explore-deeper">Želite li istražiti dublje?</h3>
 
-Michael Pollan
-
-#### [DMT Molekula duha](https://www.rickstrassman.com/publications/the-spirit-molecule/)
-
-Rick Strassman
-
-#### [Psihodelična medicina: Ljekovita moć LSD-a, MDMA-a, psilocibina i ajahuasce](https://maps.org/product/psychedelic-medicine-the-healing-powers-of-lsd-mdma-psilocybin-and-ayahuasca/)
-
-Richard Louis Miller
-
-#### [Hrana bogova](https://books.google.fr/books/about/Food_of_the_Gods.html?id=nmOTEAAAQBAJ&redir_esc=y)
-
-Terence McKenna
-
-#### [LSD, moje problematično dijete](https://books.google.fr/books/about/LSD.html?id=glPNoC2N-IgC&redir_esc=y)
-
-Albert Hoffmann
-
-#### [Kozmička zmija](https://www.penguinrandomhouse.com/books/349746/the-cosmic-serpent-by-jeremy-narby/)
-
-Jeremy Narby
-
-#### [Vodič za istraživače psihodelika](https://www.psychedelicexplorersguide.com/)
-
-James Fadiman
-
-#### [Vrata percepcije](https://books.google.fr/books/about/The_Doors_Of_Perception.html?id=h5mMb-Jbxq4C&redir_esc=y)
-
-Aldous Huxley
+    <div class="media-item-list">
+      <MediaItem
+    image="/assets/photos/lsd.jpg"
+        meta="Albert Hoffmann"
+        title="LSD, moje problematično dijete"
+        href="https://books.google.fr/books/about/LSD.html?id=glPNoC2N-IgC&redir_esc=y"
+      />
+      <MediaItem
+    image="/assets/photos/serpent.jpg"
+        meta="Jeremy Narby"
+        title="Kozmička zmija"
+        href="https://www.penguinrandomhouse.com/books/349746/the-cosmic-serpent-by-jeremy-narby/"
+      />
+      <MediaItem
+    image="/assets/photos/guide.jpg"
+        meta="James Fadiman"
+        title="Vodič za istraživače psihodelika"
+        href="https://www.psychedelicexplorersguide.com/"
+      />
+      <MediaItem
+    image="/assets/photos/doors.jpg"
+        meta="Aldous Huxley"
+        title="Vrata percepcije"
+        href="https://books.google.fr/books/about/The_Doors_Of_Perception.html?id=h5mMb-Jbxq4C&redir_esc=y"
+      />
+    </div>
+  </div>
+</TwoColumns>
 
 ## Dokumentarci
 
 Sve je više dokumentaraca koji govore o psihodeličnim supstancama i njihovim učincima na naš um. Ovdje je izbor onih koji se posebno fokusiraju na njihove terapeutske učinke.
 
-[X](https://www.netflix.com/title/80231917)
+<div class="media-item-grid">
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/howtochangeyourmind.webp"
+        meta="2020"
+        title="Sretan put: Pustolovine u psihodelicima"
+        href="https://www.netflix.com/title/80231917"
+      />
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/howtochangeyourmind-docu.jpg"
+        meta="2022"
+        title="Kako promijeniti mišljenje"
+        href="https://michaelpollan.com/films/how-to-change-your-mind/"
+      />
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/magicmedicine.jpg"
+        meta="2016"
+        title="Magična medicina"
+        href="https://magicmedicine.net/"
+      />
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/fungi.jpg"
+        meta="2019"
+        title="Fantastične gljive"
+        href="https://watch.fantasticfungi.com/"
+      />
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/trial.jpg"
+        meta="2021"
+        title="Suđenje za psihodeličnu drogu"
+        href="https://www.bbc.co.uk/mediacentre/proginfo/2021/19/the-psychedelic-drug-trial"
+      />
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/hamilton.jpg"
+        meta="2020"
+        title="Hamiltonova farmakopeja"
+        href="https://www.vicetv.com/en_us/show/hamiltons-pharmacopeia"
+      />
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/lastshaman.jpg"
+        meta="2017"
+        title="Posljednji šaman"
+        href="https://www.thelastshaman.com/"
+      />
+      <MediaItem
+    headingLevel="h3"
+    image="/assets/photos/itunesanu.jpg"
+        meta="2019"
+        title="Novo razumijevanje, znanost o psilocibinu"
+        href="https://www.anewunderstanding.org/"
+      />
+</div>
 
-### [Sretan put: Pustolovine u psihodelicima](https://www.netflix.com/title/80231917)
-
-2020
-
-### [Kako promijeniti mišljenje](https://michaelpollan.com/films/how-to-change-your-mind/)
-
-2022
-
-### [Magična medicina](https://magicmedicine.net/)
-
-2016
-
-### [Fantastične gljive](https://watch.fantasticfungi.com/)
-
-2019
-
-### [Suđenje za psihodeličnu drogu](https://www.bbc.co.uk/mediacentre/proginfo/2021/19/the-psychedelic-drug-trial)
-
-2021
-
-### [Hamiltonova farmakopeja](https://www.vicetv.com/en_us/show/hamiltons-pharmacopeia)
-
-2020
-
-### [Posljednji šaman](https://www.thelastshaman.com/)
-
-2017
-
-### [Novo razumijevanje, znanost o psilocibinu](https://www.anewunderstanding.org/)
-
-2019

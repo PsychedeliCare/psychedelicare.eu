@@ -7,48 +7,74 @@ type Pillar = {
 type Props = {
   intro?: string;
   pillars: Pillar[];
+  variant?: "grid" | "stack";
 };
 
-const { intro, pillars } = Astro.props;
+const { intro, pillars, variant = "grid" } = Astro.props;
+const isStack = variant === "stack";
 
 const topRow = pillars.slice(0, 3);
 const bottomRow = pillars.slice(3, 5);
+
+const cardClass =
+  "pillar-grid__item flex min-h-[11rem] flex-col items-start rounded-3xl border border-border bg-bg-soft p-[clamp(1.2rem,2vw,1.6rem)] text-left";
+const titleClass = "m-0 text-[clamp(1.35rem,2vw,1.75rem)]";
 ---
 
-<section class="pillar-grid my-10">
+<section class:list={["pillar-grid my-10", isStack && "pillar-grid--stack"]}>
   {intro && <p class="pillar-grid__intro m-0 mb-6 max-w-[62ch]">{intro}</p>}
 
-  <div class="pillar-grid__rows grid gap-5">
-    <div class="grid gap-5 md:grid-cols-3">
-      {
-        topRow.map((pillar, index) => (
-          <article class="pillar-grid__item flex min-h-[11rem] flex-col items-start rounded-3xl border border-border bg-bg-soft p-[clamp(1.2rem,2vw,1.6rem)] text-left">
-            <span class="pillar-grid__number" aria-hidden="true">
-              {index + 1}
-            </span>
-            <h3 class="m-0 text-[clamp(1.35rem,2vw,1.75rem)]">{pillar.title}</h3>
-            <p class="m-0 mt-3 text-muted">{pillar.description}</p>
-          </article>
-        ))
-      }
-    </div>
-
-    {
-      bottomRow.length > 0 && (
-        <div class="grid gap-5 md:grid-cols-2 md:mx-auto md:w-2/3">
+  {
+    isStack ? (
+      <div class="pillar-grid__rows grid gap-[clamp(1.5rem,3vw,2.25rem)]">
+        {
+          pillars.map((pillar, index) => (
+            <article class="pillar-grid__item grid grid-cols-[auto_1fr] gap-x-[clamp(1rem,3vw,2rem)] items-center min-h-[11rem] rounded-3xl border border-border bg-bg-soft p-[clamp(1.2rem,2vw,1.6rem)] text-left">
+              <span class="pillar-grid__number pillar-grid__number--stack" aria-hidden="true">
+                {index + 1}
+              </span>
+              <div class="pillar-grid__content grid gap-3 min-w-0">
+                <h3 class={titleClass}>{pillar.title}</h3>
+                <p class="m-0 text-muted">{pillar.description}</p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    ) : (
+      <div class="pillar-grid__rows grid gap-5">
+        <div class="grid gap-5 md:grid-cols-3">
           {
-            bottomRow.map((pillar, index) => (
-              <article class="pillar-grid__item flex min-h-[11rem] flex-col items-start rounded-3xl border border-border bg-bg-soft p-[clamp(1.2rem,2vw,1.6rem)] text-left">
+            topRow.map((pillar, index) => (
+              <article class={cardClass}>
                 <span class="pillar-grid__number" aria-hidden="true">
-                  {topRow.length + index + 1}
+                  {index + 1}
                 </span>
-                <h3 class="m-0 text-[clamp(1.35rem,2vw,1.75rem)]">{pillar.title}</h3>
+                <h3 class={titleClass}>{pillar.title}</h3>
                 <p class="m-0 mt-3 text-muted">{pillar.description}</p>
               </article>
             ))
           }
         </div>
-      )
-    }
-  </div>
+
+        {
+          bottomRow.length > 0 && (
+            <div class="grid gap-5 md:grid-cols-2 md:mx-auto md:w-2/3">
+              {
+                bottomRow.map((pillar, index) => (
+                  <article class={cardClass}>
+                    <span class="pillar-grid__number" aria-hidden="true">
+                      {topRow.length + index + 1}
+                    </span>
+                    <h3 class={titleClass}>{pillar.title}</h3>
+                    <p class="m-0 mt-3 text-muted">{pillar.description}</p>
+                  </article>
+                ))
+              }
+            </div>
+          )
+        }
+      </div>
+    )
+  }
 </section>

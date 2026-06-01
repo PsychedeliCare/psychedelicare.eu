@@ -2,29 +2,64 @@
 type AccordionItem = {
   question: string;
   answer: string;
+  tocLabel?: string;
+  id?: string;
 };
 
 type Props = {
   items: AccordionItem[];
+  sectionSlug?: string;
 };
 
-const { items } = Astro.props;
+const { items, sectionSlug } = Astro.props;
+
+function itemSlug(question: string, id?: string) {
+  if (id) return id;
+
+  return question
+    .replace(/^\d+\.\s*/, "")
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
+function itemTocLabel(question: string, tocLabel?: string) {
+  return tocLabel ?? question.replace(/^\d+\.\s*/, "");
+}
+
+const tocItems = items.map((item) => ({
+  id: itemSlug(item.question, item.id),
+  label: itemTocLabel(item.question, item.tocLabel),
+}));
 ---
 
 {
   items.length > 0 && (
-    <div class="accordion grid gap-0">
-      {items.map((item) => (
-        <details class="border-t border-border overflow-hidden last:border-b last:border-border">
-          <summary class="cursor-pointer flex items-center justify-between gap-4 py-[1.15rem] px-[1.2rem] font-bold list-none [&::-webkit-details-marker]:hidden after:content-['+'] after:shrink-0 after:text-[1.6rem] after:leading-none after:text-pink after:transition-transform after:duration-200 open:after:rotate-45">
-            {item.question}
-          </summary>
-          <div
-            class="px-[1.2rem] pb-[1.15rem] text-muted [&_p:first-child]:mt-0"
-            set:html={item.answer}
-          />
-        </details>
-      ))}
+    <div
+      class="accordion grid gap-0"
+      data-accordion-toc={sectionSlug ?? ""}
+      data-toc-items={JSON.stringify(tocItems)}
+    >
+      {items.map((item) => {
+        const id = itemSlug(item.question, item.id);
+
+        return (
+          <details
+            id={id}
+            class="border-t border-border overflow-hidden scroll-mt-6 last:border-b last:border-border"
+          >
+            <summary class="cursor-pointer flex items-center justify-between gap-4 py-[1.15rem] px-[1.2rem] font-bold list-none [&::-webkit-details-marker]:hidden after:content-['+'] after:shrink-0 after:text-[1.6rem] after:leading-none after:text-pink after:transition-transform after:duration-200 open:after:rotate-45">
+              {item.question}
+            </summary>
+            <div
+              class="px-[1.2rem] pb-[1.15rem] text-text [&_p:first-child]:mt-0"
+              set:html={item.answer}
+            />
+          </details>
+        );
+      })}
     </div>
   )
 }

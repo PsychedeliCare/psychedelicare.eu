@@ -7,11 +7,10 @@ type Partner = {
 };
 
 type Props = {
-  title?: string;
   partners: Partner[];
 };
 
-const { title = "Partners", partners } = Astro.props;
+const { partners } = Astro.props;
 
 const logoFiles = [
   "approches-transpersonnelles-logo.avif",
@@ -95,7 +94,6 @@ const getPartnerLogo = (partner: Partner) => {
 ---
 
 <section class="partner-grid grid gap-[1.2rem] my-10">
-  <h2>{title}</h2>
   <div class="grid gap-[1.2rem] grid-cols-[repeat(auto-fit,minmax(240px,1fr))]">
     {
       partners.map((partner) => {
@@ -110,9 +108,9 @@ const getPartnerLogo = (partner: Partner) => {
               rel="noreferrer"
             >
               {logo && (
-                <span class="grid place-items-start w-full h-[5.25rem]">
+                <span class="grid items-center justify-items-start w-full h-[7rem] pt-5">
                   <img
-                    class="block w-auto max-w-[min(100%,11rem)] max-h-[4.5rem] object-contain"
+                    class="block w-auto max-w-[min(100%,14rem)] max-h-[6rem] object-contain"
                     src={logo}
                     alt=""
                     loading="lazy"
@@ -120,7 +118,7 @@ const getPartnerLogo = (partner: Partner) => {
                   />
                 </span>
               )}
-              <h3 class="m-0 text-xl">{partner.name}</h3>
+              <h3 class="m-0">{partner.name}</h3>
             </a>
             {partner.description && <p class="m-0 text-muted">{partner.description}</p>}
           </article>

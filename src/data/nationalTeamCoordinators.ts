@@ -7,7 +7,7 @@ export const nationalTeamCoordinators: TeamMember[] = [
     countryCode: "IT",
     email: "italy@psychedelicare.eu",
     image: "/assets/people/annarita-eva.jpg",
-    bio: "Annarita is an experienced Professional Counselor and Corporate Trainer. She integrates the main models of Humanistic Psychology in her work. With Master's Degrees in Health Psychology and Italian Literature, since 2010 she's been offering support as a psychedelic sitter at festivals. Contact Annarita (italy@psychedelicare.eu)",
+    bio: "Annarita is an experienced Professional Counselor and Corporate Trainer. She integrates the main models of Humanistic Psychology in her work. With Master's Degrees in Health Psychology and Italian Literature, since 2010 she's been offering support as a psychedelic sitter at festivals.",
   },
   {
     name: "Alexis Arragon",
@@ -16,7 +16,7 @@ export const nationalTeamCoordinators: TeamMember[] = [
     email: "france@psychedelicare.eu",
     website: "https://societepsychedelique.fr/fr",
     image: "/assets/people/alexis-arragon.jpg",
-    bio: "Alexis has worked for more than 20 years with interactive media, and founded tech startups for the past 8 years. With a computer science and artificial intelligence engineering background, he is now training to become a therapist. Alexis is also involved in the Société Psychédélique Française. Contact Alexis (france@psychedelicare.eu)",
+    bio: "Alexis has worked for more than 20 years with interactive media, and founded tech startups for the past 8 years. With a computer science and artificial intelligence engineering background, he is now training to become a therapist. Alexis is also involved in the Société Psychédélique Française.",
   },
   {
     name: "Luize Anna Bankovica",
@@ -24,7 +24,7 @@ export const nationalTeamCoordinators: TeamMember[] = [
     countryCode: "LV",
     email: "latvia@psychedelicare.eu",
     image: "/assets/people/luize-anna-bankovica.jpg",
-    bio: "A Regenerative Experience Designer with a Master's in Sustainability in Creative Industries, Luize combines experience in creative sectors with a focus on sustainability, creativity, and regenerative behaviour. Her pioneering research delves into the relationship between mind-altering practices and value shifts. She is a co-founder of a startup specialising in narrative design tools for communities. Contact Luize (latvia@psychedelicare.eu)",
+    bio: "A Regenerative Experience Designer with a Master's in Sustainability in Creative Industries, Luize combines experience in creative sectors with a focus on sustainability, creativity, and regenerative behaviour. Her pioneering research delves into the relationship between mind-altering practices and value shifts. She is a co-founder of a startup specialising in narrative design tools for communities.",
   },
   {
     name: "Mario Zulić",
@@ -32,7 +32,7 @@ export const nationalTeamCoordinators: TeamMember[] = [
     countryCode: "HR",
     email: "croatia@psychedelicare.eu",
     image: "/assets/people/mario-zulic.jpeg",
-    bio: "Mario is a psychologist from Croatia with a profound interest in the potential of psychedelics, founder and president of the non-profit organisation Nepopularna psihologija, author and public speaker. He spearheaded the inaugural conference on the science of psychedelics in Croatia in 2023, initiating a long-awaited dialogue on the subject. Contact Mario (croatia@psychedelicare.eu).",
+    bio: "Mario is a psychologist from Croatia with a profound interest in the potential of psychedelics, founder and president of the non-profit organisation Nepopularna psihologija, author and public speaker. He spearheaded the inaugural conference on the science of psychedelics in Croatia in 2023, initiating a long-awaited dialogue on the subject.",
   },
   {
     name: "Alicja Rudnicka",
@@ -40,7 +40,7 @@ export const nationalTeamCoordinators: TeamMember[] = [
     countryCode: "PL",
     email: "poland@psychedelicare.eu",
     image: "/assets/people/alicja-rudnicka.jpeg",
-    bio: "Ala holds a Master's degree in Russian Philology and a PhD in Culture and Religion from the University of Gdańsk, with a focus on contemporary shamanism in Siberia. Despite her career in IT, she remains deeply engaged with human culture, mental health, and psychedelics as they are connected to these fields. Currently studying Psychology, Ala aims to gain the tools needed to support others, especially through the potential of psychedelic therapies. Contact Alicja (poland@psychedelicare.eu)",
+    bio: "Ala holds a Master's degree in Russian Philology and a PhD in Culture and Religion from the University of Gdańsk, with a focus on contemporary shamanism in Siberia. Despite her career in IT, she remains deeply engaged with human culture, mental health, and psychedelics as they are connected to these fields. Currently studying Psychology, Ala aims to gain the tools needed to support others, especially through the potential of psychedelic therapies.",
   },
   {
     name: "Audra Micallef",
@@ -48,7 +48,7 @@ export const nationalTeamCoordinators: TeamMember[] = [
     countryCode: "MT",
     email: "malta@psychedelicare.eu",
     image: "/assets/people/audra-micallef.png",
-    bio: "Audra is a psychotherapist, Movement Medicine teacher, and psychedelics-assisted psychotherapist. She introduced Ketamine-Assisted Psychotherapy (KAP) and Movement Medicine to Malta and continues to foster their growth locally, facilitating groups and retreats. Currently pursuing a PhD in Integral Psychology with a focus on psychedelics, she is dedicated to expanding access to transformative, community-centered healing Contact Audra (malta@psychedelicare.eu)",
+    bio: "Audra is a psychotherapist, Movement Medicine teacher, and psychedelics-assisted psychotherapist. She introduced Ketamine-Assisted Psychotherapy (KAP) and Movement Medicine to Malta and continues to foster their growth locally, facilitating groups and retreats. Currently pursuing a PhD in Integral Psychology with a focus on psychedelics, she is dedicated to expanding access to transformative, community-centered healing.",
   },
   {
     name: "Michelle Kronquist",
@@ -56,7 +56,7 @@ export const nationalTeamCoordinators: TeamMember[] = [
     countryCode: "SE",
     email: "sweden@psychedelicare.eu",
     image: "/assets/people/michelle-kronquist.jpg",
-    bio: "Michelle is a Clinical Psychologist who specializes in assessments for personnel selection and the application of innovative technologies to assist caregivers of dementia patients in residential care communities. Michelle's interest in psychedelic assisted psychotherapy arises from her past work with trauma survivors. Contact Michelle (sweden@psychedelicare.eu)",
+    bio: "Michelle is a Clinical Psychologist who specializes in assessments for personnel selection and the application of innovative technologies to assist caregivers of dementia patients in residential care communities. Michelle's interest in psychedelic assisted psychotherapy arises from her past work with trauma survivors.",
   },
   {
     name: "Kelly Veneti",
@@ -64,7 +64,7 @@ export const nationalTeamCoordinators: TeamMember[] = [
     countryCode: "GR",
     email: "greece@psychedelicare.eu",
     image: "/assets/people/kelly-veneti.jpeg",
-    bio: "Kelly completed a MSc in Geophysical Hazards, with a special interest in climate change mitigation and adaptation. She is an analyst at BeZero Carbon. Based on her transformative psychedelic experiences and the understanding of human trauma as a source of environmental problems, she believes in psychedelic medicine's role in collective healing. She is a member of the Greek Psychedelic Society. Contact Kelly Veneti (greece@psychedelicare.eu)",
+    bio: "Kelly completed a MSc in Geophysical Hazards, with a special interest in climate change mitigation and adaptation. She is an analyst at BeZero Carbon. Based on her transformative psychedelic experiences and the understanding of human trauma as a source of environmental problems, she believes in psychedelic medicine's role in collective healing. She is a member of the Greek Psychedelic Society.",
   },
   {
     name: "Annina Springer",
@@ -72,7 +72,7 @@ export const nationalTeamCoordinators: TeamMember[] = [
     countryCode: "DE",
     email: "germany@psychedelicare.eu",
     image: "/assets/people/annina-springer.jpg",
-    bio: "Annina is a Master's student in renewable energy management and has a Bachelor's degree in horticulture. She is currently working on a project that combines both fields through the establishment of Agri-PV systems. She believes that the foundation for a thriving and sustainable future is mental health. Contact Annina (germany@psychedelicare.eu)",
+    bio: "Annina is a Master's student in renewable energy management and has a Bachelor's degree in horticulture. She is currently working on a project that combines both fields through the establishment of Agri-PV systems. She believes that the foundation for a thriving and sustainable future is mental health.",
   },
   {
     name: "Annika Sillaots",
@@ -80,7 +80,7 @@ export const nationalTeamCoordinators: TeamMember[] = [
     countryCode: "EE",
     email: "estonia@psychedelicare.eu",
     image: "/assets/people/annika-sillaots.jpg",
-    bio: "Annika is a communications and marketing expert with over 20 years of experience, currently leading branding efforts for the TAIP Foundation in Estonia. She is passionate about contributing to science-based mental health care, believes in the transformative potential of psychedelic-assisted therapies and works to increase trust and openness toward innovative treatment models in Estonia. Contact Annika (estonia@psychedelicare.eu)",
+    bio: "Annika is a communications and marketing expert with over 20 years of experience, currently leading branding efforts for the TAIP Foundation in Estonia. She is passionate about contributing to science-based mental health care, believes in the transformative potential of psychedelic-assisted therapies and works to increase trust and openness toward innovative treatment models in Estonia.",
   },
   {
     name: "Brid Ni Fhoighil",
@@ -88,7 +88,7 @@ export const nationalTeamCoordinators: TeamMember[] = [
     countryCode: "NL",
     email: "netherlands@psychedelicare.eu",
     image: "/assets/people/brid-ni-fhoighil.jpeg",
-    bio: "Originally from Ireland, Brid has worked for Shell and ESA. In her current role as Facilitator and Integrator, she has organised opportunities for cutting edge research with Dutch and English Universities. She is a co-founder of the Amsterdam Space for Psychedelic Integration, Research and Education, a non-profit health concern. Contact Brid (netherlands@psychedelicare.eu)",
+    bio: "Originally from Ireland, Brid has worked for Shell and ESA. In her current role as Facilitator and Integrator, she has organised opportunities for cutting edge research with Dutch and English Universities. She is a co-founder of the Amsterdam Space for Psychedelic Integration, Research and Education, a non-profit health concern.",
   },
   {
     name: "Bárbara Messias",
@@ -97,7 +97,7 @@ export const nationalTeamCoordinators: TeamMember[] = [
     email: "portugal@psychedelicare.eu",
     website: "https://www.safejourney.pt/",
     image: "/assets/people/barbara-messias.jpeg",
-    bio: "Jurist, Coach, Woman's Rights Activist, involved in several humanitarian projects, currently based in Porto, Bárbara has always been interested in the human mind and believes psychedelic medicine is a groundbreaking tool to help reshape and benefit humankind. She's a Member of SafeJourney in Portugal. Contact Barbara (portugal@psychedelicare.eu)",
+    bio: "Jurist, Coach, Woman's Rights Activist, involved in several humanitarian projects, currently based in Porto, Bárbara has always been interested in the human mind and believes psychedelic medicine is a groundbreaking tool to help reshape and benefit humankind. She's a Member of SafeJourney in Portugal.",
   },
   {
     name: "Elisabet Domínguez-Clavé",
@@ -105,7 +105,7 @@ export const nationalTeamCoordinators: TeamMember[] = [
     countryCode: "ES",
     email: "spain@psychedelicare.eu",
     image: "/assets/people/elisabet-dominguez-clave.jpeg",
-    bio: "Elisabet is a Psychologist and holds a PhD in Pharmacology. She currently works at Hospital de la Santa Creu i Sant Pau (Barcelona). Since 2015 her research focuses on the potential therapeutic uses of ayahuasca, as well as the effectiveness of mindfulness-based interventions and the study of personality disorders. Elisabet is also involved in the Sociedad Española de Medicina Psicodélica. Contact Elisabeth (spain@psychedelicare.eu)",
+    bio: "Elisabet is a Psychologist and holds a PhD in Pharmacology. She currently works at Hospital de la Santa Creu i Sant Pau (Barcelona). Since 2015 her research focuses on the potential therapeutic uses of ayahuasca, as well as the effectiveness of mindfulness-based interventions and the study of personality disorders. Elisabet is also involved in the Sociedad Española de Medicina Psicodélica.",
   },
   {
     name: "Ciara Reynolds",
@@ -113,7 +113,7 @@ export const nationalTeamCoordinators: TeamMember[] = [
     countryCode: "IE",
     email: "ireland@psychedelicare.eu",
     image: "/assets/people/ciara-reynolds.jpg",
-    bio: "Ciara brings over 15 years of expertise in the startup and technology sectors. In 2017, she expanded her professional horizons in Alternative Therapies, studying Endocannabinoid System Therapy, Psychedelic Assisted Therapy and Sound Therapy. She is also a Corporate Wellbeing & Leadership Coach. Her studies in Psychedelics and Transpersonal Psychology focus on how psychedelics and music foster reconciliation and connection. Contact Ciara (ireland@psychedelicare.eu)",
+    bio: "Ciara brings over 15 years of expertise in the startup and technology sectors. In 2017, she expanded her professional horizons in Alternative Therapies, studying Endocannabinoid System Therapy, Psychedelic Assisted Therapy and Sound Therapy. She is also a Corporate Wellbeing & Leadership Coach. Her studies in Psychedelics and Transpersonal Psychology focus on how psychedelics and music foster reconciliation and connection.",
   },
   {
     name: "Cristina Rex",
@@ -122,7 +122,7 @@ export const nationalTeamCoordinators: TeamMember[] = [
     email: "denmark@psychedelicare.eu",
     website: "https://psykedelisksamfund.dk/",
     image: "/assets/people/cristina-rex.jpg",
-    bio: "With over 20 years of experience working as a trained social educator and neuro-educator with mentally disabled people and foster youth, Cristina is now a trained psychotherapist with her own clinic and is a board member of Denmark's psychedelic community Psykedelisk Samfund. Contact Cristina (denmark@psychedelicare.eu)",
+    bio: "With over 20 years of experience working as a trained social educator and neuro-educator with mentally disabled people and foster youth, Cristina is now a trained psychotherapist with her own clinic and is a board member of Denmark's psychedelic community Psykedelisk Samfund.",
   },
   {
     name: "Lilas Knudsen",
@@ -130,7 +130,7 @@ export const nationalTeamCoordinators: TeamMember[] = [
     countryCode: "BE",
     email: "belgium@psychedelicare.eu",
     image: "/assets/people/lilas-knudsen.jpeg",
-    bio: "Lilas studied Clinical, Social, and Intercultural Psychology at the University of Padova and is now based in Brussels. She wrote both her bachelor's and master's theses on psychedelic-assisted therapy, a field that continues to fascinate her for its profound impact on the mind. As part of her studies, she joined a clinical trial in Vancouver exploring the use of psilocybin for treatment-resistant depression, gaining hands-on experience in the field. Contact Lilas (belgium@psychedelicare.eu)",
+    bio: "Lilas studied Clinical, Social, and Intercultural Psychology at the University of Padova and is now based in Brussels. She wrote both her bachelor's and master's theses on psychedelic-assisted therapy, a field that continues to fascinate her for its profound impact on the mind. As part of her studies, she joined a clinical trial in Vancouver exploring the use of psilocybin for treatment-resistant depression, gaining hands-on experience in the field.",
   },
   {
     name: "Bertram Groinig",
@@ -138,7 +138,7 @@ export const nationalTeamCoordinators: TeamMember[] = [
     countryCode: "AT",
     email: "austria@psychedelicare.eu",
     image: "/assets/people/bertram-groinig.jpg",
-    bio: "Bertram will start his Masters in Clinical Social Work in autumn 2025 and is also training in psychotherapy. With a background in Political Science (BA), he is attuned to societal developments and sees the transformative potential of psychedelics in both mental health and wider social contexts. His engagement with the field began in 2022 when he attended the Interdisciplinary Conference on Psychedelic Research in Haarlem, NL. Contact Bertram (austria@psychedelicare.eu)",
+    bio: "Bertram will start his Masters in Clinical Social Work in autumn 2025 and is also training in psychotherapy. With a background in Political Science (BA), he is attuned to societal developments and sees the transformative potential of psychedelics in both mental health and wider social contexts. His engagement with the field began in 2022 when he attended the Interdisciplinary Conference on Psychedelic Research in Haarlem, NL.",
   },
   {
     name: "Kasia Kopańska",
@@ -147,7 +147,7 @@ export const nationalTeamCoordinators: TeamMember[] = [
     email: "switzerland@psychedelicare.eu",
     website: "https://saept.ch/",
     image: "/assets/people/kasia-kopanska.jpeg",
-    bio: "Dr Kasia Kopańska, originally Polish, living in Zürich, is a somatic educator and psychedelic-assisted therapy (PAT) facilitator with expertise in bodywork, breathwork, ritual, and expressive arts. She lectures about body consciousness and femtheogenic traditions. She holds a PhD in cell biology (University of Cambridge) and has spent over 20 years in international research. She is a member of the Swiss Medical Society for Psycholytic Therapy (SÄPT). Contact Kasia (switzerland@psychedelicare.eu)",
+    bio: "Dr Kasia Kopańska, originally Polish, living in Zürich, is a somatic educator and psychedelic-assisted therapy (PAT) facilitator with expertise in bodywork, breathwork, ritual, and expressive arts. She lectures about body consciousness and femtheogenic traditions. She holds a PhD in cell biology (University of Cambridge) and has spent over 20 years in international research. She is a member of the Swiss Medical Society for Psycholytic Therapy (SÄPT).",
   },
   {
     name: "Costin Militaru",
@@ -155,7 +155,7 @@ export const nationalTeamCoordinators: TeamMember[] = [
     countryCode: "RO",
     email: "romania@psychedelicare.eu",
     image: "/assets/people/costin-militaru.png",
-    bio: "A doctor with over 20 years of experience, Costin is a pioneer of harm reduction and holistic health in Romania and a leading advocate for the decriminalisation and legalisation of psychoactive substances. He has worked extensively with addiction and substance abuse, collaborating with international organisations like UNODC and ANA, and founded the Harm Reduction Foundation. He specialises in medical cannabis therapies and leads Imuno Care, a center for holistic health. Contact Costin (romania@psychedelicare.eu)",
+    bio: "A doctor with over 20 years of experience, Costin is a pioneer of harm reduction and holistic health in Romania and a leading advocate for the decriminalisation and legalisation of psychoactive substances. He has worked extensively with addiction and substance abuse, collaborating with international organisations like UNODC and ANA, and founded the Harm Reduction Foundation. He specialises in medical cannabis therapies and leads Imuno Care, a center for holistic health.",
   },
   {
     name: "Anja Cehnar",
@@ -163,6 +163,6 @@ export const nationalTeamCoordinators: TeamMember[] = [
     countryCode: "SI",
     email: "slovenia@psychedelicare.eu",
     image: "/assets/people/anja-cehnar.jpg",
-    bio: "Anja works as a psychologist at the University Rehabilitation Institute in Slovenia, supporting individuals living with chronic pain. She is also a student of integrative psychotherapy and is deeply committed to the therapeutic potential of psychedelics in transforming mental health care. Her work spans research, education, sitting roles, and integration support. Contact Anja (slovenia@psychedelicare.eu)",
+    bio: "Anja works as a psychologist at the University Rehabilitation Institute in Slovenia, supporting individuals living with chronic pain. She is also a student of integrative psychotherapy and is deeply committed to the therapeutic potential of psychedelics in transforming mental health care. Her work spans research, education, sitting roles, and integration support.",
   },
 ];
