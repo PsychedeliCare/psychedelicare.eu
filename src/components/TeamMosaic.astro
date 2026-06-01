@@ -5,9 +5,10 @@ type Props = {
   people: TeamMember[];
   mosaicId?: string;
   showCountryCode?: boolean;
+  class?: string;
 };
 
-const { people, mosaicId = "team-mosaic", showCountryCode = false } = Astro.props;
+const { people, mosaicId = "team-mosaic", showCountryCode = false, class: className } = Astro.props;
 
 function memberLabel(person: TeamMember) {
   if (showCountryCode && person.countryCode) {
@@ -19,7 +20,7 @@ function memberLabel(person: TeamMember) {
 ---
 
 <section
-  class="team-mosaic"
+  class:list={["team-mosaic", className]}
   data-team-mosaic={mosaicId}
   data-team-mosaic-country-codes={showCountryCode ? "" : undefined}
 >

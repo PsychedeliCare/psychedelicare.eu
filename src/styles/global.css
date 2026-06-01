@@ -1267,15 +1267,55 @@
 
   .two-columns--teams {
     margin-bottom: clamp(0.75rem, 2vw, 1.25rem);
+    gap: clamp(2.75rem, 6vw, 4.5rem);
   }
 
   .two-columns--team-mosaics {
     margin-top: 0;
     margin-bottom: clamp(1.75rem, 3.5vw, 2.75rem);
+    gap: clamp(2.75rem, 6vw, 4.5rem);
   }
 
   .two-columns--team-mosaics .team-mosaic {
     @apply my-0;
+  }
+
+  .team-mosaic--board {
+    --team-mosaic-avatar-size: 5.75rem;
+    --team-mosaic-cell-min: 7rem;
+    --team-mosaic-name-size: 0.9rem;
+    --team-mosaic-row-gap: 1.35rem;
+    --team-mosaic-col-gap: 0.55rem;
+  }
+
+  @container team-mosaic (min-width: 22rem) {
+    .team-mosaic--board {
+      --team-mosaic-cell-min: 7.25rem;
+      --team-mosaic-name-size: 0.88rem;
+    }
+  }
+
+  @container team-mosaic (min-width: 28rem) {
+    .team-mosaic--board {
+      --team-mosaic-cell-min: 7.5rem;
+      --team-mosaic-name-size: 0.92rem;
+      --team-mosaic-col-gap: 0.65rem;
+    }
+  }
+
+  @container team-mosaic (min-width: 36rem) {
+    .team-mosaic--board {
+      --team-mosaic-cell-min: 7.75rem;
+      --team-mosaic-name-size: 0.94rem;
+      --team-mosaic-col-gap: 0.7rem;
+    }
+  }
+
+  @container team-mosaic (min-width: 44rem) {
+    .team-mosaic--board {
+      --team-mosaic-cell-min: 8rem;
+      --team-mosaic-name-size: 0.96rem;
+    }
   }
 
   .two-columns--newsletter .newsletter-form {

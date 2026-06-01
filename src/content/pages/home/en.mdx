@@ -95,11 +95,11 @@ import { nationalTeamCoordinators } from "../../../data/nationalTeamCoordinators
 
   <figure slot="right" class="two-columns__figure">
     <img
-      src="/assets/photos/team-photo-couvin.jpg"
-      alt="PsychedeliCare team members posing together outdoors at Couvin"
+      src="/assets/photos/home-care-together-hero.jpg"
+      alt="PsychedeliCare launch event at the European Parliament in Brussels"
       loading="lazy"
-      width="1024"
-      height="683"
+      width="2048"
+      height="952"
     />
   </figure>
 </TwoColumns>
@@ -125,7 +125,12 @@ import { nationalTeamCoordinators } from "../../../data/nationalTeamCoordinators
 </TwoColumns>
 
 <TwoColumns class="two-columns--team-mosaics">
-  <TeamMosaic people={coordinationBoardMembers} mosaicId="home-coordination-board" />
+  <TeamMosaic
+    people={coordinationBoardMembers}
+    mosaicId="home-coordination-board"
+    showCountryCode
+    class="team-mosaic--board"
+  />
 
   <TeamMosaic
     slot="right"
