@@ -59,10 +59,10 @@ import IconList from "../../../components/IconList.astro";
 import TeamMosaic from "../../../components/TeamMosaic.astro";
 import PillarGrid from "../../../components/PillarGrid.astro";
 import CardGrid from "../../../components/CardGrid.astro";
+import { socialLinks } from "../../../data/socialLinks";
 import NewsletterForm from "../../../components/NewsletterForm.astro";
 import DocumentViewer from "../../../components/DocumentViewer.astro";
 import { coordinationBoardMembers } from "../../../data/coordinationBoard";
-import { nationalTeamCoordinators } from "../../../data/nationalTeamCoordinators";
 
 # Advancing Psychedelic Care Across Europe
 
@@ -95,11 +95,11 @@ import { nationalTeamCoordinators } from "../../../data/nationalTeamCoordinators
 
   <figure slot="right" class="two-columns__figure">
     <img
-      src="/assets/photos/home-care-together-hero.jpg"
-      alt="PsychedeliCare launch event at the European Parliament in Brussels"
+      src="/assets/photos/team-photo-couvin.jpg"
+      alt="PsychedeliCare team members posing together outdoors at Couvin"
       loading="lazy"
-      width="2048"
-      height="952"
+      width="1024"
+      height="683"
     />
   </figure>
 </TwoColumns>
@@ -115,35 +115,39 @@ import { nationalTeamCoordinators } from "../../../data/nationalTeamCoordinators
     <p><a href="/who-we-are#coordination-board">Read more about our Coordination Board</a></p>
   </div>
 
-  <div slot="right">
+  <TeamMosaic
+    slot="right"
+    people={coordinationBoardMembers}
+    mosaicId="home-coordination-board"
+    showCountryCode
+    class="team-mosaic--board"
+  />
+</TwoColumns>
+
+<TwoColumns class="two-columns--national-teams">
+  <div>
     <h3 id="national-teams">National Teams</h3>
 
     <p>We work with National Teams in many European countries to advocate for our vision through education, information, advocacy and events. Would you be interested in joining one of our National Teams in your own country?</p>
 
     <p><a href="/who-we-are#national-teams">Learn more about who we are and which countries are already represented</a></p>
   </div>
+
+  <figure slot="right" class="two-columns__figure">
+    <img
+      src="/assets/photos/home-care-together-hero.jpg"
+      alt="PsychedeliCare launch event at the European Parliament in Brussels"
+      loading="lazy"
+      width="2048"
+      height="952"
+    />
+  </figure>
 </TwoColumns>
 
-<TwoColumns class="two-columns--team-mosaics">
-  <TeamMosaic
-    people={coordinationBoardMembers}
-    mosaicId="home-coordination-board"
-    showCountryCode
-    class="team-mosaic--board"
-  />
+<div class="mission-block">
+  <h2>Our Mission</h2>
 
-  <TeamMosaic
-    slot="right"
-    people={nationalTeamCoordinators}
-    mosaicId="home-national-teams"
-    showCountryCode
-  />
-</TwoColumns>
-
-## Our Mission
-
-<TwoColumns>
-  <div>
+  <div class="mission-block__content">
     <p>We create the conditions for people to access and explore psychedelic care safely, ethically, and with dignity.</p>
 
     <p>We work to:</p>
@@ -161,15 +165,7 @@ import { nationalTeamCoordinators } from "../../../data/nationalTeamCoordinators
 
     <p><a href="/who-we-are#our-values">Read more about our values</a></p>
   </div>
-
-  <figure slot="right" class="two-columns__figure two-columns__placeholder" aria-hidden="true">
-    <div class="two-columns__placeholder-box">
-      <span class="two-columns__placeholder-prompt">
-        Warm documentary photograph of diverse European advocates collaborating around a table with notebooks and a subtle PsychedeliCare gradient accent, natural daylight, hopeful and professional tone, 4:3 portrait crop.
-      </span>
-    </div>
-  </figure>
-</TwoColumns>
+</div>
 
 ## Our Five Pillars
 
@@ -211,32 +207,31 @@ import { nationalTeamCoordinators } from "../../../data/nationalTeamCoordinators
 Would you like to support PsychedeliCare or become part of the movement?
 
 <CardGrid
+  variant="support-us"
   cards={[
     {
       title: "Membership & support options",
       description:
         "Join the association, make a donation, or explore other ways to stand with the movement.",
-      href: "/join-the-psychedelicare-association",
     },
     {
       title: "Open positions",
       description:
         "Interested in contributing your time and skills? Get in touch to hear about current opportunities.",
-      href: "mailto:info@psychedelicare.eu?subject=Open%20positions%20at%20PsychedeliCare",
+      action: {
+        label: "Email us",
+        href: "mailto:info@psychedelicare.eu?subject=Open%20positions%20at%20PsychedeliCare",
+      },
     },
     {
-      title: "Financial & transparency reports",
-      description:
-        "Read our public reporting on finances, governance, and campaign outcomes.",
-      href: "/news/reports",
+      title: "Follow us on social media",
+      description: "Stay connected with PsychedeliCare across our channels.",
+      links: socialLinks,
     },
   ]}
-/>
-
-<div class="button-group support-us-section__actions">
-  <a class="button-primary" href="/donate">Donate to the initiative</a>
-  <a class="button-secondary" href="/projects/impact-report">Impact report</a>
-</div>
+>
+  <a slot="actions" class="button-primary" href="/donate">Donate to the initiative</a>
+</CardGrid>
 
 </div>
 
@@ -255,7 +250,7 @@ Would you like to support PsychedeliCare or become part of the movement?
 </TwoColumns>
 
 
-## Projects
+## ECI Impact
 
 <TwoColumns>
   <div>
@@ -265,8 +260,6 @@ Would you like to support PsychedeliCare or become part of the movement?
       <p>The European Citizens' Initiative was born from a simple question I had: why citizens living in Switzerland, only two hours away from my hometown – Strasbourg – could enjoy the benefits of scientific research through the legal access of psychedelic therapies, when French citizens could not? The need for better mental health treatments does not stop at borders.</p>
       <p>So together with citizens sharing the same belief, we decided to roll up our sleeves and prepare and launch a campaign to get the European Union to take action. The goal was that every European citizen, should ever they need it, could have access to these innovative treatments.</p>
     </blockquote>
-
-    <p>Would you like to learn more about the ECI and its results? Check out the <a href="https://drive.google.com/file/d/1fHCNn1nCucegiC6m-S-GxHREu3LW3tUU/view?usp=sharing">official ECI report</a>.</p>
   </div>
 
   <div slot="right">

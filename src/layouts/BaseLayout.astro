@@ -381,9 +381,11 @@ const getNavIcon = (icon?: string) => navIcons[icon ?? ""] ?? IconSparkles;
       isHome && (
         <div class="footer-illustration">
           <img
-            src="https://psychedelicare.eu/wp-content/uploads/2025/05/doctor-HD-cut-1024x1016-1-e1747987254443.jpg"
-            alt="Medical illustration supporting PsychedeliCare"
+            src="/assets/illustrations/lets-care-together.png"
+            alt="Let's Care Together illustration showing a healthcare professional supporting a person in a calm, hopeful setting"
             loading="lazy"
+            width="1369"
+            height="1168"
           />
         </div>
       )
@@ -402,7 +404,15 @@ const getNavIcon = (icon?: string) => navIcons[icon ?? ""] ?? IconSparkles;
       <div class="container px-4 site-footer__inner">
         <div class="site-footer__nav-row">
           <nav class="site-footer__links" aria-label={uiCopy.footerLinks}>
-            <span class="site-footer__org">PsychedeliCare e.V.</span>
+            <img
+              class="site-footer__org"
+              src="/assets/psychedelicare_eu_logo_white.png"
+              alt="PsychedeliCare e.V."
+              width="1920"
+              height="645"
+              loading="lazy"
+              decoding="async"
+            />
             <a href="mailto:info@psychedelicare.eu">{uiCopy.footerContact}</a>
             <a href={mediaHref}>{uiCopy.footerMedia}</a>
             <a href={legalHref}>{legalLabel}</a>

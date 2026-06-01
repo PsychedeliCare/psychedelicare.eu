@@ -21,15 +21,6 @@ const externalHref = fallbackHref ?? embedSrc.replace("/preview", "/view");
 ---
 
 <section class="document-viewer">
-  <div class="document-viewer__actions">
-    <a class="gradient-button" href={downloadHref} download>
-      {downloadLabel}
-    </a>
-    <a class="button-secondary" href={externalHref} target="_blank" rel="noreferrer noopener">
-      {fallbackLabel}
-    </a>
-  </div>
-
   <div class="document-viewer__frame-wrap">
     <iframe
       class="document-viewer__frame"
@@ -38,5 +29,14 @@ const externalHref = fallbackHref ?? embedSrc.replace("/preview", "/view");
       loading="lazy"
       referrerpolicy="no-referrer"
     />
+  </div>
+
+  <div class="document-viewer__actions">
+    <a class="gradient-button" href={downloadHref} download>
+      {downloadLabel}
+    </a>
+    <a class="button-secondary" href={externalHref} target="_blank" rel="noreferrer noopener">
+      {fallbackLabel}
+    </a>
   </div>
 </section>

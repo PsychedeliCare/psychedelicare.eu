@@ -5,19 +5,27 @@ import linkedInIcon from "@tabler/icons/outline/brand-linkedin.svg?raw";
 import xIcon from "@tabler/icons/outline/brand-x.svg?raw";
 import youtubeIcon from "@tabler/icons/outline/brand-youtube.svg?raw";
 
+type CardLink = {
+  label: string;
+  href: string;
+};
+
 type Card = {
   title: string;
   description?: string;
   href?: string;
   meta?: string;
+  links?: CardLink[];
+  action?: CardLink;
 };
 
 type Props = {
   cards: Card[];
   class?: string;
+  variant?: "default" | "support-us";
 };
 
-const { cards, class: className } = Astro.props;
+const { cards, class: className, variant = "default" } = Astro.props;
 
 const socialIcons: Record<string, string> = {
   facebook: facebookIcon,
@@ -30,45 +38,156 @@ const socialIcons: Record<string, string> = {
 const getSocialIcon = (title: string) => socialIcons[title.toLowerCase()] ?? null;
 ---
 
-<div
-  class:list={[
-    "card-grid grid grid-cols-[repeat(auto-fit,minmax(16rem,1fr))] gap-x-[1.4rem] gap-y-[1.25rem]",
-    className,
-  ]}
->
-  {
-    cards.map((card) => {
-      const Tag = card.href ? "a" : "div";
-      const socialIcon = getSocialIcon(card.title);
+{
+  variant === "support-us" ? (
+    <div
+      class:list={[
+        "card-grid card-grid--support-us grid grid-cols-[repeat(auto-fit,minmax(16rem,1fr))] gap-x-[1.4rem] gap-y-[1.25rem]",
+        className,
+      ]}
+    >
+      {cards.map((card, index) => {
+        const socialIcon = getSocialIcon(card.title);
 
-      return (
-        <Tag
-          class:list={[
-            "card-grid__item grid content-start gap-2 min-h-full py-3 no-underline text-inherit rounded-[0.85rem] transition-[transform,background-color] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)]",
-            card.href &&
-              "hover:bg-[rgba(68,179,235,0.06)] hover:outline-none hover:-translate-y-px focus-visible:bg-[rgba(68,179,235,0.06)] focus-visible:outline-none focus-visible:-translate-y-px",
-          ]}
-          href={card.href}
-        >
-          {card.meta && (
-            <p class="m-0 text-purple text-[0.82rem] font-bold uppercase tracking-[0.08em]">
-              {card.meta}
-            </p>
-          )}
-          <h3
-            class:list={[
-              "m-0 text-[clamp(1.4rem,2vw,1.9rem)] text-text",
-              socialIcon && "flex items-center gap-[0.65rem]",
-            ]}
-          >
-            {socialIcon && (
-              <span class="inline-flex shrink-0 text-purple [&_svg]:w-[1.15em] [&_svg]:h-[1.15em] [&_svg]:stroke-[1.8]" set:html={socialIcon} aria-hidden="true" />
-            )}
-            <span>{card.title}</span>
-          </h3>
-          {card.description && <p class="m-0 text-muted">{card.description}</p>}
-        </Tag>
-      );
-    })
-  }
-</div>
+        return (
+          <div class="card-grid__item card-grid__item--support-us flex flex-col gap-2 py-3 min-h-full">
+            <div class="card-grid__body grid content-start gap-2">
+              {card.meta && (
+                <p class="m-0 text-purple text-[0.82rem] font-bold uppercase tracking-[0.08em]">
+                  {card.meta}
+                </p>
+              )}
+              <h3
+                class:list={[
+                  "m-0 text-[clamp(1.4rem,2vw,1.9rem)] text-text",
+                  socialIcon && "flex items-center gap-[0.65rem]",
+                ]}
+              >
+                {socialIcon && (
+                  <span
+                    class="inline-flex shrink-0 text-purple [&_svg]:w-[1.15em] [&_svg]:h-[1.15em] [&_svg]:stroke-[1.8]"
+                    set:html={socialIcon}
+                    aria-hidden="true"
+                  />
+                )}
+                <span>{card.title}</span>
+              </h3>
+              {card.description && <p class="m-0 text-muted">{card.description}</p>}
+            </div>
+
+            <div class="card-grid__footer mt-auto flex min-h-11 items-center pt-4">
+              {card.action && (
+                <a class="button-secondary card-grid__action" href={card.action.href}>
+                  {card.action.label}
+                </a>
+              )}
+              {card.links && (
+                <nav class="card-grid__social-links" aria-label="Social media">
+                  {card.links.map((link) => {
+                    const linkIcon = getSocialIcon(link.label);
+                    if (!linkIcon) return null;
+
+                    return (
+                      <a
+                        class="card-grid__social-link"
+                        href={link.href}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        aria-label={link.label}
+                      >
+                        <span
+                          class="card-grid__social-link-icon"
+                          set:html={linkIcon}
+                          aria-hidden="true"
+                        />
+                      </a>
+                    );
+                  })}
+                </nav>
+              )}
+              {index === 0 && <slot name="actions" />}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  ) : (
+    <div
+      class:list={[
+        "card-grid grid grid-cols-[repeat(auto-fit,minmax(16rem,1fr))] gap-x-[1.4rem] gap-y-[1.25rem]",
+        className,
+      ]}
+    >
+      {
+        cards.map((card) => {
+          const Tag = card.href && !card.links && !card.action ? "a" : "div";
+          const socialIcon = getSocialIcon(card.title);
+
+          return (
+            <Tag
+              class:list={[
+                "card-grid__item grid content-start gap-2 min-h-full py-3 no-underline text-inherit rounded-[0.85rem] transition-[transform,background-color] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)]",
+                card.href &&
+                  !card.links &&
+                  !card.action &&
+                  "hover:bg-[rgba(68,179,235,0.06)] hover:outline-none hover:-translate-y-px focus-visible:bg-[rgba(68,179,235,0.06)] focus-visible:outline-none focus-visible:-translate-y-px",
+              ]}
+              href={card.href}
+            >
+              {card.meta && (
+                <p class="m-0 text-purple text-[0.82rem] font-bold uppercase tracking-[0.08em]">
+                  {card.meta}
+                </p>
+              )}
+              <h3
+                class:list={[
+                  "m-0 text-[clamp(1.4rem,2vw,1.9rem)] text-text",
+                  socialIcon && "flex items-center gap-[0.65rem]",
+                ]}
+              >
+                {socialIcon && (
+                  <span
+                    class="inline-flex shrink-0 text-purple [&_svg]:w-[1.15em] [&_svg]:h-[1.15em] [&_svg]:stroke-[1.8]"
+                    set:html={socialIcon}
+                    aria-hidden="true"
+                  />
+                )}
+                <span>{card.title}</span>
+              </h3>
+              {card.description && <p class="m-0 text-muted">{card.description}</p>}
+              {card.action && (
+                <a class="button-secondary card-grid__action" href={card.action.href}>
+                  {card.action.label}
+                </a>
+              )}
+              {card.links && (
+                <nav class="card-grid__social-links" aria-label="Social media">
+                  {card.links.map((link) => {
+                    const linkIcon = getSocialIcon(link.label);
+                    if (!linkIcon) return null;
+
+                    return (
+                      <a
+                        class="card-grid__social-link"
+                        href={link.href}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        aria-label={link.label}
+                      >
+                        <span
+                          class="card-grid__social-link-icon"
+                          set:html={linkIcon}
+                          aria-hidden="true"
+                        />
+                      </a>
+                    );
+                  })}
+                </nav>
+              )}
+            </Tag>
+          );
+        })
+      }
+    </div>
+  )
+}
