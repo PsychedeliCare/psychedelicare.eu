@@ -9,6 +9,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "audit-content": "node scripts/audit-content-i18n.mjs",
     "astro": "astro",
     "generate-types": "wrangler types",
     "generate-asset-catalog": "node scripts/generate-asset-catalog.mjs",
