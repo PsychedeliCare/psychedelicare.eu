@@ -1,0 +1,6 @@
+# Copy to `.dev.vars` for local development (never commit `.dev.vars`).
+# Production secrets are set with `wrangler secret put`.
+
+MAILCHIMP_API_KEY=your-api-key-us21
+MAILCHIMP_SERVER_PREFIX=us21
+MAILCHIMP_LIST_ID=your-audience-list-id

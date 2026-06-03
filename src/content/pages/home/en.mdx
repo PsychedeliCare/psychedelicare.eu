@@ -66,12 +66,10 @@ import CardGrid from "../../../components/CardGrid.astro";
 import { socialLinks } from "../../../data/socialLinks";
 import NewsletterForm from "../../../components/NewsletterForm.astro";
 import DocumentViewer from "../../../components/DocumentViewer.astro";
-import IcprSideEventBanner from "../../../components/IcprSideEventBanner.astro";
 import { coordinationBoardMembers } from "../../../data/coordinationBoard";
 
 # Advancing Psychedelic Care Across Europe
 
-<IcprSideEventBanner />
 
 ## Why this matters
 
@@ -256,7 +254,7 @@ Would you like to support PsychedeliCare or become part of the movement?
     <p>Subscribe to the nEUsletter to receive the latest information and ways to support the PsychedeliCare Initiative.</p>
   </div>
 
-  <NewsletterForm slot="right" />
+  <NewsletterForm slot="right" locale="en" />
 </TwoColumns>
 
 

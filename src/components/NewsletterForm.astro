@@ -1,26 +1,39 @@
 ---
+import { getNewsletterCopy } from "../lib/newsletterCopy";
+import { defaultLocale, normalizeLocale } from "../lib/i18n";
+
 type Props = {
+  locale?: string;
   emailLabel?: string;
   emailPlaceholder?: string;
   consentLabel?: string;
   submitLabel?: string;
+  loadingLabel?: string;
   successMessage?: string;
+  alreadySubscribedMessage?: string;
+  errorMessage?: string;
   privacyHref?: string;
   privacyLabel?: string;
 };
 
+const locale = normalizeLocale(Astro.props.locale ?? defaultLocale);
+const copy = getNewsletterCopy(locale);
+
 const {
-  emailLabel = "Your Email address",
-  emailPlaceholder = "you@example.com",
-  consentLabel = "I agree to receive the PsychedeliCare nEUsletter and understand I can unsubscribe at any time.",
-  submitLabel = "Subscribe",
-  successMessage = "Thank you.",
-  privacyHref = "/privacy-policy",
-  privacyLabel = "Privacy Policy",
+  emailLabel = copy.emailLabel,
+  emailPlaceholder = copy.emailPlaceholder,
+  consentLabel = copy.consentLabel,
+  submitLabel = copy.submitLabel,
+  loadingLabel = copy.loadingLabel,
+  successMessage = copy.successMessage,
+  alreadySubscribedMessage = copy.alreadySubscribedMessage,
+  errorMessage = copy.errorMessage,
+  privacyHref = locale === defaultLocale ? "/privacy-policy" : `/${locale}/privacy-policy`,
+  privacyLabel = copy.privacyLabel,
 } = Astro.props;
 ---
 
-<form class="newsletter-form" novalidate>
+<form class="newsletter-form" novalidate data-locale={locale}>
   <div class="newsletter-form__fields">
     <label class="newsletter-form__field">
       <span class="newsletter-form__label">{emailLabel}</span>
@@ -49,46 +62,120 @@ const {
   </div>
 
   <button class="gradient-button newsletter-form__submit" type="submit" disabled>
-    {submitLabel}
+    <span class="newsletter-form__submit-label">{submitLabel}</span>
+    <span class="newsletter-form__submit-loading" hidden>
+      <span class="newsletter-form__spinner" aria-hidden="true"></span>
+      {loadingLabel}
+    </span>
   </button>
 
-  <p class="newsletter-form__feedback" role="status" aria-live="polite" hidden>
-    {successMessage}
-  </p>
+  <p
+    class="newsletter-form__feedback newsletter-form__feedback--success"
+    role="status"
+    aria-live="polite"
+    hidden
+  ></p>
+  <p
+    class="newsletter-form__feedback newsletter-form__feedback--error"
+    role="alert"
+    aria-live="assertive"
+    hidden
+  ></p>
 </form>
 
-<script>
-  const forms = document.querySelectorAll<HTMLFormElement>(".newsletter-form");
+<script
+  define:vars={{
+    successMessage,
+    alreadySubscribedMessage,
+    errorMessage,
+  }}
+>
+  const forms = document.querySelectorAll(".newsletter-form");
 
   forms.forEach((form) => {
-    const feedback = form.querySelector<HTMLParagraphElement>(
-      ".newsletter-form__feedback",
-    );
-    const fields = form.querySelector<HTMLElement>(".newsletter-form__fields");
-    const submitButton = form.querySelector<HTMLButtonElement>(
-      ".newsletter-form__submit",
-    );
-    const consentCheckbox = form.querySelector<HTMLInputElement>(
-      ".newsletter-form__checkbox",
-    );
+    const fields = form.querySelector(".newsletter-form__fields");
+    const submitButton = form.querySelector(".newsletter-form__submit");
+    const submitLabel = form.querySelector(".newsletter-form__submit-label");
+    const submitLoading = form.querySelector(".newsletter-form__submit-loading");
+    const consentCheckbox = form.querySelector(".newsletter-form__checkbox");
+    const emailInput = form.querySelector('input[name="email"]');
+    const successFeedback = form.querySelector(".newsletter-form__feedback--success");
+    const errorFeedback = form.querySelector(".newsletter-form__feedback--error");
+    const locale = form.dataset.locale ?? "en";
+
+    function setLoading(isLoading) {
+      form.classList.toggle("newsletter-form--loading", isLoading);
+      submitButton?.toggleAttribute("disabled", isLoading || !consentCheckbox?.checked);
+      submitLabel?.toggleAttribute("hidden", isLoading);
+      submitLoading?.toggleAttribute("hidden", !isLoading);
+    }
+
+    function showSuccess(message) {
+      errorFeedback?.setAttribute("hidden", "");
+      successFeedback.textContent = message;
+      successFeedback?.removeAttribute("hidden");
+      fields?.setAttribute("hidden", "");
+      submitButton?.setAttribute("hidden", "");
+    }
+
+    function showError(message) {
+      errorFeedback.textContent = message;
+      errorFeedback?.removeAttribute("hidden");
+    }
+
+    function clearError() {
+      errorFeedback?.setAttribute("hidden", "");
+      errorFeedback.textContent = "";
+    }
 
     consentCheckbox?.addEventListener("change", () => {
-      if (submitButton) {
+      if (submitButton && !form.classList.contains("newsletter-form--loading")) {
         submitButton.disabled = !consentCheckbox.checked;
       }
     });
 
-    form.addEventListener("submit", (event) => {
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
+      clearError();
 
       if (!form.checkValidity()) {
         form.reportValidity();
         return;
       }
 
-      fields?.setAttribute("hidden", "");
-      submitButton?.setAttribute("hidden", "");
-      feedback?.removeAttribute("hidden");
+      setLoading(true);
+
+      try {
+        const response = await fetch("/api/newsletter/subscribe", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: emailInput?.value ?? "",
+            consent: consentCheckbox?.checked ?? false,
+            locale,
+          }),
+        });
+
+        const data = await response.json();
+
+        if (data.ok) {
+          showSuccess(successMessage);
+          return;
+        }
+
+        if (data.code === "already_subscribed") {
+          showSuccess(alreadySubscribedMessage);
+          return;
+        }
+
+        showError(errorMessage);
+      } catch {
+        showError(errorMessage);
+      } finally {
+        setLoading(false);
+      }
     });
   });
 </script>

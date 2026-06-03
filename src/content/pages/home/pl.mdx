@@ -62,12 +62,10 @@ import CardGrid from "../../../components/CardGrid.astro";
 import { socialLinks } from "../../../data/socialLinks";
 import NewsletterForm from "../../../components/NewsletterForm.astro";
 import DocumentViewer from "../../../components/DocumentViewer.astro";
-import IcprSideEventBanner from "../../../components/IcprSideEventBanner.astro";
 import { coordinationBoardMembers } from "../../../data/coordinationBoard";
 
 # Rozwijamy opiekę psychodeliczną w Europie
 
-<IcprSideEventBanner locale="pl" />
 
 ## Dlaczego to ważne
 
@@ -159,7 +157,7 @@ Would you like to support PsychedeliCare or become part of the movement?
     <h3>Bądź na bieżąco</h3>
     <p>Subscribe to receive the latest information and ways to support the PsychedeliCare Initiative.</p>
   </div>
-  <NewsletterForm slot="right" emailLabel="Twój adres e-mail" consentLabel="Zgadzam się otrzymywać nEUsletter PsychedeliCare i rozumiem, że mogę wypisać się w dowolnym momencie." submitLabel="Zapisz się" successMessage="Dziękujemy." privacyHref="/pl/privacy-policy" privacyLabel="Polityka prywatności" />
+  <NewsletterForm slot="right" locale="pl" />
 </TwoColumns>
 
 ## Wpływ EIO

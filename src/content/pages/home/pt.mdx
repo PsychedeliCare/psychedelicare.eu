@@ -62,12 +62,10 @@ import CardGrid from "../../../components/CardGrid.astro";
 import { socialLinks } from "../../../data/socialLinks";
 import NewsletterForm from "../../../components/NewsletterForm.astro";
 import DocumentViewer from "../../../components/DocumentViewer.astro";
-import IcprSideEventBanner from "../../../components/IcprSideEventBanner.astro";
 import { coordinationBoardMembers } from "../../../data/coordinationBoard";
 
 # Avançar o cuidado psicadélico em toda a Europa
 
-<IcprSideEventBanner locale="pt" />
 
 ## Porque isto importa
 
@@ -159,7 +157,7 @@ Would you like to support PsychedeliCare or become part of the movement?
     <h3>Mantém-te informado</h3>
     <p>Subscribe to receive the latest information and ways to support the PsychedeliCare Initiative.</p>
   </div>
-  <NewsletterForm slot="right" emailLabel="O teu endereço de email" consentLabel="Aceito receber o nEUsletter da PsychedeliCare e compreendo que posso cancelar a subscrição a qualquer momento." submitLabel="Subscrever" successMessage="Obrigado." privacyHref="/pt/privacy-policy" privacyLabel="Política de privacidade" />
+  <NewsletterForm slot="right" locale="pt" />
 </TwoColumns>
 
 ## Impacto da ICE

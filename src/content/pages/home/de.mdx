@@ -63,12 +63,10 @@ import CardGrid from "../../../components/CardGrid.astro";
 import { socialLinks } from "../../../data/socialLinks";
 import NewsletterForm from "../../../components/NewsletterForm.astro";
 import DocumentViewer from "../../../components/DocumentViewer.astro";
-import IcprSideEventBanner from "../../../components/IcprSideEventBanner.astro";
 import { coordinationBoardMembers } from "../../../data/coordinationBoard";
 
 # Psychedelische Versorgung in Europa voranbringen
 
-<IcprSideEventBanner locale="de" />
 
 ## Warum das wichtig ist
 
@@ -160,7 +158,7 @@ Would you like to support PsychedeliCare or become part of the movement?
     <h3>Bleib informiert</h3>
     <p>Subscribe to receive the latest information and ways to support the PsychedeliCare Initiative.</p>
   </div>
-  <NewsletterForm slot="right" emailLabel="Deine E-Mail-Adresse" consentLabel="Ich möchte den PsychedeliCare nEUsletter erhalten und weiß, dass ich mich jederzeit abmelden kann." submitLabel="Abonnieren" successMessage="Danke." privacyHref="/de/privacy-policy" privacyLabel="Datenschutz" />
+  <NewsletterForm slot="right" locale="de" />
 </TwoColumns>
 
 ## ECI-Wirkung

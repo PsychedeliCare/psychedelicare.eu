@@ -62,12 +62,10 @@ import CardGrid from "../../../components/CardGrid.astro";
 import { socialLinks } from "../../../data/socialLinks";
 import NewsletterForm from "../../../components/NewsletterForm.astro";
 import DocumentViewer from "../../../components/DocumentViewer.astro";
-import IcprSideEventBanner from "../../../components/IcprSideEventBanner.astro";
 import { coordinationBoardMembers } from "../../../data/coordinationBoard";
 
 # Arreta psikodelikoa Europan zehar bultzatzea
 
-<IcprSideEventBanner locale="eu" />
 
 ## Zergatik da garrantzitsua
 
@@ -159,7 +157,7 @@ Would you like to support PsychedeliCare or become part of the movement?
     <h3>Egon informatuta</h3>
     <p>Subscribe to receive the latest information and ways to support the PsychedeliCare Initiative.</p>
   </div>
-  <NewsletterForm slot="right" emailLabel="Zure email helbidea" consentLabel="PsychedeliCare-ren nEUsletter-a jasotzea onartzen dut eta edozein unetan baja eman dezakedala ulertzen dut." submitLabel="Harpidetu" successMessage="Eskerrik asko." privacyHref="/eu/privacy-policy" privacyLabel="Pribatutasun politika" />
+  <NewsletterForm slot="right" locale="eu" />
 </TwoColumns>
 
 ## ECIren eragina

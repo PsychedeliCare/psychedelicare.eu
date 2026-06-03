@@ -62,12 +62,10 @@ import CardGrid from "../../../components/CardGrid.astro";
 import { socialLinks } from "../../../data/socialLinks";
 import NewsletterForm from "../../../components/NewsletterForm.astro";
 import DocumentViewer from "../../../components/DocumentViewer.astro";
-import IcprSideEventBanner from "../../../components/IcprSideEventBanner.astro";
 import { coordinationBoardMembers } from "../../../data/coordinationBoard";
 
 # Razvoj psihedelične skrbi po Evropi
 
-<IcprSideEventBanner locale="sl" />
 
 ## Zakaj je to pomembno
 
@@ -159,7 +157,7 @@ Would you like to support PsychedeliCare or become part of the movement?
     <h3>Ostani obveščen</h3>
     <p>Subscribe to receive the latest information and ways to support the PsychedeliCare Initiative.</p>
   </div>
-  <NewsletterForm slot="right" emailLabel="Tvoj e-poštni naslov" consentLabel="Strinjam se s prejemanjem nEUsletterja PsychedeliCare in razumem, da se lahko kadarkoli odjavim." submitLabel="Naroči se" successMessage="Hvala." privacyHref="/sl/privacy-policy" privacyLabel="Politika zasebnosti" />
+  <NewsletterForm slot="right" locale="sl" />
 </TwoColumns>
 
 ## Učinek EDP

@@ -23,6 +23,7 @@ import IconSpeakerphone from "../../node_modules/@tabler/icons/icons/outline/spe
 import IconUsersGroup from "../../node_modules/@tabler/icons/icons/outline/users-group.svg?raw";
 import IconWorldHeart from "../../node_modules/@tabler/icons/icons/outline/world-heart.svg?raw";
 
+import IcprSideEventBanner from "../components/IcprSideEventBanner.astro";
 import SocialLinks from "../components/SocialLinks.astro";
 import { defaultLocale, localizePath, normalizeLocale } from "../lib/i18n";
 import { getLocaleFlagClass } from "../lib/localeFlags";
@@ -104,6 +105,7 @@ const getNavIcon = (icon?: string) => navIcons[icon ?? ""] ?? IconSparkles;
     <title>{title}</title>
   </head>
   <body>
+    <IcprSideEventBanner locale={currentLocale} />
     <header class="site-header">
       <div class="container px-4">
         <div class="site-header__bar">

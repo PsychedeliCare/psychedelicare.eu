@@ -62,12 +62,10 @@ import CardGrid from "../../../components/CardGrid.astro";
 import { socialLinks } from "../../../data/socialLinks";
 import NewsletterForm from "../../../components/NewsletterForm.astro";
 import DocumentViewer from "../../../components/DocumentViewer.astro";
-import IcprSideEventBanner from "../../../components/IcprSideEventBanner.astro";
 import { coordinationBoardMembers } from "../../../data/coordinationBoard";
 
 # Unaprjeđenje psihodelične skrbi diljem Europe
 
-<IcprSideEventBanner locale="hr" />
 
 ## Zašto je to važno
 
@@ -159,7 +157,7 @@ Would you like to support PsychedeliCare or become part of the movement?
     <h3>Ostanite informirani</h3>
     <p>Subscribe to receive the latest information and ways to support the PsychedeliCare Initiative.</p>
   </div>
-  <NewsletterForm slot="right" emailLabel="Vaša adresa e-pošte" consentLabel="Slažem se primati PsychedeliCare nEUsletter i razumijem da se mogu odjaviti u bilo kojem trenutku." submitLabel="Pretplati se" successMessage="Hvala." privacyHref="/hr/privacy-policy" privacyLabel="Pravila privatnosti" />
+  <NewsletterForm slot="right" locale="hr" />
 </TwoColumns>
 
 ## Učinak EGI-ja

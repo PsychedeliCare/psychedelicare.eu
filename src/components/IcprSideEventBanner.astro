@@ -3,7 +3,6 @@ import IconMapPin from "@tabler/icons/outline/map-pin.svg?raw";
 import IconDoorEnter from "@tabler/icons/outline/door-enter.svg?raw";
 import IconWritingSign from "@tabler/icons/outline/writing-sign.svg?raw";
 import IconArmchair from "@tabler/icons/outline/armchair.svg?raw";
-import IconMusic from "@tabler/icons/outline/music.svg?raw";
 import IconExternalLink from "@tabler/icons/outline/external-link.svg?raw";
 
 import { normalizeLocale, type SiteLocale } from "../lib/i18n";
@@ -11,6 +10,8 @@ import { normalizeLocale, type SiteLocale } from "../lib/i18n";
 type EventCopy = {
   ariaLabel: string;
   heading: string;
+  closeLabel: string;
+  detailsLabel: string;
   eyebrow: string;
   title: string;
   collaboration: string;
@@ -46,7 +47,9 @@ const copyByLocale: Record<SiteLocale, EventCopy> = {
   en: {
     ariaLabel: "Meet us at ICPR 2026",
     heading: "Meet us at ICPR",
-    eyebrow: "ICPR 2026 Side Event · Fri 5 June · 20:00–23:00",
+    closeLabel: "Close",
+    detailsLabel: "View details",
+    eyebrow: "ICPR 2026 side event · Friday 5 June 2026 · 20:00–23:00 · Haarlem",
     title: "Psychedelic Pub Quiz & Music Night",
     collaboration: "In collaboration with Psychedelic Society UK",
     description:
@@ -69,7 +72,9 @@ const copyByLocale: Record<SiteLocale, EventCopy> = {
   de: {
     ariaLabel: "Triff uns auf der ICPR 2026",
     heading: "Triff uns auf der ICPR",
-    eyebrow: "ICPR 2026 Side Event · Fr. 5. Juni · 20:00–23:00",
+    closeLabel: "Schließen",
+    detailsLabel: "Details anzeigen",
+    eyebrow: "ICPR 2026 Side Event · Freitag, 5. Juni 2026 · 20:00–23:00 · Haarlem",
     title: "Psychedelisches Pub-Quiz & Musikabend",
     collaboration: "In Zusammenarbeit mit der Psychedelic Society UK",
     description:
@@ -87,7 +92,9 @@ const copyByLocale: Record<SiteLocale, EventCopy> = {
   el: {
     ariaLabel: "Συναντήστε μας στο ICPR 2026",
     heading: "Συναντήστε μας στο ICPR",
-    eyebrow: "ICPR 2026 παράλληλη εκδήλωση · Παρ. 5 Ιουνίου · 20:00–23:00",
+    closeLabel: "Κλείσιμο",
+    detailsLabel: "Προβολή λεπτομερειών",
+    eyebrow: "ICPR 2026 παράλληλη εκδήλωση · Παρασκευή 5 Ιουνίου 2026 · 20:00–23:00 · Haarlem",
     title: "Ψυχεδελικό pub quiz & μουσική βραδιά",
     collaboration: "Σε συνεργασία με την Psychedelic Society UK",
     description:
@@ -105,7 +112,9 @@ const copyByLocale: Record<SiteLocale, EventCopy> = {
   es: {
     ariaLabel: "Encuéntranos en ICPR 2026",
     heading: "Encuéntranos en ICPR",
-    eyebrow: "Evento paralelo ICPR 2026 · vie. 5 de junio · 20:00–23:00",
+    closeLabel: "Cerrar",
+    detailsLabel: "Ver detalles",
+    eyebrow: "Evento paralelo ICPR 2026 · viernes 5 de junio de 2026 · 20:00–23:00 · Haarlem",
     title: "Pub quiz psicodélico y noche musical",
     collaboration: "En colaboración con Psychedelic Society UK",
     description:
@@ -123,7 +132,9 @@ const copyByLocale: Record<SiteLocale, EventCopy> = {
   eu: {
     ariaLabel: "Ezagutu gaitzazu ICPR 2026n",
     heading: "Ezagutu gaitzazu ICPRn",
-    eyebrow: "ICPR 2026 albo-ekitaldia · ekainak 5, ostirala · 20:00–23:00",
+    closeLabel: "Itxi",
+    detailsLabel: "Xehetasunak ikusi",
+    eyebrow: "ICPR 2026 albo-ekitaldia · ostirala, 2026ko ekainak 5 · 20:00–23:00 · Haarlem",
     title: "Pub quiz psikodelikoa eta musika-gaua",
     collaboration: "Psychedelic Society UKrekin elkarlanean",
     description:
@@ -141,7 +152,9 @@ const copyByLocale: Record<SiteLocale, EventCopy> = {
   fr: {
     ariaLabel: "Retrouvez-nous à l'ICPR 2026",
     heading: "Retrouvez-nous à l'ICPR",
-    eyebrow: "Événement parallèle ICPR 2026 · ven. 5 juin · 20:00–23:00",
+    closeLabel: "Fermer",
+    detailsLabel: "Voir les détails",
+    eyebrow: "Événement parallèle ICPR 2026 · vendredi 5 juin 2026 · 20:00–23:00 · Haarlem",
     title: "Pub quiz psychédélique et soirée musicale",
     collaboration: "En collaboration avec la Psychedelic Society UK",
     description:
@@ -159,7 +172,9 @@ const copyByLocale: Record<SiteLocale, EventCopy> = {
   hr: {
     ariaLabel: "Upoznajte nas na ICPR-u 2026",
     heading: "Upoznajte nas na ICPR-u",
-    eyebrow: "Popratni događaj ICPR 2026 · pet. 5. lipnja · 20:00–23:00",
+    closeLabel: "Zatvori",
+    detailsLabel: "Pogledaj detalje",
+    eyebrow: "Popratni događaj ICPR 2026 · petak 5. lipnja 2026. · 20:00–23:00 · Haarlem",
     title: "Psihodelični pub kviz i glazbena večer",
     collaboration: "U suradnji s Psychedelic Society UK",
     description:
@@ -177,7 +192,9 @@ const copyByLocale: Record<SiteLocale, EventCopy> = {
   it: {
     ariaLabel: "Incontraci all'ICPR 2026",
     heading: "Incontraci all'ICPR",
-    eyebrow: "Evento collaterale ICPR 2026 · ven. 5 giugno · 20:00–23:00",
+    closeLabel: "Chiudi",
+    detailsLabel: "Vedi dettagli",
+    eyebrow: "Evento collaterale ICPR 2026 · venerdì 5 giugno 2026 · 20:00–23:00 · Haarlem",
     title: "Pub quiz psichedelico e serata musicale",
     collaboration: "In collaborazione con Psychedelic Society UK",
     description:
@@ -195,7 +212,9 @@ const copyByLocale: Record<SiteLocale, EventCopy> = {
   pl: {
     ariaLabel: "Spotkaj nas na ICPR 2026",
     heading: "Spotkaj nas na ICPR",
-    eyebrow: "Wydarzenie towarzyszące ICPR 2026 · pt. 5 czerwca · 20:00–23:00",
+    closeLabel: "Zamknij",
+    detailsLabel: "Zobacz szczegóły",
+    eyebrow: "Wydarzenie towarzyszące ICPR 2026 · piątek 5 czerwca 2026 · 20:00–23:00 · Haarlem",
     title: "Psychodeliczny pub quiz i wieczór muzyczny",
     collaboration: "We współpracy z Psychedelic Society UK",
     description:
@@ -213,7 +232,9 @@ const copyByLocale: Record<SiteLocale, EventCopy> = {
   pt: {
     ariaLabel: "Encontra-nos na ICPR 2026",
     heading: "Encontra-nos na ICPR",
-    eyebrow: "Evento paralelo ICPR 2026 · sex. 5 de junho · 20:00–23:00",
+    closeLabel: "Fechar",
+    detailsLabel: "Ver detalhes",
+    eyebrow: "Evento paralelo ICPR 2026 · sexta-feira, 5 de junho de 2026 · 20:00–23:00 · Haarlem",
     title: "Pub quiz psicadélico e noite de música",
     collaboration: "Em colaboração com a Psychedelic Society UK",
     description:
@@ -231,7 +252,9 @@ const copyByLocale: Record<SiteLocale, EventCopy> = {
   sl: {
     ariaLabel: "Srečajte nas na ICPR 2026",
     heading: "Srečajte nas na ICPR",
-    eyebrow: "Spremljevalni dogodek ICPR 2026 · pet. 5. junij · 20:00–23:00",
+    closeLabel: "Zapri",
+    detailsLabel: "Prikaži podrobnosti",
+    eyebrow: "Spremljevalni dogodek ICPR 2026 · petek, 5. junij 2026 · 20:00–23:00 · Haarlem",
     title: "Psihedelični pub kviz in glasbeni večer",
     collaboration: "V sodelovanju s Psychedelic Society UK",
     description:
@@ -249,7 +272,9 @@ const copyByLocale: Record<SiteLocale, EventCopy> = {
   ca: {
     ariaLabel: "Troba'ns a l'ICPR 2026",
     heading: "Troba'ns a l'ICPR",
-    eyebrow: "Esdeveniment paral·lel ICPR 2026 · dv. 5 de juny · 20:00–23:00",
+    closeLabel: "Tanca",
+    detailsLabel: "Veure detalls",
+    eyebrow: "Esdeveniment paral·lel ICPR 2026 · divendres 5 de juny de 2026 · 20:00–23:00 · Haarlem",
     title: "Pub quiz psicodèlic i nit musical",
     collaboration: "En col·laboració amb Psychedelic Society UK",
     description:
@@ -267,7 +292,9 @@ const copyByLocale: Record<SiteLocale, EventCopy> = {
 };
 
 const { locale = "en" } = Astro.props;
-const copy = copyByLocale[normalizeLocale(locale)];
+const normalizedLocale = normalizeLocale(locale);
+const copy = copyByLocale[normalizedLocale];
+const dialogId = `icpr-event-dialog-${normalizedLocale}`;
 const details = [
   {
     icon: IconMapPin,
@@ -294,58 +321,122 @@ const details = [
 
 {
   isVisible && (
-    <section class="icpr-event-block" aria-label={copy.ariaLabel}>
-      <div class="container px-4">
-        <h2 class="icpr-event-block__title">{copy.heading}</h2>
-
-        <details class="icpr-event">
-        <summary class="icpr-event__summary">
-          <span class="icpr-event__summary-icon" set:html={IconMusic} aria-hidden="true" />
-          <span class="icpr-event__summary-text">
-            <span class="icpr-event__eyebrow">
-              {copy.eyebrow}
+    <>
+      <aside class="icpr-top-banner" aria-label={copy.ariaLabel}>
+        <div class="container px-4 icpr-top-banner__inner">
+          <button
+            type="button"
+            class="icpr-top-banner__trigger"
+            data-icpr-open={dialogId}
+            aria-haspopup="dialog"
+            aria-controls={dialogId}
+          >
+            <span class="icpr-top-banner__line">
+              <strong class="icpr-top-banner__heading">{copy.heading}</strong>
+              <span class="icpr-top-banner__sep" aria-hidden="true">·</span>
+              <span class="icpr-top-banner__meta">{copy.eyebrow}</span>
+              <span class="icpr-top-banner__sep" aria-hidden="true">·</span>
+              <span class="icpr-top-banner__event">{copy.title}</span>
             </span>
-            <span class="icpr-event__title">{copy.title}</span>
-          </span>
-        </summary>
-
-      <div class="icpr-event__body">
-        <div class="icpr-event__main">
-          <p class="icpr-event__collab">
-            {copy.collaboration}
-          </p>
-
-          <p class="icpr-event__description">
-            {copy.description}
-          </p>
-
-          <p class="icpr-event__links">
-            <a href={mapsUrl} rel="noopener noreferrer" target="_blank">
-              {copy.mapsLabel}
-              <span class="icpr-event__ext" set:html={IconExternalLink} aria-hidden="true" />
-            </a>
-            <span class="icpr-event__links-sep" aria-hidden="true">·</span>
-            <a href={eventUrl} rel="noopener noreferrer" target="_blank">
-              {copy.programmeLabel}
-              <span class="icpr-event__ext" set:html={IconExternalLink} aria-hidden="true" />
-            </a>
-          </p>
+            <span class="icpr-top-banner__cta">{copy.detailsLabel}</span>
+          </button>
         </div>
+      </aside>
 
-        <ul class="icpr-event__details">
-          {details.map((item) => (
-            <li class="icpr-event__detail">
-              <span class="icpr-event__icon" set:html={item.icon} aria-hidden="true" />
-              <span class="icpr-event__detail-text">
-                <strong class="icpr-event__detail-label">{item.label}</strong>
-                <span class="icpr-event__detail-value">{item.value}</span>
-              </span>
-            </li>
-          ))}
-        </ul>
-        </div>
-      </details>
-      </div>
-    </section>
+      <dialog
+        class="icpr-event-dialog"
+        id={dialogId}
+        aria-labelledby={`${dialogId}-title`}
+      >
+        <form method="dialog" class="grid gap-0">
+          <div class="icpr-event-dialog__header">
+            <h2 class="icpr-event-dialog__title" id={`${dialogId}-title`}>
+              {copy.title}
+            </h2>
+            <button
+              type="submit"
+              class="button-secondary shrink-0 min-h-10 px-4 py-2 text-[0.95rem]"
+              aria-label={copy.closeLabel}
+            >
+              {copy.closeLabel}
+            </button>
+          </div>
+
+          <div class="icpr-event-dialog__body">
+            <article class="icpr-event" aria-label={copy.ariaLabel}>
+              <p class="icpr-event__eyebrow icpr-event__eyebrow--dialog">{copy.eyebrow}</p>
+
+              <div class="icpr-event__body icpr-event__body--dialog">
+                <div class="icpr-event__main">
+                  <p class="icpr-event__collab">{copy.collaboration}</p>
+                  <p class="icpr-event__description">{copy.description}</p>
+                  <p class="icpr-event__links">
+                    <a href={mapsUrl} rel="noopener noreferrer" target="_blank">
+                      {copy.mapsLabel}
+                      <span class="icpr-event__ext" set:html={IconExternalLink} aria-hidden="true" />
+                    </a>
+                    <span class="icpr-event__links-sep" aria-hidden="true">
+                      ·
+                    </span>
+                    <a href={eventUrl} rel="noopener noreferrer" target="_blank">
+                      {copy.programmeLabel}
+                      <span class="icpr-event__ext" set:html={IconExternalLink} aria-hidden="true" />
+                    </a>
+                  </p>
+                </div>
+
+                <ul class="icpr-event__details">
+                  {details.map((item) => (
+                    <li class="icpr-event__detail">
+                      <span class="icpr-event__icon" set:html={item.icon} aria-hidden="true" />
+                      <span class="icpr-event__detail-text">
+                        <strong class="icpr-event__detail-label">{item.label}</strong>
+                        <span class="icpr-event__detail-value">{item.value}</span>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          </div>
+        </form>
+      </dialog>
+    </>
   )
 }
+
+<script>
+  function initIcprEventDialogs() {
+    document.querySelectorAll<HTMLButtonElement>("[data-icpr-open]").forEach((button) => {
+      if (button.dataset.icprBound === "true") {
+        return;
+      }
+
+      button.dataset.icprBound = "true";
+      const dialogId = button.getAttribute("data-icpr-open");
+      const dialog = dialogId ? document.getElementById(dialogId) : null;
+
+      button.addEventListener("click", () => {
+        if (dialog instanceof HTMLDialogElement) {
+          dialog.showModal();
+        }
+      });
+    });
+
+    document.querySelectorAll<HTMLDialogElement>(".icpr-event-dialog").forEach((dialog) => {
+      if (dialog.dataset.icprBackdropBound === "true") {
+        return;
+      }
+
+      dialog.dataset.icprBackdropBound = "true";
+      dialog.addEventListener("click", (event) => {
+        if (event.target === dialog) {
+          dialog.close();
+        }
+      });
+    });
+  }
+
+  initIcprEventDialogs();
+  document.addEventListener("astro:page-load", initIcprEventDialogs);
+</script>
