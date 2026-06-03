@@ -6,9 +6,10 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
-import opengraphImages, { presets } from "astro-opengraph-images";
+import opengraphImages from "astro-opengraph-images";
 
 import { isLinkedPageUrl, isLinkedPathname } from "./scripts/linked-pages.mjs";
+import { psychedelicare } from "./scripts/opengraph-psychedelicare.mjs";
 
 // https://astro.build/config
 export default defineConfig({
@@ -24,23 +25,15 @@ export default defineConfig({
         fonts: [
           {
             name: "Jost",
-            weight: 400,
+            weight: 900,
             style: "normal",
             data: fs.readFileSync(
-              "node_modules/@fontsource/jost/files/jost-latin-400-normal.woff",
-            ),
-          },
-          {
-            name: "Jost",
-            weight: 700,
-            style: "normal",
-            data: fs.readFileSync(
-              "node_modules/@fontsource/jost/files/jost-latin-700-normal.woff",
+              "node_modules/@fontsource/jost/files/jost-latin-900-normal.woff",
             ),
           },
         ],
       },
-      render: presets.blackAndWhite,
+      render: psychedelicare,
       filter: ({ pathname }) => isLinkedPathname(pathname),
     }),
   ],
