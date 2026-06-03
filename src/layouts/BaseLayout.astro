@@ -153,11 +153,11 @@ const getNavIcon = (icon?: string) => navIcons[icon ?? ""] ?? IconSparkles;
                                 ]}
                                 href={item.href}
                               >
-                                <span class="nav-disclosure__icon" set:html={getNavIcon(item.icon)}></span>
                                 <span class="nav-disclosure__lead-copy">
                                   <span>{item.label}</span>
                                   <span>{item.description ?? uiCopy.browseSection}</span>
                                 </span>
+                                <span class="nav-disclosure__lead-arrow" aria-hidden="true"></span>
                               </a>
 
                               <ul class="nav-disclosure__links">
@@ -356,7 +356,8 @@ const getNavIcon = (icon?: string) => navIcons[icon ?? ""] ?? IconSparkles;
                             class:list={["locale-flag", getLocaleFlagClass(option.locale)]}
                             aria-hidden="true"
                           ></span>
-                          <span>{option.code}</span>
+                          <span class="mobile-menu__lang-code">{option.code}</span>
+                          <span class="mobile-menu__lang-name">{option.nativeLabel}</span>
                         </a>
                       ))
                     }

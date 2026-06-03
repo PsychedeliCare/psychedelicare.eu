@@ -62,10 +62,12 @@ import CardGrid from "../../../components/CardGrid.astro";
 import { socialLinks } from "../../../data/socialLinks";
 import NewsletterForm from "../../../components/NewsletterForm.astro";
 import DocumentViewer from "../../../components/DocumentViewer.astro";
+import IcprSideEventBanner from "../../../components/IcprSideEventBanner.astro";
 import { coordinationBoardMembers } from "../../../data/coordinationBoard";
 
 # Advancing Psychedelic Care Across Europe
 
+<IcprSideEventBanner />
 
 ## Why this matters
 
@@ -145,6 +147,7 @@ import { coordinationBoardMembers } from "../../../data/coordinationBoard";
 </TwoColumns>
 
 <div class="mission-block">
+  <div class="container px-4">
   <h2>Our Mission</h2>
 
   <div class="mission-block__content">
@@ -164,6 +167,7 @@ import { coordinationBoardMembers } from "../../../data/coordinationBoard";
     <p>We believe that people should be informed, represented, and actively involved in shaping the future of mental health care.</p>
 
     <p><a href="/who-we-are#our-values">Read more about our values</a></p>
+  </div>
   </div>
 </div>
 
@@ -201,6 +205,7 @@ import { coordinationBoardMembers } from "../../../data/coordinationBoard";
 />
 
 <div class="support-us-section">
+<div class="container px-4">
 
 ## Support us
 
@@ -233,6 +238,7 @@ Would you like to support PsychedeliCare or become part of the movement?
   <a slot="actions" class="button-primary" href="/donate">Donate to the initiative</a>
 </CardGrid>
 
+</div>
 </div>
 
 <a id="subscribe-to-newsletter"></a>

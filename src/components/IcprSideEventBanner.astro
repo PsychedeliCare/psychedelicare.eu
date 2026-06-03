@@ -1,0 +1,99 @@
+---
+import IconMapPin from "@tabler/icons/outline/map-pin.svg?raw";
+import IconDoorEnter from "@tabler/icons/outline/door-enter.svg?raw";
+import IconWritingSign from "@tabler/icons/outline/writing-sign.svg?raw";
+import IconArmchair from "@tabler/icons/outline/armchair.svg?raw";
+import IconMusic from "@tabler/icons/outline/music.svg?raw";
+import IconExternalLink from "@tabler/icons/outline/external-link.svg?raw";
+
+const showUntil = new Date("2026-06-06T00:00:00");
+const isVisible = new Date() < showUntil;
+
+const eventUrl = "https://www.icpr-conference.com/side-events?d=d2";
+const mapsUrl =
+  "https://maps.google.com/?q=Grand+Caf%C3%A9+Brinkmann,+Grote+Markt+13,+2011+RC+Haarlem";
+
+const details = [
+  {
+    icon: IconMapPin,
+    label: "Where",
+    value: "Grand Café Brinkmann, Grote Markt 13, 2011 RC Haarlem",
+  },
+  {
+    icon: IconDoorEnter,
+    label: "Access",
+    value: "Open to all conference attendees",
+  },
+  {
+    icon: IconWritingSign,
+    label: "Sign-up",
+    value: "Free on-site sign-up at the desk (first come, first served)",
+  },
+  {
+    icon: IconArmchair,
+    label: "Capacity",
+    value: "150 seats",
+  },
+];
+---
+
+{
+  isVisible && (
+    <section class="icpr-event-block" aria-label="Meet us at ICPR 2026">
+      <div class="container px-4">
+        <h2 class="icpr-event-block__title">Meet us at ICPR</h2>
+
+        <details class="icpr-event">
+        <summary class="icpr-event__summary">
+          <span class="icpr-event__summary-icon" set:html={IconMusic} aria-hidden="true" />
+          <span class="icpr-event__summary-text">
+            <span class="icpr-event__eyebrow">
+              ICPR 2026 Side Event · Fri 5 June · 20:00–23:00
+            </span>
+            <span class="icpr-event__title">Psychedelic Pub Quiz &amp; Music Night</span>
+          </span>
+        </summary>
+
+      <div class="icpr-event__body">
+        <div class="icpr-event__main">
+          <p class="icpr-event__collab">
+            In collaboration with Psychedelic Society UK
+          </p>
+
+          <p class="icpr-event__description">
+            A psychedelic pub quiz followed by a DJ — a relaxed, welcoming space to
+            gather beyond the conference halls and connect with the community over
+            quiz, music, and conversation. Drinks available for purchase; no food
+            served.
+          </p>
+
+          <p class="icpr-event__links">
+            <a href={mapsUrl} rel="noopener noreferrer" target="_blank">
+              Open in Maps
+              <span class="icpr-event__ext" set:html={IconExternalLink} aria-hidden="true" />
+            </a>
+            <span class="icpr-event__links-sep" aria-hidden="true">·</span>
+            <a href={eventUrl} rel="noopener noreferrer" target="_blank">
+              ICPR side events programme
+              <span class="icpr-event__ext" set:html={IconExternalLink} aria-hidden="true" />
+            </a>
+          </p>
+        </div>
+
+        <ul class="icpr-event__details">
+          {details.map((item) => (
+            <li class="icpr-event__detail">
+              <span class="icpr-event__icon" set:html={item.icon} aria-hidden="true" />
+              <span class="icpr-event__detail-text">
+                <strong class="icpr-event__detail-label">{item.label}</strong>
+                <span class="icpr-event__detail-value">{item.value}</span>
+              </span>
+            </li>
+          ))}
+        </ul>
+        </div>
+      </details>
+      </div>
+    </section>
+  )
+}
