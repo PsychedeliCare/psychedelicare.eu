@@ -6,6 +6,35 @@ import IconArmchair from "@tabler/icons/outline/armchair.svg?raw";
 import IconMusic from "@tabler/icons/outline/music.svg?raw";
 import IconExternalLink from "@tabler/icons/outline/external-link.svg?raw";
 
+import { normalizeLocale, type SiteLocale } from "../lib/i18n";
+
+type EventCopy = {
+  ariaLabel: string;
+  heading: string;
+  eyebrow: string;
+  title: string;
+  collaboration: string;
+  description: string;
+  mapsLabel: string;
+  programmeLabel: string;
+  details: {
+    where: string;
+    access: string;
+    signup: string;
+    capacity: string;
+  };
+  values: {
+    where: string;
+    access: string;
+    signup: string;
+    capacity: string;
+  };
+};
+
+type Props = {
+  locale?: string;
+};
+
 const showUntil = new Date("2026-06-06T00:00:00");
 const isVisible = new Date() < showUntil;
 
@@ -13,68 +42,291 @@ const eventUrl = "https://www.icpr-conference.com/side-events?d=d2";
 const mapsUrl =
   "https://maps.google.com/?q=Grand+Caf%C3%A9+Brinkmann,+Grote+Markt+13,+2011+RC+Haarlem";
 
+const copyByLocale: Record<SiteLocale, EventCopy> = {
+  en: {
+    ariaLabel: "Meet us at ICPR 2026",
+    heading: "Meet us at ICPR",
+    eyebrow: "ICPR 2026 Side Event · Fri 5 June · 20:00–23:00",
+    title: "Psychedelic Pub Quiz & Music Night",
+    collaboration: "In collaboration with Psychedelic Society UK",
+    description:
+      "A psychedelic pub quiz followed by a DJ — a relaxed, welcoming space to gather beyond the conference halls and connect with the community over quiz, music, and conversation. Drinks available for purchase; no food served.",
+    mapsLabel: "Open in Maps",
+    programmeLabel: "ICPR side events programme",
+    details: {
+      where: "Where",
+      access: "Access",
+      signup: "Sign-up",
+      capacity: "Capacity",
+    },
+    values: {
+      where: "Grand Café Brinkmann, Grote Markt 13, 2011 RC Haarlem",
+      access: "Open to all conference attendees",
+      signup: "Free on-site sign-up at the desk (first come, first served)",
+      capacity: "150 seats",
+    },
+  },
+  de: {
+    ariaLabel: "Triff uns auf der ICPR 2026",
+    heading: "Triff uns auf der ICPR",
+    eyebrow: "ICPR 2026 Side Event · Fr. 5. Juni · 20:00–23:00",
+    title: "Psychedelisches Pub-Quiz & Musikabend",
+    collaboration: "In Zusammenarbeit mit der Psychedelic Society UK",
+    description:
+      "Ein psychedelisches Pub-Quiz mit anschließendem DJ-Set: ein entspannter, einladender Raum, um sich außerhalb der Konferenzsäle bei Quiz, Musik und Gesprächen mit der Community zu verbinden. Getränke können gekauft werden; es wird kein Essen serviert.",
+    mapsLabel: "In Maps öffnen",
+    programmeLabel: "ICPR-Side-Event-Programm",
+    details: { where: "Wo", access: "Zugang", signup: "Anmeldung", capacity: "Kapazität" },
+    values: {
+      where: "Grand Café Brinkmann, Grote Markt 13, 2011 RC Haarlem",
+      access: "Offen für alle Konferenzteilnehmenden",
+      signup: "Kostenlose Anmeldung vor Ort am Desk (wer zuerst kommt, mahlt zuerst)",
+      capacity: "150 Plätze",
+    },
+  },
+  el: {
+    ariaLabel: "Συναντήστε μας στο ICPR 2026",
+    heading: "Συναντήστε μας στο ICPR",
+    eyebrow: "ICPR 2026 παράλληλη εκδήλωση · Παρ. 5 Ιουνίου · 20:00–23:00",
+    title: "Ψυχεδελικό pub quiz & μουσική βραδιά",
+    collaboration: "Σε συνεργασία με την Psychedelic Society UK",
+    description:
+      "Ένα ψυχεδελικό pub quiz και στη συνέχεια DJ: ένας χαλαρός και φιλόξενος χώρος για συνάντηση πέρα από τις αίθουσες του συνεδρίου, με quiz, μουσική και συζήτηση. Διαθέσιμα ποτά προς αγορά· δεν σερβίρεται φαγητό.",
+    mapsLabel: "Άνοιγμα στους Χάρτες",
+    programmeLabel: "Πρόγραμμα παράλληλων εκδηλώσεων ICPR",
+    details: { where: "Πού", access: "Πρόσβαση", signup: "Εγγραφή", capacity: "Χωρητικότητα" },
+    values: {
+      where: "Grand Café Brinkmann, Grote Markt 13, 2011 RC Haarlem",
+      access: "Ανοιχτό σε όλους τους συμμετέχοντες του συνεδρίου",
+      signup: "Δωρεάν εγγραφή επί τόπου στο γραφείο (με σειρά προτεραιότητας)",
+      capacity: "150 θέσεις",
+    },
+  },
+  es: {
+    ariaLabel: "Encuéntranos en ICPR 2026",
+    heading: "Encuéntranos en ICPR",
+    eyebrow: "Evento paralelo ICPR 2026 · vie. 5 de junio · 20:00–23:00",
+    title: "Pub quiz psicodélico y noche musical",
+    collaboration: "En colaboración con Psychedelic Society UK",
+    description:
+      "Un pub quiz psicodélico seguido de DJ: un espacio relajado y acogedor para reunirse fuera de las salas de la conferencia y conectar con la comunidad mediante preguntas, música y conversación. Bebidas disponibles para comprar; no se servirá comida.",
+    mapsLabel: "Abrir en Maps",
+    programmeLabel: "Programa de eventos paralelos ICPR",
+    details: { where: "Dónde", access: "Acceso", signup: "Inscripción", capacity: "Aforo" },
+    values: {
+      where: "Grand Café Brinkmann, Grote Markt 13, 2011 RC Haarlem",
+      access: "Abierto a todas las personas asistentes a la conferencia",
+      signup: "Inscripción gratuita in situ en el mostrador (por orden de llegada)",
+      capacity: "150 asientos",
+    },
+  },
+  eu: {
+    ariaLabel: "Ezagutu gaitzazu ICPR 2026n",
+    heading: "Ezagutu gaitzazu ICPRn",
+    eyebrow: "ICPR 2026 albo-ekitaldia · ekainak 5, ostirala · 20:00–23:00",
+    title: "Pub quiz psikodelikoa eta musika-gaua",
+    collaboration: "Psychedelic Society UKrekin elkarlanean",
+    description:
+      "Pub quiz psikodeliko bat eta ondoren DJ bat: konferentzia-aretoetatik kanpo elkartzeko eta komunitatearekin quiz, musika eta solasaren bidez konektatzeko espazio lasaia eta abegikorra. Edariak erosteko aukera egongo da; ez da janaririk zerbitzatuko.",
+    mapsLabel: "Ireki Maps-en",
+    programmeLabel: "ICPR albo-ekitaldien programa",
+    details: { where: "Non", access: "Sarbidea", signup: "Izen-ematea", capacity: "Edukiera" },
+    values: {
+      where: "Grand Café Brinkmann, Grote Markt 13, 2011 RC Haarlem",
+      access: "Konferentziako parte-hartzaile guztientzat irekia",
+      signup: "Doako izen-ematea bertan mahaian (iritsiera-ordenaren arabera)",
+      capacity: "150 eserleku",
+    },
+  },
+  fr: {
+    ariaLabel: "Retrouvez-nous à l'ICPR 2026",
+    heading: "Retrouvez-nous à l'ICPR",
+    eyebrow: "Événement parallèle ICPR 2026 · ven. 5 juin · 20:00–23:00",
+    title: "Pub quiz psychédélique et soirée musicale",
+    collaboration: "En collaboration avec la Psychedelic Society UK",
+    description:
+      "Un pub quiz psychédélique suivi d'un DJ : un espace détendu et accueillant pour se retrouver hors des salles de conférence et échanger avec la communauté autour d'un quiz, de musique et de conversations. Boissons disponibles à l'achat ; pas de restauration.",
+    mapsLabel: "Ouvrir dans Maps",
+    programmeLabel: "Programme des événements parallèles ICPR",
+    details: { where: "Lieu", access: "Accès", signup: "Inscription", capacity: "Capacité" },
+    values: {
+      where: "Grand Café Brinkmann, Grote Markt 13, 2011 RC Haarlem",
+      access: "Ouvert à toutes les personnes participantes à la conférence",
+      signup: "Inscription gratuite sur place au comptoir (premier arrivé, premier servi)",
+      capacity: "150 places",
+    },
+  },
+  hr: {
+    ariaLabel: "Upoznajte nas na ICPR-u 2026",
+    heading: "Upoznajte nas na ICPR-u",
+    eyebrow: "Popratni događaj ICPR 2026 · pet. 5. lipnja · 20:00–23:00",
+    title: "Psihodelični pub kviz i glazbena večer",
+    collaboration: "U suradnji s Psychedelic Society UK",
+    description:
+      "Psihodelični pub kviz nakon kojeg slijedi DJ: opušten i gostoljubiv prostor za susret izvan konferencijskih dvorana i povezivanje sa zajednicom kroz kviz, glazbu i razgovor. Pića su dostupna za kupnju; hrana se ne poslužuje.",
+    mapsLabel: "Otvori u Maps",
+    programmeLabel: "Program popratnih događaja ICPR-a",
+    details: { where: "Gdje", access: "Pristup", signup: "Prijava", capacity: "Kapacitet" },
+    values: {
+      where: "Grand Café Brinkmann, Grote Markt 13, 2011 RC Haarlem",
+      access: "Otvoreno za sve sudionike konferencije",
+      signup: "Besplatna prijava na licu mjesta za pultom (po redoslijedu dolaska)",
+      capacity: "150 mjesta",
+    },
+  },
+  it: {
+    ariaLabel: "Incontraci all'ICPR 2026",
+    heading: "Incontraci all'ICPR",
+    eyebrow: "Evento collaterale ICPR 2026 · ven. 5 giugno · 20:00–23:00",
+    title: "Pub quiz psichedelico e serata musicale",
+    collaboration: "In collaborazione con Psychedelic Society UK",
+    description:
+      "Un pub quiz psichedelico seguito da un DJ: uno spazio rilassato e accogliente per incontrarsi oltre le sale della conferenza e connettersi con la comunità tra quiz, musica e conversazioni. Bevande acquistabili; non sarà servito cibo.",
+    mapsLabel: "Apri in Maps",
+    programmeLabel: "Programma eventi collaterali ICPR",
+    details: { where: "Dove", access: "Accesso", signup: "Iscrizione", capacity: "Capienza" },
+    values: {
+      where: "Grand Café Brinkmann, Grote Markt 13, 2011 RC Haarlem",
+      access: "Aperto a tutte le persone partecipanti alla conferenza",
+      signup: "Iscrizione gratuita in loco al desk (in ordine di arrivo)",
+      capacity: "150 posti",
+    },
+  },
+  pl: {
+    ariaLabel: "Spotkaj nas na ICPR 2026",
+    heading: "Spotkaj nas na ICPR",
+    eyebrow: "Wydarzenie towarzyszące ICPR 2026 · pt. 5 czerwca · 20:00–23:00",
+    title: "Psychodeliczny pub quiz i wieczór muzyczny",
+    collaboration: "We współpracy z Psychedelic Society UK",
+    description:
+      "Psychodeliczny pub quiz, a po nim DJ: swobodna i przyjazna przestrzeń do spotkań poza salami konferencyjnymi oraz kontaktu ze społecznością poprzez quiz, muzykę i rozmowę. Napoje dostępne do zakupu; jedzenie nie będzie serwowane.",
+    mapsLabel: "Otwórz w Maps",
+    programmeLabel: "Program wydarzeń towarzyszących ICPR",
+    details: { where: "Gdzie", access: "Dostęp", signup: "Zapisy", capacity: "Pojemność" },
+    values: {
+      where: "Grand Café Brinkmann, Grote Markt 13, 2011 RC Haarlem",
+      access: "Otwarte dla wszystkich uczestników konferencji",
+      signup: "Bezpłatna rejestracja na miejscu przy stanowisku (decyduje kolejność zgłoszeń)",
+      capacity: "150 miejsc",
+    },
+  },
+  pt: {
+    ariaLabel: "Encontra-nos na ICPR 2026",
+    heading: "Encontra-nos na ICPR",
+    eyebrow: "Evento paralelo ICPR 2026 · sex. 5 de junho · 20:00–23:00",
+    title: "Pub quiz psicadélico e noite de música",
+    collaboration: "Em colaboração com a Psychedelic Society UK",
+    description:
+      "Um pub quiz psicadélico seguido de DJ: um espaço descontraído e acolhedor para reunir fora das salas da conferência e ligar a comunidade através de quiz, música e conversa. Bebidas disponíveis para compra; não será servida comida.",
+    mapsLabel: "Abrir no Maps",
+    programmeLabel: "Programa de eventos paralelos da ICPR",
+    details: { where: "Onde", access: "Acesso", signup: "Inscrição", capacity: "Capacidade" },
+    values: {
+      where: "Grand Café Brinkmann, Grote Markt 13, 2011 RC Haarlem",
+      access: "Aberto a todas as pessoas participantes da conferência",
+      signup: "Inscrição gratuita no local, no balcão (por ordem de chegada)",
+      capacity: "150 lugares",
+    },
+  },
+  sl: {
+    ariaLabel: "Srečajte nas na ICPR 2026",
+    heading: "Srečajte nas na ICPR",
+    eyebrow: "Spremljevalni dogodek ICPR 2026 · pet. 5. junij · 20:00–23:00",
+    title: "Psihedelični pub kviz in glasbeni večer",
+    collaboration: "V sodelovanju s Psychedelic Society UK",
+    description:
+      "Psihedelični pub kviz, ki mu sledi DJ: sproščen in prijeten prostor za druženje zunaj konferenčnih dvoran ter povezovanje s skupnostjo ob kvizu, glasbi in pogovoru. Pijača bo na voljo za nakup; hrane ne bo.",
+    mapsLabel: "Odpri v Maps",
+    programmeLabel: "Program spremljevalnih dogodkov ICPR",
+    details: { where: "Kje", access: "Dostop", signup: "Prijava", capacity: "Kapaciteta" },
+    values: {
+      where: "Grand Café Brinkmann, Grote Markt 13, 2011 RC Haarlem",
+      access: "Odprto za vse udeležence konference",
+      signup: "Brezplačna prijava na kraju dogodka pri pultu (kdor prej pride, prej melje)",
+      capacity: "150 sedežev",
+    },
+  },
+  ca: {
+    ariaLabel: "Troba'ns a l'ICPR 2026",
+    heading: "Troba'ns a l'ICPR",
+    eyebrow: "Esdeveniment paral·lel ICPR 2026 · dv. 5 de juny · 20:00–23:00",
+    title: "Pub quiz psicodèlic i nit musical",
+    collaboration: "En col·laboració amb Psychedelic Society UK",
+    description:
+      "Un pub quiz psicodèlic seguit d'un DJ: un espai relaxat i acollidor per trobar-nos més enllà de les sales de conferències i connectar amb la comunitat amb quiz, música i conversa. Begudes disponibles per comprar; no se servirà menjar.",
+    mapsLabel: "Obre a Maps",
+    programmeLabel: "Programa d'esdeveniments paral·lels ICPR",
+    details: { where: "On", access: "Accés", signup: "Inscripció", capacity: "Capacitat" },
+    values: {
+      where: "Grand Café Brinkmann, Grote Markt 13, 2011 RC Haarlem",
+      access: "Obert a totes les persones assistents a la conferència",
+      signup: "Inscripció gratuïta al lloc, al taulell (per ordre d'arribada)",
+      capacity: "150 seients",
+    },
+  },
+};
+
+const { locale = "en" } = Astro.props;
+const copy = copyByLocale[normalizeLocale(locale)];
 const details = [
   {
     icon: IconMapPin,
-    label: "Where",
-    value: "Grand Café Brinkmann, Grote Markt 13, 2011 RC Haarlem",
+    label: copy.details.where,
+    value: copy.values.where,
   },
   {
     icon: IconDoorEnter,
-    label: "Access",
-    value: "Open to all conference attendees",
+    label: copy.details.access,
+    value: copy.values.access,
   },
   {
     icon: IconWritingSign,
-    label: "Sign-up",
-    value: "Free on-site sign-up at the desk (first come, first served)",
+    label: copy.details.signup,
+    value: copy.values.signup,
   },
   {
     icon: IconArmchair,
-    label: "Capacity",
-    value: "150 seats",
+    label: copy.details.capacity,
+    value: copy.values.capacity,
   },
 ];
 ---
 
 {
   isVisible && (
-    <section class="icpr-event-block" aria-label="Meet us at ICPR 2026">
+    <section class="icpr-event-block" aria-label={copy.ariaLabel}>
       <div class="container px-4">
-        <h2 class="icpr-event-block__title">Meet us at ICPR</h2>
+        <h2 class="icpr-event-block__title">{copy.heading}</h2>
 
         <details class="icpr-event">
         <summary class="icpr-event__summary">
           <span class="icpr-event__summary-icon" set:html={IconMusic} aria-hidden="true" />
           <span class="icpr-event__summary-text">
             <span class="icpr-event__eyebrow">
-              ICPR 2026 Side Event · Fri 5 June · 20:00–23:00
+              {copy.eyebrow}
             </span>
-            <span class="icpr-event__title">Psychedelic Pub Quiz &amp; Music Night</span>
+            <span class="icpr-event__title">{copy.title}</span>
           </span>
         </summary>
 
       <div class="icpr-event__body">
         <div class="icpr-event__main">
           <p class="icpr-event__collab">
-            In collaboration with Psychedelic Society UK
+            {copy.collaboration}
           </p>
 
           <p class="icpr-event__description">
-            A psychedelic pub quiz followed by a DJ — a relaxed, welcoming space to
-            gather beyond the conference halls and connect with the community over
-            quiz, music, and conversation. Drinks available for purchase; no food
-            served.
+            {copy.description}
           </p>
 
           <p class="icpr-event__links">
             <a href={mapsUrl} rel="noopener noreferrer" target="_blank">
-              Open in Maps
+              {copy.mapsLabel}
               <span class="icpr-event__ext" set:html={IconExternalLink} aria-hidden="true" />
             </a>
             <span class="icpr-event__links-sep" aria-hidden="true">·</span>
             <a href={eventUrl} rel="noopener noreferrer" target="_blank">
-              ICPR side events programme
+              {copy.programmeLabel}
               <span class="icpr-event__ext" set:html={IconExternalLink} aria-hidden="true" />
             </a>
           </p>

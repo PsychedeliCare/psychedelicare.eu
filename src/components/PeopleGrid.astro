@@ -16,9 +16,10 @@ type Props = {
   id?: string;
   people: PersonCard[];
   variant?: "grid" | "rows";
+  websiteLabel?: string;
 };
 
-const { title, id, people, variant = "grid" } = Astro.props;
+const { title, id, people, variant = "grid", websiteLabel = "Website" } = Astro.props;
 const isRows = variant === "rows";
 ---
 
@@ -78,7 +79,7 @@ const isRows = variant === "rows";
               )}
               {person.website && (
                 <a class="no-underline font-semibold" href={person.website} target="_blank" rel="noreferrer">
-                  Website
+                  {websiteLabel}
                 </a>
               )}
             </div>

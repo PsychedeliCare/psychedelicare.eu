@@ -6,6 +6,7 @@ type Props = {
   submitLabel?: string;
   successMessage?: string;
   privacyHref?: string;
+  privacyLabel?: string;
 };
 
 const {
@@ -15,6 +16,7 @@ const {
   submitLabel = "Subscribe",
   successMessage = "Thank you.",
   privacyHref = "/privacy-policy",
+  privacyLabel = "Privacy Policy",
 } = Astro.props;
 ---
 
@@ -41,7 +43,7 @@ const {
       />
       <span class="newsletter-form__consent-text">
         {consentLabel}{" "}
-        <a href={privacyHref}>Privacy Policy</a>
+        <a href={privacyHref}>{privacyLabel}</a>
       </span>
     </label>
   </div>

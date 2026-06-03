@@ -6,9 +6,20 @@ type Props = {
   mosaicId?: string;
   showCountryCode?: boolean;
   class?: string;
+  readBioLabel?: string;
+  closeLabel?: string;
+  websiteLabel?: string;
 };
 
-const { people, mosaicId = "team-mosaic", showCountryCode = false, class: className } = Astro.props;
+const {
+  people,
+  mosaicId = "team-mosaic",
+  showCountryCode = false,
+  class: className,
+  readBioLabel = "Read bio for",
+  closeLabel = "Close",
+  websiteLabel = "Website",
+} = Astro.props;
 
 function memberLabel(person: TeamMember) {
   if (showCountryCode && person.countryCode) {
@@ -32,7 +43,7 @@ function memberLabel(person: TeamMember) {
           class="team-mosaic__member"
           data-member-index={memberIndex}
           aria-haspopup="dialog"
-          aria-label={`Read bio for ${memberLabel(person)}`}
+          aria-label={`${readBioLabel} ${memberLabel(person)}`}
         >
           {person.image ? (
             <span class="team-mosaic__avatar team-mosaic__avatar--photo">
@@ -74,9 +85,9 @@ function memberLabel(person: TeamMember) {
           <button
             type="submit"
             class="button-secondary shrink-0 min-h-10 px-4 py-2 text-[0.95rem]"
-            aria-label="Close"
+            aria-label={closeLabel}
           >
-            Close
+            {closeLabel}
           </button>
         </div>
         <p class="m-0 leading-[1.65]" data-dialog-bio hidden />
@@ -86,7 +97,7 @@ function memberLabel(person: TeamMember) {
   </dialog>
 </section>
 
-<script define:vars={{ people, mosaicId }}>
+<script define:vars={{ people, mosaicId, websiteLabel }}>
   const mosaic = document.querySelector(`[data-team-mosaic="${mosaicId}"]`);
   if (!mosaic) {
     return;
@@ -153,7 +164,7 @@ function memberLabel(person: TeamMember) {
           websiteLink.href = person.website;
           websiteLink.target = "_blank";
           websiteLink.rel = "noreferrer";
-          websiteLink.textContent = "Website";
+          websiteLink.textContent = websiteLabel;
           links.append(websiteLink);
         }
 
