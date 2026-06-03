@@ -14,6 +14,9 @@ type UiCopy = {
   footerLinks: string;
   supportCampaign: string;
   onThisPage: string;
+  translationPreviewLabel: string;
+  translationPreviewBody: string;
+  contribute: string;
 };
 
 export const uiCopyByLocale: Record<SiteLocale, UiCopy> = {
@@ -32,6 +35,10 @@ export const uiCopyByLocale: Record<SiteLocale, UiCopy> = {
     footerLinks: "Footer links",
     supportCampaign: "Support the campaign",
     onThisPage: "On this page",
+    translationPreviewLabel: "Preview version",
+    translationPreviewBody:
+      "This page uses automatically generated translations that have yet to be reviewed.",
+    contribute: "Contribute",
   },
   de: {
     homeLabel: "Start",
@@ -49,6 +56,10 @@ export const uiCopyByLocale: Record<SiteLocale, UiCopy> = {
     footerLinks: "Footer-Links",
     supportCampaign: "Kampagne unterstuetzen",
     onThisPage: "Auf dieser Seite",
+    translationPreviewLabel: "Vorschauversion",
+    translationPreviewBody:
+      "Diese Seite verwendet automatisch generierte Uebersetzungen, die noch geprueft werden muessen.",
+    contribute: "Mitwirken",
   },
   el: {
     homeLabel: "Αρχικη",
@@ -66,6 +77,10 @@ export const uiCopyByLocale: Record<SiteLocale, UiCopy> = {
     footerLinks: "Σύνδεσμοι υποσέλιδου",
     supportCampaign: "Στηριξτε την καμπανια",
     onThisPage: "Σε αυτη τη σελιδα",
+    translationPreviewLabel: "Εκδοση προεπισκοπησης",
+    translationPreviewBody:
+      "Αυτη η σελιδα χρησιμοποιει αυτοματα δημιουργημενες μεταφρασεις που δεν εχουν ακομη ελεγχθει.",
+    contribute: "Συνεισφερετε",
   },
   es: {
     homeLabel: "Inicio",
@@ -83,6 +98,10 @@ export const uiCopyByLocale: Record<SiteLocale, UiCopy> = {
     footerLinks: "Enlaces del pie de pagina",
     supportCampaign: "Apoyar la campana",
     onThisPage: "En esta pagina",
+    translationPreviewLabel: "Version preliminar",
+    translationPreviewBody:
+      "Esta pagina utiliza traducciones generadas automaticamente que aun no han sido revisadas.",
+    contribute: "Contribuir",
   },
   eu: {
     homeLabel: "Hasiera",
@@ -100,6 +119,10 @@ export const uiCopyByLocale: Record<SiteLocale, UiCopy> = {
     footerLinks: "Orri-oinaren estekak",
     supportCampaign: "Babestu kanpaina",
     onThisPage: "Orrialde honetan",
+    translationPreviewLabel: "Aurrebista bertsioa",
+    translationPreviewBody:
+      "Orrialde honek automatikoki sortutako itzulpenak erabiltzen ditu, eta oraindik ez dira berrikusi.",
+    contribute: "Lagundu",
   },
   fr: {
     homeLabel: "Accueil",
@@ -117,6 +140,10 @@ export const uiCopyByLocale: Record<SiteLocale, UiCopy> = {
     footerLinks: "Liens du pied de page",
     supportCampaign: "Soutenir la campagne",
     onThisPage: "Sur cette page",
+    translationPreviewLabel: "Version d'aperçu",
+    translationPreviewBody:
+      "Cette page utilise des traductions générées automatiquement qui n'ont pas encore été relues.",
+    contribute: "Contribuer",
   },
   hr: {
     homeLabel: "Pocetna",
@@ -134,6 +161,10 @@ export const uiCopyByLocale: Record<SiteLocale, UiCopy> = {
     footerLinks: "Veze u podnozju",
     supportCampaign: "Podrzi kampanju",
     onThisPage: "Na ovoj stranici",
+    translationPreviewLabel: "Pregledna verzija",
+    translationPreviewBody:
+      "Ova stranica koristi automatski generirane prijevode koji jos nisu pregledani.",
+    contribute: "Doprinesi",
   },
   it: {
     homeLabel: "Home",
@@ -151,6 +182,10 @@ export const uiCopyByLocale: Record<SiteLocale, UiCopy> = {
     footerLinks: "Link a piè di pagina",
     supportCampaign: "Sostieni la campagna",
     onThisPage: "In questa pagina",
+    translationPreviewLabel: "Versione di anteprima",
+    translationPreviewBody:
+      "Questa pagina usa traduzioni generate automaticamente che non sono ancora state revisionate.",
+    contribute: "Contribuisci",
   },
   pl: {
     homeLabel: "Strona glowna",
@@ -168,6 +203,10 @@ export const uiCopyByLocale: Record<SiteLocale, UiCopy> = {
     footerLinks: "Linki w stopce",
     supportCampaign: "Wesprzyj kampanie",
     onThisPage: "Na tej stronie",
+    translationPreviewLabel: "Wersja podgladowa",
+    translationPreviewBody:
+      "Ta strona korzysta z automatycznie wygenerowanych tlumaczen, ktore nie zostaly jeszcze sprawdzone.",
+    contribute: "Wspoltworz",
   },
   pt: {
     homeLabel: "Inicio",
@@ -185,6 +224,10 @@ export const uiCopyByLocale: Record<SiteLocale, UiCopy> = {
     footerLinks: "Links do rodape",
     supportCampaign: "Apoiar a campanha",
     onThisPage: "Nesta pagina",
+    translationPreviewLabel: "Versao de pre-visualizacao",
+    translationPreviewBody:
+      "Esta pagina utiliza traducoes geradas automaticamente que ainda nao foram revistas.",
+    contribute: "Contribuir",
   },
   sl: {
     homeLabel: "Domov",
@@ -202,6 +245,10 @@ export const uiCopyByLocale: Record<SiteLocale, UiCopy> = {
     footerLinks: "Povezave v nogi",
     supportCampaign: "Podpri kampanjo",
     onThisPage: "Na tej strani",
+    translationPreviewLabel: "Predogledna razlicica",
+    translationPreviewBody:
+      "Ta stran uporablja samodejno ustvarjene prevode, ki se niso bili pregledani.",
+    contribute: "Prispevaj",
   },
   ca: {
     homeLabel: "Inici",
@@ -219,6 +266,10 @@ export const uiCopyByLocale: Record<SiteLocale, UiCopy> = {
     footerLinks: "Enllacos del peu de pagina",
     supportCampaign: "Dona suport a la campanya",
     onThisPage: "En aquesta pagina",
+    translationPreviewLabel: "Versio de previsualitzacio",
+    translationPreviewBody:
+      "Aquesta pagina utilitza traduccions generades automaticament que encara no han estat revisades.",
+    contribute: "Contribueix",
   },
 };
 

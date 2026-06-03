@@ -43,9 +43,11 @@ oldLocalizedPaths:
   pl: /inicjatywa-psychedelicare
   hr: /inicijativa-psychedelicare
   ca: /iniciativa-psychedelicare
-teaser: PsychedeliCare okuplja istraživače, kliničare, umjetnike, stručnjake za
-  politike i grassroots organizatore diljem Europe kako bi poboljšao pristup
-  sigurnoj i etičnoj psihodeličnoj skrbi.
+teaser: >-
+  Naša je vizija Europa u kojoj je psihodelična skrb integrirana u društvo,
+  utemeljena na ljudskim pravima, znanstvenim dokazima i kolektivnoj dobrobiti; u
+  kojoj se kulturne prakse priznaju, a ljudi su informirani o odgovornoj uporabi i
+  terapijskom potencijalu psihodelika.
 draft: false
 assetUrls:
   - /assets/icons/home-care-together-icon-1.svg
@@ -71,78 +73,172 @@ import { coordinationBoardMembers } from "../../../data/coordinationBoard";
 
 <TwoColumns
   items={[
-    "Europe faces a growing mental health crisis, and many people still do not find relief in existing treatments.",
-    "Stigma, limited information, and outdated policy continue to restrict informed conversations about new approaches to care.",
-    "Research suggests that psychedelics, when used in safe and supported contexts, may offer new possibilities for healing, insight, and wellbeing.",
-    "PsychedeliCare works to close the gap between science, society, and policy so people can access care safely, ethically, and with dignity.",
+    "Europa se suočava s rastućom krizom mentalnog zdravlja.",
+    "Milijuni ljudi bore se s depresijom, anksioznošću i traumom, a mnogi ne nalaze olakšanje u postojećim oblicima liječenja.",
+    "Izvan medicinskog sustava, ova kriza pogađa mnoge u društvu: od ljudi s nezadovoljenim potrebama u području mentalnog zdravlja do onih koji doživljavaju kronični stres, nepovezanost i nedostatak smisla, oblike patnje koji često ostaju neadresirani. Pogađa i obitelji i zajednice s ograničenim pristupom skrbi i informacijama.",
+    "Istodobno, stigma, nedostatak informacija i zastarjele politike i dalje ograničavaju otvorene i informirane razgovore o novim pristupima skrbi.",
+    "Sve veći broj istraživanja upućuje na to da psihodelici, kada se koriste u sigurnim i podržanim kontekstima, mogu ponuditi nove mogućnosti za iscjeljenje, uvid i dobrobit.",
+    "Ipak, postojeći okviri i dalje su oblikovani zastarjelim klasifikacijama koje su više ukorijenjene u stigmi nego u suvremenim dokazima.",
+    "Zbog toga i dalje postoji jaz između znanosti, društva i politika, ostavljajući milijune bez pristupa obećavajućim tretmanima i sigurnim, informiranim putevima skrbi.",
   ]}
 />
+
 
 ## Tko smo mi
 
 <TwoColumns class="two-columns--intro">
   <div>
-    <p>PsychedeliCare okuplja istraživače, kliničare, umjetnike, stručnjake za politike i grassroots organizatore diljem Europe kako bi poboljšao pristup sigurnoj i etičnoj psihodeličnoj skrbi.</p>
+    <p>Mi smo paneuropski pokret rođen iz jednostavnog uvjerenja: ljudi zaslužuju biti zdravi.</p>
 
-    <p>We are grassroots by origin and by choice. We approach psychedelic care as a matter of human rights, collective wellbeing, and social responsibility.</p>
+    <p>Mi smo terapeuti i istraživačice, umjetnici i njegovatelji, pravnice i učitelji, obitelji i prijatelji, i pokret smo izrastao iz baze, podrijetlom i izborom. Psihodeličnoj skrbi pristupamo kao pitanju ljudskih prava, kolektivne dobrobiti i društvene odgovornosti, vođeni zajedničkom namjerom da dostojanstvo, dokaze i humanost stavimo u središte mentalnog iscjeljenja.</p>
 
-    <p>Through national groups and local initiatives, we are building a connected European community committed to safe, equitable, and culturally inclusive access to psychedelic care.</p>
+    <p>Naš pokret raste iz proživljenog iskustva, od ljudi koji otvoreno govore o patnji i mogućnosti. Kroz nacionalne skupine i lokalne inicijative gradimo povezanu europsku zajednicu, ujedinjenu zajedničkom vizijom sigurnog, pravednog i kulturno uključivog pristupa psihodeličnoj skrbi.</p>
   </div>
 
   <figure slot="right" class="two-columns__figure">
-    <img src="/assets/photos/team-photo-couvin.jpg" alt="PsychedeliCare team members posing together outdoors at Couvin" loading="lazy" width="1024" height="683" />
+    <img
+      src="/assets/photos/team-photo-couvin.jpg"
+      alt="Članovi tima PsychedeliCare poziraju zajedno na otvorenom u Couvinu"
+      loading="lazy"
+      width="1024"
+      height="683"
+    />
   </figure>
 </TwoColumns>
 
 <TwoColumns class="two-columns--teams">
   <div>
     <h3 id="coordination-board">Koordinacijski odbor</h3>
-    <p>The Coordination Board supports the strategic direction and coherence of PsychedeliCare.</p>
-    <p>It brings together people with diverse backgrounds and expertise, working collaboratively through trust, dialogue, and collective responsibility.</p>
-    <p><a href="/hr/who-we-are#coordination-board">Tko smo mi</a></p>
+
+    <p>Koordinacijski odbor podržava strateški smjer i koherentnost PsychedeliCare-a. Okuplja osobe različitih pozadina i stručnosti koje suradnički usmjeravaju odluke, osiguravaju kontinuitet i podržavaju razvoj organizacije.</p>
+
+    <p>Ukorijenjen u našim vrijednostima, odražava zajednički i participativni pristup vodstvu, utemeljen na povjerenju, dijalogu i kolektivnoj odgovornosti.</p>
+
+    <p><a href="/hr/who-we-are#coordination-board">Pročitajte više o našem Koordinacijskom odboru</a></p>
   </div>
 
-  <TeamMosaic slot="right" people={coordinationBoardMembers} mosaicId="home-coordination-board-hr" showCountryCode class="team-mosaic--board" readBioLabel="Pročitaj biografiju za" closeLabel="Zatvori" websiteLabel="Web-stranica" />
+  <TeamMosaic
+    slot="right"
+    people={coordinationBoardMembers}
+    mosaicId="home-coordination-board-hr"
+    showCountryCode
+    class="team-mosaic--board"
+    readBioLabel="Pročitaj biografiju za"
+    closeLabel="Zatvori"
+    websiteLabel="Web-stranica"
+  />
 </TwoColumns>
 
 <TwoColumns class="two-columns--national-teams">
   <div>
     <h3 id="national-teams">Nacionalni timovi</h3>
-    <p>We work with national teams in many European countries to advocate through education, information, advocacy, and events.</p>
-    <p><a href="/hr/who-we-are#national-teams">Tko smo mi</a></p>
+
+    <p>Surađujemo s nacionalnim timovima u mnogim europskim zemljama kako bismo zagovarali našu viziju kroz edukaciju, informiranje, zagovaranje i događanja. Biste li se željeli pridružiti jednom od naših nacionalnih timova u svojoj zemlji?</p>
+
+    <p><a href="/hr/who-we-are#national-teams">Saznajte više o tome tko smo i koje su zemlje već zastupljene</a></p>
   </div>
 
   <figure slot="right" class="two-columns__figure">
-    <img src="/assets/photos/home-care-together-hero.jpg" alt="PsychedeliCare launch event at the European Parliament in Brussels" loading="lazy" width="2048" height="952" />
+    <img
+      src="/assets/photos/home-care-together-hero.jpg"
+      alt="Događaj pokretanja PsychedeliCare-a u Europskom parlamentu u Bruxellesu"
+      loading="lazy"
+      width="2048"
+      height="952"
+    />
   </figure>
 </TwoColumns>
 
 <div class="mission-block">
   <div class="container px-4">
   <h2>Naša misija</h2>
+
   <div class="mission-block__content">
-    <p>We create the conditions for people to access and explore psychedelic care safely, ethically, and with dignity.</p>
-    <p>We work to:</p>
-    <IconList items={[{ icon: "understanding", text: "improve public understanding" },{ icon: "stigma", text: "reduce stigma" },{ icon: "safety", text: "support safe and responsible practices" },{ icon: "alignment", text: "align science, society, and policy" }]} />
-    <p>People should be informed, represented, and actively involved in shaping the future of mental health care.</p>
-    <p><a href="/hr/who-we-are#our-values">Naše vrijednosti</a></p>
+    <p>Stvaramo uvjete da ljudi mogu pristupiti psihodeličnoj skrbi i istraživati je sigurno, etično i dostojanstveno.</p>
+
+    <p>Radimo na tome da:</p>
+
+    <IconList
+      items={[
+        { icon: "understanding", text: "poboljšamo javno razumijevanje" },
+        { icon: "stigma", text: "smanjimo stigmu" },
+        { icon: "safety", text: "podržimo sigurne i odgovorne prakse" },
+        { icon: "alignment", text: "uskladimo znanost, društvo i politike" },
+      ]}
+    />
+
+    <p>Vjerujemo da ljudi trebaju biti informirani, zastupljeni i aktivno uključeni u oblikovanje budućnosti skrbi za mentalno zdravlje.</p>
+
+    <p><a href="/hr/who-we-are#our-values">Pročitajte više o našim vrijednostima</a></p>
   </div>
   </div>
 </div>
 
 ## Naših pet stupova
 
-<PillarGrid intro="Our work is structured around five areas:" pillars={[{ title: "Zajednica", description: "Healing happens within relationships of mutual support and collective action." },{ title: "Edukacija", description: "Accessible, evidence-based information helps shift the conversation from stigma to understanding." },{ title: "Politike", description: "We work to align law with science, society, and human rights." },{ title: "Znanost i istraživanje", description: "Care, policy, and public understanding must be grounded in rigorous and transparent science." },{ title: "Dobrobit", description: "We foster compassion, connection, help-seeking, and long-term integration." }]} />
+<PillarGrid
+  intro="Naš je rad strukturiran oko pet područja:"
+  pillars={[
+    {
+      title: "Zajednica",
+      description:
+        "Prepoznajemo da se iscjeljenje događa unutar odnosa uzajamne podrške i kolektivnog djelovanja.",
+    },
+    {
+      title: "Edukacija",
+      description:
+        "Pružamo pristupačne informacije utemeljene na dokazima kroz događanja, pripovijedanje i javni angažman.",
+    },
+    {
+      title: "Politike",
+      description:
+        "Pomažemo preoblikovati pogled na psihodelike iz pitanja kaznenog pravosuđa u pitanje javnog zdravlja i skrbi.",
+    },
+    {
+      title: "Znanost i istraživanje",
+      description:
+        "Vjerujemo da skrb, politike i javno razumijevanje moraju biti utemeljeni na strogoj, transparentnoj i ponovljivoj znanosti.",
+    },
+    {
+      title: "Dobrobit",
+      description:
+        "Radimo na poticanju društva koje normalizira podršku, suosjećanje i traženje pomoći.",
+    },
+  ]}
+/>
 
 <div class="support-us-section">
 <div class="container px-4">
 
 ## Podržite nas
 
-Would you like to support PsychedeliCare or become part of the movement?
+Želite li podržati PsychedeliCare ili postati dio pokreta?
 
-<CardGrid variant="support-us" cards={[{ title: "Membership & support options", description: "Join the association, make a donation, or explore other ways to stand with the movement." },{ title: "Open positions", description: "Interested in contributing your time and skills? Get in touch to hear about current opportunities.", action: { label: "Email us", href: "mailto:info@psychedelicare.eu?subject=Open%20positions%20at%20PsychedeliCare" } },{ title: "Follow us on social media", description: "Stay connected with PsychedeliCare across our channels.", links: socialLinks }]}>
-  <a slot="actions" class="button-primary" href="/hr/donate">Doniraj</a>
+<CardGrid
+  variant="support-us"
+  cards={[
+    {
+      title: "Članstvo i mogućnosti podrške",
+      description:
+        "Pridružite se udruzi, donirajte ili istražite druge načine da stanete uz pokret.",
+    },
+    {
+      title: "Otvorene pozicije",
+      description:
+        "Želite pridonijeti svojim vremenom i vještinama? Javite nam se kako biste saznali više o trenutačnim prilikama.",
+      action: {
+        label: "Pošaljite nam e-mail",
+        href: "mailto:info@psychedelicare.eu?subject=Open%20positions%20at%20PsychedeliCare",
+      },
+    },
+    {
+      title: "Pratite nas na društvenim mrežama",
+      description: "Ostanite povezani s PsychedeliCare-om putem naših kanala.",
+      links: socialLinks,
+    },
+  ]}
+>
+  <a slot="actions" class="button-primary" href="/hr/donate">Donirajte inicijativi</a>
 </CardGrid>
 
 </div>
@@ -155,17 +251,34 @@ Would you like to support PsychedeliCare or become part of the movement?
 <TwoColumns class="two-columns--newsletter">
   <div>
     <h3>Ostanite informirani</h3>
-    <p>Subscribe to receive the latest information and ways to support the PsychedeliCare Initiative.</p>
+
+    <p>Pretplatite se na nEUsletter kako biste primali najnovije informacije i načine podrške Inicijativi PsychedeliCare.</p>
   </div>
+
   <NewsletterForm slot="right" locale="hr" />
 </TwoColumns>
+
 
 ## Učinak EGI-ja
 
 <TwoColumns>
   <div>
-    <p>PsychedeliCare started as a European Citizens' Initiative that ended in January 2026. The movement it gave rise to continues to grow.</p>
-    <blockquote><p>The European Citizens' Initiative was born from a simple question: why could some European residents access psychedelic therapies through scientific research while others could not?</p><p>The need for better mental health treatments does not stop at borders.</p></blockquote>
+    <p>PsychedeliCare je započeo kao Europska građanska inicijativa koja je završila u siječnju 2026. Pokret koji je iz nje proizašao nastavlja rasti do danas. Što je bila EGI i kako je počela? Theo Giubilei, izvorni osnivač inicijative, opisuje je ovako:</p>
+
+    <blockquote>
+      <p>Europska građanska inicijativa rođena je iz jednostavnog pitanja koje sam imao: zašto su građani koji žive u Švicarskoj, samo dva sata od mog rodnog grada Strasbourga, mogli uživati koristi znanstvenih istraživanja kroz legalan pristup psihodeličnim terapijama, dok francuski građani nisu mogli? Potreba za boljim tretmanima mentalnog zdravlja ne zaustavlja se na granicama.</p>
+      <p>Zato smo, zajedno s građanima koji dijele isto uvjerenje, odlučili zasukati rukave te pripremiti i pokrenuti kampanju kako bismo potaknuli Europsku uniju na djelovanje. Cilj je bio da svaki europski građanin, ako mu ikada zatreba, može imati pristup tim inovativnim tretmanima.</p>
+    </blockquote>
   </div>
-  <div slot="right"><DocumentViewer embedSrc="https://drive.google.com/file/d/1fHCNn1nCucegiC6m-S-GxHREu3LW3tUU/preview" downloadHref="/assets/files/PsychedeliCare_Impact_Report.pdf" downloadLabel="Download PsychedeliCare Impact Report (PDF)" fallbackHref="https://drive.google.com/file/d/1fHCNn1nCucegiC6m-S-GxHREu3LW3tUU/view?usp=sharing" fallbackLabel="Open official ECI report" title="PsychedeliCare ECI report preview" /></div>
+
+  <div slot="right">
+    <DocumentViewer
+      embedSrc="https://drive.google.com/file/d/1fHCNn1nCucegiC6m-S-GxHREu3LW3tUU/preview"
+      downloadHref="/assets/files/PsychedeliCare_Impact_Report.pdf"
+      downloadLabel="Preuzmite izvješće o učinku PsychedeliCare-a (PDF)"
+      fallbackHref="https://drive.google.com/file/d/1fHCNn1nCucegiC6m-S-GxHREu3LW3tUU/view?usp=sharing"
+      fallbackLabel="Otvorite službeno izvješće EGI-ja"
+      title="Pregled EGI izvješća PsychedeliCare-a"
+    />
+  </div>
 </TwoColumns>

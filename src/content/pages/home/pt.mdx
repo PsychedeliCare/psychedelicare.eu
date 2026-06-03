@@ -43,9 +43,11 @@ oldLocalizedPaths:
   pl: /inicjatywa-psychedelicare
   hr: /inicijativa-psychedelicare
   ca: /iniciativa-psychedelicare
-teaser: A PsychedeliCare reúne investigadores, profissionais clínicos, artistas,
-  especialistas em políticas públicas e organizadores de base em toda a Europa
-  para melhorar o acesso a cuidados psicadélicos seguros e éticos.
+teaser: >-
+  A nossa visão é uma Europa onde o cuidado psicadélico esteja integrado na
+  sociedade, assente nos direitos humanos, na evidência científica e no bem-estar
+  coletivo; onde as práticas culturais sejam reconhecidas e as pessoas estejam
+  informadas sobre o uso responsável e o potencial terapêutico dos psicadélicos.
 draft: false
 assetUrls:
   - /assets/icons/home-care-together-icon-1.svg
@@ -71,78 +73,172 @@ import { coordinationBoardMembers } from "../../../data/coordinationBoard";
 
 <TwoColumns
   items={[
-    "Europe faces a growing mental health crisis, and many people still do not find relief in existing treatments.",
-    "Stigma, limited information, and outdated policy continue to restrict informed conversations about new approaches to care.",
-    "Research suggests that psychedelics, when used in safe and supported contexts, may offer new possibilities for healing, insight, and wellbeing.",
-    "PsychedeliCare works to close the gap between science, society, and policy so people can access care safely, ethically, and with dignity.",
+    "A Europa enfrenta uma crise crescente de saúde mental.",
+    "Milhões de pessoas vivem com depressão, ansiedade e trauma, e muitas não encontram alívio nos tratamentos existentes.",
+    "Para além do sistema médico, esta crise afeta muitas pessoas na sociedade: desde quem tem necessidades de saúde mental por responder até quem vive stress crónico, desconexão e falta de sentido, formas de sofrimento que muitas vezes ficam por abordar. Afeta também famílias e comunidades com acesso limitado a cuidado e informação.",
+    "Ao mesmo tempo, o estigma, a falta de informação e políticas desatualizadas continuam a limitar conversas abertas e informadas sobre novas abordagens ao cuidado.",
+    "Um corpo crescente de investigação sugere que os psicadélicos, quando usados em contextos seguros e acompanhados, podem oferecer novas possibilidades de cura, compreensão e bem-estar.",
+    "No entanto, os enquadramentos existentes continuam hoje moldados por classificações desatualizadas, mais enraizadas no estigma do que na evidência atual.",
+    "Como resultado, persiste uma lacuna entre ciência, sociedade e política, deixando milhões de pessoas sem acesso a tratamentos promissores e a vias de cuidado seguras e informadas.",
   ]}
 />
+
 
 ## Quem somos
 
 <TwoColumns class="two-columns--intro">
   <div>
-    <p>A PsychedeliCare reúne investigadores, profissionais clínicos, artistas, especialistas em políticas públicas e organizadores de base em toda a Europa para melhorar o acesso a cuidados psicadélicos seguros e éticos.</p>
+    <p>Somos um movimento pan-europeu nascido de uma crença simples: as pessoas merecem estar saudáveis.</p>
 
-    <p>We are grassroots by origin and by choice. We approach psychedelic care as a matter of human rights, collective wellbeing, and social responsibility.</p>
+    <p>Somos terapeutas e investigadores, artistas e cuidadores, juristas e professores, famílias e amigos, e somos de base por origem e por escolha. Abordamos o cuidado psicadélico como uma questão de direitos humanos, bem-estar coletivo e responsabilidade social, guiados pela intenção comum de colocar dignidade, evidência e humanidade no centro da cura mental.</p>
 
-    <p>Through national groups and local initiatives, we are building a connected European community committed to safe, equitable, and culturally inclusive access to psychedelic care.</p>
+    <p>O nosso movimento cresce a partir da experiência vivida, de pessoas que falam abertamente sobre sofrimento e possibilidade. Através de grupos nacionais e iniciativas locais, estamos a construir uma comunidade europeia ligada, unida por uma visão partilhada de acesso seguro, equitativo e culturalmente inclusivo ao cuidado psicadélico.</p>
   </div>
 
   <figure slot="right" class="two-columns__figure">
-    <img src="/assets/photos/team-photo-couvin.jpg" alt="PsychedeliCare team members posing together outdoors at Couvin" loading="lazy" width="1024" height="683" />
+    <img
+      src="/assets/photos/team-photo-couvin.jpg"
+      alt="Membros da equipa PsychedeliCare posam juntos ao ar livre em Couvin"
+      loading="lazy"
+      width="1024"
+      height="683"
+    />
   </figure>
 </TwoColumns>
 
 <TwoColumns class="two-columns--teams">
   <div>
     <h3 id="coordination-board">Conselho de Coordenação</h3>
-    <p>The Coordination Board supports the strategic direction and coherence of PsychedeliCare.</p>
-    <p>It brings together people with diverse backgrounds and expertise, working collaboratively through trust, dialogue, and collective responsibility.</p>
-    <p><a href="/pt/who-we-are#coordination-board">Quem somos</a></p>
+
+    <p>O Conselho de Coordenação apoia a direção estratégica e a coerência da PsychedeliCare. Reúne pessoas com percursos e competências diversas, que trabalham em colaboração para orientar decisões, assegurar continuidade e apoiar o desenvolvimento da organização.</p>
+
+    <p>Enraizado nos nossos valores, reflete uma abordagem partilhada e participativa à liderança, baseada na confiança, no diálogo e na responsabilidade coletiva.</p>
+
+    <p><a href="/pt/who-we-are#coordination-board">Ler mais sobre o nosso Conselho de Coordenação</a></p>
   </div>
 
-  <TeamMosaic slot="right" people={coordinationBoardMembers} mosaicId="home-coordination-board-pt" showCountryCode class="team-mosaic--board" readBioLabel="Ler biografia de" closeLabel="Fechar" websiteLabel="Website" />
+  <TeamMosaic
+    slot="right"
+    people={coordinationBoardMembers}
+    mosaicId="home-coordination-board-pt"
+    showCountryCode
+    class="team-mosaic--board"
+    readBioLabel="Ler biografia de"
+    closeLabel="Fechar"
+    websiteLabel="Website"
+  />
 </TwoColumns>
 
 <TwoColumns class="two-columns--national-teams">
   <div>
     <h3 id="national-teams">Equipas nacionais</h3>
-    <p>We work with national teams in many European countries to advocate through education, information, advocacy, and events.</p>
-    <p><a href="/pt/who-we-are#national-teams">Quem somos</a></p>
+
+    <p>Trabalhamos com equipas nacionais em muitos países europeus para defender a nossa visão através de educação, informação, advocacia e eventos. Gostarias de te juntar a uma das nossas equipas nacionais no teu país?</p>
+
+    <p><a href="/pt/who-we-are#national-teams">Sabe mais sobre quem somos e que países já estão representados</a></p>
   </div>
 
   <figure slot="right" class="two-columns__figure">
-    <img src="/assets/photos/home-care-together-hero.jpg" alt="PsychedeliCare launch event at the European Parliament in Brussels" loading="lazy" width="2048" height="952" />
+    <img
+      src="/assets/photos/home-care-together-hero.jpg"
+      alt="Evento de lançamento da PsychedeliCare no Parlamento Europeu em Bruxelas"
+      loading="lazy"
+      width="2048"
+      height="952"
+    />
   </figure>
 </TwoColumns>
 
 <div class="mission-block">
   <div class="container px-4">
   <h2>A nossa missão</h2>
+
   <div class="mission-block__content">
-    <p>We create the conditions for people to access and explore psychedelic care safely, ethically, and with dignity.</p>
-    <p>We work to:</p>
-    <IconList items={[{ icon: "understanding", text: "improve public understanding" },{ icon: "stigma", text: "reduce stigma" },{ icon: "safety", text: "support safe and responsible practices" },{ icon: "alignment", text: "align science, society, and policy" }]} />
-    <p>People should be informed, represented, and actively involved in shaping the future of mental health care.</p>
-    <p><a href="/pt/who-we-are#our-values">Os nossos valores</a></p>
+    <p>Criamos as condições para que as pessoas possam aceder ao cuidado psicadélico e explorá-lo de forma segura, ética e digna.</p>
+
+    <p>Trabalhamos para:</p>
+
+    <IconList
+      items={[
+        { icon: "understanding", text: "melhorar a compreensão pública" },
+        { icon: "stigma", text: "reduzir o estigma" },
+        { icon: "safety", text: "apoiar práticas seguras e responsáveis" },
+        { icon: "alignment", text: "alinhar ciência, sociedade e política" },
+      ]}
+    />
+
+    <p>Acreditamos que as pessoas devem estar informadas, representadas e ativamente envolvidas na construção do futuro dos cuidados de saúde mental.</p>
+
+    <p><a href="/pt/who-we-are#our-values">Ler mais sobre os nossos valores</a></p>
   </div>
   </div>
 </div>
 
 ## Os nossos cinco pilares
 
-<PillarGrid intro="Our work is structured around five areas:" pillars={[{ title: "Comunidade", description: "Healing happens within relationships of mutual support and collective action." },{ title: "Educação", description: "Accessible, evidence-based information helps shift the conversation from stigma to understanding." },{ title: "Política", description: "We work to align law with science, society, and human rights." },{ title: "Ciência e investigação", description: "Care, policy, and public understanding must be grounded in rigorous and transparent science." },{ title: "Bem-estar", description: "We foster compassion, connection, help-seeking, and long-term integration." }]} />
+<PillarGrid
+  intro="O nosso trabalho estrutura-se em cinco áreas:"
+  pillars={[
+    {
+      title: "Comunidade",
+      description:
+        "Reconhecemos que a cura acontece em relações de apoio mútuo e ação coletiva.",
+    },
+    {
+      title: "Educação",
+      description:
+        "Fornecemos informação acessível e baseada em evidência através de eventos, narrativas e participação pública.",
+    },
+    {
+      title: "Política",
+      description:
+        "Ajudamos a reenquadrar os psicadélicos de uma questão de justiça criminal para uma questão de saúde pública e cuidado.",
+    },
+    {
+      title: "Ciência e investigação",
+      description:
+        "Acreditamos que o cuidado, a política e a compreensão pública devem assentar em ciência rigorosa, transparente e reprodutível.",
+    },
+    {
+      title: "Bem-estar",
+      description:
+        "Trabalhamos para promover uma sociedade que normalize o apoio, a compaixão e a procura de ajuda.",
+    },
+  ]}
+/>
 
 <div class="support-us-section">
 <div class="container px-4">
 
 ## Apoia-nos
 
-Would you like to support PsychedeliCare or become part of the movement?
+Gostarias de apoiar a PsychedeliCare ou tornar-te parte do movimento?
 
-<CardGrid variant="support-us" cards={[{ title: "Membership & support options", description: "Join the association, make a donation, or explore other ways to stand with the movement." },{ title: "Open positions", description: "Interested in contributing your time and skills? Get in touch to hear about current opportunities.", action: { label: "Email us", href: "mailto:info@psychedelicare.eu?subject=Open%20positions%20at%20PsychedeliCare" } },{ title: "Follow us on social media", description: "Stay connected with PsychedeliCare across our channels.", links: socialLinks }]}>
-  <a slot="actions" class="button-primary" href="/pt/donate">Doar</a>
+<CardGrid
+  variant="support-us"
+  cards={[
+    {
+      title: "Adesão e opções de apoio",
+      description:
+        "Junta-te à associação, faz uma doação ou explora outras formas de estar ao lado do movimento.",
+    },
+    {
+      title: "Posições em aberto",
+      description:
+        "Interessado em contribuir com o teu tempo e competências? Entra em contacto para saber mais sobre oportunidades atuais.",
+      action: {
+        label: "Envia-nos um email",
+        href: "mailto:info@psychedelicare.eu?subject=Open%20positions%20at%20PsychedeliCare",
+      },
+    },
+    {
+      title: "Segue-nos nas redes sociais",
+      description: "Mantém-te ligado à PsychedeliCare através dos nossos canais.",
+      links: socialLinks,
+    },
+  ]}
+>
+  <a slot="actions" class="button-primary" href="/pt/donate">Doar à iniciativa</a>
 </CardGrid>
 
 </div>
@@ -155,17 +251,34 @@ Would you like to support PsychedeliCare or become part of the movement?
 <TwoColumns class="two-columns--newsletter">
   <div>
     <h3>Mantém-te informado</h3>
-    <p>Subscribe to receive the latest information and ways to support the PsychedeliCare Initiative.</p>
+
+    <p>Subscreve o nEUsletter para receber as informações mais recentes e formas de apoiar a Iniciativa PsychedeliCare.</p>
   </div>
+
   <NewsletterForm slot="right" locale="pt" />
 </TwoColumns>
+
 
 ## Impacto da ICE
 
 <TwoColumns>
   <div>
-    <p>PsychedeliCare started as a European Citizens' Initiative that ended in January 2026. The movement it gave rise to continues to grow.</p>
-    <blockquote><p>The European Citizens' Initiative was born from a simple question: why could some European residents access psychedelic therapies through scientific research while others could not?</p><p>The need for better mental health treatments does not stop at borders.</p></blockquote>
+    <p>A PsychedeliCare começou como uma Iniciativa de Cidadania Europeia que terminou em janeiro de 2026. O movimento a que deu origem continua a crescer até hoje. O que foi a ICE e como começou? Theo Giubilei, fundador original da iniciativa, descreve-a assim:</p>
+
+    <blockquote>
+      <p>A Iniciativa de Cidadania Europeia nasceu de uma pergunta simples que eu tinha: porque podiam cidadãos que vivem na Suíça, a apenas duas horas da minha cidade natal, Estrasburgo, beneficiar da investigação científica através do acesso legal a terapias psicadélicas, quando os cidadãos franceses não podiam? A necessidade de melhores tratamentos de saúde mental não acaba nas fronteiras.</p>
+      <p>Assim, juntamente com cidadãos que partilhavam a mesma convicção, decidimos arregaçar as mangas e preparar e lançar uma campanha para levar a União Europeia a agir. O objetivo era que todos os cidadãos europeus, caso algum dia precisassem, pudessem ter acesso a estes tratamentos inovadores.</p>
+    </blockquote>
   </div>
-  <div slot="right"><DocumentViewer embedSrc="https://drive.google.com/file/d/1fHCNn1nCucegiC6m-S-GxHREu3LW3tUU/preview" downloadHref="/assets/files/PsychedeliCare_Impact_Report.pdf" downloadLabel="Download PsychedeliCare Impact Report (PDF)" fallbackHref="https://drive.google.com/file/d/1fHCNn1nCucegiC6m-S-GxHREu3LW3tUU/view?usp=sharing" fallbackLabel="Open official ECI report" title="PsychedeliCare ECI report preview" /></div>
+
+  <div slot="right">
+    <DocumentViewer
+      embedSrc="https://drive.google.com/file/d/1fHCNn1nCucegiC6m-S-GxHREu3LW3tUU/preview"
+      downloadHref="/assets/files/PsychedeliCare_Impact_Report.pdf"
+      downloadLabel="Descarregar o Relatório de Impacto da PsychedeliCare (PDF)"
+      fallbackHref="https://drive.google.com/file/d/1fHCNn1nCucegiC6m-S-GxHREu3LW3tUU/view?usp=sharing"
+      fallbackLabel="Abrir o relatório oficial da ICE"
+      title="Pré-visualização do relatório da ICE da PsychedeliCare"
+    />
+  </div>
 </TwoColumns>
