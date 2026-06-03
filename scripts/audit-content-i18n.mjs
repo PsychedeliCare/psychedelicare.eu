@@ -134,7 +134,11 @@ function normalizeAssetUrls(value) {
 }
 
 function hasDuplicatedAssetUrls(rawFrontmatter, data) {
-  if (/^assetUrls:\n(?:  - .*)*\/assets\/.*\s+-\s+\/assets\//m.test(rawFrontmatter)) {
+  const assetLineHasConcatenatedValues = rawFrontmatter
+    .split("\n")
+    .some((line) => /^  - .*\/assets\/.*\s+-\s+\/assets\//.test(line));
+
+  if (assetLineHasConcatenatedValues) {
     return true;
   }
 
