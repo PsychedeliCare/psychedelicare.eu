@@ -12,6 +12,7 @@ type EventCopy = {
   heading: string;
   closeLabel: string;
   detailsLabel: string;
+  bannerMeta: string;
   eyebrow: string;
   title: string;
   collaboration: string;
@@ -49,6 +50,7 @@ const copyByLocale: Record<SiteLocale, EventCopy> = {
     heading: "Meet us at ICPR",
     closeLabel: "Close",
     detailsLabel: "View details",
+    bannerMeta: "Friday 5 June 2026 · 20:00–23:00 · Haarlem",
     eyebrow: "ICPR 2026 side event · Friday 5 June 2026 · 20:00–23:00 · Haarlem",
     title: "Psychedelic Pub Quiz & Music Night",
     collaboration: "In collaboration with Psychedelic Society UK",
@@ -74,6 +76,7 @@ const copyByLocale: Record<SiteLocale, EventCopy> = {
     heading: "Triff uns auf der ICPR",
     closeLabel: "Schließen",
     detailsLabel: "Details anzeigen",
+    bannerMeta: "Freitag, 5. Juni 2026 · 20:00–23:00 · Haarlem",
     eyebrow: "ICPR 2026 Side Event · Freitag, 5. Juni 2026 · 20:00–23:00 · Haarlem",
     title: "Psychedelisches Pub-Quiz & Musikabend",
     collaboration: "In Zusammenarbeit mit der Psychedelic Society UK",
@@ -94,6 +97,7 @@ const copyByLocale: Record<SiteLocale, EventCopy> = {
     heading: "Συναντήστε μας στο ICPR",
     closeLabel: "Κλείσιμο",
     detailsLabel: "Προβολή λεπτομερειών",
+    bannerMeta: "Παρασκευή 5 Ιουνίου 2026 · 20:00–23:00 · Haarlem",
     eyebrow: "ICPR 2026 παράλληλη εκδήλωση · Παρασκευή 5 Ιουνίου 2026 · 20:00–23:00 · Haarlem",
     title: "Ψυχεδελικό pub quiz & μουσική βραδιά",
     collaboration: "Σε συνεργασία με την Psychedelic Society UK",
@@ -114,6 +118,7 @@ const copyByLocale: Record<SiteLocale, EventCopy> = {
     heading: "Encuéntranos en ICPR",
     closeLabel: "Cerrar",
     detailsLabel: "Ver detalles",
+    bannerMeta: "viernes 5 de junio de 2026 · 20:00–23:00 · Haarlem",
     eyebrow: "Evento paralelo ICPR 2026 · viernes 5 de junio de 2026 · 20:00–23:00 · Haarlem",
     title: "Pub quiz psicodélico y noche musical",
     collaboration: "En colaboración con Psychedelic Society UK",
@@ -134,6 +139,7 @@ const copyByLocale: Record<SiteLocale, EventCopy> = {
     heading: "Ezagutu gaitzazu ICPRn",
     closeLabel: "Itxi",
     detailsLabel: "Xehetasunak ikusi",
+    bannerMeta: "ostirala, 2026ko ekainak 5 · 20:00–23:00 · Haarlem",
     eyebrow: "ICPR 2026 albo-ekitaldia · ostirala, 2026ko ekainak 5 · 20:00–23:00 · Haarlem",
     title: "Pub quiz psikodelikoa eta musika-gaua",
     collaboration: "Psychedelic Society UKrekin elkarlanean",
@@ -154,6 +160,7 @@ const copyByLocale: Record<SiteLocale, EventCopy> = {
     heading: "Retrouvez-nous à l'ICPR",
     closeLabel: "Fermer",
     detailsLabel: "Voir les détails",
+    bannerMeta: "vendredi 5 juin 2026 · 20:00–23:00 · Haarlem",
     eyebrow: "Événement parallèle ICPR 2026 · vendredi 5 juin 2026 · 20:00–23:00 · Haarlem",
     title: "Pub quiz psychédélique et soirée musicale",
     collaboration: "En collaboration avec la Psychedelic Society UK",
@@ -174,6 +181,7 @@ const copyByLocale: Record<SiteLocale, EventCopy> = {
     heading: "Upoznajte nas na ICPR-u",
     closeLabel: "Zatvori",
     detailsLabel: "Pogledaj detalje",
+    bannerMeta: "petak 5. lipnja 2026. · 20:00–23:00 · Haarlem",
     eyebrow: "Popratni događaj ICPR 2026 · petak 5. lipnja 2026. · 20:00–23:00 · Haarlem",
     title: "Psihodelični pub kviz i glazbena večer",
     collaboration: "U suradnji s Psychedelic Society UK",
@@ -194,6 +202,7 @@ const copyByLocale: Record<SiteLocale, EventCopy> = {
     heading: "Incontraci all'ICPR",
     closeLabel: "Chiudi",
     detailsLabel: "Vedi dettagli",
+    bannerMeta: "venerdì 5 giugno 2026 · 20:00–23:00 · Haarlem",
     eyebrow: "Evento collaterale ICPR 2026 · venerdì 5 giugno 2026 · 20:00–23:00 · Haarlem",
     title: "Pub quiz psichedelico e serata musicale",
     collaboration: "In collaborazione con Psychedelic Society UK",
@@ -214,6 +223,7 @@ const copyByLocale: Record<SiteLocale, EventCopy> = {
     heading: "Spotkaj nas na ICPR",
     closeLabel: "Zamknij",
     detailsLabel: "Zobacz szczegóły",
+    bannerMeta: "piątek 5 czerwca 2026 · 20:00–23:00 · Haarlem",
     eyebrow: "Wydarzenie towarzyszące ICPR 2026 · piątek 5 czerwca 2026 · 20:00–23:00 · Haarlem",
     title: "Psychodeliczny pub quiz i wieczór muzyczny",
     collaboration: "We współpracy z Psychedelic Society UK",
@@ -234,6 +244,7 @@ const copyByLocale: Record<SiteLocale, EventCopy> = {
     heading: "Encontra-nos na ICPR",
     closeLabel: "Fechar",
     detailsLabel: "Ver detalhes",
+    bannerMeta: "sexta-feira, 5 de junho de 2026 · 20:00–23:00 · Haarlem",
     eyebrow: "Evento paralelo ICPR 2026 · sexta-feira, 5 de junho de 2026 · 20:00–23:00 · Haarlem",
     title: "Pub quiz psicadélico e noite de música",
     collaboration: "Em colaboração com a Psychedelic Society UK",
@@ -254,6 +265,7 @@ const copyByLocale: Record<SiteLocale, EventCopy> = {
     heading: "Srečajte nas na ICPR",
     closeLabel: "Zapri",
     detailsLabel: "Prikaži podrobnosti",
+    bannerMeta: "petek, 5. junij 2026 · 20:00–23:00 · Haarlem",
     eyebrow: "Spremljevalni dogodek ICPR 2026 · petek, 5. junij 2026 · 20:00–23:00 · Haarlem",
     title: "Psihedelični pub kviz in glasbeni večer",
     collaboration: "V sodelovanju s Psychedelic Society UK",
@@ -274,6 +286,7 @@ const copyByLocale: Record<SiteLocale, EventCopy> = {
     heading: "Troba'ns a l'ICPR",
     closeLabel: "Tanca",
     detailsLabel: "Veure detalls",
+    bannerMeta: "divendres 5 de juny de 2026 · 20:00–23:00 · Haarlem",
     eyebrow: "Esdeveniment paral·lel ICPR 2026 · divendres 5 de juny de 2026 · 20:00–23:00 · Haarlem",
     title: "Pub quiz psicodèlic i nit musical",
     collaboration: "En col·laboració amb Psychedelic Society UK",
@@ -334,9 +347,7 @@ const details = [
             <span class="icpr-top-banner__line">
               <strong class="icpr-top-banner__heading">{copy.heading}</strong>
               <span class="icpr-top-banner__sep" aria-hidden="true">·</span>
-              <span class="icpr-top-banner__meta">{copy.eyebrow}</span>
-              <span class="icpr-top-banner__sep" aria-hidden="true">·</span>
-              <span class="icpr-top-banner__event">{copy.title}</span>
+              <span class="icpr-top-banner__meta">{copy.bannerMeta}</span>
             </span>
             <span class="icpr-top-banner__cta">{copy.detailsLabel}</span>
           </button>

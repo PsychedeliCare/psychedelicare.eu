@@ -19,13 +19,18 @@
   "dependencies": {
     "@astrojs/cloudflare": "^13.5.4",
     "@astrojs/mdx": "^5.0.6",
-    "@astrojs/sitemap": "^3.7.2",
+    "@astrojs/sitemap": "^3.7.3",
+    "@fontsource/jost": "^5.2.8",
     "@tabler/icons": "^3.44.0",
     "@tailwindcss/vite": "^4.3.0",
     "astro": "^6.3.7",
+    "astro-opengraph-images": "^1.16.1",
+    "astro-seo": "^1.1.0",
     "files-sdk": "^1.6.0",
     "flag-icons": "^7.5.0",
+    "react": "^19.2.7",
     "tailwindcss": "^4.3.0",
+    "tw-to-css": "^0.0.12",
     "wrangler": "^4.94.0"
   },
   "overrides": {

@@ -285,20 +285,7 @@ const getNavIcon = (icon?: string) => navIcons[icon ?? ""] ?? IconSparkles;
                             item.children.length > 0 ? (
                               <details class="mobile-menu__group" data-group="mobile-subnav">
                                 <summary class="mobile-menu__group-summary">
-                                  <span class="mobile-menu__summary-copy">
-                                    <span class="mobile-menu__summary-title">
-                                      <span
-                                        class="nav-disclosure__icon nav-disclosure__icon--item"
-                                        set:html={getNavIcon(item.icon)}
-                                      ></span>
-                                      <span>{item.label}</span>
-                                    </span>
-                                    {item.description && (
-                                      <span class="mobile-menu__summary-description">
-                                        {item.description}
-                                      </span>
-                                    )}
-                                  </span>
+                                  <span>{item.label}</span>
                                   <span class="nav-caret mobile-menu__caret" aria-hidden="true"></span>
                                 </summary>
                                 <div class="mobile-menu__group-body">
@@ -358,7 +345,6 @@ const getNavIcon = (icon?: string) => navIcons[icon ?? ""] ?? IconSparkles;
                             class:list={["locale-flag", getLocaleFlagClass(option.locale)]}
                             aria-hidden="true"
                           ></span>
-                          <span class="mobile-menu__lang-code">{option.code}</span>
                           <span class="mobile-menu__lang-name">{option.nativeLabel}</span>
                         </a>
                       ))

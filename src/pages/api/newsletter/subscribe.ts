@@ -1,4 +1,5 @@
 import type { APIRoute } from "astro";
+import { env } from "cloudflare:workers";
 
 import { subscribeToMailchimp } from "../../../lib/mailchimp";
 import { normalizeLocale } from "../../../lib/i18n";
@@ -15,7 +16,7 @@ function isValidEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-export const POST: APIRoute = async ({ request, locals }) => {
+export const POST: APIRoute = async ({ request }) => {
   let payload: SubscribeRequest;
 
   try {
@@ -45,18 +46,12 @@ export const POST: APIRoute = async ({ request, locals }) => {
     });
   }
 
-  const runtime = locals.runtime as {
-    env: {
-      MAILCHIMP_API_KEY?: string;
-      MAILCHIMP_SERVER_PREFIX?: string;
-      MAILCHIMP_LIST_ID?: string;
-    };
-  };
+  const mailchimpEnv = env as Env & { MAILCHIMP_API_KEY?: string };
 
   const result = await subscribeToMailchimp(email, {
-    apiKey: runtime.env.MAILCHIMP_API_KEY ?? "",
-    serverPrefix: runtime.env.MAILCHIMP_SERVER_PREFIX ?? "",
-    listId: runtime.env.MAILCHIMP_LIST_ID ?? "",
+    apiKey: mailchimpEnv.MAILCHIMP_API_KEY ?? "",
+    serverPrefix: mailchimpEnv.MAILCHIMP_SERVER_PREFIX ?? "",
+    listId: mailchimpEnv.MAILCHIMP_LIST_ID ?? "",
     language: locale,
   });
 

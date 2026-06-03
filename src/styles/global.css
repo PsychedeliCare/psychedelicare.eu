@@ -746,14 +746,14 @@
   }
 
   .mobile-menu__single,
+  .mobile-menu__group-summary,
   .mobile-menu__group-body a,
   .mobile-menu__legal a {
     @apply flex items-center min-h-[2.8rem] py-[0.72rem] px-[0.9rem] rounded-[0.8rem] no-underline text-text bg-bg-soft;
   }
 
   .mobile-menu__group-summary {
-    @apply grid items-center gap-[0.85rem] min-h-[4.6rem] py-[0.8rem] px-[0.9rem] rounded-[0.9rem] text-text cursor-pointer list-none bg-bg-soft;
-    grid-template-columns: minmax(0, 1fr) auto;
+    @apply justify-between gap-[0.85rem] cursor-pointer list-none;
   }
 
   .mobile-menu__group-summary:hover,
@@ -761,23 +761,12 @@
     @apply bg-bg-soft outline-none;
   }
 
-  .mobile-menu__summary-copy,
   .mobile-menu__item-copy {
     @apply grid gap-[0.14rem] min-w-0;
   }
 
-  .mobile-menu__summary-title {
-    @apply grid items-center gap-[0.7rem] text-base font-extrabold leading-[1.2];
-    grid-template-columns: auto minmax(0, 1fr);
-  }
-
-  .mobile-menu__summary-description,
   .mobile-menu__item-copy span:last-child {
     @apply text-muted text-[0.86rem] font-medium leading-[1.3];
-  }
-
-  .mobile-menu__summary-description {
-    @apply pl-[2.9rem];
   }
 
   .mobile-menu__caret {
@@ -837,10 +826,6 @@
   .mobile-menu__languages a:hover,
   .mobile-menu__languages a:focus-visible {
     @apply border-border-strong outline-none;
-  }
-
-  .mobile-menu__lang-code {
-    @apply font-bold text-[0.9rem] tracking-[0.04em];
   }
 
   .mobile-menu__lang-name {
@@ -1137,6 +1122,10 @@
   .page-layout__content {
     @apply min-w-0 p-0;
     --two-columns-desktop-col-gap: clamp(3.5rem, 7vw, 5.5rem);
+  }
+
+  .page-layout--home .page-layout__content {
+    padding-top: clamp(1.25rem, 3.5vw, 3rem);
   }
 
   .page-layout--home .page-layout__content h1:first-child {
