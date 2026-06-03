@@ -4,11 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-patchedDependencies:
-  astro-opengraph-images@1.16.1:
-    hash: c62072e64bd5ebb90a4ea2812320ac9026b44d2d0de64c242d2c1982aaf5e2a8
-    path: patches/astro-opengraph-images@1.16.1.patch
-
 importers:
 
   .:
@@ -36,7 +31,7 @@ importers:
         version: 6.3.7(@types/node@24.12.4)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.60.4)(yaml@2.9.0)
       astro-opengraph-images:
         specifier: ^1.16.1
-        version: 1.16.1(patch_hash=c62072e64bd5ebb90a4ea2812320ac9026b44d2d0de64c242d2c1982aaf5e2a8)(tw-to-css@0.0.12)
+        version: 1.16.1(tw-to-css@0.0.12)
       astro-seo:
         specifier: ^1.1.0
         version: 1.1.0(prettier@3.8.3)(typescript@6.0.3)
@@ -4615,7 +4610,7 @@ snapshots:
 
   astring@1.9.0: {}
 
-  astro-opengraph-images@1.16.1(patch_hash=c62072e64bd5ebb90a4ea2812320ac9026b44d2d0de64c242d2c1982aaf5e2a8)(tw-to-css@0.0.12):
+  astro-opengraph-images@1.16.1(tw-to-css@0.0.12):
     dependencies:
       '@resvg/resvg-js': 2.6.2
       jsdom: 29.1.1
