@@ -3,6 +3,14 @@
 	"compatibility_flags": ["global_fetch_strictly_public"],
 	"name": "psychedelicare-eu",
 	"main": "@astrojs/cloudflare/entrypoints/server",
+	"workers_dev": true,
+	"preview_urls": true,
+	"routes": [
+		{
+			"pattern": "www.psychedelicare.eu",
+			"custom_domain": true
+		}
+	],
 	"assets": {
 		"directory": "./dist",
 		"binding": "ASSETS"

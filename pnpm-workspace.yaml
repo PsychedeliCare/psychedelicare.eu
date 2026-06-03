@@ -1,0 +1,2 @@
+patchedDependencies:
+  astro-opengraph-images@1.16.1: patches/astro-opengraph-images@1.16.1.patch

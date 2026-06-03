@@ -11,6 +11,8 @@ import opengraphImages from "astro-opengraph-images";
 import { isLinkedPageUrl, isLinkedPathname } from "./scripts/linked-pages.mjs";
 import { psychedelicare } from "./scripts/opengraph-psychedelicare.mjs";
 
+const opengraphImagesEnabled = process.env.ENABLE_OPENGRAPH_IMAGES === "1";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://psychedelicare.eu",
@@ -20,26 +22,33 @@ export default defineConfig({
     sitemap({
       filter: (page) => isLinkedPageUrl(page),
     }),
-    opengraphImages({
-      options: {
-        fonts: [
-          {
-            name: "Jost",
-            weight: 900,
-            style: "normal",
-            data: fs.readFileSync(
-              "node_modules/@fontsource/jost/files/jost-latin-900-normal.woff",
-            ),
-          },
-        ],
-      },
-      render: psychedelicare,
-      filter: ({ pathname }) => isLinkedPathname(pathname),
-    }),
+    ...(opengraphImagesEnabled
+      ? [
+          opengraphImages({
+            options: {
+              fonts: [
+                {
+                  name: "Jost",
+                  weight: 900,
+                  style: "normal",
+                  data: fs.readFileSync(
+                    "node_modules/@fontsource/jost/files/jost-latin-900-normal.woff",
+                  ),
+                },
+              ],
+            },
+            render: psychedelicare,
+            filter: ({ pathname }) => isLinkedPathname(pathname),
+          }),
+        ]
+      : []),
   ],
 
   vite: {
     plugins: [tailwindcss()],
+    define: {
+      __OPENGRAPH_IMAGES_ENABLED__: JSON.stringify(opengraphImagesEnabled),
+    },
     server: {
       allowedHosts: true,
     },
