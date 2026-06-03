@@ -43,9 +43,9 @@ oldLocalizedPaths:
   sl: /about-us
   hr: /about-us
   ca: /about-us
-teaser: O NAS Smo znanstveniki, zdravniki, terapevti, psihologi, raziskovalci
-  nevroznanosti, kreativni in marketinški strokovnjaki, umetniki, strokovnjaki za
-  zakonodajo, aktivisti za člove
+teaser: PsychedeliCare povezuje raziskovalce, klinične strokovnjake, umetnike,
+  strokovnjake za politike in grassroots organizatorje po Evropi, da bi izboljšali
+  dostop do varne in etične psihedelične skrbi.
 draft: false
 assetUrls:
   - /assets/people/alek-wlezien.jpg
@@ -79,259 +79,31 @@ assetUrls:
   - /assets/people/theo-giubilei.jpg
   - /assets/people/veronica-toumanova.jpg
 ---
+import PeopleGrid from "../../../components/PeopleGrid.astro";
+import Callout from "../../../components/Callout.astro";
+import IconList from "../../../components/IconList.astro";
+import PillarGrid from "../../../components/PillarGrid.astro";
+import { coordinationBoardMembers } from "../../../data/coordinationBoard";
+import { nationalTeamCoordinators } from "../../../data/nationalTeamCoordinators";
 
-## O nas
+## Kdo smo
 
-Smo znanstveniki, zdravniki, terapevti, psihologi, raziskovalci nevroznanosti, kreativni in marketinški strokovnjaki, umetniki, strokovnjaki za zakonodajo, aktivisti za človekove in državljanske pravice, duhovni praktiki ter izobraževalci. Združeni za znanostjo in poznavanjem zakonodaje EU si s to pobudo prizadevamo omogočiti Evropejcem dostop do varne, regulirane in odgovorne terapije s pomočjo psihedelikov.
+PsychedeliCare povezuje raziskovalce, klinične strokovnjake, umetnike, strokovnjake za politike in grassroots organizatorje po Evropi, da bi izboljšali dostop do varne in etične psihedelične skrbi.
 
-Pobuda PsychedeliCare trenutno združuje udeležence iz več kot 15 držav znotraj in zunaj Evropske unije. Pobuda iz dneva v dan raste, vedno pa smo odprti za nove somišljenike, pripravljene stopiti na to demokratično pot. **[Pridružite se nam!](/#join)**
+<Callout title="Pridruži se gibanju" body="Bi želeli podpreti nacionalno ekipo ali pomagati zgraditi eno tam, kjer živite?" href="mailto:info@psychedelicare.eu" label="Kontaktiraj ekipo" />
 
-## Ekipe
+<PeopleGrid title="Koordinacijski odbor" id="coordination-board" people={coordinationBoardMembers} websiteLabel="Spletna stran" />
 
-Delujemo kot povezana **evropska ekipa**, ki se redno srečuje in komunicira prek digitalnih platform. Poleg tega smo razdeljeni na specializirane **podskupine, ki** se osredotočajo na določene teme, in **nacionalne skupine, ki** so odgovorne za razvoj pobude v svojih državah.
+<PeopleGrid title="Koordinatorji nacionalnih ekip" id="national-teams" people={nationalTeamCoordinators} variant="rows" websiteLabel="Spletna stran" />
 
-»Terapija s pomočjo psihedelikov prinaša revolucijo v znanost in lajša trpljenje številnih fizičnih in duševnih bolezni. Posvečam se širjenju najnovejših kliničnih raziskav za celostno zdravje. Ključni so zakonodajni premiki, ki krepijo tako glas javnosti kot glas znanosti. Združimo se za spremembe z resničnim učinkom.«
+<a id="our-five-pillars"></a>
 
-Anna Maria Farkas (članica evropske ekipe - Portugalska)
+## Naših pet stebrov
 
-## Evropska ekipa
+<PillarGrid variant="stack" intro="Our work is structured around five areas:" pillars={[{ title: "Skupnost", description: "We build connections across Europe through participation, dialogue, peer support, and lived experience." },{ title: "Izobraževanje", description: "We provide accessible, evidence-based information and help address misinformation." },{ title: "Politika", description: "We bridge science, society, and human rights to support clear and ethical regulatory pathways." },{ title: "Znanost in raziskave", description: "We support rigorous research and translate scientific knowledge for society and policy." },{ title: "Dobrobit", description: "We promote trauma-informed approaches, safe practices, integration, compassion, and belonging." }]} />
 
-![Théo Giubilei](/assets/people/theo-giubilei.jpg)
+<a id="our-values"></a>
 
-#### Théo Giubilei (Francija)
+## Naše vrednote
 
-##### _Koordinator in ustanovitelj pobude_
-
-Diplomiral je iz evropske politike in javnih zadev ter si z dvema letoma delovnih izkušenj v Bruslju pridobil temeljito poznavanje evropskega zakonodajnega procesa in orodja Evropske državljanske pobude. Prepričan o potencialu psihedelikov je ustanovil pobudo PsychedeliCare.
-
-![Flavio “Avy” Candeli](/assets/people/flavio-avy-candeli.jpg)
-
-#### Flavio "Avy" Candeli (Italija)
-
-##### _Kreativni direktor_
-
-Avy je kreativni direktor združenja [Associazione Luca Coscioni per la libertà di ricerca scientifica in](http://www.associazionelucacoscioni.it/) kreativni član združenja [Eumans.](http://www.eumans.eu/) Po 20 letih dela v oglaševalski industriji in digitalnih medijih, kjer je sodeloval pri kampanjah za državljanske svoboščine in človekove pravice, se je po diplomi iz copywritinga odločil, da se bo popolnoma posvetil projektom z namenom. Kot je ta.
-
-![Alexis Arragon](/assets/people/alexis-arragon.jpg)
-
-#### Alexis Arragon (Francija)
-
-##### _Mrežna strateginja_
-
-Alexis ima več kot 20 let izkušenj z interaktivnimi mediji, zadnjih 8 let pa ustanavlja tehnološke startupe. Z izobrazbo iz računalništva in inženirstva umetne inteligence se trenutno usposablja za terapevtko. Alexis je dejavna tudi v organizaciji [Société Psychédélique Française.](https://societepsychedelique.fr/fr)
-
-![Alek Wlezien](/assets/people/alek-wlezien.jpg)
-
-#### Alek Wlezien (Poljska)
-
-##### _Koordinator za zbiranje sredstev_
-
-Alek je diplomant Varšavske ekonomske šole in izkušen strokovnjak na področju financ, ki se nenehno izobražuje. Njegove bogate izkušnje zajemajo upravljanje zasebnih dolžniških sredstev, prestrukturiranje, financiranje podjetij, združitve in prevzeme ter zasebni kapital. Opravljal je številne vodstvene položaje in je član več nadzornih svetov.
-
-![Elisabetta Fato](/assets/people/elisabetta-fato.jpg)
-
-#### Elisabetta Fato (Italija)
-
-##### _Koordinatorka znanstvene skupine_
-
-Elisabetta je leta 2022 diplomirala iz biomedicinskih znanosti, leta 2023 je na londonskem Imperial Collegeu magistrirala iz translacijske nevroznanosti in trenutno dela kot skrbnica kliničnih testiranj pri podjetju Beckley Psytech, kjer izvaja klinična testiranja terapevtskega potenciala psihedelikov.
-
-![Raphaël Comte](/assets/people/raphael-comte.jpg)
-
-#### Raphaël Comte (Francija)
-
-##### _Vodja za zdravstveno politiko_
-
-Raphaël ima dragocene izkušnje z upravljanjem javnih zadev na področju zdravstvene politike EU ter dobro pozna notranje delovanje evropskih institucij in njihov zakonodajni postopek. Svet psihedelikov je odkril pred nekaj leti in šele nato spoznal, da je nujno potrebno več razumevanja in boljši politični okvir, ki bi omogočil razvoj potenciala in medicinske uporabe teh molekul.
-
-![Carlotta Inferrera](/assets/people/carlotta-inferrera.jpg)
-
-#### Carlotta Inferrera (Italija)
-
-##### _Grafična oblikovalka_
-
-Carlotta je diplomirala iz oblikovanja in vizualnih komunikacij na Politehnični univerzi v Torinu ter iz menedžmenta na IED Milano. Dela kot svobodna umetnica in umetniška direktorica za združenje [Associazione Luca Coscioni](https://www.associazionelucacoscioni.it/) ter svoje komunikacijske sposobnosti uporablja v boju za svobodo znanstvenih raziskav.
-
-![Raj Johal](/assets/people/raj-johal.jpg)
-
-#### Raj Johal (Združeno kraljestvo)
-
-##### Strateški vodja družbenih omrežij
-
-Raj je vrsto let deloval v vladnem in tehnološkem sektorju, kjer je teoretično znanje združeval s praktičnimi vpogledi za uspešno krmarjenje skozi zapletenost različnih industrij in spodbujanje pozitivnih sprememb. Na temelju izobrazbe iz svetovanja in psihologije ostaja predan spodbujanju dobrega počutja in duševnega zdravja.
-
-![Veronica Toumanova](/assets/people/veronica-toumanova.jpg)
-
-#### Veronica Toumanova (Francija)
-
-##### _Uporabniška izkušnja/  
-Spletna oblikovalka,_  
-_Prevajalka_
-
-Veronica je študirala likovno umetnost v Rusiji, kjer je odraščala, ter grafično oblikovanje na Nizozemskem. V svoji prvi karieri je delala kot UX oblikovalka na Nizozemskem, v Nemčiji in Franciji. Zadnjih več kot 10 let se je kot profesionalna plesalka, učiteljica, performerka in pisateljica posvetila argentinskemu tangu. Posebej jo zanimata psihologija in področje psihedelikov.
-
-![Bradley C. Royes](/assets/people/bradley-c-royes.jpg)
-
-#### Bradley C. Royes (Kanada - Nemčija)
-
-##### _Glavni urednik novičnika_
-
-Bradley je razvijalec, strateg in predavatelj, ki uporablja svoje znanje s področja kognitivne znanosti in vodenja konferenc k raziskavam psihedelikov. Predan je oblikovanju regenerativne prihodnosti z vzpostavljanjem inovativnih povezav med psihedeliki in umetno inteligenco.
-
-![Herminio Silva](/assets/people/herminio-silva.jpeg)
-
-#### Herminio Silva (Portugalska)
-
-##### _Vodja komunikacije_
-
-Herminio je svojo poklicno pot začel s pustolovskimi športi, študiral naturopatijo in nato pridobil 30 let izkušenj na področju trženja. Specializiral se je za aktivacijo blagovnih znamk in globalne dogodke. Trenutno je izvršni producent [festivala Boom](https://www.boomfestival.org/), svetovno znanega psihedeličnega dogodka na Portugalskem, ki je znan po svoji filozofiji "brez blagovnih znamk in logotipov".
-
-»Naše duševno zdravje trpi, ko ne znamo sprejeti resničnosti takšne, kot je – brez naših namišljenih pogojev. Učinki psihedelikov na nevroplastičnost bi lahko močno pomagali v tem procesu, zato sem se morala pridružiti tej pobudi.«
-
-Ala Rudnicka (članica poljske ekipe)
-
-## Nacionalne ekipe
-
-Trenutno imamo več kot 20 nacionalnih ekip, še več pa se jih samoorganizira. Želite biti del ekipe? Obrnite se na svojega nacionalnega koordinatorja, navedenega spodaj. Vaša država še ni zastopana? Lahko ustanovite novo nacionalno ekipo, [**pišite nam!**](mailto:info@psychedelicare.eu)
-
-Vsaka nacionalna ekipa je sestavljena iz več ljudi z različnimi ozadji. Skupaj skrbijo za pripravo, oblikovanje in izvajanje pobude v svojih državah, ob podpori evropske ekipe.
-
-## Koordinatorji nacionalnih ekip
-
-![Annarita Eva](/assets/people/annarita-eva.jpg)
-
-#### **Annarita Eva (Italija)**
-
-Annarita je izkušena profesionalna svetovalka in korporativna trenerka. V svoje delo vključuje glavne modele humanistične psihologije. Z magistrskima nazivoma iz zdravstvene psihologije in italijanske književnosti že od leta 2010 nudi podporo kot psihedelična spremljevalka (sitter) na festivalih.  
-**[Kontakt: italy@psychedelicare.eu](mailto:%20italy@psychedelicare.eu)**
-
-![Alexis Arragon](/assets/people/alexis-arragon.jpg)
-
-#### **Alexis Arragon (Francija)**
-
-Alexis že več kot 20 let dela na področju interaktivnih medijev, zadnjih osem let pa je ustanovil tehnološka zagonska podjetja. Po izobrazbi je inženir računalništva in umetne inteligence, zdaj pa se izobražuje za terapevta. Alexis sodeluje tudi v [Francoski psihoterapevtski družbi (Société Psychédélique Française).](https://societepsychedelique.fr/fr)**[Kontaktirajte Alexisa (france@psychedelicare.eu](mailto:%20france@psychedelicare.eu)**)
-
-![Luize Anna Bankovica](/assets/people/luize-anna-bankovica.jpg)
-
-#### **Luize Anna Bankovica (Latvija)**
-
-Luize, oblikovalec regenerativnih izkušenj z magisterijem iz trajnostnega razvoja v ustvarjalnih industrijah, združuje izkušnje v ustvarjalnih sektorjih s poudarkom na trajnosti, ustvarjalnosti in regenerativnem vedenju. Njene pionirske raziskave se ukvarjajo z odnosom med praksami, ki spreminjajo um, in vrednostnimi spremembami. Je soustanoviteljica zagonskega podjetja, specializiranega za orodja za oblikovanje pripovedi za skupnosti. [**Kontakt: latvia@psychedelicare.eu**](mailto:latvia@psychedelicare.eu)
-
-![Mario Zulić](/assets/people/mario-zulic.jpeg)
-
-#### **Mario Zulić (Hrvaška)**
-
-Mario je psiholog iz Hrvaške z globokim zanimanjem za potencial psihedelikov, ustanovitelj in predsednik neprofitne organizacije Nepopularna psihologija, avtor in javni govorec. Leta 2023 je vodil prvo konferenco o znanosti o psihedelikih na Hrvaškem ter s tem sprožil dolgo pričakovani dialog o tej temi. [**Kontakt: croatia@psychedelicare.eu**](mailto:croatia@psychedelicare.eu)
-
-![Alicja Rudnicka](/assets/people/alicja-rudnicka.jpeg)
-
-#### **Alicja Rudnicka (Poljska)**
-
-Ala je magistrirala iz ruske filologije in doktorirala iz kulture in religije na Univerzi v Gdansku, pri čemer se je osredotočila na sodobni šamanizem v Sibiriji. Kljub karieri na področju informacijske tehnologije ostaja globoko povezana s človeško kulturo, duševnim zdravjem in psihedeliki, ki se z njo prepletajo. Trenutno študira psihologijo, da bi pridobila orodja za podporo drugim, še posebej z izkoriščanjem potenciala psihedelične terapije. [**Kontakt: poland@psychedelicare.eu**](mailto:poland@psychedelicare.eu)
-
-![Audra Micallef](/assets/people/audra-micallef.png)
-
-#### **Audra Micallef (Malta)**
-
-Audra je psihoterapevtka, učiteljica medicine gibanja in psihoterapevtka s pomočjo psihedelikov. Na Malti je uvedla ketaminsko psihoterapijo (KAP) in medicino gibanja ter še naprej spodbuja njuno rast na lokalni ravni ter vodi skupine in umike. Trenutno pripravlja doktorat iz integralne psihologije s poudarkom na psihedelikih in si prizadeva za širjenje dostopa do transformativnega, v skupnost usmerjenega zdravljenja. [**Kontaktirajte Audro (malta@psychedelicare.eu)**](mailto:malta@psychedelicare.eu)
-
-![Michelle Kronquist](/assets/people/michelle-kronquist.jpg)
-
-#### **Michelle Kronquist (Švedska)**
-
-Michelle je klinična psihologinja, specializirana za ocenjevanje pri izbiri osebja in uporabo inovativnih tehnologij za pomoč negovalcem bolnikov z demenco v skupnostih za oskrbo. Michellino zanimanje za psihoterapijo s psihedeliki izhaja iz njenega preteklega dela s tistimi, ki so preživeli travmo. [**Kontaktirajte Michelle (sweden@psychedelicare.eu**](mailto:sweden@psychedelicare.eu))
-
-![Kelly Veneti](/assets/people/kelly-veneti.jpeg)
-
-#### **Kelly Veneti (Grčija)**
-
-Kelly je magistrirala iz geofizičnih nevarnosti, s posebnim zanimanjem za ublažitev in prilagajanje podnebnim spremembam. Zaposlena je kot analitičarka pri podjetju BeZero Carbon. Na podlagi svojih transformativnih izkušenj s psihedeliki in razumevanja človeške travme kot enega od virov okoljskih problemov verjame v vlogo psihedelične medicine pri kolektivnem zdravljenju. Je članica Grškega psihedeličnega društva. **[Kontakt: greece@psychedelicare.eu](mailto:greece@psychedelicare.eu)**
-
-![Annina Springer](/assets/people/annina-springer.jpg)
-
-#### **Annina Springer (Nemčija)**
-
-Annina je magistrska študentka upravljanja obnovljivih virov energije in diplomantka hortikulture. Trenutno dela na projektu, ki združuje obe področji z vzpostavljanjem agro-fotovoltažnih (Agri-PV) sistemov. Verjame, da je temelj uspešne in trajnostne prihodnosti duševno zdravje. **[Kontakt Annina (germany@psychedelicare.eu)](mailto:germany@psychedelicare.eu)**
-
-![Annika Sillaots](/assets/people/annika-sillaots.jpg)
-
-#### **Annika Sillaots (Estonija)**
-
-Annika je strokovnjakinja za komuniciranje in marketing z več kot 20-letnimi izkušnjami, trenutno vodi področje blagovne znamke pri fundaciji TAIP v Estoniji. Navdušena je nad prispevanjem k znanstveno utemeljeni skrbi za duševno zdravje, verjame v transformativni potencial terapij s pomočjo psihedelikov ter si prizadeva za večje zaupanje in odprtost do inovativnih modelov zdravljenja v Estoniji. **[Kontakt: estonia@psychedelicare.eu](mailto:estonia@psychedelicare.eu)**
-
-![Brid Ni Fhoighil](/assets/people/brid-ni-fhoighil.jpeg)
-
-#### **Brid Ni Fhoighil (Nizozemska)**
-
-Brid prihaja z Irske, delal pa je tudi za družbi Shell in ESA. V svoji sedanji vlogi povezovalke in povezovalca organizira priložnosti za vrhunske raziskave z nizozemskimi in angleškimi univerzami. Je soustanoviteljica Amsterdamskega prostora za psihedelično integracijo, raziskave in izobraževanje, neprofitnega zdravstvenega zavoda. [**Contact Brid (**](mailto:netherlands@psychedelicare.eu)**[netherlands@psychedelicare.eu](mailto:netherlands@psychedelicare.eu)**)
-
-![Bárbara Messias](/assets/people/barbara-messias.jpeg)
-
-#### **Bárbara Messias (Portugalska)**
-
-Bárbara je pravnica, coachinja in aktivistka za pravice žensk, vključena v več humanitarnih projektov, trenutno živi v Portu. Vedno jo je zanimal človeški um in verjame, da je psihedelična medicina prelomno orodje za preoblikovanje in dobrobit človeštva. Je članica organizacije [SafeJourney](https://www.safejourney.pt/) na Portugalskem.  
-**[Kontakt: portugal@psychedelicare.eu](mailto:portugal@psychedelicare.eu)**
-
-![Elisabet Domínguez-Clavé](/assets/people/elisabet-dominguez-clave.jpeg)
-
-#### **Elisabet Domínguez-Clavé (Španija)**
-
-Elisabet je psihologinja z doktoratom iz farmakologije. Trenutno dela v bolnišnici Hospital de la Santa Creu i Sant Pau v Barceloni. Od leta 2015 se njene raziskave osredotočajo na potencialne terapevtske uporabe ajavaske, učinkovitost intervencij, temelječih na čuječnosti, ter preučevanje osebnostnih motenj. Dejavno sodeluje tudi v Sociedad Española de Medicina Psicodélica. [**Kontakt: spain@psychedelicare.eu**](mailto:spain@psychedelicare.eu)
-
-![Ciara Reynolds](/assets/people/ciara-reynolds.jpg)
-
-#### **Ciara Reynolds (Irska)**
-
-Ciara ima več kot 15 let izkušenj v svetu startupov in tehnologije. Leta 2017 je razširila svoje strokovno področje na alternativne terapije ter se posvetila študiju terapije endokanabinoidnega sistema, terapije s pomočjo psihedelikov in zvočne terapije. Je tudi coachinja za dobro počutje v podjetjih in voditeljstvo. Njen študij s področja psihedelikov in transpersonalne psihologije se osredotočajo na to, kako psihedeliki in glasba spodbujajo spravo ter povezovanje. **[Kontakt: ireland@psychedelicare.eu](mailto:ireland@psychedelicare.eu)**
-
-![Cristina Rex](/assets/people/cristina-rex.jpg)
-
-#### **Cristina Rex (Danska)**
-
-Cristina ima več kot 20 let izkušenj kot usposobljena socialna pedagoginja in nevroedukatorica pri delu z osebami z motnjami v duševnem razvoju ter mladostniki v rejništvu. Danes je izšolana psihoterapevtka z lastno kliniko in članica upravnega odbora danske psihedelične skupnosti [Psykedelisk Samfund.](https://psykedelisksamfund.dk/)  
-[**Kontakt: denmark@psychedelicare.eu**](mailto:denmark@psychedelicare.eu)
-
-![Lilas Knudsen](/assets/people/lilas-knudsen.jpeg)
-
-#### **Lilas Knudsen (Belgija)**
-
-Lilas je študirala klinično, socialno in interkulturno psihologijo na Univerzi v Padovi, zdaj pa živi v Bruslju. Tako diplomsko kot magistrsko nalogo je posvetila terapiji s pomočjo psihedelikov, področju, ki jo še vedno navdušuje zaradi globokega vpliva na človeški um. V okviru študija se je pridružila klinični raziskavi v Vancouvru, kjer so preučevali uporabo psilocibina pri depresiji, odporni na zdravljenje, in tako pridobila dragocene praktične izkušnje.  
-[**Kontakt: belgium@psychedelicare.eu**](mailto:belgium@psychedelicare.eu)
-
-![Bertram Groinig](/assets/people/bertram-groinig.jpg)
-
-#### **Bertram Groinig (Avstrija)**
-
-Bertram bo jeseni 2025 začel magistrski študij kliničnega socialnega dela in se hkrati usposablja za psihoterapevta. Ima diplomo iz politologije in se fokusira na družbene spremembe ter v psihedelikih prepoznava transformativni potencial tako za duševno zdravje kot širši družbeni kontekst. Njegovo zanimanje za to področje se je začelo leta 2022, ko je obiskal interdisciplinarno konferenco o raziskovanju psihedelikov v Haarlemu na Nizozemskem. **[Kontakt: austria@psychedelicare.eu](mailto:austria@psychedelicare.eu)**
-
-![Kasia Kopańska](/assets/people/kasia-kopanska.jpeg)
-
-#### **Kasia Kopańska (Švica)**
-
-Dr Kasia Kopańska, originally Polish, living in Zürich, is a somatic educator and psychedelic-assisted therapy (PAT) facilitator with expertise in bodywork, breathwork, ritual, and expressive arts. She lectures about body consciousness and femtheogenic traditions. She holds a PhD in cell biology (University of Cambridge) and has spent over 20 years in international research. She is a member of the [Swiss Medical Society for Psycholytic Therapy (SÄPT)](https://saept.ch/). [**Contact Kasia (switzerland@psychedelicare.eu**)](mailto:switzerland@psychedelicare.eu)
-
-![Costin Militaru](/assets/people/costin-militaru.png)
-
-#### **Costin Militaru (Romunija)**
-
-Costin je zdravnik z več kot 20-letnimi izkušnjami, pionir zmanjševanja škode in celostnega zdravja v Romuniji ter vodilni zagovornik dekriminalizacije in legalizacije psihoaktivnih substanc. Obsežno je delal na področju zasvojenosti in zlorabe substanc, sodeloval z mednarodnimi organizacijami, kot sta UNODC in ANA, ter ustanovil fundacijo Harm Reduction Foundation. Specializiran je za terapije z medicinsko konopljo in vodi center za celostno zdravje Imuno Care. **[Kontakt: romania@psychedelicare.eu](mailto:romania@psychedelicare.eu)**
-
-![Anja Cehnar](/assets/people/anja-cehnar.jpg)
-
-#### **Anja Cehnar (Slovenija)**
-
-Anja dela kot psihologinja na Univerzitetnem rehabilitacijskem inštitutu v Sloveniji, kjer pomaga posameznikom s kronično bolečino. Je tudi študentka integrativne psihoterapije in je globoko predana terapevtskemu potencialu psihedelikov pri preoblikovanju skrbi za duševno zdravje. Njeno delo zajema raziskovanje, izobraževanje, sittanje in podporo pri integraciji. [**Kontakt: slovenia@psychedelicare.eu**](mailto:slovenia@psychedelicare.eu)
-
-"Veseli me, da lahko sodelujem pri tej pobudi kot psihedelični psihoterapevtka, specializirana za okrevanje po travmah, in kot evropska državljanka, ki ji je psihedelična terapija osebno koristila. Verjamem, da je s skrbjo in podporo mogoče odpraviti še več trpljenja, zlasti kadar tradicionalna psihoterapija ali farmakoterapija spodleti, zato sem tej pobudi namenila svojo podporo."
-
-Dr. 1Drea Pennington Wasio (članica evropske ekipe in znanstvene ekipe - Francija)
-
-»Voden z lastno izkušnjo s psihedeliki in zavezanostjo k ustvarjanju dobrega sem se pridružil pobudi PsychedeliCare, da bi soustvarjal dostopne in preobrazbene terapije. Predstavljam si prihodnost, v kateri te terapije niso le na voljo, temveč so ključni del zdravljenja in samospoznavanja, ter zagovarjam globalni premik k zavestni in sočutni obravnavi ljudi.«
-
-Floris Wolswijk (član evropske ekipe - Nizozemska)
-
--   [Instagram](https://www.instagram.com/psychedelicare.eu/)
--   [LinkedIn](https://www.linkedin.com/company/psychedelicare)
--   [Facebook](https://www.facebook.com/Psychedelicare.EU)
--   [X](https://x.com/psychedelicareu?s=11)
--   [YouTube](https://www.youtube.com/@PsychedeliCare)
+<IconList class="icon-list--feature" items={[{ icon: "lived-experience", title: "Lived experience", text: "Each person’s story is a valuable source of knowledge." },{ icon: "integrity", title: "Scientific integrity", text: "Our work is grounded in transparency, responsibility, and reliable evidence." },{ icon: "inclusivity", title: "Inclusivity and diversity", text: "We welcome a plurality of voices, cultures, disciplines, and ways of knowing." },{ icon: "safety", title: "Ethical responsibility and safety", text: "A strong duty of care is central to our work." },{ icon: "ecological", title: "Ecological responsibility", text: "We act with awareness of our long-term planetary impact." },{ icon: "collaboration", title: "Community and collaboration", text: "We work through mutual support, shared ownership, and collective growth." }]} />
