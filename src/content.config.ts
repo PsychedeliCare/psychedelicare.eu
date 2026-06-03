@@ -40,7 +40,13 @@ const pages = defineCollection({
     }).optional(),
     sourceId: z.number().optional(),
     translationGroup: z.string().optional(),
-    translatedAt: z.string().default(""),
+    translatedAt: z.union([z.string(), z.date()]).transform((value) => {
+      if (typeof value === "string") {
+        return value;
+      }
+
+      return value.toISOString().slice(0, 10);
+    }).default(""),
     translatedBy: z.string().default(""),
     translationReviewedAt: z.string().default(""),
     translationReviewedBy: z.string().default(""),
