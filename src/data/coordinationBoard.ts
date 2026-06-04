@@ -33,7 +33,9 @@ export const coordinationBoardMembers: TeamMember[] = [
     role: "Advocate, Italian Team",
     location: "Italy",
     countryCode: "IT",
+    website: "https://www.chiaracoppolapsy.com",
     image: "/assets/people/chiara-coppola.jpg",
+    bio: "Chiara is a Clinical Psychologist and Psychotherapist specialized in transpersonal psychology, psychedelic-assisted therapy and EMDR. Alongside her clinical work, she has several years of experience in psychedelic harm reduction within electronic music festival settings. She is passionate about advocating for the intentional and therapeutic use of psychedelics.",
   },
   {
     name: "Annarita Eva",
@@ -94,6 +96,7 @@ export const coordinationBoardMembers: TeamMember[] = [
     location: "Germany",
     countryCode: "DE",
     image: "/assets/people/leonie-staas.jpg",
+    bio: "Leonie is a writer and psychedelic facilitator with a background in climate and energy. Her work explores the intersection of climate change and mental health. She co-coordinates PsychedeliCare's European Coalition-Building Team.",
   },
   {
     name: "Veronica Toumanova",

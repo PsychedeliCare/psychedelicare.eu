@@ -1,0 +1,39 @@
+---
+import IconBrandGithub from "../../node_modules/@tabler/icons/icons/outline/brand-github.svg?raw";
+
+type Props = {
+  label: string;
+  href?: string;
+};
+
+const {
+  label,
+  href = "https://github.com/psychedelicare/psychedelicare.eu",
+} = Astro.props;
+---
+
+<p class="github-contribute-button">
+  <a class="button-secondary" href={href} target="_blank" rel="noopener noreferrer">
+    <span class="github-contribute-button__icon" set:html={IconBrandGithub} aria-hidden="true" />
+    <span>{label}</span>
+  </a>
+</p>
+
+<style>
+  .github-contribute-button {
+    margin-top: 1rem;
+  }
+
+  .github-contribute-button__icon {
+    display: inline-grid;
+    place-items: center;
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .github-contribute-button__icon :global(svg) {
+    width: 1.25rem;
+    height: 1.25rem;
+    stroke-width: 1.8;
+  }
+</style>
