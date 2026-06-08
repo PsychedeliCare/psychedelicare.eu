@@ -970,60 +970,6 @@
     background: var(--background-image-gradient);
   }
 
-  .icpr-top-banner {
-    @apply relative z-40 w-full;
-    background: linear-gradient(
-      90deg,
-      rgba(68, 179, 235, 0.2) 0%,
-      rgba(235, 68, 210, 0.14) 72%,
-      rgba(255, 255, 255, 0.92) 100%
-    );
-    border-bottom: 1px solid rgba(57, 30, 190, 0.12);
-  }
-
-  .icpr-top-banner__inner {
-    @apply py-2;
-  }
-
-  .icpr-top-banner__trigger {
-    @apply flex w-full items-center gap-3 border-0 bg-transparent p-0 text-left cursor-pointer;
-    transition: opacity 200ms ease;
-  }
-
-  .icpr-top-banner__trigger:hover,
-  .icpr-top-banner__trigger:focus-visible {
-    @apply opacity-90;
-  }
-
-  .icpr-top-banner__line {
-    @apply min-w-0 flex-1 overflow-hidden whitespace-nowrap text-ellipsis;
-    font-size: clamp(0.82rem, 1.5vw, 0.95rem);
-    line-height: 1.35;
-  }
-
-  .icpr-top-banner__heading {
-    @apply font-extrabold text-purple;
-  }
-
-  .icpr-top-banner__sep {
-    @apply text-purple/55 font-bold;
-  }
-
-  .icpr-top-banner__meta {
-    @apply font-semibold text-muted;
-  }
-
-  .icpr-top-banner__event {
-    @apply font-bold text-text;
-  }
-
-  .icpr-top-banner__cta {
-    @apply inline-flex shrink-0 items-center justify-center min-h-8 py-1.5 px-3.5 rounded-full bg-white text-purple font-bold no-underline whitespace-nowrap;
-    font-size: clamp(0.78rem, 1.3vw, 0.88rem);
-    box-shadow: 0 8px 20px rgba(38, 18, 92, 0.1);
-    border: 1px solid rgba(57, 30, 190, 0.14);
-  }
-
   .translation-preview-banner {
     @apply relative z-20 w-full;
     background: linear-gradient(
@@ -1302,6 +1248,15 @@
     @apply mt-7 mb-0;
   }
 
+  .page-layout__content .contributing-card,
+  .page-layout__content .open-source-licenses {
+    @apply max-w-none;
+  }
+
+  .page-layout__content .open-source-licenses__list {
+    list-style: disc;
+  }
+
   .page-layout__content .callout,
   .page-layout__content .read-more,
   .page-layout__content .accordion,
@@ -1314,135 +1269,9 @@
     @apply max-w-none mt-7;
   }
 
-  .icpr-event-dialog,
   .team-mosaic__dialog {
     @apply fixed inset-0 m-auto w-[min(42rem,calc(100vw-2rem))] max-h-[min(85vh,44rem)] p-0 border-0 rounded-[1.5rem] bg-bg shadow-strong open:animate-none;
     @apply backdrop:bg-[rgba(19,23,37,0.55)];
-  }
-
-  .icpr-event-dialog {
-    @apply w-[min(52rem,calc(100vw-2rem))] max-h-[min(90vh,50rem)];
-  }
-
-  .icpr-event-dialog__header {
-    @apply flex items-start justify-between gap-4 p-[clamp(1.25rem,3vw,1.75rem)] pb-0;
-  }
-
-  .icpr-event-dialog__title {
-    @apply m-0;
-    font-size: clamp(1.35rem, 3vw, 1.85rem);
-    line-height: 1.15;
-    background-image: var(--background-image-gradient-heading);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-  }
-
-  .icpr-event-dialog__body {
-    @apply overflow-y-auto p-[clamp(1.25rem,3vw,1.75rem)] pt-[clamp(0.85rem,2vw,1.15rem)];
-  }
-
-  .icpr-event {
-    @apply max-w-none overflow-hidden rounded-2xl border bg-white;
-    border-color: rgba(57, 30, 190, 0.14);
-    box-shadow: 0 18px 40px rgba(38, 18, 92, 0.08);
-  }
-
-  .icpr-event__eyebrow {
-    @apply text-purple uppercase tracking-[0.08em] font-extrabold;
-    font-size: 0.78rem;
-  }
-
-  .icpr-event__eyebrow--dialog {
-    @apply m-0 px-[clamp(1.1rem,3vw,1.5rem)] pt-[clamp(0.35rem,1vw,0.5rem)];
-  }
-
-  .icpr-event__body {
-    @apply grid items-start gap-x-[clamp(1.5rem,4vw,3rem)] gap-y-6;
-    padding: 0 clamp(1.1rem, 3vw, 1.5rem) clamp(1.4rem, 3vw, 1.75rem);
-  }
-
-  .icpr-event__body--dialog {
-    @apply pt-[clamp(0.85rem,2vw,1.1rem)];
-  }
-
-  @media (min-width: 768px) {
-    .icpr-event__body {
-      grid-template-columns: 2fr 1fr;
-    }
-  }
-
-  .icpr-event__main {
-    @apply grid content-start gap-[1.05rem] min-w-0;
-  }
-
-  .icpr-event__collab {
-    @apply m-0 font-bold text-text;
-    font-size: 1rem;
-  }
-
-  .icpr-event__description {
-    @apply m-0 text-muted;
-    font-size: 1rem;
-    line-height: 1.55;
-  }
-
-  .icpr-event__details {
-    @apply grid content-start gap-[0.95rem] m-0 p-0 list-none;
-  }
-
-  .icpr-event__detail {
-    @apply grid items-start gap-3 m-0;
-    grid-template-columns: auto 1fr;
-  }
-
-  .icpr-event__icon {
-    @apply inline-flex shrink-0 items-center justify-center w-9 h-9 rounded-full text-purple;
-    background: linear-gradient(180deg, rgba(68, 179, 235, 0.16), rgba(235, 68, 210, 0.12));
-  }
-
-  .icpr-event__icon svg {
-    @apply w-[1.2rem] h-[1.2rem];
-    stroke-width: 1.85;
-  }
-
-  .icpr-event__detail-text {
-    @apply grid gap-0.5 min-w-0;
-  }
-
-  .icpr-event__detail-label {
-    @apply text-purple uppercase tracking-[0.08em] font-extrabold;
-    font-size: 0.72rem;
-  }
-
-  .icpr-event__detail-value {
-    @apply text-text;
-    font-size: 0.98rem;
-    line-height: 1.4;
-  }
-
-  .icpr-event__links {
-    @apply m-0 flex flex-wrap items-center gap-x-2 gap-y-1 text-muted;
-    font-size: 0.95rem;
-  }
-
-  .icpr-event__links a {
-    @apply inline-flex items-center gap-1 font-bold text-link no-underline;
-  }
-
-  .icpr-event__links a:hover,
-  .icpr-event__links a:focus-visible {
-    @apply underline outline-none;
-  }
-
-  .icpr-event__ext {
-    @apply inline-flex shrink-0 items-center justify-center;
-  }
-
-  .icpr-event__ext svg {
-    @apply w-[1.05em] h-[1.05em];
-    stroke-width: 1.85;
   }
 
   .page-layout__content .partner-grid h3 {

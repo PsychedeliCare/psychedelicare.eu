@@ -26,7 +26,6 @@ import IconWorldHeart from "../../node_modules/@tabler/icons/icons/outline/world
 
 import { SEO } from "astro-seo";
 
-import IcprSideEventBanner from "../components/IcprSideEventBanner.astro";
 import SocialLinks from "../components/SocialLinks.astro";
 import { defaultLocale, localizePath, normalizeLocale } from "../lib/i18n";
 import { getImagePath } from "../lib/openGraphImage";
@@ -129,7 +128,6 @@ const openGraphImageUrl = getImagePath({ url, site });
     />
   </head>
   <body>
-    <IcprSideEventBanner locale={currentLocale} />
     <header class="site-header">
       <div class="container px-4">
         <div class="site-header__bar">
