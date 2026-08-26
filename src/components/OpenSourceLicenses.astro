@@ -1,0 +1,60 @@
+---
+import { openSourceProjects } from "../data/openSourceProjects";
+
+type Props = {
+  heading: string;
+  intro: string;
+};
+
+const { heading, intro } = Astro.props;
+---
+
+<section class="open-source-licenses">
+  <h3>{heading}</h3>
+  <p>{intro}</p>
+  <ul class="open-source-licenses__list">
+    {
+      openSourceProjects.map((project) => (
+        <li>
+          <a href={project.url} target="_blank" rel="noopener noreferrer">
+            {project.name}
+          </a>{" "}
+          <span class="open-source-licenses__license">({project.license})</span>
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<style>
+  .open-source-licenses {
+    margin-top: 1.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .open-source-licenses h3 {
+    margin-top: 0;
+  }
+
+  .open-source-licenses__list {
+    margin: 0.75rem 0 0;
+    padding-left: 1.35rem;
+    list-style: disc;
+    list-style-position: outside;
+    font-size: 0.94rem;
+    line-height: 1.55;
+  }
+
+  .open-source-licenses__list li + li {
+    margin-top: 0.3rem;
+  }
+
+  .open-source-licenses__list a {
+    font-size: inherit;
+  }
+
+  .open-source-licenses__license {
+    color: #4c5570;
+    font-size: inherit;
+  }
+</style>

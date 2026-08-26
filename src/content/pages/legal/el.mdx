@@ -45,7 +45,9 @@ draft: false
 assetUrls: []
 ---
 
+import ContributingCard from "../../../components/ContributingCard.astro";
 import GithubContributeButton from "../../../components/GithubContributeButton.astro";
+import OpenSourceLicenses from "../../../components/OpenSourceLicenses.astro";
 
 ## Νομικά
 
@@ -61,19 +63,27 @@ import GithubContributeButton from "../../../components/GithubContributeButton.a
 
 Ταχυδρομική διεύθυνση:  
 PsychedeliCare e.V.  
-Luisenstr. 17B  
-14542 Werder (Havel)  
-Germany
+c/o Raphaël Saunier  
+Gerbergasse 4  
+2502 Biel/Bienne  
+Switzerland
 
 Email: [info@psychedelicare.eu](mailto:info@psychedelicare.eu)
 
 **Σχεδιασμός & τεχνική υλοποίηση**  
-Αυτός ο ιστότοπος αναπτύχθηκε από τον Raphaël Saunier, με τη βοήθεια εργαλείων κωδικοποίησης LLM (Claude, Codex και Cursor). Αναχρησιμοποιεί σημαντικό περιεχόμενο από τον αρχικό ιστότοπο WordPress που αναπτύχθηκε από τους Johannes Rohr και Gerhard Peilstöcker.
+Αυτός ο ιστότοπος σχεδιάστηκε από την Veronica Toumanova και αναπτύχθηκε από τον Raphaël Saunier, με τη βοήθεια εργαλείων κωδικοποίησης LLM. Αναχρησιμοποιεί σημαντικό περιεχόμενο από τον αρχικό ιστότοπο WordPress που αναπτύχθηκε από τους Johannes Rohr και [Gerhard Peilstöcker](http://it-service-peilstoecker.de).
 
-Ο προηγούμενος ιστότοπος WordPress (αρχικός σχεδιασμός και τεχνική υλοποίηση):  
-**[www.it-service-peilstoecker.de](http://it-service-peilstoecker.de)**
+Αυτός ο ιστότοπος [φιλοξενείται στο Cloudflare](https://www.cloudflare.com/).
 
-**Συνεισφορά**  
+<OpenSourceLicenses
+  heading="Άδειες ανοιχτού κώδικα"
+  intro="Αυτός ο ιστότοπος κατασκευάστηκε με λογισμικό ανοιχτού κώδικα, συμπεριλαμβανομένων:"
+/>
+
+<ContributingCard heading="Συνεισφορά">
+
 Καλωσορίζουμε βελτιώσεις μέσω GitHub. Δείτε [CONTRIBUTING.md](https://github.com/psychedelicare/psychedelicare.eu/blob/main/CONTRIBUTING.md) στο αποθετήριο.
 
 <GithubContributeButton label="Συνεισφέρετε στο GitHub" />
+
+</ContributingCard>

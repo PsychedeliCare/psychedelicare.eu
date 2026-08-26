@@ -44,7 +44,9 @@ draft: false
 assetUrls: []
 ---
 
+import ContributingCard from "../../../components/ContributingCard.astro";
 import GithubContributeButton from "../../../components/GithubContributeButton.astro";
+import OpenSourceLicenses from "../../../components/OpenSourceLicenses.astro";
 
 ## Lege-Arloa
 
@@ -62,19 +64,27 @@ Erregistro zenbakia: VR 9731
 
 Posta helbidea:  
 PsychedeliCare eV  
-Luisen kalea, 17B  
-14542 Werder (Havel)  
-Alemania
+c/o Raphaël Saunier  
+Gerbergasse 4  
+2502 Biel/Bienne  
+Suitza
 
 Helbide elektronikoa: [info@psychedelicare.eu](mailto:info@psychedelicare.eu)
 
 **Diseinua eta ezarpen teknikoa**  
-Webgune hau Raphaël Saunierrek garatu du, LLM bidezko kodetze-tresnen laguntzarekin (Claude, Codex eta Cursor). WordPress guneko jatorrizko webgunetik datozen eduki garrantzitsuak berrerabiltzen ditu; Johannes Rohr eta Gerhard Peilstöckerrek garatu zuten.
+Webgune hau Veronica Toumanovak diseinatu du eta Raphaël Saunierrek garatu du, LLM bidezko kodetze-tresnen laguntzarekin. WordPress guneko jatorrizko webgunetik datozen eduki garrantzitsuak berrerabiltzen ditu; Johannes Rohr eta [Gerhard Peilstöcker](http://it-service-peilstoecker.de)rek garatu zuten.
 
-Aurreko WordPress webgunea (jatorrizko diseinua eta ezarpen teknikoa):  
-**[www.it-service-peilstoecker.de](http://it-service-peilstoecker.de)**
+Webgune hau [Cloudflare-n ostatatuta](https://www.cloudflare.com/) dago.
 
-**Lagundu**  
+<OpenSourceLicenses
+  heading="Kode irekiko lizentziak"
+  intro="Webgune hau kode irekiko softwarearekin eraiki da, besteak beste:"
+/>
+
+<ContributingCard heading="Lagundu">
+
 GitHub bidezko hobekuntzak ongi etorriak dira. Ikusi [CONTRIBUTING.md](https://github.com/psychedelicare/psychedelicare.eu/blob/main/CONTRIBUTING.md) biltegian.
 
 <GithubContributeButton label="Lagundu GitHuben" />
+
+</ContributingCard>

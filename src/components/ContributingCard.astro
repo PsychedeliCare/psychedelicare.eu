@@ -1,0 +1,54 @@
+---
+type Props = {
+  heading: string;
+};
+
+const { heading } = Astro.props;
+---
+
+<section class="contributing-card">
+  <h3 class="contributing-card__heading">{heading}</h3>
+  <div class="contributing-card__body">
+    <slot />
+  </div>
+</section>
+
+<style>
+  .contributing-card {
+    margin-top: clamp(2.5rem, 5vw, 3.5rem);
+    padding: clamp(1.4rem, 3vw, 2rem);
+    border: 1px solid rgba(29, 46, 86, 0.12);
+    border-radius: 1.5rem;
+    background: linear-gradient(
+      135deg,
+      rgba(68, 179, 235, 0.09) 0%,
+      rgba(68, 179, 235, 0.04) 45%,
+      rgba(247, 249, 252, 1) 100%
+    );
+    box-shadow: 0 24px 60px rgba(30, 47, 95, 0.08);
+  }
+
+  .contributing-card__heading {
+    margin: 0 0 0.75rem;
+    font-size: clamp(1.35rem, 2.2vw, 1.65rem);
+    line-height: 1.15;
+    background-image: var(--background-image-gradient-heading);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .contributing-card__body :global(p) {
+    margin: 0 0 1rem;
+  }
+
+  .contributing-card__body :global(p:last-child) {
+    margin-bottom: 0;
+  }
+
+  .contributing-card__body :global(.github-contribute-button) {
+    margin-top: 1.25rem;
+    margin-bottom: 0;
+  }
+</style>

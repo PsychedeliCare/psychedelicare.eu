@@ -44,7 +44,9 @@ draft: false
 assetUrls: []
 ---
 
+import ContributingCard from "../../../components/ContributingCard.astro";
 import GithubContributeButton from "../../../components/GithubContributeButton.astro";
+import OpenSourceLicenses from "../../../components/OpenSourceLicenses.astro";
 
 ## Pravno
 
@@ -62,19 +64,27 @@ Registarski broj: VR 9731
 
 Poštanska adresa:  
 PsychedeliCare e.V.  
-Luisenstr. 17B  
-14542 Werder (Havel)  
-Njemačka
+c/o Raphaël Saunier  
+Gerbergasse 4  
+2502 Biel/Bienne  
+Švicarska
 
 E-pošta: [info@psychedelicare.eu](mailto:info@psychedelicare.eu)
 
 **Dizajn i tehnička implementacija**  
-Ovu web stranicu razvio je Raphaël Saunier uz pomoć alata za kodiranje temeljenih na LLM-u (Claude, Codex i Cursor). Koristi važan sadržaj s izvorne WordPress stranice koju su razvili Johannes Rohr i Gerhard Peilstöcker.
+Ovu web stranicu dizajnirala je Veronica Toumanova, a razvio je Raphaël Saunier uz pomoć alata za kodiranje temeljenih na LLM-u. Koristi važan sadržaj s izvorne WordPress stranice koju su razvili Johannes Rohr i [Gerhard Peilstöcker](http://it-service-peilstoecker.de).
 
-Prethodna WordPress stranica (izvorni dizajn i tehnička implementacija):  
-**[www.it-service-peilstoecker.de](http://it-service-peilstoecker.de)**
+Ova stranica je [hostirana na Cloudflareu](https://www.cloudflare.com/).
 
-**Doprinos**  
+<OpenSourceLicenses
+  heading="Open source licence"
+  intro="Ova stranica je izgrađena pomoću open source softvera, uključujući:"
+/>
+
+<ContributingCard heading="Doprinos">
+
 Poboljšanja putem GitHuba su dobrodošla. Pogledajte [CONTRIBUTING.md](https://github.com/psychedelicare/psychedelicare.eu/blob/main/CONTRIBUTING.md) u repozitoriju.
 
 <GithubContributeButton label="Doprinesite na GitHubu" />
+
+</ContributingCard>

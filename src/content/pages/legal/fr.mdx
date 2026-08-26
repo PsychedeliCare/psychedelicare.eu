@@ -44,7 +44,9 @@ draft: false
 assetUrls: []
 ---
 
+import ContributingCard from "../../../components/ContributingCard.astro";
 import GithubContributeButton from "../../../components/GithubContributeButton.astro";
+import OpenSourceLicenses from "../../../components/OpenSourceLicenses.astro";
 
 ## Mentions légales
 
@@ -62,19 +64,27 @@ Numéro de registre : VR 9731
 
 Adresse postale :  
 PsychedeliCare e.V.  
-Luisenstr. 17B  
-14542 Werder (Havel)  
-Allemagne
+c/o Raphaël Saunier  
+Gerbergasse 4  
+2502 Biel/Bienne  
+Suisse
 
 Courriel : [info@psychedelicare.eu](mailto:info@psychedelicare.eu)
 
 **Conception & réalisation technique**  
-Ce site a été développé par Raphaël Saunier, avec l'aide d'outils de codage par LLM (Claude, Codex et Cursor). Il reprend des contenus importants du site WordPress d'origine développé par Johannes Rohr et Gerhard Peilstöcker.
+Ce site a été conçu par Veronica Toumanova et développé par Raphaël Saunier, avec l'aide d'outils de codage par LLM. Il reprend des contenus importants du site WordPress d'origine développé par Johannes Rohr et [Gerhard Peilstöcker](http://it-service-peilstoecker.de).
 
-L'ancien site WordPress (conception et réalisation technique d'origine) :  
-**[www.it-service-peilstoecker.de](http://it-service-peilstoecker.de)**
+Ce site est [hébergé sur Cloudflare](https://www.cloudflare.com/).
 
-**Contribuer**  
+<OpenSourceLicenses
+  heading="Licences open source"
+  intro="Ce site est construit avec des logiciels open source, notamment :"
+/>
+
+<ContributingCard heading="Contribuer">
+
 Les améliorations via GitHub sont les bienvenues. Voir [CONTRIBUTING.md](https://github.com/psychedelicare/psychedelicare.eu/blob/main/CONTRIBUTING.md) dans le dépôt.
 
 <GithubContributeButton label="Contribuer sur GitHub" />
+
+</ContributingCard>
